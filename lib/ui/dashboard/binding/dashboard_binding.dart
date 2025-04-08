@@ -5,5 +5,6 @@ class DashboardBinding extends Bindings {
   void dependencies() {
     Get.lazyPut<DashboardController>(() => DashboardController());
     Get.lazyPut<ProfileController>(() => ProfileController());
+    Get.lazyPut<ReorderController>(() => ReorderController());
   }
 }

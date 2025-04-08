@@ -28,6 +28,7 @@ export 'package:another_flushbar/flushbar.dart' hide OnTap;
 export 'package:image_picker/image_picker.dart';
 export 'package:permission_handler/permission_handler.dart';
 export 'package:pin_code_fields/pin_code_fields.dart';
+export 'package:flutter_animate/flutter_animate.dart';
 
 
 export 'imports.dart';

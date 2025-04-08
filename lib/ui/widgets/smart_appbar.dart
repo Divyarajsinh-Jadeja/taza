@@ -62,7 +62,7 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
       titleSpacing: 0,
       title: _buildTitle(style, context),
       actions: _buildActions(),
-      bottom: isBorder ? PreferredSize(preferredSize: Size.fromHeight(2.h), child: SmartGradientContainer()) : null,
+      //bottom: isBorder ? PreferredSize(preferredSize: Size.fromHeight(2.h), child: SmartGradientContainer()) : null,
     );
   }
 
@@ -84,10 +84,11 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: SmartImage(path: AppImages.icBack),
           ),
           SizedBox(width: 6.w),
-          SmartText(
+          if(isSkip)SmartText(
             isSkip ? LocaleKeys.skip.tr : LocaleKeys.back.tr,
             style: style.backTextStyle,
           ),
+          Icon(Icons.arrow_back_rounded,color: colors(context).color00BAB3,)
         ],
       );
     } else {

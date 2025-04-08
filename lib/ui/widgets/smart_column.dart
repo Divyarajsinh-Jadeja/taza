@@ -20,6 +20,7 @@ class SmartColumn extends StatelessWidget {
   final BoxDecoration? decoration;
   final AlignmentGeometry? alignment;
   final Clip clipBehavior;
+  final double spacing;
 
   const SmartColumn({
     super.key,
@@ -40,11 +41,13 @@ class SmartColumn extends StatelessWidget {
     this.decoration,
     this.alignment,
     this.clipBehavior = Clip.none,
+    this.spacing=0
   });
 
   @override
   Widget build(BuildContext context) {
     Widget child = Column(
+      spacing: spacing,
       key: key,
       mainAxisSize: mainAxisSize,
       mainAxisAlignment: mainAxisAlignment,

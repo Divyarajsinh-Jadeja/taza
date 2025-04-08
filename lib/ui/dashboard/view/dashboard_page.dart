@@ -17,6 +17,7 @@ class DashboardPage extends GetView<DashboardController> {
           children: [
             HomePage(),
             ProfilePage(),
+            ReorderScreen()
           ],
         );
       }),
@@ -27,6 +28,7 @@ class DashboardPage extends GetView<DashboardController> {
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
             BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+            BottomNavigationBarItem(icon: Icon(Icons.refresh), label: "Reorder"),
           ],
         );
       }),
