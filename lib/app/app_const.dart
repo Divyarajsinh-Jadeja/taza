@@ -9,5 +9,5 @@ class AppConst {
   static const String themeDark = 'dark';
   static const String themeLight = 'light';
   static const String themeSystem = 'system';
-  static const String googleApiKey = 'AIzaSyCf5jpxbseRkFjvHJ9CeNwM727zK2tyAF0'; /// This is Indiki Api Key Need to Change
+  static const String googleApiKey = ''; // Replace with your API Key
 }
