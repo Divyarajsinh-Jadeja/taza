@@ -64,13 +64,21 @@ export 'package:taza/data/network/client/api_client.dart';
 export 'package:taza/common/media_capture_service.dart';
 
 /// UI Widgets Exports
-export 'package:taza/ui/dashboard/dashboard_modules/profile/view/profile_controller.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/rewards/view/rewards_controller.dart';
 export 'package:taza/ui/dashboard/view/dashboard_controller.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/home/view/home_controller.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/home/view/home_page.dart';
-export 'package:taza/ui/dashboard/dashboard_modules/profile/view/profile_page.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/rewards/view/rewards_page.dart';
 export 'package:taza/ui/splash/view/splash_controller.dart';
 export 'package:taza/ui/dashboard/binding/dashboard_binding.dart';
 export 'package:taza/ui/dashboard/view/dashboard_page.dart';
 export 'package:taza/ui/splash/binding/splash_binding.dart';
 export 'package:taza/ui/splash/view/splash_screen.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/cart/view/cart_controller.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/food/view/food_controller.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/reorder/view/reorder_controller.dart';
+export 'package:taza/ui/dashboard/components/tabdata.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/cart/view/cart_page.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/food/view/food_page.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/reorder/view/reorder_page.dart';
+export 'package:taza/utils/exports.dart';

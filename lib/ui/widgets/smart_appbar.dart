@@ -68,26 +68,16 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   Widget leadingIcon(BuildContext context, CustomAppBarStyle style) {
     if (!isBack && leadingImage?.isNotEmpty == true) {
-      return SmartImage(
-        path: leadingImage!,
-        height: 22.h,
-        width: 17.w,
-      );
+      return SmartImage(path: leadingImage!, height: 22.h, width: 17.w);
     } else if (isBack) {
       return SmartRow(
         onTap: onBack ?? () => Get.back(),
         padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 10.h),
         color: style.transparentColor,
         children: [
-          Opacity(
-            opacity: isSkip ? 0 : 1,
-            child: SmartImage(path: AppImages.icBack),
-          ),
+          Opacity(opacity: isSkip ? 0 : 1, child: SmartImage(path: AppImages.icHome)),
           SizedBox(width: 6.w),
-          SmartText(
-            isSkip ? LocaleKeys.skip.tr : LocaleKeys.back.tr,
-            style: style.backTextStyle,
-          ),
+          SmartText(isSkip ? LocaleKeys.skip.tr : LocaleKeys.back.tr, style: style.backTextStyle),
         ],
       );
     } else {
@@ -117,8 +107,8 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   List<Widget> _buildActions() {
     final List<Widget> actionsList = [];
-    if (onSearch != null) actionsList.add(_buildIconButton(onSearch!, AppImages.icSearch, size: 24));
-    if (onFavorite != null) actionsList.add(_buildIconButton(onFavorite!, AppImages.icHeart, size: 24));
+    if (onSearch != null) actionsList.add(_buildIconButton(onSearch!, AppImages.icHome, size: 24));
+    if (onFavorite != null) actionsList.add(_buildIconButton(onFavorite!, AppImages.icHome, size: 24));
     if (actions != null) actionsList.add(SizedBox(width: 17.w));
     actionsList.addAll(actions ?? []);
     if (optionalEndSpacing != null) actionsList.add(SizedBox(width: optionalEndSpacing));
@@ -133,13 +123,7 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: SizedBox(
           height: size?.w,
           width: size?.w,
-          child: Center(
-            child: SmartImage(
-              path: assetPath,
-              height: size?.w,
-              width: size?.w,
-            ),
-          ),
+          child: Center(child: SmartImage(path: assetPath, height: size?.w, width: size?.w)),
         ),
       ),
     );

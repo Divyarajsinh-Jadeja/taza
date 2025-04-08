@@ -103,8 +103,8 @@ class SmartTextField extends StatelessWidget {
     this.prefixIconSize,
     this.cursorHeight,
     this.textAlign,
-  })  : labelText = labelText != null ? '$labelText${isRequired == true ? ' *' : ''}' : null,
-        isSearch = false;
+  }) : labelText = labelText != null ? '$labelText${isRequired == true ? ' *' : ''}' : null,
+       isSearch = false;
 
   SmartTextField.search({
     super.key,
@@ -157,8 +157,8 @@ class SmartTextField extends StatelessWidget {
     this.prefixIconSize,
     this.cursorHeight,
     this.textAlign,
-  })  : labelText = labelText != null ? '$labelText${isRequired == true ? ' *' : ''}' : null,
-        isSearch = true;
+  }) : labelText = labelText != null ? '$labelText${isRequired == true ? ' *' : ''}' : null,
+       isSearch = true;
 
   final ValueNotifier<bool> _passwordVisible = ValueNotifier(false);
 
@@ -174,10 +174,11 @@ class SmartTextField extends StatelessWidget {
       return OutlineInputBorder(
         borderRadius: borderRadius ?? BorderRadius.all(Radius.circular(enabledBorderRadius ?? 12.r)),
         borderSide: BorderSide(
-          color: isFocused
-              ? textFieldStyle.focusedTextFieldBorderColor
-              : (enabledBorderColor) ??
-                  (isSearch ? textFieldStyle.focusedTextFieldBorderColor : textFieldStyle.enabledTextFieldBorderColor),
+          color:
+              isFocused
+                  ? textFieldStyle.focusedTextFieldBorderColor
+                  : (enabledBorderColor) ??
+                      (isSearch ? textFieldStyle.focusedTextFieldBorderColor : textFieldStyle.enabledTextFieldBorderColor),
         ),
       );
     }
@@ -195,13 +196,7 @@ class SmartTextField extends StatelessWidget {
       padding: padding ?? EdgeInsets.zero,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (labelText != null) ...[
-          SmartText(
-            labelText!,
-            style: textFieldStyle.labelStyle.merge(labelStyle),
-          ),
-          SizedBox(height: 4.h),
-        ],
+        if (labelText != null) ...[SmartText(labelText!, style: textFieldStyle.labelStyle.merge(labelStyle)), SizedBox(height: 4.h)],
         ValueListenableBuilder<bool>(
           valueListenable: _passwordVisible,
           builder: (context, value, child) {
@@ -248,23 +243,19 @@ class SmartTextField extends StatelessWidget {
                   hintText: hintText ?? (isSearch ? LocaleKeys.search.tr : ''),
                   errorText: errorText,
                   hintStyle: textFieldStyle.hintStyle.merge(hintStyle),
-                  prefixIcon: prefixIcon ??
-                      (isSearch
-                          ? SmartImage(
-                              path: AppImages.icSearch,
-                              fit: BoxFit.contain,
-                              margin: EdgeInsets.all(8.w),
-                            )
-                          : null),
-                  suffixIcon: suffixIcon ??
+                  prefixIcon:
+                      prefixIcon ??
+                      (isSearch ? SmartImage(path: AppImages.icHome, fit: BoxFit.contain, margin: EdgeInsets.all(8.w)) : null),
+                  suffixIcon:
+                      suffixIcon ??
                       (obscured
                           ? TextButton(
-                              onPressed: _toggle,
-                              child: SmartText(
-                                value ? LocaleKeys.hide.tr : LocaleKeys.show.tr,
-                                style: textFieldStyle.labelStyle.copyWith(fontSize: 16.sp),
-                              ),
-                            )
+                            onPressed: _toggle,
+                            child: SmartText(
+                              value ? LocaleKeys.hide.tr : LocaleKeys.show.tr,
+                              style: textFieldStyle.labelStyle.copyWith(fontSize: 16.sp),
+                            ),
+                          )
                           : null),
                 ),
                 obscureText: obscured && _passwordVisible.value ? false : obscured,
@@ -611,7 +602,8 @@ class OtpTextField extends StatelessWidget {
       beforeTextPaste: beforeTextPaste,
       onTap: onTap,
       dialogConfig: dialogConfig,
-      pinTheme: pinTheme ??
+      pinTheme:
+          pinTheme ??
           PinTheme(
             borderRadius: BorderRadius.circular(4.r),
             activeFillColor: textFieldStyle.textFillColor,

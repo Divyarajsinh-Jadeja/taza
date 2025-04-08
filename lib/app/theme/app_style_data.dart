@@ -69,12 +69,16 @@ class LightModeTheme extends AppTheme {
 
   @override
   TabBarStyle get tabBarStyle => TabBarStyle(
-    unselectedLabelStyle: workSansMediumBoldTextStyle.copyWith(fontSize: 12.sp, color: colors.color8C8C8C),
+    unselectedLabelStyle: workSansBoldTextStyle.copyWith(fontSize: 11.sp, color: colors.color9c9cA3),
     labelStyle: workSansMediumBoldTextStyle.copyWith(fontSize: 12.sp, color: colors.color1D1D1F),
     indicatorColor: colors.primary,
     backgroundColor: colors.white,
     borderColor: colors.colorD3DAE0,
     boxShadowColor: colors.black.withOpacity(0.17),
+    selectedIconColor: colors.primary,
+    unselectedIconColor: colors.color9c9cA3,
+    selectedLabelColor: colors.color1D1D1F,
+    unselectedLabelColor: colors.color9c9cA3,
   );
 
   @override

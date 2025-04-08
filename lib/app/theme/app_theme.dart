@@ -65,7 +65,6 @@ abstract class AppTheme {
   TaskListingStyle get taskListingStyle;
 
   TaskDetailsStyle get taskDetailsStyle;
-
 }
 
 class PrimaryButtonStyle {
@@ -124,12 +123,7 @@ class CheckboxStyle {
   final Color borderColor;
   final TextStyle textStyle;
 
-  CheckboxStyle({
-    required this.activeColor,
-    required this.checkColor,
-    required this.borderColor,
-    required this.textStyle,
-  });
+  CheckboxStyle({required this.activeColor, required this.checkColor, required this.borderColor, required this.textStyle});
 }
 
 class TabBarStyle {
@@ -139,6 +133,10 @@ class TabBarStyle {
   final Color backgroundColor;
   final Color borderColor;
   final Color boxShadowColor;
+  final Color selectedIconColor;
+  final Color unselectedIconColor;
+  final Color selectedLabelColor;
+  final Color unselectedLabelColor;
 
   TabBarStyle({
     required this.labelStyle,
@@ -147,6 +145,10 @@ class TabBarStyle {
     required this.backgroundColor,
     required this.borderColor,
     required this.boxShadowColor,
+    required this.selectedIconColor,
+    required this.unselectedIconColor,
+    required this.selectedLabelColor,
+    required this.unselectedLabelColor,
   });
 }
 
@@ -211,9 +213,7 @@ class SmartRichTextStyle {
 class RadioButtonStyle {
   final TextStyle textStyle;
 
-  RadioButtonStyle({
-    required this.textStyle,
-  });
+  RadioButtonStyle({required this.textStyle});
 }
 
 class CustomPageIndicatorStyle {
@@ -276,10 +276,7 @@ class ImageCarouselStyle {
   final Color dotColor;
   final Color selectedDotColor;
 
-  ImageCarouselStyle({
-    required this.dotColor,
-    required this.selectedDotColor,
-  });
+  ImageCarouselStyle({required this.dotColor, required this.selectedDotColor});
 }
 
 class SmartImageTitleColumnStyle {
@@ -309,10 +306,7 @@ class NoDataFoundStyle {
   final TextStyle titleStyle;
   final TextStyle subTitleStyle;
 
-  NoDataFoundStyle({
-    required this.titleStyle,
-    required this.subTitleStyle,
-  });
+  NoDataFoundStyle({required this.titleStyle, required this.subTitleStyle});
 }
 
 class ConfirmCancelPopupStyle {
@@ -337,10 +331,7 @@ class NoInternetScreenStyle {
   final TextStyle noInternetTitleStyle;
   final TextStyle noInternetSubtitleStyle;
 
-  NoInternetScreenStyle({
-    required this.noInternetTitleStyle,
-    required this.noInternetSubtitleStyle,
-  });
+  NoInternetScreenStyle({required this.noInternetTitleStyle, required this.noInternetSubtitleStyle});
 }
 
 class ManageCustomerStyle {
@@ -384,11 +375,7 @@ class ShowDoubleActionDialogStyle {
   final TextStyle contentStyle;
   final TextStyle okButtonStyle;
 
-  ShowDoubleActionDialogStyle({
-    required this.titleStyle,
-    required this.contentStyle,
-    required this.okButtonStyle,
-  });
+  ShowDoubleActionDialogStyle({required this.titleStyle, required this.contentStyle, required this.okButtonStyle});
 }
 
 class SmartTileLineStepperStyle {

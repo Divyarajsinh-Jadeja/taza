@@ -10,11 +10,15 @@ class AppRoutes {
       name: AppRoutes.initialRoute,
       page: () => const SplashPage(),
       binding: SplashBinding(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 500),
     ),
     GetPage(
       name: AppRoutes.dashboardPage,
       page: () => const DashboardPage(),
       binding: DashboardBinding(),
+      transition: Transition.cupertino,
+      transitionDuration: const Duration(milliseconds: 500),
     ),
   ];
 }
