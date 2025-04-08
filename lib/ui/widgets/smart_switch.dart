@@ -1,5 +1,5 @@
 import 'package:taza/taza.dart';
-class FlutterSwitch extends StatefulWidget {
+class SmartSwitch extends StatefulWidget {
   /// Creates a material design switch.
   ///
   /// The following arguments are required:
@@ -8,7 +8,7 @@ class FlutterSwitch extends StatefulWidget {
   /// * [onToggle] is called when the user toggles the switch on or off.
   ///
 
-  const FlutterSwitch({
+  const SmartSwitch({
     Key? key,
     required this.value,
     required this.onToggle,
@@ -249,10 +249,10 @@ class FlutterSwitch extends StatefulWidget {
   final bool disabled;
 
   @override
-  _FlutterSwitchState createState() => _FlutterSwitchState();
+  _SmartSwitchState createState() => _SmartSwitchState();
 }
 
-class _FlutterSwitchState extends State<FlutterSwitch>
+class _SmartSwitchState extends State<SmartSwitch>
     with SingleTickerProviderStateMixin {
   late final Animation _toggleAnimation;
   late final AnimationController _animationController;
@@ -283,7 +283,7 @@ class _FlutterSwitchState extends State<FlutterSwitch>
   }
 
   @override
-  void didUpdateWidget(FlutterSwitch oldWidget) {
+  void didUpdateWidget(SmartSwitch oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     if (oldWidget.value == widget.value) return;

@@ -73,4 +73,11 @@ class AppImages {
   static const String icPolyVid = 'assets/images/ic_polyvid.svg';
   static const String icGlobo = 'assets/images/ic_globo.svg';
 
+  // Reorder Screens asset
+  static const String icBgRed = 'assets/images/bg_red.png';
+  static const String icFood = 'assets/images/food.png';
+  static const String icClose = 'assets/images/ic_close.svg';
+  static const String icNonVeg = 'assets/images/ic_non_veg.svg';
+  static const String icVeg = 'assets/images/ic_veg.svg';
+  static const String icStar = 'assets/images/ic_star.svg';
 }
