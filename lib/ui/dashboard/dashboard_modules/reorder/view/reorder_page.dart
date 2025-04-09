@@ -48,24 +48,19 @@ class ReorderPage extends GetView<ReorderController> {
                   padding: EdgeInsetsDirectional.symmetric(horizontal: 20.w,),
                   children: [
                     FoodCard(),
-                    16.height,
                     FoodCard(),
-                    16.height,
                     FoodCard(),
-                    16.height,
                     FoodCard(),
-                    16.height,
                     FoodCard(),
-                    16.height,FoodCard(),
-                    16.height,FoodCard(),
-                    16.height,
                     FoodCard(),
-                    16.height,FoodCard(),
-                    16.height,
-
-
-
-
+                    FoodCard(),
+                    FoodCard(),
+                    FoodCard(),
+                    FoodCard(),
+                    FoodCard(),
+                    FoodCard(),
+                    FoodCard(),
+                    FoodCard(),
                   ],
                 ),
               ),
@@ -77,13 +72,16 @@ class ReorderPage extends GetView<ReorderController> {
   }
 
   _buildChip({required BuildContext context,required String text, Function()? onTap}){
-    return Container(
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(120),
-          border: Border.all(color: colors(context).color9C9CA3,)
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(120),
+            border: Border.all(color: colors(context).color9C9CA3,)
+        ),
+        padding: EdgeInsets.symmetric(horizontal: 12.w),
+        child: Center(child: SmartText(text,style: AppTheme.of(context).interBoldW700TextStyle.copyWith(fontSize: 13,color: colors(context).color9C9CA3),)),
       ),
-      padding: EdgeInsets.symmetric(horizontal: 12.w),
-      child: Center(child: SmartText(text,style: AppTheme.of(context).interBoldW700TextStyle.copyWith(fontSize: 13,color: colors(context).color9C9CA3),)),
     );
   }
 }

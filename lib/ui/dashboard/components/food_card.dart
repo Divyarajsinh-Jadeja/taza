@@ -8,6 +8,7 @@ class FoodCard extends StatelessWidget {
     var style = AppTheme.of(context).foodCardStyle;
     return Container(
       height: 96.h,
+      margin: EdgeInsetsDirectional.only(bottom: 16.h),
       decoration: BoxDecoration(
         border: Border.all(color: colors(context).colorD2D2D7),
         borderRadius: BorderRadius.circular(16.r),
