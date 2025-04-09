@@ -13,7 +13,7 @@ class DashboardController extends GetxController {
     ),
     TabData(
       pageBuilder: (_) => FoodPage(),
-      bottomNavData: BottomNavyBarItem(icon: AppImages.icFood, title: 'Food'),
+      bottomNavData: BottomNavyBarItem(icon: AppImages.icFoodIcon, title: 'Food'),
       onInit: () => Get.find<FoodController>().onTabSelected(),
     ),
     TabData(
