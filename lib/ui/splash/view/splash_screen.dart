@@ -12,19 +12,8 @@ class SplashPage extends GetView<SplashController> {
         child: Container(
           height: Get.height,
           width: Get.width,
-          // decoration: BoxDecoration(
-          //   gradient: LinearGradient(
-          //     begin: Alignment.topCenter,
-          //     end: Alignment.bottomCenter,
-          //     colors: [
-          //       Color(0xFFFFFFFF),
-          //       Color(0xFFFFBF9F),
-          //     ],
-          //   ),
-          // ),
-          child: Center(
-            child: Text("Splash")
-          ),
+          decoration: BoxDecoration(color: AppThemes().appColor.primary),
+          child: Center(child: SmartImage(height: 105.h, width: 150.w, path: AppImages.icSplashLogo)),
         ),
       ),
     );

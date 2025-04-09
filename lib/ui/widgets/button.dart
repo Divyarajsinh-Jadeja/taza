@@ -80,41 +80,41 @@ class SmartButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final style = AppTheme.of(context).primaryButtonStyle;
     return isLoading
-        ? SmartCircularProgressIndicator(
-            padding: EdgeInsets.zero,
-            size: height ?? 42.w,
-          )
+        ? SmartCircularProgressIndicator(padding: EdgeInsets.zero, size: height ?? 42.w)
         : Bounceable(
-            onTap: isEnabled && !isLoading ? onTap : null,
-            child: Container(
-              margin: margin,
-              decoration: BoxDecoration(
-                boxShadow: <BoxShadow>[
-                  if (isShadow)
-                    BoxShadow(
-                      color: style.activeBackgroundColor.withOpacity(0.9),
-                      blurRadius: 10.0.r,
-                      spreadRadius: -8.0,
-                      offset: const Offset(0.0, 8.0),
-                    ),
-                  if (boxShadow != null) boxShadow!
-                ],
-                color: isEnabled
-                    ? (activeBackgroundColor ?? (isWhite ? style.activeWhiteBackgroundColor : style.activeBackgroundColor))
-                    : (disableBackgroudColor ?? style.disableBackgroundColor), // Change the color when disabled
-                borderRadius: borderRadius ?? BorderRadius.circular(24.r),
-                border: borderColor != null || isWhite
-                    ? Border.all(
+          onTap: isEnabled && !isLoading ? onTap : null,
+          child: Container(
+            margin: margin,
+            decoration: BoxDecoration(
+              boxShadow: <BoxShadow>[
+                if (isShadow)
+                  BoxShadow(
+                    color: style.activeBackgroundColor.withValues(alpha: 0.9),
+                    blurRadius: 10.0.r,
+                    spreadRadius: -8.0,
+                    offset: const Offset(0.0, 8.0),
+                  ),
+                if (boxShadow != null) boxShadow!,
+              ],
+              color:
+                  isEnabled
+                      ? (activeBackgroundColor ?? (isWhite ? style.activeWhiteBackgroundColor : style.activeBackgroundColor))
+                      : (disableBackgroudColor ?? style.disableBackgroundColor), // Change the color when disabled
+              borderRadius: borderRadius ?? BorderRadius.circular(24.r),
+              border:
+                  borderColor != null || isWhite
+                      ? Border.all(
                         width: 1.w,
                         color: borderColor ?? (isWhite ? style.activeBackgroundColor : style.activeWhiteBackgroundColor),
                       )
-                    : null,
-              ),
-              height: height ?? 48.w,
-              width: width ?? double.infinity,
-              padding: padding ?? EdgeInsets.symmetric(horizontal: 12.w),
-              child: prefixImage.isNotNullNorEmpty || suffixImage.isNotNullNorEmpty
-                  ? Center(
+                      : null,
+            ),
+            height: height ?? 48.w,
+            width: width ?? double.infinity,
+            padding: padding ?? EdgeInsets.symmetric(horizontal: 12.w),
+            child:
+                prefixImage.isNotNullNorEmpty || suffixImage.isNotNullNorEmpty
+                    ? Center(
                       child: SmartRow(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -123,18 +123,20 @@ class SmartButton extends StatelessWidget {
                               path: prefixImage!,
                               height: imageSize ?? 24.w,
                               width: imageSize ?? 24.w,
-                              color: isEnabled
-                                  ? (activeImageColor ?? (isWhite ? style.activeWhiteImageColor : style.activeImageColor))
-                                  : (disableImageColor ?? style.disableImageColor),
+                              color:
+                                  isEnabled
+                                      ? (activeImageColor ?? (isWhite ? style.activeWhiteImageColor : style.activeImageColor))
+                                      : (disableImageColor ?? style.disableImageColor),
                             ),
                             SizedBox(width: 8.w),
                           ],
                           SmartText(
                             title,
                             textAlign: TextAlign.center,
-                            style: isEnabled
-                                ? (isWhite ? style.titleWhiteStyle : style.titleStyle).merge(titleStyle)
-                                : style.disableTitleStyle.merge(disableTitleStyle),
+                            style:
+                                isEnabled
+                                    ? (isWhite ? style.titleWhiteStyle : style.titleStyle).merge(titleStyle)
+                                    : style.disableTitleStyle.merge(disableTitleStyle),
                           ),
                           if (suffixImage.isNotNullNorEmpty) ...[
                             SizedBox(width: 8.w),
@@ -142,24 +144,26 @@ class SmartButton extends StatelessWidget {
                               path: suffixImage!,
                               height: imageSize ?? 24.w,
                               width: imageSize ?? 24.w,
-                              color: isEnabled
-                                  ? (activeImageColor ?? (isWhite ? style.activeWhiteImageColor : style.activeImageColor))
-                                  : (disableImageColor ?? style.disableImageColor),
+                              color:
+                                  isEnabled
+                                      ? (activeImageColor ?? (isWhite ? style.activeWhiteImageColor : style.activeImageColor))
+                                      : (disableImageColor ?? style.disableImageColor),
                             ),
-                          ]
+                          ],
                         ],
                       ),
                     )
-                  : Center(
+                    : Center(
                       child: SmartText(
                         title,
                         textAlign: TextAlign.center,
-                        style: isEnabled
-                            ? (isWhite ? style.titleWhiteStyle : style.titleStyle).merge(titleStyle)
-                            : style.disableTitleStyle.merge(disableTitleStyle),
+                        style:
+                            isEnabled
+                                ? (isWhite ? style.titleWhiteStyle : style.titleStyle).merge(titleStyle)
+                                : style.disableTitleStyle.merge(disableTitleStyle),
                       ),
                     ),
-            ),
-          );
+          ),
+        );
   }
 }

@@ -6,4 +6,8 @@ class HomeController extends GetxController {
     debugPrint("HomeController onInit");
     super.onInit();
   }
+
+  void onTabSelected() {
+    debugPrint('HomeController → Tab Init');
+  }
 }

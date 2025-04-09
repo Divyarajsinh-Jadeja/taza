@@ -211,7 +211,6 @@ class Utils {
     return DateTime.now().millisecondsSinceEpoch;
   }
 
-
   static Future<bool> checkCameraStoragePermissions(BuildContext context, {required bool isCamera}) async {
     // Determine which permission to request based on isCamera flag
     List<Permission> permissionsToRequest = isCamera ? [Permission.camera] : [Permission.storage];

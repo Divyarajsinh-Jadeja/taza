@@ -19,7 +19,7 @@ class AppController extends GetMaterialController {
   @override
   void onInit() {
     super.onInit();
-    print('AppController onInit');
+    debugPrint('AppController onInit');
     if (_connectivityStream == null) {
       _connectivityStream = _connectivity.onConnectivityChanged;
       _connectivityStream!.listen((result) => checkConnectivityResult(result));

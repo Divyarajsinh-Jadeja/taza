@@ -42,18 +42,18 @@ class SmartSwitch extends StatefulWidget {
     this.duration = const Duration(milliseconds: 200),
     this.disabled = false,
   }) : assert(
-         (switchBorder == null || activeSwitchBorder == null) &&
-             (switchBorder == null || inactiveSwitchBorder == null),
-         'Cannot provide switchBorder when an activeSwitchBorder or inactiveSwitchBorder was given\n'
-         'To give the switch a border, use "activeSwitchBorder: border" or "inactiveSwitchBorder: border".',
-       ),
-       assert(
-         (toggleBorder == null || activeToggleBorder == null) &&
-             (toggleBorder == null || inactiveToggleBorder == null),
-         'Cannot provide toggleBorder when an activeToggleBorder or inactiveToggleBorder was given\n'
-         'To give the toggle a border, use "activeToggleBorder: color" or "inactiveToggleBorder: color".',
-       ),
-       super(key: key);
+  (switchBorder == null || activeSwitchBorder == null) &&
+      (switchBorder == null || inactiveSwitchBorder == null),
+  'Cannot provide switchBorder when an activeSwitchBorder or inactiveSwitchBorder was given\n'
+      'To give the switch a border, use "activeSwitchBorder: border" or "inactiveSwitchBorder: border".',
+  ),
+        assert(
+        (toggleBorder == null || activeToggleBorder == null) &&
+            (toggleBorder == null || inactiveToggleBorder == null),
+        'Cannot provide toggleBorder when an activeToggleBorder or inactiveToggleBorder was given\n'
+            'To give the toggle a border, use "activeToggleBorder: color" or "inactiveToggleBorder: color".',
+        ),
+        super(key: key);
 
   /// Determines if the switch is on or off.
   ///
@@ -307,19 +307,19 @@ class _SmartSwitchState extends State<SmartSwitch>
       _switchColor = widget.activeColor;
       _switchBorder =
           widget.activeSwitchBorder as Border? ??
-          widget.switchBorder as Border?;
+              widget.switchBorder as Border?;
       _toggleBorder =
           widget.activeToggleBorder as Border? ??
-          widget.toggleBorder as Border?;
+              widget.toggleBorder as Border?;
     } else {
       _toggleColor = widget.inactiveToggleColor ?? widget.toggleColor;
       _switchColor = widget.inactiveColor;
       _switchBorder =
           widget.inactiveSwitchBorder as Border? ??
-          widget.switchBorder as Border?;
+              widget.switchBorder as Border?;
       _toggleBorder =
           widget.inactiveToggleBorder as Border? ??
-          widget.toggleBorder as Border?;
+              widget.toggleBorder as Border?;
     }
 
     double _textSpace = widget.width - widget.toggleSize;

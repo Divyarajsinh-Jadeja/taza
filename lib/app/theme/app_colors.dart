@@ -6,7 +6,7 @@ AppColor colors(BuildContext context) => Theme.of(context).colors;
 class AppThemes {
   late ThemeData selectedColor;
   AppColor appColor = const AppColor(
-    primary: Color(0xFF231F20),
+    primary: Color(0xFF00BAB3),
     white: Color(0xFFFFFFFF),
     transparent: Color(0x00000000),
     colorF65D3C: Color(0xFFF65D3C),
@@ -36,38 +36,41 @@ class AppThemes {
     colorFFBF9F: Color(0xFFFFBF9F),
     color00BAB3: Color(0xFF00BAB3),
     color9C9CA3: Color(0xFF9C9CA3),
+    color58585C: Color(0xFF58585C),
+    color00A4A2: Color(0xFF00A4A2),
+    colorC6FFF8: Color(0xFFC6FFF8),
+    color9c9cA3: Color(0xFF9c9cA3),
   );
 
   ThemeData light({MaterialColor? theme}) {
     return ThemeData(
-        useMaterial3: true,
-        primaryColor: appColor.primary,
-        scaffoldBackgroundColor: appColor.white,
-        dividerTheme: DividerThemeData(color: appColor.colorD3DAE0, space: 1.h),
-        colorScheme: ColorScheme.fromSeed(seedColor: appColor.primary, primary: appColor.primary),
-        indicatorColor: appColor.primary,
-        textSelectionTheme: TextSelectionThemeData(
-            // selectionHandleColor: appColor.primary,
-            // cursorColor: appColor.primary,
-            // selectionColor: appColor.primary,
-            ))
-      ..addThemeConfig(appColor);
+      useMaterial3: true,
+      primaryColor: appColor.primary,
+      scaffoldBackgroundColor: appColor.white,
+      dividerTheme: DividerThemeData(color: appColor.colorD3DAE0, space: 1.h),
+      colorScheme: ColorScheme.fromSeed(seedColor: appColor.primary, primary: appColor.primary),
+      indicatorColor: appColor.primary,
+      textSelectionTheme: TextSelectionThemeData(
+        selectionHandleColor: appColor.primary,
+        cursorColor: appColor.primary,
+        selectionColor: appColor.primary,
+      ),
+    )..addThemeConfig(appColor);
   }
 
   ThemeData dark({MaterialColor? theme}) {
     return ThemeData(
-        useMaterial3: true,
-        primaryColor: appColor.primary,
-        scaffoldBackgroundColor: appColor.white,
-        dividerTheme: DividerThemeData(color: appColor.colorD3DAE0, space: 1.h),
-        colorScheme: ColorScheme.fromSeed(seedColor: appColor.primary),
-        textSelectionTheme: const TextSelectionThemeData(
-            //TODO: will update this.
-            // cursorColor: appColor.bg7AD6FF,
-            // selectionColor: appColor.bg7AD6FF,
-            // selectionHandleColor: appColor.bg7AD6FF,
-            ))
-      ..addThemeConfig(appColor);
+      useMaterial3: true,
+      primaryColor: appColor.primary,
+      scaffoldBackgroundColor: appColor.white,
+      dividerTheme: DividerThemeData(color: appColor.colorD3DAE0, space: 1.h),
+      colorScheme: ColorScheme.fromSeed(seedColor: appColor.primary),
+      textSelectionTheme: TextSelectionThemeData(
+        cursorColor: appColor.primary,
+        selectionColor: appColor.primary,
+        selectionHandleColor: appColor.primary,
+      ),
+    )..addThemeConfig(appColor);
   }
 }
 
@@ -102,6 +105,10 @@ class AppColor {
   final Color colorFFBF9F;
   final Color color00BAB3;
   final Color color9C9CA3;
+  final Color color58585C;
+  final Color color00A4A2;
+  final Color colorC6FFF8;
+  final Color color9c9cA3;
 
   const AppColor({
     required this.primary,
@@ -135,6 +142,10 @@ class AppColor {
     required this.color00BAB3,
     required this.color9C9CA3,
 
+    required this.color58585C,
+    required this.color00A4A2,
+    required this.colorC6FFF8,
+    required this.color9c9cA3,
   });
 }
 

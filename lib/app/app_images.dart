@@ -5,21 +5,15 @@ class AppImages {
   static const String searchingIndiLottie = 'assets/lottie/searching_indi.json';
 
   static const String icAppLogo = 'assets/images/ic_app_logo.svg';
-  static const String icSplashBg = 'assets/images/ic_splash_bg.png';
-  static const String icEyeOpen = 'assets/images/ic_eye_open.svg';
-  static const String icEyeClose = 'assets/images/ic_eye_close.svg';
-  static const String icPlaceholder = 'assets/images/ic_placeholder.png';
-  static const String icRadio = 'assets/images/ic_radio.svg';
-  static const String icRadioSelected = 'assets/images/ic_radio_selected.svg';
-  static const String icCamera = 'assets/images/ic_camera.svg';
-  static const String icImage = 'assets/images/ic_image.svg';
-  static const String icNoInternetImage = 'assets/images/ic_no_internet.svg';
 
-  ///Tab bar icons
   static const String icHome = 'assets/images/ic_home.svg';
+  static const String icFoodIcon = 'assets/images/ic_food.svg';
+  static const String icReorder = 'assets/images/ic_reorder.svg';
+  static const String icRewards = 'assets/images/ic_rewards.svg';
+  static const String icShoppingBag = 'assets/images/ic_shopping_bag.svg';
   static const String icHomeActive = 'assets/images/ic_home_active.svg';
 
-  static const String icSplashLogo = 'assets/images/ic_splash_logo.svg';
+  static const String icSplashLogo = 'assets/images/ic_splash_logo.png';
 
   // appbar icon assets
   static const String icBack = 'assets/images/ic_back.svg';
@@ -28,12 +22,16 @@ class AppImages {
   static const String icSearch = 'assets/images/ic_search.svg';
   static const String icCross = 'assets/images/ic_cross.svg';
 
-  static const String icArrowDropDown = 'assets/images/ic_arrow_drop_down.svg';
+  static const String icArrowDropDown = 'assets/images/ic_down.svg';
   static const String icArrowUp = 'assets/images/ic_arrow_up.svg';
   static const String icUser = 'assets/images/ic_user.svg';
   static const String icCompany = 'assets/images/ic_company.svg';
 
   static const String icLoginIcon = 'assets/images/ic_login_icon.svg';
+
+  //Home screen assets
+  static const String icFlash = 'assets/images/ic_flash.svg';
+  static const String icMic = 'assets/images/ic_microphone.svg';
 
   // Bottom Tab Bar Icons
   static const String icProfileInactive = 'assets/images/ic_profile_inactive.svg';
