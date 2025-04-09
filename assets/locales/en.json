@@ -51,5 +51,9 @@
   "errorEmptyEmail": "Please enter your email",
   "checkInternet": "Please check your internet connection",
   "somethingWrong" : "Something went wrong",
-  "home" : "Home"
+  "home": "Home",
+  "food": "Food",
+  "cart": "Cart",
+  "rewards": "Rewards",
+  "reorder": "Reorder"
 }

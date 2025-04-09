@@ -12,11 +12,7 @@ class SmartGradientContainer extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           tileMode: TileMode.clamp,
-          colors: [
-            style.borderColor.withOpacity(0),
-            style.borderColor,
-            style.borderColor.withOpacity(0),
-          ],
+          colors: [style.borderColor.withValues(alpha: 0), style.borderColor, style.borderColor.withValues(alpha: 0)],
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
         ),

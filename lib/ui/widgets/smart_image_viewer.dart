@@ -38,13 +38,7 @@ class SmartImage extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget? child;
     if (path.isNullOrEmpty || !path.contains('/')) {
-      child = Image.asset(
-        AppImages.icPlaceholder,
-        height: height,
-        width: width,
-        fit: fit ?? BoxFit.cover,
-        color: color,
-      );
+      child = Image.asset(AppImages.icHome, height: height, width: width, fit: fit ?? BoxFit.cover, color: color);
     }
     if (child == null) {
       switch (path.imageType) {
@@ -57,55 +51,32 @@ class SmartImage extends StatelessWidget {
             colorFilter: color != null ? ColorFilter.mode(color!, BlendMode.srcIn) : null,
           );
         case ImageType.asset:
-          child = Image.asset(
-            path,
-            height: height,
-            width: width,
-            fit: fit ?? BoxFit.cover,
-          );
+          child = Image.asset(path, height: height, width: width, fit: fit ?? BoxFit.cover);
         case ImageType.file:
-          child = Image.file(
-            File(path),
-            height: height,
-            width: width,
-            fit: fit ?? BoxFit.cover,
-          );
+          child = Image.file(File(path), height: height, width: width, fit: fit ?? BoxFit.cover);
         case ImageType.network:
-          child = path.isSvgUrl
-              ? SvgPicture.network(path, width: width, height: height)
-              : CachedNetworkImage(
-                  height: height,
-                  width: width,
-                  fit: fit,
-                  errorWidget: (context, url, error) => Image.asset(
-                        AppImages.icPlaceholder,
-                        height: height,
-                        width: width,
-                        fit: fit ?? BoxFit.cover,
-                      ),
-                  placeholder: (context, url) => SizedBox(
-                        height: height ?? 50.w,
-                        width: height ?? 50.w,
-                        child: Container(
+          child =
+              path.isSvgUrl
+                  ? SvgPicture.network(path, width: width, height: height)
+                  : CachedNetworkImage(
+                    height: height,
+                    width: width,
+                    fit: fit,
+                    errorWidget:
+                        (context, url, error) => Image.asset(AppImages.icHome, height: height, width: width, fit: fit ?? BoxFit.cover),
+                    placeholder:
+                        (context, url) => SizedBox(
+                          height: height ?? 50.w,
+                          width: height ?? 50.w,
+                          child: Container(
                             height: 20.w,
                             width: 20.w,
                             alignment: Alignment.center,
-                            child: SizedBox(
-                              height: 20.w,
-                              width: 20.w,
-                              child: SmartCircularProgressIndicator(
-                                padding: EdgeInsets.zero,
-                              ),
-                            )),
-                      ),
-                  imageUrl: path);
-        default:
-          child = Image.asset(
-            AppImages.icPlaceholder,
-            height: height,
-            width: width,
-            fit: fit ?? BoxFit.cover,
-          );
+                            child: SizedBox(height: 20.w, width: 20.w, child: SmartCircularProgressIndicator(padding: EdgeInsets.zero)),
+                          ),
+                        ),
+                    imageUrl: path,
+                  );
       }
     }
     if (height != null ||
@@ -123,21 +94,11 @@ class SmartImage extends StatelessWidget {
         margin: margin,
         clipBehavior: clipBehavior,
         alignment: alignment,
-        decoration: decoration ??
-            BoxDecoration(
-              borderRadius: imageBorderRadius,
-              border: border,
-            ),
+        decoration: decoration ?? BoxDecoration(borderRadius: imageBorderRadius, border: border),
         child: child,
       );
     }
 
-    return onTap != null
-        ? InkWell(
-            onTap: onTap,
-            borderRadius: inkwellBorderRadius,
-            child: child,
-          )
-        : child;
+    return onTap != null ? InkWell(onTap: onTap, borderRadius: inkwellBorderRadius, child: child) : child;
   }
 }

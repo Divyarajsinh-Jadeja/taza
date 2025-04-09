@@ -26,37 +26,19 @@ class NoDataFoundWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final NoDataFoundStyle style = AppTheme.of(context).noDataFoundStyle;
     return Center(
-      child: Column(
+      child: SmartColumn(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           if (imagePath != null) ...[
-            SmartImage(
-              path: imagePath!,
-              width: imageWidth ?? 200.w,
-              height: imageHeight ?? 200.w,
-            ),
+            SmartImage(path: imagePath!, width: imageWidth ?? 200.w, height: imageHeight ?? 200.w),
             SizedBox(height: 16.h),
           ],
-          SmartText(
-            text ?? LocaleKeys.noDataFound.tr,
-            style: textStyle,
-            textAlign: TextAlign.center,
-          ),
-          if (subText != null) ...[
-            SizedBox(height: 8.h),
-            SmartText(
-              subText!,
-              style: subTextStyle,
-            ),
-          ],
+          SmartText(text ?? LocaleKeys.noDataFound.tr, style: textStyle, textAlign: TextAlign.center),
+          if (subText != null) ...[SizedBox(height: 8.h), SmartText(subText!, style: subTextStyle)],
           if (onRetry != null) ...[
             SizedBox(height: 16.h),
-            SmartButton(
-              title: retryText ?? LocaleKeys.retry.tr,
-              onTap: () => onRetry?.call(),
-            ),
+            SmartButton(title: retryText ?? LocaleKeys.retry.tr, onTap: () => onRetry?.call()),
           ],
         ],
       ),

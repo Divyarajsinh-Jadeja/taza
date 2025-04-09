@@ -10,24 +10,15 @@ class LightModeTheme extends AppTheme {
 
   @override
   TextStyle get interRegularW400TextStyle =>
-      TextStyle(fontSize: 14.sp,
-          fontWeight: FontWeight.w400,
-          fontFamily: AppFonts.interRegular,
-          color: colors.color1D1D1F);
+      TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w400, fontFamily: AppFonts.interRegular, color: colors.color1D1D1F);
 
   @override
   TextStyle get interMediumBoldW500TextStyle =>
-      TextStyle(fontSize: 16.0.sp,
-          fontWeight: FontWeight.w500,
-          fontFamily: AppFonts.interMedium,
-          color: colors.color1D1D1F);
+      TextStyle(fontSize: 16.0.sp, fontWeight: FontWeight.w500, fontFamily: AppFonts.interMedium, color: colors.color1D1D1F);
 
   @override
   TextStyle get interSemiBoldW600TextStyle =>
-      TextStyle(fontSize: 16.0.sp,
-          fontWeight: FontWeight.w600,
-          fontFamily: AppFonts.interSemiBold,
-          color: colors.color1D1D1F);
+      TextStyle(fontSize: 16.0.sp, fontWeight: FontWeight.w600, fontFamily: AppFonts.interSemiBold, color: colors.color1D1D1F);
 
   @override
   TextStyle get interBoldW700TextStyle =>

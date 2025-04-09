@@ -5,18 +5,12 @@ class AppImages {
   static const String searchingIndiLottie = 'assets/lottie/searching_indi.json';
 
   static const String icAppLogo = 'assets/images/ic_app_logo.svg';
-  static const String icSplashBg = 'assets/images/ic_splash_bg.png';
-  static const String icEyeOpen = 'assets/images/ic_eye_open.svg';
-  static const String icEyeClose = 'assets/images/ic_eye_close.svg';
-  static const String icPlaceholder = 'assets/images/ic_placeholder.png';
-  static const String icRadio = 'assets/images/ic_radio.svg';
-  static const String icRadioSelected = 'assets/images/ic_radio_selected.svg';
-  static const String icCamera = 'assets/images/ic_camera.svg';
-  static const String icImage = 'assets/images/ic_image.svg';
-  static const String icNoInternetImage = 'assets/images/ic_no_internet.svg';
 
-  ///Tab bar icons
   static const String icHome = 'assets/images/ic_home.svg';
+  static const String icFoodIcon = 'assets/images/ic_food.svg';
+  static const String icReorder = 'assets/images/ic_reorder.svg';
+  static const String icRewards = 'assets/images/ic_rewards.svg';
+  static const String icShoppingBag = 'assets/images/ic_shopping_bag.svg';
   static const String icHomeActive = 'assets/images/ic_home_active.svg';
 
   static const String icSplashLogo = 'assets/images/ic_splash_logo.png';
