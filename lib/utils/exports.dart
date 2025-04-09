@@ -29,6 +29,7 @@ export 'package:another_flushbar/flushbar.dart' hide OnTap;
 export 'package:permission_handler/permission_handler.dart';
 export 'package:pin_code_fields/pin_code_fields.dart';
 export 'package:image_picker/image_picker.dart';
+export 'package:tab_container/tab_container.dart';
 
 // Project core
 export 'package:taza/app/app_class.dart';
@@ -115,3 +116,9 @@ export 'package:taza/ui/dashboard/dashboard_modules/reorder/view/reorder_page.da
 
 export 'package:taza/ui/dashboard/dashboard_modules/rewards/view/rewards_controller.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/rewards/view/rewards_page.dart';
+
+
+export 'package:taza/ui/dashboard/dashboard_modules/food/components/food_screen_tabs_view.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/food/components/foodscreen_tab_header_delegate.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/food/components/food_tab_children.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/food/components/grocery_tab_children.dart';
