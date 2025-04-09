@@ -8,23 +8,19 @@ abstract class AppTheme {
 
   AppColor get colors;
 
-  TextStyle get workSansRegularTextStyle;
+  TextStyle get interRegularW400TextStyle;
 
-  TextStyle get workSansMediumBoldTextStyle;
+  TextStyle get interMediumBoldW500TextStyle;
 
-  TextStyle get workSansSemiBoldTextStyle;
+  TextStyle get interSemiBoldW600TextStyle;
 
-  TextStyle get workSansBoldTextStyle;
+  TextStyle get interBoldW700TextStyle;
 
   PrimaryButtonStyle get primaryButtonStyle;
 
   TextFieldStyle get textFieldStyle;
 
   CheckboxStyle get checkboxStyle;
-
-  TextStyle get dmSerifDisplayRegularTextStyle;
-
-  TextStyle get sfProRegularTextStyle;
 
   TabBarStyle get tabBarStyle;
 
@@ -65,6 +61,8 @@ abstract class AppTheme {
   TaskListingStyle get taskListingStyle;
 
   TaskDetailsStyle get taskDetailsStyle;
+
+  FoodCardStyle get foodCardStyle;
 
 }
 
@@ -443,4 +441,13 @@ class TaskDetailsStyle {
     required this.assignedToStyle,
     required this.taskDescriptionStyle,
   });
+}
+
+class FoodCardStyle{
+  final TextStyle titleStyle;
+  final TextStyle subTitleStyle;
+  final TextStyle amountStyle;
+
+  FoodCardStyle({required this.titleStyle, required this.subTitleStyle, required this.amountStyle});
+
 }

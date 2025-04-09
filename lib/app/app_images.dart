@@ -19,7 +19,7 @@ class AppImages {
   static const String icHome = 'assets/images/ic_home.svg';
   static const String icHomeActive = 'assets/images/ic_home_active.svg';
 
-  static const String icSplashLogo = 'assets/images/ic_splash_logo.svg';
+  static const String icSplashLogo = 'assets/images/ic_splash_logo.png';
 
   // appbar icon assets
   static const String icBack = 'assets/images/ic_back.svg';
@@ -28,12 +28,16 @@ class AppImages {
   static const String icSearch = 'assets/images/ic_search.svg';
   static const String icCross = 'assets/images/ic_cross.svg';
 
-  static const String icArrowDropDown = 'assets/images/ic_arrow_drop_down.svg';
+  static const String icArrowDropDown = 'assets/images/ic_down.svg';
   static const String icArrowUp = 'assets/images/ic_arrow_up.svg';
   static const String icUser = 'assets/images/ic_user.svg';
   static const String icCompany = 'assets/images/ic_company.svg';
 
   static const String icLoginIcon = 'assets/images/ic_login_icon.svg';
+
+  //Home screen assets
+  static const String icFlash = 'assets/images/ic_flash.svg';
+  static const String icMic = 'assets/images/ic_microphone.svg';
 
   // Bottom Tab Bar Icons
   static const String icProfileInactive = 'assets/images/ic_profile_inactive.svg';
