@@ -8,9 +8,6 @@ class DashboardPage extends GetView<DashboardController> {
   Widget build(BuildContext context) {
     final style = AppTheme.of(context).manageCustomerStyle;
     return Scaffold(
-      appBar: AppBar(
-        title: SmartText("Dashboard", style: style.appbarTitleStyle),
-      ),
       body: Obx(() {
         return IndexedStack(
           index: controller.selectedIndex.value,
