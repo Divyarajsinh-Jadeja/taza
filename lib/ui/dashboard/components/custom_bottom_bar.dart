@@ -34,12 +34,14 @@ class CustomBottomBar extends StatelessWidget {
               children: [
                 index == 2 ? SizedBox(height: 32.h) : SmartImage(path: item.icon, color: iconColor, height: 32.h, width: 32.w),
                 SizedBox(height: 4.h),
-                SmartText(
-                  item.label,
-                  style: style.unselectedLabelStyle.merge(TextStyle(color: textColor)),
-                  textAlign: item.textAlign,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+                Expanded(
+                  child: SmartText(
+                    item.label,
+                    style: style.unselectedLabelStyle.merge(TextStyle(color: textColor)),
+                    textAlign: item.textAlign,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
               ],
             );

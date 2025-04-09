@@ -20,4 +20,8 @@ class ReorderController extends GetxController {
     isVeg.value = value;
     update();
   }
+
+  void onTabSelected() {
+    debugPrint('ReorderController → Tab Init');
+  }
 }

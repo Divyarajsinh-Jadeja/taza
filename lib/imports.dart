@@ -33,7 +33,6 @@ export './ui/dashboard/components/custom_bottom_bar.dart';
 export './ui/dashboard/dashboard_modules/home/view/home_controller.dart';
 export './ui/dashboard/dashboard_modules/home/view/home_page.dart';
 export './ui/dashboard/dashboard_modules/reorder/view/reorder_controller.dart';
-export './ui/dashboard/dashboard_modules/reorder/view/reorder_screen.dart';
 export './ui/dashboard/view/dashboard_controller.dart';
 export './ui/dashboard/view/dashboard_page.dart';
 export './ui/splash/binding/splash_binding.dart';

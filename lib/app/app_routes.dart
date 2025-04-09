@@ -21,9 +21,5 @@ class AppRoutes {
       transition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
     ),
-    GetPage(
-      name: AppRoutes.reOrderScreen,
-      page: () => const ReorderScreen(),
-    ),
   ];
 }

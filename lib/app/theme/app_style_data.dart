@@ -33,7 +33,7 @@ class LightModeTheme extends AppTheme {
   TextStyle get interBoldW700TextStyle =>
       TextStyle(fontSize: 16.0.sp,
           fontWeight: FontWeight.w700,
-          fontFamily: AppFonts.interSansBold,
+          fontFamily: AppFonts.interBold,
           color: colors.color1D1D1F);
 
 
@@ -311,7 +311,7 @@ class LightModeTheme extends AppTheme {
   @override
   FoodCardStyle get foodCardStyle => FoodCardStyle(
     titleStyle: interBoldW700TextStyle,
-    subTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 14.sp),
-    amountStyle: interBoldW700TextStyle,
+    subTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 12.sp),
+    amountStyle: interBoldW700TextStyle.copyWith(fontSize: 15.sp),
   );
 }
