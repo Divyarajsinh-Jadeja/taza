@@ -319,4 +319,18 @@ class LightModeTheme extends AppTheme {
           subTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 14.sp),
           amountStyle: interBoldW700TextStyle);
 
+
+  @override
+  HomeScreenStyle get homeScreenStyle =>
+      HomeScreenStyle(
+          addressTagTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 15.sp),
+          addressTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 13.sp, color: colors.color9C9CA3).copyWith(fontSize: 13.sp, color: colors.color9C9CA3),
+          searchBarHintStyle: interRegularW400TextStyle.copyWith(fontSize: 16.sp, color: colors.color9C9CA3),
+          searchBarTextStyle: interRegularW400TextStyle.copyWith(fontSize: 16.sp, color: colors.color1D1D1F),
+          foodCardTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 22.sp, color: colors.color1D1D1F),
+          foodCardSubTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 16.sp, color: colors.color58585C),
+          foodCardTagStyle: interBoldW700TextStyle.copyWith(fontSize: 12.sp, color: colors.color00A4A2),
+          foodCardTimeStyle: interBoldW700TextStyle.copyWith(fontSize: 13.sp, color: colors.color1D1D1F),
+          foodCardDurationStyle: interRegularW400TextStyle.copyWith(fontSize: 11.sp, color: colors.color58585C),
+      );
 }

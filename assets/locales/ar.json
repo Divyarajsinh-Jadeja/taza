@@ -50,5 +50,7 @@
   "errorMobileNumber": "يرجى إدخال رقم هاتف محمول صالح",
   "errorEmptyEmail": "يرجى إدخال بريدك الإلكتروني",
   "checkInternet": "يرجى التحقق من اتصالك بالإنترنت",
-  "somethingWrong": "حدث خطأ ما"
+  "somethingWrong": "حدث خطأ ما",
+  "home" : "بيت"
+
 }

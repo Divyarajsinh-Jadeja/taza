@@ -64,6 +64,8 @@ abstract class AppTheme {
 
   FoodCardStyle get foodCardStyle;
 
+  HomeScreenStyle get homeScreenStyle;
+
 }
 
 class PrimaryButtonStyle {
@@ -163,6 +165,8 @@ class CustomAppBarStyle {
     required this.transparentColor,
   });
 }
+
+
 
 class AuthModuleStyle {
   final Color backgroundColor;
@@ -449,5 +453,29 @@ class FoodCardStyle{
   final TextStyle amountStyle;
 
   FoodCardStyle({required this.titleStyle, required this.subTitleStyle, required this.amountStyle});
+}
+
+class HomeScreenStyle {
+  final TextStyle addressTagTitleStyle;
+  final TextStyle addressTitleStyle;
+  final TextStyle searchBarHintStyle;
+  final TextStyle searchBarTextStyle;
+  final TextStyle foodCardTitleStyle;
+  final TextStyle foodCardSubTitleStyle;
+  final TextStyle foodCardTagStyle;
+  final TextStyle foodCardTimeStyle;
+  final TextStyle foodCardDurationStyle;
+
+  HomeScreenStyle({
+    required this.addressTagTitleStyle,
+    required this.addressTitleStyle,
+    required this.searchBarHintStyle,
+    required this.searchBarTextStyle,
+    required this.foodCardTitleStyle,
+    required this.foodCardSubTitleStyle,
+    required this.foodCardTagStyle,
+    required this.foodCardTimeStyle,
+    required this.foodCardDurationStyle,
+  });
 
 }

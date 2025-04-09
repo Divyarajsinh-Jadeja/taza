@@ -50,5 +50,6 @@
   "errorMobileNumber": "Please enter a valid mobile number",
   "errorEmptyEmail": "Please enter your email",
   "checkInternet": "Please check your internet connection",
-  "somethingWrong" : "Something went wrong"
+  "somethingWrong" : "Something went wrong",
+  "home" : "Home"
 }
