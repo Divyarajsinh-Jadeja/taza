@@ -9,7 +9,7 @@ class SplashPage extends GetView<SplashController> {
       body: SafeArea(
         bottom: false,
         top: false,
-        child: Container(
+        child: SizedBox(
           height: Get.height,
           width: Get.width,
           // decoration: BoxDecoration(
@@ -22,9 +22,7 @@ class SplashPage extends GetView<SplashController> {
           //     ],
           //   ),
           // ),
-          child: Center(
-            child: Text("Splash")
-          ),
+          child: Center(child: Text("Splash")),
         ),
       ),
     );

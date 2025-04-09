@@ -9,8 +9,7 @@ class SplashController extends GetxController {
   }
 
   Future<void> navigateToNextScreen() async {
-    Future.delayed(Duration(seconds: 2), () {
-      Get.offNamed(AppRoutes.dashboardPage);
-    });
+    await Future.delayed(Duration(seconds: 2));
+    Get.offNamed(AppRoutes.dashboardPage);
   }
 }

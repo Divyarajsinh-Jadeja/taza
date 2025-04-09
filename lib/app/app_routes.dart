@@ -11,14 +11,14 @@ class AppRoutes {
       page: () => const SplashPage(),
       binding: SplashBinding(),
       transition: Transition.fadeIn,
-      transitionDuration: const Duration(milliseconds: 500),
+      transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
     ),
     GetPage(
       name: AppRoutes.dashboardPage,
       page: () => const DashboardPage(),
       binding: DashboardBinding(),
       transition: Transition.cupertino,
-      transitionDuration: const Duration(milliseconds: 500),
+      transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
     ),
   ];
 }

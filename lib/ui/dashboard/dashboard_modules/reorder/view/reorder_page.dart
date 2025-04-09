@@ -5,6 +5,6 @@ class ReorderPage extends GetView<ReorderController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Container(height: Get.height, width: Get.width, child: Center(child: SmartText("Reorder"))));
+    return Scaffold(body: SizedBox(height: Get.height, width: Get.width, child: Center(child: SmartText("Reorder"))));
   }
 }

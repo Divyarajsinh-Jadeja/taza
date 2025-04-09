@@ -2,34 +2,35 @@ import 'package:taza/taza.dart';
 
 class DashboardController extends GetxController {
   RxInt currentIndex = 0.obs;
+  final PageController pageController = PageController(initialPage: 0);
   final tabInitialized = <int, bool>{};
 
   final tabs = <TabData>[
     TabData(
       pageBuilder: (_) => HomePage(),
-      bottomNavData: BottomNavyBarItem(icon: AppImages.icHome, title: "Home"),
+      bottomNavData: BottomNavigationBarDataModel(icon: AppImages.icHome, label: LocaleKeys.home.tr),
       onInit: () => Get.find<HomeController>().onTabSelected(),
       shouldAlwaysInitialize: true,
     ),
     TabData(
       pageBuilder: (_) => FoodPage(),
-      bottomNavData: BottomNavyBarItem(icon: AppImages.icFood, title: 'Food'),
+      bottomNavData: BottomNavigationBarDataModel(icon: AppImages.icFoodIcon, label: LocaleKeys.food.tr),
       onInit: () => Get.find<FoodController>().onTabSelected(),
     ),
     TabData(
       pageBuilder: (_) => CartPage(),
-      bottomNavData: BottomNavyBarItem(icon: AppImages.icShoppingBag, title: 'Cart'),
+      bottomNavData: BottomNavigationBarDataModel(icon: AppImages.icShoppingBag, label: LocaleKeys.cart.tr),
       onInit: () => Get.find<CartController>().onTabSelected(),
     ),
     TabData(
       pageBuilder: (_) => RewardsPage(),
-      bottomNavData: BottomNavyBarItem(icon: AppImages.icRewards, title: 'Rewards'),
+      bottomNavData: BottomNavigationBarDataModel(icon: AppImages.icRewards, label: LocaleKeys.rewards.tr),
       onInit: () => Get.find<RewardsController>().onTabSelected(),
       shouldAlwaysInitialize: true,
     ),
     TabData(
       pageBuilder: (_) => ReorderPage(),
-      bottomNavData: BottomNavyBarItem(icon: AppImages.icReorder, title: 'Reorder'),
+      bottomNavData: BottomNavigationBarDataModel(icon: AppImages.icReorder, label: LocaleKeys.reorder.tr),
       onInit: () => Get.find<ReorderController>().onTabSelected(),
     ),
   ];
@@ -45,6 +46,7 @@ class DashboardController extends GetxController {
       if (!tab.shouldAlwaysInitialize || !isFirstInit) return;
     }
     currentIndex.value = index;
+    pageController.animateToPage(index, duration: Duration(milliseconds: AppConst.transitionDuration), curve: Curves.easeInOut);
 
     /// Only initialize if it hasn't been initialized before or we always want to
     if (isFirstInit || tab.shouldAlwaysInitialize) {

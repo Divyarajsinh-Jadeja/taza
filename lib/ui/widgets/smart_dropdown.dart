@@ -52,7 +52,7 @@ class SmartDropDown<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextFieldStyle style = AppTheme.of(context).textFieldStyle;
     String? title = items.firstWhereOrNull((element) => element.value == selectedItem)?.title;
-    return Column(
+    return SmartColumn(
       crossAxisAlignment: isExpanded ? CrossAxisAlignment.stretch : CrossAxisAlignment.start,
       children: [
         if (labelText != null) ...[SmartText(labelText!, style: style.labelStyle), SizedBox(height: 8.h)],
@@ -98,7 +98,7 @@ class SmartDropDown<T> extends StatelessWidget {
         ),
         AnimatedSize(
           duration: Duration(milliseconds: 200),
-          child: Column(
+          child: SmartColumn(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.min,
             children: errorText.isNotNullNorEmpty ? [SizedBox(height: 8.h), SmartText(errorText!, style: style.errorStyle)] : [],
@@ -182,7 +182,7 @@ class SmartDropDownView<T> extends StatelessWidget {
         ),
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 24.h),
         child: SafeArea(
-          child: Column(
+          child: SmartColumn(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -247,7 +247,7 @@ class SmartDropDownView<T> extends StatelessWidget {
         );
 
         if (scrollDirection == Axis.horizontal) {
-          child = ConstrainedBox(constraints: BoxConstraints(minWidth: 50.w, maxHeight: 50.h), child: child);
+          child = ConstrainedBox(constraints: BoxConstraints(minWidth: 50.w, maxHeight: 50.w), child: child);
         }
 
         return child;
@@ -263,8 +263,8 @@ class SmartDropDownView<T> extends StatelessWidget {
       scrollbarOrientation: scrollDirection == Axis.horizontal ? ScrollbarOrientation.bottom : ScrollbarOrientation.right,
       child:
           scrollDirection == Axis.horizontal
-              ? Padding(padding: EdgeInsets.only(bottom: 16.h), child: SizedBox(height: 50.w, child: child))
-              : Padding(padding: EdgeInsets.only(right: 10.w), child: child),
+              ? Padding(padding: EdgeInsetsDirectional.only(bottom: 16.w), child: SizedBox(height: 50.w, child: child))
+              : Padding(padding: EdgeInsetsDirectional.only(end: 10.w), child: child),
     );
   }
 }

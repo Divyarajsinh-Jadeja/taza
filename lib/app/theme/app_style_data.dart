@@ -74,7 +74,7 @@ class LightModeTheme extends AppTheme {
     indicatorColor: colors.primary,
     backgroundColor: colors.white,
     borderColor: colors.colorD3DAE0,
-    boxShadowColor: colors.black.withOpacity(0.17),
+    boxShadowColor: colors.black.withValues(alpha: 0.17),
     selectedIconColor: colors.primary,
     unselectedIconColor: colors.color9c9cA3,
     selectedLabelColor: colors.color1D1D1F,

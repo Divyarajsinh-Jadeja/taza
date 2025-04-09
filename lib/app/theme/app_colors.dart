@@ -46,9 +46,9 @@ class AppThemes {
       colorScheme: ColorScheme.fromSeed(seedColor: appColor.primary, primary: appColor.primary),
       indicatorColor: appColor.primary,
       textSelectionTheme: TextSelectionThemeData(
-        // selectionHandleColor: appColor.primary,
-        // cursorColor: appColor.primary,
-        // selectionColor: appColor.primary,
+        selectionHandleColor: appColor.primary,
+        cursorColor: appColor.primary,
+        selectionColor: appColor.primary,
       ),
     )..addThemeConfig(appColor);
   }
@@ -60,11 +60,10 @@ class AppThemes {
       scaffoldBackgroundColor: appColor.white,
       dividerTheme: DividerThemeData(color: appColor.colorD3DAE0, space: 1.h),
       colorScheme: ColorScheme.fromSeed(seedColor: appColor.primary),
-      textSelectionTheme: const TextSelectionThemeData(
-        //TODO: will update this.
-        // cursorColor: appColor.bg7AD6FF,
-        // selectionColor: appColor.bg7AD6FF,
-        // selectionHandleColor: appColor.bg7AD6FF,
+      textSelectionTheme: TextSelectionThemeData(
+        cursorColor: appColor.primary,
+        selectionColor: appColor.primary,
+        selectionHandleColor: appColor.primary,
       ),
     )..addThemeConfig(appColor);
   }

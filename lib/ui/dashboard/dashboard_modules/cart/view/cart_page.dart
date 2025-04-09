@@ -5,6 +5,6 @@ class CartPage extends GetView<CartController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Container(height: Get.height, width: Get.width, child: Center(child: SmartText("Cart"))));
+    return Scaffold(body: SizedBox(height: Get.height, width: Get.width, child: Center(child: SmartText("Cart"))));
   }
 }

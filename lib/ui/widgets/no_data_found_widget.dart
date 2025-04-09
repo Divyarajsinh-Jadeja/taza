@@ -27,7 +27,7 @@ class NoDataFoundWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
+      child: SmartColumn(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           if (imagePath != null) ...[

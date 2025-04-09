@@ -2,7 +2,7 @@ import 'package:taza/taza.dart';
 
 class TabData<T> {
   final WidgetBuilder pageBuilder;
-  final BottomNavyBarItem bottomNavData;
+  final BottomNavigationBarDataModel bottomNavData;
   final VoidCallback? onInit;
   final bool shouldAlwaysInitialize;
 

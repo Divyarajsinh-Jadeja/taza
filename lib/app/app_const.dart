@@ -10,4 +10,6 @@ class AppConst {
   static const String themeLight = 'light';
   static const String themeSystem = 'system';
   static const String googleApiKey = ''; // Replace with your API Key
+
+  static const int transitionDuration = 500;
 }

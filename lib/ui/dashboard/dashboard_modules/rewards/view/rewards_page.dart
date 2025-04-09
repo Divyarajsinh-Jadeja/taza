@@ -5,6 +5,6 @@ class RewardsPage extends GetView<RewardsController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Container(height: Get.height, width: Get.width, child: Center(child: SmartText("RewardsPage"))));
+    return Scaffold(body: SizedBox(height: Get.height, width: Get.width, child: Center(child: SmartText("RewardsPage"))));
   }
 }
