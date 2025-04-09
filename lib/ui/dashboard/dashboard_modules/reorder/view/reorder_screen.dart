@@ -25,7 +25,7 @@ class ReorderScreen extends GetView<ReorderController> {
                       activeIcon: SmartImage(path: AppImages.icVeg),
                       inactiveIcon: SmartImage(path: AppImages.icVeg),
                     ),
-                    8.width,
+                    8.horizontalSpace,
                     SmartSwitch(
                       value: controller.isNonVeg.value,
                       onToggle: controller.toggleNonVeg,
@@ -33,6 +33,13 @@ class ReorderScreen extends GetView<ReorderController> {
                       activeIcon: SmartImage(path: AppImages.icNonVeg),
                       inactiveIcon: SmartImage(path: AppImages.icNonVeg),
                     ),
+                    8.horizontalSpace,
+                    _buildChip(context: context, text: "Quick 30 Min"),
+                    8.horizontalSpace,
+                    _buildChip(context: context, text: "Price 10-50"),
+                    8.horizontalSpace,
+                    _buildChip(context: context, text: "Price 10-50"),
+
                   ],
                 ),
               ),
@@ -66,6 +73,17 @@ class ReorderScreen extends GetView<ReorderController> {
           );
         }),
       ),
+    );
+  }
+
+  _buildChip({required BuildContext context,required String text, Function()? onTap}){
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(120),
+        border: Border.all(color: colors(context).color9C9CA3,)
+      ),
+      padding: EdgeInsets.symmetric(horizontal: 12.w),
+      child: Center(child: SmartText(text,style: AppTheme.of(context).interBoldW700TextStyle.copyWith(fontSize: 13,color: colors(context).color9C9CA3),)),
     );
   }
 }
