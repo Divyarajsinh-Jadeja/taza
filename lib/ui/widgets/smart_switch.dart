@@ -1,4 +1,5 @@
 import 'package:taza/taza.dart';
+
 class SmartSwitch extends StatefulWidget {
   /// Creates a material design switch.
   ///
@@ -9,7 +10,7 @@ class SmartSwitch extends StatefulWidget {
   ///
 
   const SmartSwitch({
-    Key? key,
+    super.key,
     required this.value,
     required this.onToggle,
     this.activeColor = Colors.blue,
@@ -40,17 +41,16 @@ class SmartSwitch extends StatefulWidget {
     this.inactiveIcon,
     this.duration = const Duration(milliseconds: 200),
     this.disabled = false,
-  })  : assert(
-  (switchBorder == null || activeSwitchBorder == null) &&
-      (switchBorder == null || inactiveSwitchBorder == null),
-  'Cannot provide switchBorder when an activeSwitchBorder or inactiveSwitchBorder was given\n'
-      'To give the switch a border, use "activeSwitchBorder: border" or "inactiveSwitchBorder: border".'),
-        assert(
-        (toggleBorder == null || activeToggleBorder == null) &&
-            (toggleBorder == null || inactiveToggleBorder == null),
-        'Cannot provide toggleBorder when an activeToggleBorder or inactiveToggleBorder was given\n'
-            'To give the toggle a border, use "activeToggleBorder: color" or "inactiveToggleBorder: color".'),
-        super(key: key);
+  }) : assert(
+         (switchBorder == null || activeSwitchBorder == null) && (switchBorder == null || inactiveSwitchBorder == null),
+         'Cannot provide switchBorder when an activeSwitchBorder or inactiveSwitchBorder was given\n'
+         'To give the switch a border, use "activeSwitchBorder: border" or "inactiveSwitchBorder: border".',
+       ),
+       assert(
+         (toggleBorder == null || activeToggleBorder == null) && (toggleBorder == null || inactiveToggleBorder == null),
+         'Cannot provide toggleBorder when an activeToggleBorder or inactiveToggleBorder was given\n'
+         'To give the toggle a border, use "activeToggleBorder: color" or "inactiveToggleBorder: color".',
+       );
 
   /// Determines if the switch is on or off.
   ///
@@ -249,31 +249,21 @@ class SmartSwitch extends StatefulWidget {
   final bool disabled;
 
   @override
-  _SmartSwitchState createState() => _SmartSwitchState();
+  State<SmartSwitch> createState() => _SmartSwitchState();
 }
 
-class _SmartSwitchState extends State<SmartSwitch>
-    with SingleTickerProviderStateMixin {
+class _SmartSwitchState extends State<SmartSwitch> with SingleTickerProviderStateMixin {
   late final Animation _toggleAnimation;
   late final AnimationController _animationController;
 
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(
-      vsync: this,
-      value: widget.value ? 1.0 : 0.0,
-      duration: widget.duration,
-    );
+    _animationController = AnimationController(vsync: this, value: widget.value ? 1.0 : 0.0, duration: widget.duration);
     _toggleAnimation = AlignmentTween(
       begin: Alignment.centerLeft,
       end: Alignment.centerRight,
-    ).animate(
-      CurvedAnimation(
-        parent: _animationController,
-        curve: Curves.linear,
-      ),
-    );
+    ).animate(CurvedAnimation(parent: _animationController, curve: Curves.linear));
   }
 
   @override
@@ -288,36 +278,33 @@ class _SmartSwitchState extends State<SmartSwitch>
 
     if (oldWidget.value == widget.value) return;
 
-    if (widget.value)
+    if (widget.value) {
       _animationController.forward();
-    else
+    } else {
       _animationController.reverse();
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    Color _toggleColor = Colors.white;
-    Color _switchColor = Colors.white;
-    Border? _switchBorder;
-    Border? _toggleBorder;
+    Color toggleColor = Colors.white;
+    Color switchColor = Colors.white;
+    Border? switchBorder;
+    Border? toggleBorder;
 
     if (widget.value) {
-      _toggleColor = widget.activeToggleColor ?? widget.toggleColor;
-      _switchColor = widget.activeColor;
-      _switchBorder = widget.activeSwitchBorder as Border? ??
-          widget.switchBorder as Border?;
-      _toggleBorder = widget.activeToggleBorder as Border? ??
-          widget.toggleBorder as Border?;
+      toggleColor = widget.activeToggleColor ?? widget.toggleColor;
+      switchColor = widget.activeColor;
+      switchBorder = widget.activeSwitchBorder as Border? ?? widget.switchBorder as Border?;
+      toggleBorder = widget.activeToggleBorder as Border? ?? widget.toggleBorder as Border?;
     } else {
-      _toggleColor = widget.inactiveToggleColor ?? widget.toggleColor;
-      _switchColor = widget.inactiveColor;
-      _switchBorder = widget.inactiveSwitchBorder as Border? ??
-          widget.switchBorder as Border?;
-      _toggleBorder = widget.inactiveToggleBorder as Border? ??
-          widget.toggleBorder as Border?;
+      toggleColor = widget.inactiveToggleColor ?? widget.toggleColor;
+      switchColor = widget.inactiveColor;
+      switchBorder = widget.inactiveSwitchBorder as Border? ?? widget.switchBorder as Border?;
+      toggleBorder = widget.inactiveToggleBorder as Border? ?? widget.toggleBorder as Border?;
     }
 
-    double _textSpace = widget.width - widget.toggleSize;
+    double textSpace = widget.width - widget.toggleSize;
 
     return AnimatedBuilder(
       animation: _animationController,
@@ -326,10 +313,11 @@ class _SmartSwitchState extends State<SmartSwitch>
           child: GestureDetector(
             onTap: () {
               if (!widget.disabled) {
-                if (widget.value)
+                if (widget.value) {
                   _animationController.forward();
-                else
+                } else {
                   _animationController.reverse();
+                }
 
                 widget.onToggle(!widget.value);
               }
@@ -342,8 +330,8 @@ class _SmartSwitchState extends State<SmartSwitch>
                 padding: EdgeInsets.all(widget.padding),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(widget.borderRadius),
-                  color: _switchColor,
-                  border: _switchBorder,
+                  color: switchColor,
+                  border: switchBorder,
                 ),
                 child: Stack(
                   children: <Widget>[
@@ -351,7 +339,7 @@ class _SmartSwitchState extends State<SmartSwitch>
                       opacity: widget.value ? 1.0 : 0.0,
                       duration: widget.duration,
                       child: Container(
-                        width: _textSpace,
+                        width: textSpace,
                         padding: EdgeInsets.symmetric(horizontal: 4.0),
                         alignment: Alignment.centerLeft,
                         child: _activeText,
@@ -363,47 +351,39 @@ class _SmartSwitchState extends State<SmartSwitch>
                         opacity: !widget.value ? 1.0 : 0.0,
                         duration: widget.duration,
                         child: Container(
-                          width: _textSpace,
+                          width: textSpace,
                           padding: EdgeInsets.symmetric(horizontal: 4.0),
                           alignment: Alignment.centerRight,
                           child: _inactiveText,
                         ),
                       ),
                     ),
-                    Container(
-                      child: Align(
-                        alignment: _toggleAnimation.value,
-                        child: Container(
-                          width: widget.toggleSize,
-                          height: widget.toggleSize,
-                          padding: EdgeInsets.all(4.0),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: _toggleColor,
-                            border: _toggleBorder,
-                          ),
-                          child: FittedBox(
-                            fit: BoxFit.contain,
-                            child: Container(
-                              child: Stack(
-                                children: [
-                                  Center(
-                                    child: AnimatedOpacity(
-                                      opacity: widget.value ? 1.0 : 0.0,
-                                      duration: widget.duration,
-                                      child: widget.activeIcon,
-                                    ),
-                                  ),
-                                  Center(
-                                    child: AnimatedOpacity(
-                                      opacity: !widget.value ? 1.0 : 0.0,
-                                      duration: widget.duration,
-                                      child: widget.inactiveIcon,
-                                    ),
-                                  ),
-                                ],
+                    Align(
+                      alignment: _toggleAnimation.value,
+                      child: Container(
+                        width: widget.toggleSize,
+                        height: widget.toggleSize,
+                        padding: EdgeInsets.all(4.0),
+                        decoration: BoxDecoration(shape: BoxShape.circle, color: toggleColor, border: toggleBorder),
+                        child: FittedBox(
+                          fit: BoxFit.contain,
+                          child: Stack(
+                            children: [
+                              Center(
+                                child: AnimatedOpacity(
+                                  opacity: widget.value ? 1.0 : 0.0,
+                                  duration: widget.duration,
+                                  child: widget.activeIcon,
+                                ),
                               ),
-                            ),
+                              Center(
+                                child: AnimatedOpacity(
+                                  opacity: !widget.value ? 1.0 : 0.0,
+                                  duration: widget.duration,
+                                  child: widget.inactiveIcon,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -418,20 +398,14 @@ class _SmartSwitchState extends State<SmartSwitch>
     );
   }
 
-  FontWeight get _activeTextFontWeight =>
-      widget.activeTextFontWeight ?? FontWeight.w900;
-  FontWeight get _inactiveTextFontWeight =>
-      widget.inactiveTextFontWeight ?? FontWeight.w900;
+  FontWeight get _activeTextFontWeight => widget.activeTextFontWeight ?? FontWeight.w900;
+  FontWeight get _inactiveTextFontWeight => widget.inactiveTextFontWeight ?? FontWeight.w900;
 
   Widget get _activeText {
     if (widget.showOnOff) {
       return Text(
         widget.activeText ?? "On",
-        style: TextStyle(
-          color: widget.activeTextColor,
-          fontWeight: _activeTextFontWeight,
-          fontSize: widget.valueFontSize,
-        ),
+        style: TextStyle(color: widget.activeTextColor, fontWeight: _activeTextFontWeight, fontSize: widget.valueFontSize),
       );
     }
 
@@ -442,11 +416,7 @@ class _SmartSwitchState extends State<SmartSwitch>
     if (widget.showOnOff) {
       return Text(
         widget.inactiveText ?? "Off",
-        style: TextStyle(
-          color: widget.inactiveTextColor,
-          fontWeight: _inactiveTextFontWeight,
-          fontSize: widget.valueFontSize,
-        ),
+        style: TextStyle(color: widget.inactiveTextColor, fontWeight: _inactiveTextFontWeight, fontSize: widget.valueFontSize),
         textAlign: TextAlign.right,
       );
     }

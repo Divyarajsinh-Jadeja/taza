@@ -64,6 +64,11 @@ class LocaleKeys {
   static const errorEmptyEmail = 'errorEmptyEmail';
   static const checkInternet = 'checkInternet';
   static const somethingWrong = 'somethingWrong';
+  static const home = 'home';
+  static const food = 'food';
+  static const cart = 'cart';
+  static const rewards = 'rewards';
+  static const reorder = 'reorder';
 }
 
 class Locales {
@@ -124,6 +129,11 @@ class Locales {
     'errorEmptyEmail': 'Please enter your email',
     'checkInternet': 'Please check your internet connection',
     'somethingWrong': 'Something went wrong',
+    'home': 'Home',
+    'food': 'Food',
+    'cart': 'Cart',
+    'rewards': 'Rewards',
+    'reorder': 'Reorder',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -180,5 +190,10 @@ class Locales {
     'errorEmptyEmail': 'يرجى إدخال بريدك الإلكتروني',
     'checkInternet': 'يرجى التحقق من اتصالك بالإنترنت',
     'somethingWrong': 'حدث خطأ ما',
+    'home': 'الرئيسية',
+    'food': 'الطعام',
+    'cart': 'السلة',
+    'rewards': 'الجوائز',
+    'reorder': 'اعادة الطلب',
   };
 }

@@ -1,33 +1,32 @@
 import 'package:taza/taza.dart';
 
-
 class DashboardPage extends GetView<DashboardController> {
   const DashboardPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final style = AppTheme.of(context).manageCustomerStyle;
+    final style = AppTheme.of(context).tabBarStyle;
+
+    BottomNavigationBarDataModel bottomNavData = controller.tabs[2].bottomNavData;
     return Scaffold(
-      appBar: AppBar(
-        title: SmartText("Dashboard", style: style.appbarTitleStyle),
+      body: PageView(
+        controller: controller.pageController,
+        physics: const NeverScrollableScrollPhysics(),
+        children: controller.tabs.map((tab) => Builder(builder: tab.pageBuilder)).toList(),
       ),
-      body: Obx(() {
-        return IndexedStack(
-          index: controller.selectedIndex.value,
-          children: [
-            HomePage(),
-            ProfilePage(),
-          ],
-        );
-      }),
+      floatingActionButton: FloatingActionButton(
+        elevation: 4,
+        backgroundColor: style.selectedIconColor,
+        shape: const CircleBorder(),
+        onPressed: () => controller.changeTab(2),
+        child: SmartImage(path: bottomNavData.icon),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: Obx(() {
-        return BottomNavigationBar(
-          currentIndex: controller.selectedIndex.value,
-          onTap: controller.changeTab,
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-          ],
+        return CustomBottomBar(
+          selectedIndex: controller.currentIndex.value,
+          onItemSelected: (index) => controller.changeTab(index),
+          items: controller.tabs.map((tab) => tab.bottomNavData).toList(),
         );
       }),
     );
