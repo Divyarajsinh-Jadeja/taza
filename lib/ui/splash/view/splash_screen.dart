@@ -12,11 +12,13 @@ class SplashPage extends GetView<SplashController> {
         child: Container(
           height: Get.height,
           width: Get.width,
-          decoration: BoxDecoration(
-            color: AppThemes().appColor.primary
-          ),
+          decoration: BoxDecoration(color: AppThemes().appColor.primary),
           child: Center(
-            child: SmartImage(path: AppImages.icSplashLogo)
+            child: SmartImage(
+              height: 105.h,
+              width: 150.w,
+              path: AppImages.icSplashLogo,
+            ),
           ),
         ),
       ),

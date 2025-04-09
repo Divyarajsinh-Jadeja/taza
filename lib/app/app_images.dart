@@ -36,9 +36,6 @@ class AppImages {
   static const String icLoginIcon = 'assets/images/ic_login_icon.svg';
 
   //Home screen assets
-  static const String imageFoodDelivery = 'assets/images/food_delivery_image.png';
-  static const String imageDineIn = 'assets/images/image_dine_in.png';
-  static const String imageTakeAway = 'assets/images/image_take_away.png';
   static const String icFlash = 'assets/images/ic_flash.svg';
   static const String icMic = 'assets/images/ic_microphone.svg';
 
