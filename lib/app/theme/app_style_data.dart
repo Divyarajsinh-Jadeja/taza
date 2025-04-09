@@ -242,4 +242,8 @@ class LightModeTheme extends AppTheme {
     subTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 14.sp),
     amountStyle: interBoldW700TextStyle,
   );
+
+  @override
+  SmartCategoryRowStyle get smartCategoryRowStyle =>
+      SmartCategoryRowStyle(titleStyle: interBoldW700TextStyle.copyWith(color: colors.white, fontSize: 15.sp));
 }

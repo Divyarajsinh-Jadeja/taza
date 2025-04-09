@@ -63,6 +63,8 @@ abstract class AppTheme {
   TaskDetailsStyle get taskDetailsStyle;
 
   FoodCardStyle get foodCardStyle;
+
+  SmartCategoryRowStyle get smartCategoryRowStyle;
 }
 
 class PrimaryButtonStyle {
@@ -436,4 +438,10 @@ class FoodCardStyle {
   final TextStyle amountStyle;
 
   FoodCardStyle({required this.titleStyle, required this.subTitleStyle, required this.amountStyle});
+}
+
+class SmartCategoryRowStyle {
+  final TextStyle titleStyle;
+
+  SmartCategoryRowStyle({required this.titleStyle});
 }
