@@ -70,6 +70,7 @@ export 'package:taza/data/network/models/user_response.dart';
 export 'package:taza/data/network/repository/app_repository.dart';
 export 'package:taza/data/network/repository/user_repository.dart';
 export 'package:taza/data/network/api_const/api_keys.dart';
+export 'package:taza/data/network/models/food_model.dart';
 
 // Services
 export 'package:taza/common/common_service.dart';
@@ -92,6 +93,7 @@ export 'package:taza/ui/widgets/smart_stepper.dart';
 export 'package:taza/ui/widgets/smart_text.dart';
 export 'package:taza/ui/widgets/text_field.dart';
 export 'package:taza/ui/widgets/smart_switch.dart';
+export 'package:taza/ui/widgets/smart_animator.dart';
 
 // UI Pages & Controllers
 export 'package:taza/ui/splash/binding/splash_binding.dart';

@@ -313,5 +313,25 @@ class LightModeTheme extends AppTheme {
     titleStyle: interBoldW700TextStyle,
     subTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 12.sp),
     amountStyle: interBoldW700TextStyle.copyWith(fontSize: 15.sp),
+    cardDecoration: BoxDecoration(
+      border: Border.all(color: colors.colorD2D2D7),
+      borderRadius: BorderRadius.circular(16.r),
+    ),
+    imageDecoration: BorderRadiusDirectional.only(
+      topStart: Radius.circular(12.r),
+      bottomStart: Radius.circular(12.r),
+    )
+  );
+
+  @override
+  OfferPopupStyle get offerPopupStyle => OfferPopupStyle(
+    titleStyle: interBoldW700TextStyle.copyWith(
+      color: colors.white,
+      fontSize: 28.sp,
+    ),
+    subTitleStyle: interBoldW700TextStyle.copyWith(
+      color: colors.white,
+      fontSize: 17.sp,
+    ),
   );
 }

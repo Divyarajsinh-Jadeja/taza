@@ -22,6 +22,7 @@ class SmartColumn extends StatelessWidget {
   final Clip clipBehavior;
   final double spacing;
 
+  final SmartAnimator? animator;
   const SmartColumn({
     super.key,
     this.mainAxisSize = MainAxisSize.max,
@@ -41,7 +42,8 @@ class SmartColumn extends StatelessWidget {
     this.decoration,
     this.alignment,
     this.clipBehavior = Clip.none,
-    this.spacing=0
+    this.spacing=0,
+    this.animator
   });
 
   @override
@@ -77,6 +79,12 @@ class SmartColumn extends StatelessWidget {
     if (expanded) {
       child = Expanded(child: child);
     }
-    return child;
+
+    // Apply animation
+    if (animator != null) {
+  return animator!.copyWith(child: child); 
+} else {
+  return child;
+}
   }
 }

@@ -63,6 +63,8 @@ abstract class AppTheme {
   TaskDetailsStyle get taskDetailsStyle;
 
   FoodCardStyle get foodCardStyle;
+
+  OfferPopupStyle get offerPopupStyle;
 }
 
 class PrimaryButtonStyle {
@@ -434,6 +436,14 @@ class FoodCardStyle {
   final TextStyle titleStyle;
   final TextStyle subTitleStyle;
   final TextStyle amountStyle;
+  final BoxDecoration cardDecoration;
+  final BorderRadiusGeometry imageDecoration;
+  FoodCardStyle({required this.titleStyle, required this.subTitleStyle, required this.amountStyle,required this.cardDecoration,required this.imageDecoration});
+}
 
-  FoodCardStyle({required this.titleStyle, required this.subTitleStyle, required this.amountStyle});
+class OfferPopupStyle {
+  final TextStyle titleStyle;
+  final TextStyle subTitleStyle;
+
+  OfferPopupStyle({required this.titleStyle,required this.subTitleStyle});
 }
