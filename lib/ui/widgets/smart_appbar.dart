@@ -29,7 +29,7 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.titleStyle,
     this.isCenter = false,
     this.isBack = true,
-    this.isBorder = true,
+    this.isBorder = false,
     this.padding,
     this.appBarHeight,
     this.onBack,
@@ -62,7 +62,7 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
       titleSpacing: 0,
       title: _buildTitle(style, context),
       actions: _buildActions(),
-      //bottom: isBorder ? PreferredSize(preferredSize: Size.fromHeight(2.h), child: SmartGradientContainer()) : null,
+      bottom: isBorder ? PreferredSize(preferredSize: Size.fromHeight(2.h), child: SmartGradientContainer()) : null,
     );
   }
 

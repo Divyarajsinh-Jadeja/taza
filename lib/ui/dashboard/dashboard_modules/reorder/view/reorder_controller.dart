@@ -88,12 +88,10 @@ class ReorderController extends GetxController {
 
   toggleNonVeg(bool value){
     isNonVeg.value = value;
-    update();
   }
 
   toggleVeg(bool value){
     isVeg.value = value;
-    update();
   }
 
   void onTabSelected() {
@@ -103,6 +101,7 @@ class ReorderController extends GetxController {
   void increaseQuantity(int index) {
     if(foodList[index].quantity<10){
       foodList[index].quantity++;
+      HapticFeedback.lightImpact();
       foodList.refresh();
     }
   }
@@ -110,6 +109,7 @@ class ReorderController extends GetxController {
   void decreaseQuantity(int index) {
     if (foodList[index].quantity > 1) {
       foodList[index].quantity--;
+      HapticFeedback.lightImpact();
       foodList.refresh();
     }
   }

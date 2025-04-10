@@ -4,7 +4,6 @@ import 'package:taza/taza.dart';
 class AppRoutes {
   static const initialRoute = '/';
   static const dashboardPage = '/dashboard_page';
-  static const reOrderScreen = '/reorder_screen';
 
   static final List<GetPage> pages = [
     GetPage(
