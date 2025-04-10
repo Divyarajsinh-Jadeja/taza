@@ -69,6 +69,7 @@ class LocaleKeys {
   static const cart = 'cart';
   static const rewards = 'rewards';
   static const reorder = 'reorder';
+  static const order = 'order';
 }
 
 class Locales {
@@ -134,6 +135,8 @@ class Locales {
     'cart': 'Cart',
     'rewards': 'Rewards',
     'reorder': 'Reorder',
+    'order': 'Order',
+
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -195,5 +198,6 @@ class Locales {
     'cart': 'السلة',
     'rewards': 'الجوائز',
     'reorder': 'اعادة الطلب',
+    'order': 'طلب',
   };
 }

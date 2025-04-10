@@ -13,6 +13,7 @@ class ReorderController extends GetxController {
       reviewsCount: 1200,
       deliveryTime: '30-35 min',
       price: 89.0,
+      quantity: 0
     ),
     FoodModel(
       name: 'Cheese Burger',
@@ -107,7 +108,7 @@ class ReorderController extends GetxController {
   }
 
   void decreaseQuantity(int index) {
-    if (foodList[index].quantity > 1) {
+    if (foodList[index].quantity !=0) {
       foodList[index].quantity--;
       HapticFeedback.lightImpact();
       foodList.refresh();

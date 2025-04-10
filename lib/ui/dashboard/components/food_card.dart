@@ -17,11 +17,12 @@ class FoodCard extends StatelessWidget {
     final style = AppTheme.of(context).foodCardStyle;
 
     return SmartRow(
-      onTap: () => Utils.showSmartModalBottomSheet(
-        context: context,
-        backgroundColor: Colors.transparent,
-        builder: (context) => OfferPopup(),
-      ),
+      onTap:
+          () => Utils.showSmartModalBottomSheet(
+            context: context,
+            backgroundColor: Colors.transparent,
+            builder: (context) => OfferPopup(),
+          ),
       height: 96.h,
       margin: EdgeInsetsDirectional.only(bottom: 16.h),
       decoration: style.cardDecoration,
@@ -44,7 +45,10 @@ class FoodCard extends StatelessWidget {
         8.horizontalSpace,
         SmartColumn(
           expanded: true,
-          padding: EdgeInsetsDirectional.symmetric(horizontal: 8.w, vertical: 8.h),
+          padding: EdgeInsetsDirectional.symmetric(
+            horizontal: 8.w,
+            vertical: 8.h,
+          ),
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -82,7 +86,7 @@ class FoodCard extends StatelessWidget {
             4.verticalSpace,
             SmartRow(
               isExpanded: true,
-              spacing: 4,
+              spacing: 4.w,
               children: [
                 SmartImage(
                   path: AppImages.icStar,
@@ -119,11 +123,12 @@ class FoodCard extends StatelessWidget {
                     animationCurve: Curves.decelerate,
                   ),
                 ),
+
                 SmartRow(
                   height: 32.h,
                   decoration: BoxDecoration(
                     border: Border.all(color: style.iconColor),
-                    borderRadius: BorderRadius.circular(32),
+                    borderRadius: BorderRadius.circular(32.r),
                   ),
                   animator: SmartAnimator(
                     animationCurve: Curves.decelerate,
@@ -133,16 +138,21 @@ class FoodCard extends StatelessWidget {
                     animateSlideX: true,
                   ),
                   children: [
+                    if (model.quantity > 0) ...[
+                      IconButton(
+                        padding: EdgeInsets.zero,
+                        onPressed: onDecrease,
+                        icon: Icon(Icons.remove, color: style.iconColor,size: 16.r,),
+                      ),
+                      SmartAnimatedQuantity(
+                        quantity: model.quantity,
+                        style: style.titleStyle.copyWith(fontSize: 13.sp),
+                      ),
+                    ],
                     IconButton(
-                      iconSize: 16.r,
-                      onPressed: onDecrease,
-                      icon:  Icon(Icons.remove, color: style.iconColor),
-                    ),
-                    SmartAnimatedQuantity(quantity: model.quantity,  style: style.titleStyle.copyWith(fontSize: 13.sp),),
-                    IconButton(
-                      iconSize: 16.r,
+                      padding: EdgeInsets.zero,
                       onPressed: onIncrease,
-                      icon:  Icon(Icons.add, color: style.iconColor),
+                      icon: Icon(Icons.add, color: style.iconColor,size: 16.r,),
                     ),
                   ],
                 ),
@@ -154,6 +164,7 @@ class FoodCard extends StatelessWidget {
     );
   }
 }
+
 class SmartAnimatedQuantity extends StatefulWidget {
   final int quantity;
   final TextStyle style;
@@ -179,25 +190,19 @@ class _SmartAnimatedQuantityState extends State<SmartAnimatedQuantity> {
 
   @override
   Widget build(BuildContext context) {
-    final bool isIncreasing = _previousQuantity == null ||
-        widget.quantity > _previousQuantity!;
-    final slideOffset = isIncreasing
-        ? const Offset(0, 0.4) // Slide up
-        : const Offset(0, -0.4); // Slide down
+    final bool isIncreasing =
+        _previousQuantity == null || widget.quantity > _previousQuantity!;
+    final slideOffset =
+        isIncreasing
+            ? const Offset(0, 0.4) // Slide up
+            : const Offset(0, -0.4); // Slide down
 
     return Animate(
       key: ValueKey(widget.quantity),
       effects: [
-        SlideEffect(
-          begin: slideOffset,
-          end: Offset.zero,
-          duration: 100.ms,
-        ),
+        SlideEffect(begin: slideOffset, end: Offset.zero, duration: 100.ms),
       ],
-      child: SmartText(
-        "${widget.quantity}",
-        style: widget.style,
-      ),
+      child: SmartText("${widget.quantity}", style: widget.style),
     );
   }
 }
