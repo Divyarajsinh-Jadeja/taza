@@ -2,13 +2,20 @@ import 'package:taza/taza.dart';
 
 class HomeController extends GetxController {
   final RxList<Map<String, dynamic>> options = <Map<String, dynamic>>[].obs;
-
+  final RxList<String> hints = ['Tenders', 'Burgers', 'Grocery', 'Deals'].obs;
+  final RxInt currentHintIndex = 0.obs;
+  TextEditingController searchController = TextEditingController();
   @override
   void onInit() {
     debugPrint("HomeController onInit");
-    loadOptions(); // Load data when the controller is initialized
+    loadOptions();
+    Timer.periodic(Duration(seconds: 2), (timer) {
+      currentHintIndex.value = (currentHintIndex.value + 1) % hints.length;
+    });
     super.onInit();
   }
+
+  void onTabSelected(){}
 
   void loadOptions() {
     options.assignAll([

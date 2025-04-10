@@ -76,17 +76,18 @@ class LightModeTheme extends AppTheme {
       );
 
   @override
-  TabBarStyle get tabBarStyle =>
-      TabBarStyle(
-        unselectedLabelStyle: interMediumBoldW500TextStyle.copyWith(
-            fontSize: 12.sp, color: colors.color8C8C8C),
-        labelStyle: interMediumBoldW500TextStyle.copyWith(
-            fontSize: 12.sp, color: colors.color1D1D1F),
-        indicatorColor: colors.primary,
-        backgroundColor: colors.white,
-        borderColor: colors.colorD3DAE0,
-        boxShadowColor: colors.black.withOpacity(0.17),
-      );
+  TabBarStyle get tabBarStyle => TabBarStyle(
+    unselectedLabelStyle: interBoldW700TextStyle.copyWith(fontSize: 11.sp, color: colors.color9c9cA3),
+    labelStyle: interBoldW700TextStyle.copyWith(fontSize: 12.sp, color: colors.color1D1D1F),
+    indicatorColor: colors.primary,
+    backgroundColor: colors.white,
+    borderColor: colors.colorD3DAE0,
+    boxShadowColor: colors.black.withValues(alpha: 0.17),
+    selectedIconColor: colors.primary,
+    unselectedIconColor: colors.color9c9cA3,
+    selectedLabelColor: colors.color1D1D1F,
+    unselectedLabelColor: colors.color9c9cA3,
+  );
 
   @override
   CustomAppBarStyle get appBarStyle =>
@@ -312,16 +313,33 @@ class LightModeTheme extends AppTheme {
 
 
   @override
-  HomeScreenStyle get homeScreenStyle =>
-      HomeScreenStyle(
-          addressTagTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 15.sp),
-          addressTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 13.sp, color: colors.color9C9CA3).copyWith(fontSize: 13.sp, color: colors.color9C9CA3),
-          searchBarHintStyle: interRegularW400TextStyle.copyWith(fontSize: 16.sp, color: colors.color9C9CA3),
+  SearchBarStyle get searchBarStyle =>
+      SearchBarStyle(
+          searchBarBgColor: colors.white,
+          searchBarBorderColor: colors.colorD2D2D7,
+          searchBarHintStyle: interRegularW400TextStyle.copyWith(fontSize: 16.sp, color: colors.color9c9cA3),
           searchBarTextStyle: interRegularW400TextStyle.copyWith(fontSize: 16.sp, color: colors.color1D1D1F),
-          foodCardTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 22.sp, color: colors.color1D1D1F),
-          foodCardSubTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 16.sp, color: colors.color58585C),
-          foodCardTagStyle: interBoldW700TextStyle.copyWith(fontSize: 12.sp, color: colors.color00A4A2),
-          foodCardTimeStyle: interBoldW700TextStyle.copyWith(fontSize: 13.sp, color: colors.color1D1D1F),
-          foodCardDurationStyle: interRegularW400TextStyle.copyWith(fontSize: 11.sp, color: colors.color58585C),
+
+      );
+
+  @override
+  HomeHeaderStyle get homeHeaderStyle =>
+      HomeHeaderStyle(
+        addressTagTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 15.sp),
+        addressTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 13.sp, color: colors.color9c9cA3),
+      );
+
+  @override
+  FoodOptionCardStyle get foodOptionCardStyle =>
+      FoodOptionCardStyle(
+        foodCardTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 22.sp, color: colors.color1D1D1F),
+        foodCardSubTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 16.sp, color: colors.color58585C),
+        foodCardTagStyle: interBoldW700TextStyle.copyWith(fontSize: 12.sp, color: colors.color00A4A2),
+        foodCardTimeStyle: interBoldW700TextStyle.copyWith(fontSize: 13.sp, color: colors.color1D1D1F),
+        foodCardDurationStyle: interRegularW400TextStyle.copyWith(fontSize: 11.sp, color: colors.color58585C),
+        foodCardBgColor: colors.white,
+        tagStartGradientStartColor: colors.colorC6FFF8,
+        tagEndGradientStartColor: colors.white,
+        timeContainerBorderColor: colors.primary,
       );
 }

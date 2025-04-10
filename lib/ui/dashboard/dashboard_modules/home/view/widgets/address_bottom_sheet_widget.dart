@@ -19,7 +19,7 @@ class AddressBottomSheet extends StatelessWidget {
         'address': 'King Abdulaziz Rd, Al-Zahra\'a, Jeddah',
       },
     ];
-    final style = AppTheme.of(context).homeScreenStyle;
+    final style = AppTheme.of(context).homeHeaderStyle;
     final color = AppThemes().appColor;
     return Padding(
       padding: EdgeInsetsDirectional.only(
@@ -85,7 +85,7 @@ class AddressBottomSheet extends StatelessWidget {
                   EdgeInsetsDirectional.symmetric(horizontal: 20.w, vertical: 14.h),
                 ),
                 child: SmartText("Submit",
-                  style: style.foodCardSubTitleStyle),
+                  style: style.addressTitleStyle),
               ),
             ],
           ),
@@ -118,8 +118,7 @@ class AddressBottomSheet extends StatelessWidget {
     required String pincode,
     required String tag,
     required String fullAddress,
-    required VoidCallback onTap,
-    required HomeScreenStyle style,
+    required VoidCallback onTap, required HomeHeaderStyle style,
   }) {
     return InkWell(
       onTap: onTap,
@@ -149,7 +148,7 @@ class AddressBottomSheet extends StatelessWidget {
                       Container(
                         padding: EdgeInsetsDirectional.symmetric(horizontal: 6.w, vertical: 2.h),
                         decoration: BoxDecoration(
-                          color: AppThemes().appColor.color9C9CA3,
+                          color: AppThemes().appColor.color9c9cA3,
                           borderRadius: BorderRadius.circular(4.r),
                         ),
                         child: SmartText(
