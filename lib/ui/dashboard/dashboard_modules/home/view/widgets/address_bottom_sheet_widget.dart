@@ -28,87 +28,86 @@ class AddressBottomSheet extends StatelessWidget {
         bottom: MediaQuery.of(context).viewInsets.bottom + 16.w,
         top: 16.w,
       ),
-      child: SmartColumn(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Center(
-            child: Container(
-              height: 5.h,
-              width: 50.w,
-              margin: EdgeInsetsDirectional.only(bottom: 16.w),
-              decoration: BoxDecoration(
-                color: Colors.grey[400],
-                borderRadius: BorderRadius.circular(6),
-              ),
-            ),
-          ),
-          SmartText(
-            "Select Delivery Address",
-            style: style.addressTagTitleStyle,
-          ),
-          SizedBox(height: 16.h),
-          ...addresses.map((address) => _buildAddressTile(
-            name: address['name'] ?? "",
-            pincode: address['pincode'] ?? "",
-            tag: address['tag'] ?? "",
-            fullAddress: address['address'] ?? "",
-            style: style,
-            onTap: () {
-              Navigator.pop(context);
-              // Handle selection
-            },
-          )),
-          Divider(height: 32.h),
-          SmartText(
-            "Use pincode to check delivery info",
-            style: style.addressTagTitleStyle,
-          ),
-          SizedBox(height: 12.h),
-          SmartRow(
-            children: [
-              Expanded(
-                child: SmartTextField(
-                  color: color.white,
-                  hintText: "Enter pincode",
-                  hintStyle: style.addressTitleStyle,
-                  keyboardType: TextInputType.number,
+      child: SmartSingleChildScrollView(
+        child: SmartColumn(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: Container(
+                height: 5.h,
+                width: 50.w,
+                margin: EdgeInsetsDirectional.only(bottom: 16.w),
+                decoration: BoxDecoration(
+                  color: Colors.grey[400],
+                  borderRadius: BorderRadius.circular(6),
                 ),
               ),
-              SizedBox(width: 8.w),
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: color.primary,
-                  foregroundColor: color.white,
-                  padding:
-                  EdgeInsetsDirectional.symmetric(horizontal: 20.w, vertical: 14.h),
-                ),
-                child: SmartText("Submit",
-                  style: style.addressTitleStyle),
-              ),
-            ],
-          ),
-          const SizedBox(height: 20),
-          Center(
-            child: InkWell(
-              onTap: () {
-                // Handle location
-              },
-              child: SmartRow(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.my_location, size: 20.w, color: color.primary),
-                  SizedBox(width: 6.h),
-                  SmartText(
-                    "Use my current location",
-                    style: style.addressTagTitleStyle,
-                  )
-                ],
-              ),
             ),
-          )
-        ],
+            SmartText(
+              LocaleKeys.selectDeliveryAddress.tr,
+              style: style.addressTagTitleStyle,
+            ),
+            SizedBox(height: 16.h),
+            ...addresses.map((address) => _buildAddressTile(
+              name: address['name'] ?? "",
+              pincode: address['pincode'] ?? "",
+              tag: address['tag'] ?? "",
+              fullAddress: address['address'] ?? "",
+              style: style,
+              onTap: () {},
+            )),
+            Divider(height: 32.h),
+            SmartText(
+              LocaleKeys.usePinCode.tr,
+              style: style.addressTagTitleStyle,
+            ),
+            SizedBox(height: 12.h),
+            SmartRow(
+              children: [
+                Expanded(
+                  child: SmartTextField(
+                    color: color.white,
+                    hintText: LocaleKeys.enterPinCode.tr,
+                    hintStyle: style.addressTitleStyle,
+                    keyboardType: TextInputType.number,
+                  ),
+                ),
+                SizedBox(width: 8.w),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: color.primary,
+                    foregroundColor: color.white,
+                    padding:
+                    EdgeInsetsDirectional.symmetric(horizontal: 20.w, vertical: 14.h),
+                  ),
+                  child: SmartText("Submit",
+                    style: style.addressTitleStyle),
+                ),
+              ],
+            ),
+            SizedBox(height: 20.h),
+            Center(
+              child: InkWell(
+                onTap: () {
+                  // Handle location
+                },
+                child: SmartRow(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.my_location, size: 20.w, color: color.primary),
+                    SizedBox(width: 6.h),
+                    SmartText(
+                      LocaleKeys.useMyLocation.tr,
+                      style: style.addressTagTitleStyle,
+                    )
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

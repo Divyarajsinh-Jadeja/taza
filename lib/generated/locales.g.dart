@@ -69,6 +69,11 @@ class LocaleKeys {
   static const cart = 'cart';
   static const rewards = 'rewards';
   static const reorder = 'reorder';
+  static const searchFor = 'searchFor';
+  static const selectDeliveryAddress = 'selectDeliveryAddress';
+  static const usePinCode = 'usePinCode';
+  static const useMyLocation = 'useMyLocation';
+  static const enterPinCode = 'enterPinCode';
 }
 
 class Locales {
@@ -134,6 +139,11 @@ class Locales {
     'cart': 'Cart',
     'rewards': 'Rewards',
     'reorder': 'Reorder',
+    'searchFor': 'Search for ',
+    'selectDeliveryAddress': 'Select delivery address',
+    'usePinCode': 'Use pincode to check delivery info',
+    'useMyLocation': 'Use my current location',
+    'enterPinCode': 'Enter pin code',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -195,5 +205,10 @@ class Locales {
     'cart': 'السلة',
     'rewards': 'الجوائز',
     'reorder': 'اعادة الطلب',
+    'searchFor': 'ابحث عن',
+    'selectDeliveryAddress': 'اختر عنوان التوصيل',
+    'usePinCode': 'استخدم الرمز البريدي للتحقق من معلومات التوصيل',
+    'useMyLocation': 'استخدم موقعي الحالي',
+    'enterPinCode': 'أدخل الرمز البريدي',
   };
 }

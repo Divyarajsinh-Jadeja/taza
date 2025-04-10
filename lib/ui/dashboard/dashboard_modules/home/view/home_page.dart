@@ -25,8 +25,9 @@ class HomePage extends GetView<HomeController> {
                   controller: controller.searchController,
                   onChanged: (val){},
                   suffixIcon: SmartRow(
+                    mainAxisSize: MainAxisSize.min,
                       children: [
-                        SmartImage(path : AppImages.icSearch),
+                        SmartImage(path : AppImages.icSearch, height: 24.h, width: 24.w),
                         Container(
                           height: 21.h,
                           width: 1.w,

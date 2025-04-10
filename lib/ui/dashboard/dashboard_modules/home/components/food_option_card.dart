@@ -34,8 +34,13 @@ class FoodOptionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final style = AppTheme.of(context).foodOptionCardStyle;
-
-    return Container(
+    return SmartRow(
+      padding: EdgeInsetsDirectional.only(
+        top: 16.w,
+        bottom: 16.w,
+        start: 16.w,
+        end: 8.w,
+      ),
       decoration: BoxDecoration(
         color: cardColor ?? style.foodCardBgColor,
         borderRadius: BorderRadius.circular(12.r),
@@ -48,45 +53,37 @@ class FoodOptionCard extends StatelessWidget {
           ),
         ],
       ),
-      child: Padding(
-        padding: EdgeInsetsDirectional.only(
-          top: 16.w,
-          bottom: 16.w,
-          start: 16.w,
-          end: 8.w,
-        ),
-        child: SmartRow(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        SmartColumn(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SmartColumn(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SmartText(title, style: style.foodCardTitleStyle),
-                SizedBox(height: 2.h),
-                SmartText(subtitle, style: style.foodCardSubTitleStyle),
-                SizedBox(height: 4.h),
-                Container(
-                  height: 30.h,
-                  padding: EdgeInsetsDirectional.symmetric(
-                    vertical: 6.h,
-                    horizontal: 12.w,
-                  ),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        tagGradientStart ?? style.tagStartGradientStartColor,
-                        tagGradientEnd ?? style.tagEndGradientStartColor,
-                      ],
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
-                    ),
-                    borderRadius: BorderRadius.circular(20.r),
-                  ),
-                  child: SmartText(tag, style: style.foodCardTagStyle),
+            SmartText(title, style: style.foodCardTitleStyle),
+            SizedBox(height: 2.h),
+            SmartText(subtitle, style: style.foodCardSubTitleStyle),
+            SizedBox(height: 4.h),
+            Container(
+              height: 30.h,
+              padding: EdgeInsetsDirectional.symmetric(
+                vertical: 6.h,
+                horizontal: 12.w,
+              ),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    tagGradientStart ?? style.tagStartGradientStartColor,
+                    tagGradientEnd ?? style.tagEndGradientStartColor,
+                  ],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
                 ),
-                SizedBox(height: 8.h),
-                time != null
-                    ? Container(
+                borderRadius: BorderRadius.circular(20.r),
+              ),
+              child: SmartText(tag, style: style.foodCardTagStyle),
+            ),
+            SizedBox(height: 8.h),
+            time != null
+                ? SmartRow(
                   height: 26.h,
                   padding: EdgeInsetsDirectional.symmetric(horizontal: 6.w),
                   decoration: BoxDecoration(
@@ -95,29 +92,27 @@ class FoodOptionCard extends StatelessWidget {
                       color: timeBorderColor ?? style.timeContainerBorderColor,
                     ),
                   ),
-                  child: SmartRow(
-                    children: [
-                      SmartImage(path : AppImages.icFlash)
-                          .animate(
-                        onPlay: (controller) => controller.repeat(),
-                      )
-                          .custom(
-                        duration: const Duration(seconds: 2),
-                        builder: (context, value, child) {
-                          final yRotation = value * 2 * 3.1416;
-                          final xRotation =
-                              0.2 * sin(value * 2 * 3.1416);
-                          return Transform(
-                            alignment: Alignment.center,
-                            transform: Matrix4.identity()
-                              ..rotateX(xRotation)
-                              ..rotateY(yRotation),
-                            child: child,
-                          );
-                        },
-                      ),
-                      SizedBox(width: 4.w),
-                      SmartRichText(spans: [
+                  children: [
+                    SmartImage(path: AppImages.icFlash)
+                        .animate(onPlay: (controller) => controller.repeat())
+                        .custom(
+                          duration: const Duration(seconds: 2),
+                          builder: (context, value, child) {
+                            final yRotation = value * 2 * 3.1416;
+                            final xRotation = 0.2 * sin(value * 2 * 3.1416);
+                            return Transform(
+                              alignment: Alignment.center,
+                              transform:
+                                  Matrix4.identity()
+                                    ..rotateX(xRotation)
+                                    ..rotateY(yRotation),
+                              child: child,
+                            );
+                          },
+                        ),
+                    SizedBox(width: 4.w),
+                    SmartRichText(
+                      spans: [
                         SmartTextSpan(
                           text: time!,
                           style: style.foodCardTimeStyle,
@@ -127,23 +122,16 @@ class FoodOptionCard extends StatelessWidget {
                           text: duration ?? "",
                           style: style.foodCardDurationStyle,
                         ),
-                      ]),
-                    ],
-                  ),
+                      ],
+                    ),
+                  ],
                 )
-                    : SizedBox(height: 20.h),
-              ],
-            ),
-            SizedBox(width: 10.w),
-            SmartImage(
-              width: 172.w,
-              height: 110.h,
-              path: image,
-              fit: BoxFit.fill,
-            ),
+                : SizedBox(height: 20.h),
           ],
         ),
-      ),
+        SizedBox(width: 10.w),
+        SmartImage(width: 172.w, height: 110.h, path: image, fit: BoxFit.fill),
+      ],
     );
   }
 }

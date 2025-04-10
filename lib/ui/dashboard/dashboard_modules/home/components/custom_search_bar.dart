@@ -42,10 +42,13 @@ class CustomSearchBar extends StatelessWidget {
       ),
       child: SmartRow(
         children: [
-          if (prefixIcon != null) prefixIcon ?? SizedBox(),
           Expanded(
-            child: SmartTextField(
+            child: SmartTextField.search(
               controller: controller,
+              padding: EdgeInsets.symmetric(vertical: 6.h),
+              //prefixIcon: prefixIcon ?? SizedBox(),
+              suffixIcon: suffixIcon ?? SizedBox(),
+              hintText: "",
               hintStyle: hintStyle ?? style.searchBarHintStyle,
               style: textStyle ?? style.searchBarTextStyle,
               color: Colors.transparent,
@@ -62,12 +65,8 @@ class CustomSearchBar extends StatelessWidget {
               onValueChanges: onChanged,
             ).stackHintOverlay(context, items, style),
           ),
-          if (suffixIcon != null) ...[
-            suffixIcon ?? SizedBox(),
-          ],
         ],
-      ),
-    );
+      ));
   }
 }
 
@@ -89,7 +88,7 @@ extension on SmartTextField {
                 padding: EdgeInsetsDirectional.only(start: 14.w),
                 children: [
                   SmartText(
-                    'Search for ',
+                    LocaleKeys.searchFor.tr,
                     style: style.searchBarHintStyle,
                   ),
                   AnimatedSwitcher(
