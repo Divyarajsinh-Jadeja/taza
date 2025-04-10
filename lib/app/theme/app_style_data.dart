@@ -320,7 +320,8 @@ class LightModeTheme extends AppTheme {
     imageDecoration: BorderRadiusDirectional.only(
       topStart: Radius.circular(12.r),
       bottomStart: Radius.circular(12.r),
-    )
+    ),
+    iconColor: colors.primary
   );
 
   @override
@@ -333,5 +334,15 @@ class LightModeTheme extends AppTheme {
       color: colors.white,
       fontSize: 17.sp,
     ),
+  );
+
+  @override
+  SmartChipStyle get smartChipStyle => SmartChipStyle(
+    titleStyle: interBoldW700TextStyle.copyWith(
+      color: colors.color9c9cA3,
+      fontSize: 13.sp,
+    ),
+    selectedColor: colors.primary,
+    color: colors.color9c9cA3
   );
 }

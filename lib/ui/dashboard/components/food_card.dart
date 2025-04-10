@@ -122,7 +122,7 @@ class FoodCard extends StatelessWidget {
                 SmartRow(
                   height: 32.h,
                   decoration: BoxDecoration(
-                    border: Border.all(color: Colors.teal),
+                    border: Border.all(color: style.iconColor),
                     borderRadius: BorderRadius.circular(32),
                   ),
                   animator: SmartAnimator(
@@ -136,13 +136,13 @@ class FoodCard extends StatelessWidget {
                     IconButton(
                       iconSize: 16.r,
                       onPressed: onDecrease,
-                      icon: const Icon(Icons.remove, color: Colors.teal),
+                      icon:  Icon(Icons.remove, color: style.iconColor),
                     ),
                     SmartAnimatedQuantity(quantity: model.quantity,  style: style.titleStyle.copyWith(fontSize: 13.sp),),
                     IconButton(
                       iconSize: 16.r,
                       onPressed: onIncrease,
-                      icon: const Icon(Icons.add, color: Colors.teal),
+                      icon:  Icon(Icons.add, color: style.iconColor),
                     ),
                   ],
                 ),

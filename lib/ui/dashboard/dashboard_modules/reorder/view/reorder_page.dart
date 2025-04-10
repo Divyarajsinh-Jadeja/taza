@@ -68,21 +68,19 @@ class ReorderPage extends GetView<ReorderController> {
     required String text,
     Function()? onTap,
   }) {
+    var style = AppTheme.of(context).smartChipStyle;
     return InkWell(
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(120),
-          border: Border.all(color: colors(context).color9C9CA3),
+          borderRadius: BorderRadius.circular(120.r),
+          border: Border.all(color: style.color),
         ),
         padding: EdgeInsetsDirectional.symmetric(horizontal: 12.w),
         child: Center(
           child: SmartText(
             text,
-            style: AppTheme.of(context).interBoldW700TextStyle.copyWith(
-              fontSize: 13,
-              color: colors(context).color9C9CA3,
-            ),
+            style: style.titleStyle
           ),
         ),
       ),
