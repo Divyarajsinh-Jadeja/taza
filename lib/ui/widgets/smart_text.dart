@@ -71,7 +71,7 @@ class SmartText extends StatelessWidget {
     }
 
     // Wrap with padding if needed
-    if (_text != null && _text!.isNotEmpty && optionalPadding != null) {
+    if (_text != null && _text.isNotEmpty && optionalPadding != null) {
       child = Padding(padding: optionalPadding!, child: child);
     }
 

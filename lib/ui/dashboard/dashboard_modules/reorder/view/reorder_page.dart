@@ -5,6 +5,7 @@ class ReorderPage extends GetView<ReorderController> {
 
   @override
   Widget build(BuildContext context) {
+    final quantityController = Get.put(QuantityController())..initializeQuantities(controller.foodList.length);
     return Scaffold(
       appBar: SmartAppBar(title: LocaleKeys.reorder.tr, isBack: false),
       body: Obx(() {
@@ -50,8 +51,9 @@ class ReorderPage extends GetView<ReorderController> {
                 padding: EdgeInsetsDirectional.symmetric(horizontal: 20.w),
                 itemBuilder:
                     (context, index) => FoodCard(
-                      onIncrease: () => controller.increaseQuantity(index),
-                      onDecrease: () => controller.decreaseQuantity(index),
+                      index: index,
+                      onIncrease: () => quantityController.increment(index),
+                      onDecrease: () => quantityController.decrement(index),
                       model: controller.foodList[index],
                     ),
                 itemCount: controller.foodList.length,

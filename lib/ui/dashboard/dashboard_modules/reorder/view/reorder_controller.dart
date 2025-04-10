@@ -99,20 +99,4 @@ class ReorderController extends GetxController {
     debugPrint('ReorderController → Tab Init');
   }
 
-  void increaseQuantity(int index) {
-    if(foodList[index].quantity<10){
-      foodList[index].quantity++;
-      HapticFeedback.lightImpact();
-      foodList.refresh();
-    }
-  }
-
-  void decreaseQuantity(int index) {
-    if (foodList[index].quantity !=0) {
-      foodList[index].quantity--;
-      HapticFeedback.lightImpact();
-      foodList.refresh();
-    }
-  }
-
 }

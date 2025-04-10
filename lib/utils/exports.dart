@@ -109,6 +109,9 @@ export 'package:taza/ui/dashboard/components/tabdata.dart';
 export 'package:taza/ui/dashboard/components/food_card.dart';
 export 'package:taza/ui/dashboard/components/offer_popup.dart';
 
+export 'package:taza/ui/smart_quantity/view/smart_quantity.dart';
+export 'package:taza/ui/smart_quantity/view/smart_quantity_controller.dart';
+
 
 export 'package:taza/ui/dashboard/dashboard_modules/home/view/home_controller.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/home/view/home_page.dart';

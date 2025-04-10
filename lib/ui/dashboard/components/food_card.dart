@@ -5,13 +5,13 @@ class FoodCard extends StatelessWidget {
     super.key,
     required this.model,
     this.onIncrease,
-    this.onDecrease,
+    this.onDecrease, required this.index,
   });
 
   final FoodModel model;
   final VoidCallback? onIncrease;
   final VoidCallback? onDecrease;
-
+  final int index;
   @override
   Widget build(BuildContext context) {
     final style = AppTheme.of(context).foodCardStyle;
@@ -145,7 +145,7 @@ class FoodCard extends StatelessWidget {
                         icon: Icon(Icons.remove, color: style.iconColor,size: 16.r,),
                       ),
                       SmartAnimatedQuantity(
-                        quantity: model.quantity,
+                        index: index,
                         style: style.titleStyle.copyWith(fontSize: 13.sp),
                       ),
                     ],
@@ -165,44 +165,3 @@ class FoodCard extends StatelessWidget {
   }
 }
 
-class SmartAnimatedQuantity extends StatefulWidget {
-  final int quantity;
-  final TextStyle style;
-
-  const SmartAnimatedQuantity({
-    super.key,
-    required this.quantity,
-    required this.style,
-  });
-
-  @override
-  State<SmartAnimatedQuantity> createState() => _SmartAnimatedQuantityState();
-}
-
-class _SmartAnimatedQuantityState extends State<SmartAnimatedQuantity> {
-  int? _previousQuantity;
-
-  @override
-  void didUpdateWidget(covariant SmartAnimatedQuantity oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    _previousQuantity = oldWidget.quantity;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final bool isIncreasing =
-        _previousQuantity == null || widget.quantity > _previousQuantity!;
-    final slideOffset =
-        isIncreasing
-            ? const Offset(0, 0.4) // Slide up
-            : const Offset(0, -0.4); // Slide down
-
-    return Animate(
-      key: ValueKey(widget.quantity),
-      effects: [
-        SlideEffect(begin: slideOffset, end: Offset.zero, duration: 100.ms),
-      ],
-      child: SmartText("${widget.quantity}", style: widget.style),
-    );
-  }
-}
