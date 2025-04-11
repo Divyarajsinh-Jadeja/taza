@@ -81,6 +81,6 @@ class AppImages {
 
   // Checkout Screen assets
   static const String icSaveTag = 'assets/images/ic_save_tag.svg';
-
   static const String icArrowDown = 'assets/images/ic_arrow_down.svg';
+  static const String icDoc = 'assets/images/ic_doc.svg';
 }

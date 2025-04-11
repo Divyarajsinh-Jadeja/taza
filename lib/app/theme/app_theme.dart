@@ -481,9 +481,14 @@ class CheckoutStyle {
   final TextStyle subTitleStyle;
   final TextStyle subCardTitleStyle;
   final TextStyle savingTitleStyle;
+  final TextStyle toPayTitleStyle;
+  final TextStyle toPayTitleDiscountedStyle;
   final TextStyle appliedTextStyle;
   final TextStyle tabSelectedTextStyle;
   final TextStyle tabDisableTextStyle;
+  final BoxDecoration cardDecoration;
+  final TextStyle payUsingTextStyle;
+  final TextStyle paymentTextStyle;
 
   CheckoutStyle({
     required this.backgroundColor,
@@ -497,9 +502,13 @@ class CheckoutStyle {
     required this.subTitleStyle,
     required this.subCardTitleStyle,
     required this.savingTitleStyle,
+    required this.toPayTitleStyle,
+    required this.toPayTitleDiscountedStyle,
     required this.appliedTextStyle,
     required this.tabSelectedTextStyle,
     required this.tabDisableTextStyle,
-
+    required this.cardDecoration,
+    required this.payUsingTextStyle,
+    required this.paymentTextStyle,
   });
 }

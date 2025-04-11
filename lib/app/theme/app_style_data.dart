@@ -339,11 +339,11 @@ class LightModeTheme extends AppTheme {
   @override
   SmartChipStyle get smartChipStyle => SmartChipStyle(
     titleStyle: interBoldW700TextStyle.copyWith(
-      color: colors.color9c9cA3,
+      color: colors.color9C9CA3,
       fontSize: 13.sp,
     ),
     selectedColor: colors.primary,
-    color: colors.color9c9cA3
+    color: colors.color9C9CA3
   );
 
   @override
@@ -363,8 +363,16 @@ class LightModeTheme extends AppTheme {
     subTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 11.sp, color: colors.color9C9CA3),
     subCardTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 13.sp, color: colors.color9C9CA3),
     savingTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 13.sp, color: colors.color1D1D1F),
+    toPayTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 13.sp, color: colors.color1D1D1F),
+    toPayTitleDiscountedStyle: interBoldW700TextStyle.copyWith(fontSize: 13.sp, color: colors.color9C9CA3,decoration: TextDecoration.lineThrough),
     appliedTextStyle: interBoldW700TextStyle.copyWith(fontSize: 12.sp, color: colors.color038153),
     tabSelectedTextStyle: interBoldW700TextStyle.copyWith(fontSize: 13.sp, color: colors.white),
     tabDisableTextStyle: interBoldW700TextStyle.copyWith(fontSize: 13.sp, color: colors.color58585C),
+    cardDecoration: BoxDecoration(
+      color: colors.white,
+      borderRadius: BorderRadius.all(Radius.circular(16.r)),
+    ),
+    payUsingTextStyle: interRegularW400TextStyle.copyWith(fontSize: 13.sp, color: colors.color9C9CA3),
+    paymentTextStyle: interBoldW700TextStyle.copyWith(fontSize: 15.sp, color: colors.color1D1D1F),
   );
 }

@@ -4,7 +4,7 @@ class SmartDeliveryTabBar extends StatefulWidget {
   final Function(int) onDeliveryTypeChanged;
   final List<Widget>? tabBarViewWidgets;
 
-  const SmartDeliveryTabBar({Key? key, required this.onDeliveryTypeChanged, this.tabBarViewWidgets}) : super(key: key);
+  const SmartDeliveryTabBar({super.key, required this.onDeliveryTypeChanged, this.tabBarViewWidgets});
 
   @override
   State<SmartDeliveryTabBar> createState() => _SmartDeliveryTabBarState();
@@ -106,6 +106,7 @@ class _SmartDeliveryTabBarState extends State<SmartDeliveryTabBar> with SingleTi
         SmartColumn(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
           expanded: true,
           children: [
             SizedBox(height: 2.h),
