@@ -11,7 +11,7 @@ class SmartCategoryRow extends StatelessWidget {
     return SafeArea(
       child: SizedBox(
         width: Get.width,
-        height: 110.h,
+        height: 130.h,
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: categories.length,

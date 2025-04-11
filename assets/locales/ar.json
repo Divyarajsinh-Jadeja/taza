@@ -55,5 +55,9 @@
   "food": "الطعام",
   "cart": "السلة",
   "rewards": "الجوائز",
-  "reorder": "اعادة الطلب"
+  "reorder": "اعادة الطلب",
+  "cookingRequest" : "طلبات الطهي",
+  "deliveryType" : "نوع التوصيل",
+  "tip" : "إكرامية",
+  "instruction" : "تعليمات"
 }

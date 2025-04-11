@@ -4,6 +4,7 @@ import 'package:taza/taza.dart';
 class AppRoutes {
   static const initialRoute = '/';
   static const dashboardPage = '/dashboard_page';
+  static const checkoutPage = '/checkout_page';
 
   static final List<GetPage> pages = [
     GetPage(
@@ -17,6 +18,13 @@ class AppRoutes {
       name: AppRoutes.dashboardPage,
       page: () => const DashboardPage(),
       binding: DashboardBinding(),
+      transition: Transition.cupertino,
+      transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
+    ),
+    GetPage(
+      name: AppRoutes.checkoutPage,
+      page: () => const CheckoutPage(),
+      binding: CheckoutBinding(),
       transition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
     ),

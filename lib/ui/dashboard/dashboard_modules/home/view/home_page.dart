@@ -1,5 +1,4 @@
 import 'package:taza/taza.dart';
-import 'package:taza/ui/widgets/smart_category_card.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({super.key});
@@ -22,18 +21,20 @@ class HomePage extends GetView<HomeController> {
               FoodCategory(imagePath: 'https://i.ibb.co/67g3RhCN/Group-118.png', name: 'Starters', onTap: () => print('Starters tapped')),
             ],
           ),
-          SizedBox(
-            height: 130,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: controller.categoryItems.length,
-              padding: EdgeInsets.symmetric(horizontal: 12),
-              itemBuilder: (context, index) {
-                final item = controller.categoryItems[index];
-                return SmartCategoryCard(title: item['title']!, imagePath: item['image']!);
-              },
-            ),
-          ),
+
+          /// This Will be may be not User in this Section Comes Full Images
+          // SizedBox(
+          //   height: 130.h,
+          //   child: ListView.builder(
+          //     scrollDirection: Axis.horizontal,
+          //     itemCount: controller.categoryItems.length,
+          //     padding: EdgeInsets.symmetric(horizontal: 12),
+          //     itemBuilder: (context, index) {
+          //       final item = controller.categoryItems[index];
+          //       return SmartCategoryCard(title: item['title']!, imagePath: item['image']!);
+          //     },
+          //   ),
+          // ),
         ],
       ),
     );

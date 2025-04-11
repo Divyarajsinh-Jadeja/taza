@@ -55,5 +55,9 @@
   "food": "Food",
   "cart": "Cart",
   "rewards": "Rewards",
-  "reorder": "Reorder"
+  "reorder": "Reorder",
+  "cookingRequest" : "Cooking Requests",
+  "deliveryType" : "Delivery Type",
+  "tip" : "Tip",
+  "instruction" : "Instruction"
 }

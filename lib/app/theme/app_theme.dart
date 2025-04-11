@@ -65,6 +65,8 @@ abstract class AppTheme {
   FoodCardStyle get foodCardStyle;
 
   SmartCategoryRowStyle get smartCategoryRowStyle;
+
+  CheckoutStyle get checkoutStyle;
 }
 
 class PrimaryButtonStyle {
@@ -444,4 +446,39 @@ class SmartCategoryRowStyle {
   final TextStyle titleStyle;
 
   SmartCategoryRowStyle({required this.titleStyle});
+}
+
+class CheckoutStyle {
+  final Color backgroundColor;
+  final Color primaryColor;
+  final Color whiteColor;
+  final Color requestColor;
+  final Color greenColor;
+  final Color tabSelectedBgColor;
+  final Color tabDisableBgColor;
+  final TextStyle titleStyle;
+  final TextStyle subTitleStyle;
+  final TextStyle subCardTitleStyle;
+  final TextStyle savingTitleStyle;
+  final TextStyle appliedTextStyle;
+  final TextStyle tabSelectedTextStyle;
+  final TextStyle tabDisableTextStyle;
+
+  CheckoutStyle({
+    required this.backgroundColor,
+    required this.primaryColor,
+    required this.whiteColor,
+    required this.requestColor,
+    required this.greenColor,
+    required this.tabSelectedBgColor,
+    required this.tabDisableBgColor,
+    required this.titleStyle,
+    required this.subTitleStyle,
+    required this.subCardTitleStyle,
+    required this.savingTitleStyle,
+    required this.appliedTextStyle,
+    required this.tabSelectedTextStyle,
+    required this.tabDisableTextStyle,
+
+  });
 }

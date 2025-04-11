@@ -1,4 +1,4 @@
-import 'package:taza/imports.dart';
+import 'package:taza/taza.dart';
 
 class SmartCategoryCard extends StatelessWidget {
   final String title;

@@ -6,6 +6,8 @@ class HomeController extends GetxController {
     {"title": "Large Order", "image": "assets/large_order.png"},
     {"title": "Gourmet Delights", "image": "assets/gourmet.png"},
     {"title": "Delivery Fast", "image": "assets/delivery.png"},
+    {"title": "Delivery Fast", "image": "assets/delivery.png"},
+    {"title": "Delivery Fast", "image": "assets/delivery.png"},
   ];
 
   @override
