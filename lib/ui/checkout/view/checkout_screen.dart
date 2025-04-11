@@ -7,6 +7,8 @@ class CheckoutPage extends GetView<CheckoutController> {
   @override
   Widget build(BuildContext context) {
     final style = AppTheme.of(context).checkoutStyle;
+    final quantityController = Get.put(QuantityController())..initializeQuantities(1);
+
     return Scaffold(
       backgroundColor: style.backgroundColor,
       /// TODO: appbar need to change
@@ -27,46 +29,45 @@ class CheckoutPage extends GetView<CheckoutController> {
               children: [
                 SmartRow(
                   children: [
-                    Expanded(
-                      child: SmartColumn(
-                        children: [
-                          SmartRow(
-                            children: [
-                              SmartImage(
-                                path: AppImages.icNonVeg,
-                                height: 16.w,
-                                width: 16.w,
-                              ),
-                              SizedBox(width: 8.w),
-                              SmartText(
-                                "Family Bucket",
-                                style: style.titleStyle,
+                    SmartColumn(
+                      expanded: true,
+                      children: [
+                        SmartRow(
+                          children: [
+                            SmartImage(
+                              path: AppImages.icNonVeg,
+                              height: 16.w,
+                              width: 16.w,
+                            ),
+                            SizedBox(width: 8.w),
+                            SmartText(
+                              "Family Bucket",
+                              style: style.titleStyle,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 4.h),
+                        SmartRow(
+                          children: [
+                            Flexible(
+                              child: SmartText(
+                                "12 pieces broast, 6 pieces bread,3 coleslaw,6 garlic sauce, 1 ltr Pepsi, family fries",
+                                style: style.subTitleStyle,
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                               ),
-                            ],
-                          ),
-                          SizedBox(height: 4.h),
-                          SmartRow(
-                            children: [
-                              Flexible(
-                                child: SmartText(
-                                  "12 pieces broast, 6 pieces bread,3 coleslaw,6 garlic sauce, 1 ltr Pepsi, family fries",
-                                  style: style.subTitleStyle,
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ),
-                              SizedBox(width: 4.w),
-                              SmartImage(
-                                path: AppImages.icArrowDown,
-                                height: 16.w,
-                                width: 16.w,
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
+                            ),
+                            SizedBox(width: 4.w),
+                            SmartImage(
+                              path: AppImages.icArrowDown,
+                              height: 16.w,
+                              width: 16.w,
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                     SizedBox(width: 12.w),
                     Expanded(
@@ -122,7 +123,7 @@ class CheckoutPage extends GetView<CheckoutController> {
               children: [
                 SmartRow(
                   children: [
-                    SmartText("Saving Corner", style: style.subCardTitleStyle),
+                    SmartText(LocaleKeys.savingCorner.tr, style: style.subCardTitleStyle),
                   ],
                 ),
                 SizedBox(height: 16.h),
@@ -141,7 +142,7 @@ class CheckoutPage extends GetView<CheckoutController> {
                     Spacer(),
                     Icon(Icons.check, color: style.greenColor, size: 16.w),
                     SizedBox(width: 4.w),
-                    SmartText("Applied", style: style.appliedTextStyle),
+                    SmartText(LocaleKeys.applied.tr, style: style.appliedTextStyle),
                   ],
                 ),
               ],
@@ -182,7 +183,7 @@ class CheckoutPage extends GetView<CheckoutController> {
                       child: SmartRichText(
                         spans: [
                           SmartTextSpan(
-                            text: "To pay ",
+                            text: "${LocaleKeys.toPayPrefix.tr} ",
                             style: style.toPayTitleStyle,
                           ),
                           SmartTextSpan(
@@ -235,11 +236,11 @@ class CheckoutPage extends GetView<CheckoutController> {
               SmartRow(
                 spacing: 4.w,
                 children: [
-                  SmartText("Pay using", style: style.payUsingTextStyle),
+                  SmartText(LocaleKeys.payUsing.tr, style: style.payUsingTextStyle),
                   SmartImage(path: AppImages.icArrowUp, size: 16.w),
                 ],
               ),
-              SmartText("PayPal", style: style.paymentTextStyle),
+              SmartText(LocaleKeys.payPal.tr, style: style.paymentTextStyle),
             ],
           ),
           Expanded(child: SmartButton(onTap: () {}, title: "Pay 79 SAR")),
