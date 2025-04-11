@@ -63,6 +63,10 @@ abstract class AppTheme {
   TaskDetailsStyle get taskDetailsStyle;
 
   FoodCardStyle get foodCardStyle;
+
+  OfferPopupStyle get offerPopupStyle;
+
+  SmartChipStyle get smartChipStyle;
 }
 
 class PrimaryButtonStyle {
@@ -434,6 +438,23 @@ class FoodCardStyle {
   final TextStyle titleStyle;
   final TextStyle subTitleStyle;
   final TextStyle amountStyle;
+  final BoxDecoration cardDecoration;
+  final BorderRadiusGeometry imageDecoration;
+  final Color iconColor;
+  FoodCardStyle({required this.titleStyle, required this.subTitleStyle, required this.amountStyle,required this.cardDecoration,required this.imageDecoration,required this.iconColor});
+}
 
-  FoodCardStyle({required this.titleStyle, required this.subTitleStyle, required this.amountStyle});
+class OfferPopupStyle {
+  final TextStyle titleStyle;
+  final TextStyle subTitleStyle;
+
+  OfferPopupStyle({required this.titleStyle,required this.subTitleStyle});
+}
+
+class SmartChipStyle{
+  final TextStyle titleStyle;
+  final Color selectedColor;
+  final Color color;
+
+  SmartChipStyle({required this.titleStyle,required this.selectedColor,required this.color});
 }
