@@ -72,7 +72,7 @@ class FoodCard extends StatelessWidget {
                 ),
                 SmartImage(
                   path: AppImages.icNonVeg,
-                  height: 16.h,
+                  height: 16.w,
                   width: 16.w,
                   animator: SmartAnimator(
                     animateFade: true,
