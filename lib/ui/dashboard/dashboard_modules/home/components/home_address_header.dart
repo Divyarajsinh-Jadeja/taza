@@ -52,15 +52,13 @@ class HomeAddressHeader extends StatelessWidget {
             ),
           ],
         ),
-        if (userImagePath != null)
+        userImagePath != null ?
           SmartImage(
             path: userImagePath ?? "",
             width: userImageWidth ?? 40.w,
             height: userImageHeight ?? 40.h,
             fit: BoxFit.cover,
-          )
-        else
-          SmartImage(path : AppImages.icUser, width: 32.w, height: 32.h,),
+          ) : SmartImage(path : AppImages.icUser, width: 32.w, height: 32.h,),
       ],
     );
   }

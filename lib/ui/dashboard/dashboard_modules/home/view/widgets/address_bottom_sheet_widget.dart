@@ -63,20 +63,14 @@ class AddressBottomSheet extends StatelessWidget {
                   ),
                 ),
                 SizedBox(width: 8.w),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: style.submitButtonBgColor,
-                    foregroundColor: style.textFieldBgColor,
-                    padding: EdgeInsetsDirectional.symmetric(
-                      horizontal: 20.w,
-                      vertical: 14.h,
-                    ),
-                  ),
-                  child: SmartText(
-                    LocaleKeys.submit.tr,
-                    style: style.addressBottomSheetTitleStyle,
-                  ),
+                SmartButton(
+                  height: 46.h,
+                  width: 80.w,
+                  onTap: () {},
+                  title: LocaleKeys.submit.tr,
+                  borderRadius: BorderRadius.circular(12.r),
+                  titleStyle: style.addressBottomSheetTagTitleStyle,
+                  activeBackgroundColor: style.submitButtonBgColor,
                 ),
               ],
             ),
@@ -117,56 +111,53 @@ class AddressBottomSheet extends StatelessWidget {
     required VoidCallback onTap,
     required AddressBottomSheetStyle style,
   }) {
-    return InkWell(
+    return SmartRow(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(12.r),
-      child: SmartRow(
-        padding: EdgeInsetsDirectional.all(12.w),
-        margin: EdgeInsetsDirectional.only(bottom: 12.w),
-        decoration: BoxDecoration(
-          color: style.textFieldBgColor,
-          borderRadius: BorderRadius.circular(12.r),
-        ),
-        children: [
-          Icon(Icons.location_on_outlined, color: style.submitButtonBgColor),
-          SizedBox(width: 12.w),
-          SmartColumn(
-            expanded: true,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SmartRow(
-                children: [
-                  SmartText(
-                    "$name, $pinCode",
+      padding: EdgeInsetsDirectional.all(12.w),
+      margin: EdgeInsetsDirectional.only(bottom: 12.w),
+      decoration: BoxDecoration(
+        color: style.textFieldBgColor,
+        borderRadius: BorderRadius.circular(12.r),
+      ),
+      children: [
+        Icon(Icons.location_on_outlined, color: style.submitButtonBgColor),
+        SizedBox(width: 12.w),
+        SmartColumn(
+          expanded: true,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SmartRow(
+              children: [
+                SmartText(
+                  "$name, $pinCode",
+                  style: style.addressBottomSheetTagTitleStyle,
+                ),
+                SizedBox(width: 6.w),
+                Container(
+                  padding: EdgeInsetsDirectional.symmetric(
+                    horizontal: 6.w,
+                    vertical: 2.h,
+                  ),
+                  decoration: BoxDecoration(
+                    color: style.textFieldBgColor,
+                    borderRadius: BorderRadius.circular(4.r),
+                  ),
+                  child: SmartText(
+                    tag,
                     style: style.addressBottomSheetTagTitleStyle,
                   ),
-                  SizedBox(width: 6.w),
-                  Container(
-                    padding: EdgeInsetsDirectional.symmetric(
-                      horizontal: 6.w,
-                      vertical: 2.h,
-                    ),
-                    decoration: BoxDecoration(
-                      color: style.textFieldBgColor,
-                      borderRadius: BorderRadius.circular(4.r),
-                    ),
-                    child: SmartText(
-                      tag,
-                      style: style.addressBottomSheetTagTitleStyle,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 4.h),
-              SmartText(
-                fullAddress,
-                overflow: TextOverflow.ellipsis,
-                style: style.addressBottomSheetTitleStyle,
-              ),
-            ],
-          ),
-        ],
-      ),
+                ),
+              ],
+            ),
+            SizedBox(height: 4.h),
+            SmartText(
+              fullAddress,
+              overflow: TextOverflow.ellipsis,
+              style: style.addressBottomSheetTitleStyle,
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
