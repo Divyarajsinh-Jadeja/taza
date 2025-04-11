@@ -72,14 +72,16 @@ class CheckoutPage extends GetView<CheckoutController> {
                       child: SmartRow(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Container(
-                            height: 32.h,
-                            width: 80.w,
-                            decoration: BoxDecoration(
-                              color: style.primaryColor,
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(16.r),
-                              ),
+                          SmartAnimatedQuantity(
+                            index: 0,
+                            model: FoodModel(
+                                name: 'Family Bucket',
+                                imageUrl: 'https://i.ibb.co/whRS5nY7/b.jpg',
+                                rating: 4.2,
+                                reviewsCount: 1200,
+                                deliveryTime: '30-35 min',
+                                price: 89.0,
+                                quantity: 1
                             ),
                           ),
                           SizedBox(width: 16.w),
@@ -212,10 +214,13 @@ class CheckoutPage extends GetView<CheckoutController> {
       ),
       bottomNavigationBar: SmartRow(
         height: 88.h,
-        decoration: BoxDecoration(
-          color: style.whiteColor
+        decoration: BoxDecoration(color: style.whiteColor),
+        padding: EdgeInsetsDirectional.only(
+          top: 16.h,
+          bottom: 26.h,
+          start: 19.w,
+          end: 19.w,
         ),
-        padding: EdgeInsetsDirectional.symmetric(horizontal: 19.w,vertical: 16.h),
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -229,20 +234,14 @@ class CheckoutPage extends GetView<CheckoutController> {
               SmartRow(
                 spacing: 4.w,
                 children: [
-                  SmartText("Pay using",style: style.payUsingTextStyle,),
+                  SmartText("Pay using", style: style.payUsingTextStyle),
                   SmartImage(path: AppImages.icArrowUp, size: 16.w),
                 ],
               ),
-              SmartText("PayPal",style: style.paymentTextStyle,)
+              SmartText("PayPal", style: style.paymentTextStyle),
             ],
           ),
-          Expanded(
-            child: SmartButton(
-
-                onTap: () {
-
-            }, title: "Pay 79 SAR"),
-          )
+          Expanded(child: SmartButton(onTap: () {}, title: "Pay 79 SAR")),
         ],
       ),
     );

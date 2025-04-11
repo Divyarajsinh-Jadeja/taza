@@ -59,5 +59,11 @@
   "cookingRequest" : "طلبات الطهي",
   "deliveryType" : "نوع التوصيل",
   "tip" : "إكرامية",
-  "instruction" : "تعليمات"
+  "instruction" : "تعليمات",
+  "payPal": "باي بال",
+  "payUsing": "الدفع بواسطة",
+  "applied": "تم التطبيق",
+  "savingCorner": "زاوية التوفير",
+  "toPayPrefix": "المبلغ المستحق ",
+  "order": "طلب"
 }

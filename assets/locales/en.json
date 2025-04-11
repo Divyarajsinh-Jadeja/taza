@@ -59,5 +59,11 @@
   "cookingRequest" : "Cooking Requests",
   "deliveryType" : "Delivery Type",
   "tip" : "Tip",
-  "instruction" : "Instruction"
+  "instruction" : "Instruction",
+  "payPal": "PayPal",
+  "payUsing": "Pay using",
+  "applied": "Applied",
+  "savingCorner": "Saving Corner",
+  "toPayPrefix": "To pay ",
+  "order": "Order"
 }

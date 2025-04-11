@@ -254,9 +254,9 @@ class LightModeTheme extends AppTheme {
 
   @override
   SmartChipStyle get smartChipStyle => SmartChipStyle(
-    titleStyle: interBoldW700TextStyle.copyWith(color: colors.color9c9cA3, fontSize: 13.sp),
+    titleStyle: interBoldW700TextStyle.copyWith(color: colors.color9C9CA3, fontSize: 13.sp),
     selectedColor: colors.primary,
-    color: colors.color9c9cA3,
+    color: colors.color9C9CA3,
   );
 
   @override
@@ -276,7 +276,7 @@ class LightModeTheme extends AppTheme {
     borderColor: colors.colorD2D2D7,
     transparent: colors.transparent,
     selectedCategoryTextStyle: interBoldW700TextStyle.copyWith(color: colors.white),
-    unselectedCategoryTextStyle: interBoldW700TextStyle.copyWith(color: colors.color9c9cA3),
+    unselectedCategoryTextStyle: interBoldW700TextStyle.copyWith(color: colors.color9C9CA3),
     categoryTitleTextStyle: interBoldW700TextStyle.copyWith(fontSize: 14.sp),
   );
 
@@ -287,7 +287,6 @@ class LightModeTheme extends AppTheme {
     ratingStyle: interRegularW400TextStyle,
     primaryColor: colors.primary,
     dividerColor: colors.colorD2D2D7,
-    color: colors.color9C9CA3
   );
 
   @override

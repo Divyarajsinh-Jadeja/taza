@@ -73,6 +73,11 @@ class LocaleKeys {
   static const deliveryType = 'deliveryType';
   static const tip = 'tip';
   static const instruction = 'instruction';
+  static const payPal = 'payPal';
+  static const payUsing = 'payUsing';
+  static const applied = 'applied';
+  static const savingCorner = 'savingCorner';
+  static const toPayPrefix = 'toPayPrefix';
   static const order = 'order';
 }
 
@@ -143,8 +148,12 @@ class Locales {
     'deliveryType': 'Delivery Type',
     'tip': 'Tip',
     'instruction': 'Instruction',
+    'payPal': 'PayPal',
+    'payUsing': 'Pay using',
+    'applied': 'Applied',
+    'savingCorner': 'Saving Corner',
+    'toPayPrefix': 'To pay ',
     'order': 'Order',
-
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -210,6 +219,11 @@ class Locales {
     'deliveryType': 'نوع التوصيل',
     'tip': 'إكرامية',
     'instruction': 'تعليمات',
+    'payPal': 'باي بال',
+    'payUsing': 'الدفع بواسطة',
+    'applied': 'تم التطبيق',
+    'savingCorner': 'زاوية التوفير',
+    'toPayPrefix': 'المبلغ المستحق ',
     'order': 'طلب',
   };
 }
