@@ -20,7 +20,6 @@ class DashboardPage extends GetView<DashboardController> {
         shape: const CircleBorder(),
         onPressed: () {
           Get.toNamed(AppRoutes.checkoutPage);
-          //  controller.changeTab(2);
         },
         child: SmartImage(path: bottomNavData.icon),
       ),
