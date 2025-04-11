@@ -38,7 +38,7 @@ class _SmartDeliveryTabBarState extends State<SmartDeliveryTabBar> with SingleTi
           decoration: BoxDecoration(color: Colors.grey[200], borderRadius: BorderRadius.circular(50.r)),
           child: TabBar(
             controller: _tabController,
-            labelColor: Colors.white,
+            labelColor: style.whiteColor,
             dividerHeight: 0.0,
             unselectedLabelStyle: style.tabDisableTextStyle,
             indicatorSize: TabBarIndicatorSize.tab,
