@@ -1,6 +1,6 @@
 import 'package:taza/taza.dart';
 
-class CustomSearchBar extends StatelessWidget {
+class SmartSearchBar extends StatelessWidget {
   final List<String>? items;
   final TextEditingController? controller;
   final FocusNode? focusNode;
@@ -14,7 +14,8 @@ class CustomSearchBar extends StatelessWidget {
   final Widget? suffixIcon;
   final ValueChanged<String>? onChanged;
 
-  const CustomSearchBar({
+
+  const SmartSearchBar({
     super.key,
     this.items,
     this.controller,
@@ -46,7 +47,6 @@ class CustomSearchBar extends StatelessWidget {
             child: SmartTextField.search(
               controller: controller,
               padding: EdgeInsets.symmetric(vertical: 6.h),
-              //prefixIcon: prefixIcon ?? SizedBox(),
               suffixIcon: suffixIcon ?? SizedBox(),
               hintText: "",
               hintStyle: hintStyle ?? style.searchBarHintStyle,

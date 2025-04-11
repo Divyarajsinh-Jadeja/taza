@@ -5,6 +5,7 @@ class HomePage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    final style = AppTheme.of(context).searchBarStyle;
     return Scaffold(
       body: SafeArea(
         child: SmartColumn(
@@ -12,7 +13,7 @@ class HomePage extends GetView<HomeController> {
           children: [
             HomeAddressHeader(
                 onAddressTap: () {
-                  showAddressBottomSheet(context);
+                  showAddressBottomSheet(context, controller.addresses);
                 },
                 addressTypeTag: LocaleKeys.home.tr,
                 address: "Al Tadamun Al Arabi St., Mishfirah, Jeddah KSA"),
@@ -20,7 +21,7 @@ class HomePage extends GetView<HomeController> {
             GestureDetector(
               onTap: () => FocusScope.of(context).unfocus(),
               child: Obx((){
-                return CustomSearchBar(
+                return SmartSearchBar(
                   items: [controller.hints[controller.currentHintIndex.value]],
                   controller: controller.searchController,
                   onChanged: (val){},
@@ -32,7 +33,7 @@ class HomePage extends GetView<HomeController> {
                           height: 21.h,
                           width: 1.w,
                           margin: EdgeInsetsDirectional.symmetric(horizontal: 8.w),
-                          color: AppThemes().appColor.colorD2D2D7,
+                          color: style.searchBarBorderColor,
                         ),
                         SmartImage(path : AppImages.icMic),
                       ]),
@@ -79,12 +80,12 @@ class HomePage extends GetView<HomeController> {
     );
   }
 
-  void showAddressBottomSheet(BuildContext context) {
+  void showAddressBottomSheet(BuildContext context, RxList<Map<String, dynamic>> addresses) {
     Utils.showSmartModalBottomSheet(
       context: context,
       isScrollControlled: true,
       builder:
-          (context) => SmartSingleChildScrollView(child: AddressBottomSheet()),
+          (context) => SmartSingleChildScrollView(child: AddressBottomSheet(addresses: addresses,)),
     );
   }
 }

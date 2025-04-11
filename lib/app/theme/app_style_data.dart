@@ -342,4 +342,14 @@ class LightModeTheme extends AppTheme {
         tagEndGradientStartColor: colors.white,
         timeContainerBorderColor: colors.primary,
       );
+
+  @override
+  AddressBottomSheetStyle get addressBottomSheetStyle =>
+      AddressBottomSheetStyle(
+        addressBottomSheetTagTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 15.sp),
+        addressBottomSheetTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 13.sp, color: colors.color9c9cA3),
+        textFieldBgColor: colors.white,
+        submitButtonBgColor: colors.primary
+
+      );
 }

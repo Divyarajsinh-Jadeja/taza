@@ -119,7 +119,7 @@ export 'package:taza/ui/dashboard/dashboard_modules/rewards/view/rewards_page.da
 export 'package:taza/ui/dashboard/dashboard_modules/home/view/widgets/address_bottom_sheet_widget.dart';
 
 export 'package:flutter_animate/flutter_animate.dart';
-export 'package:taza/ui/dashboard/dashboard_modules/home/components/custom_search_bar.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/home/components/smart_search_bar.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/home/components/food_option_card.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/home/components/home_address_header.dart';
 

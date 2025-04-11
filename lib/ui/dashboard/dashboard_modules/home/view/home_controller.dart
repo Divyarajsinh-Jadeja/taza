@@ -2,6 +2,7 @@ import 'package:taza/taza.dart';
 
 class HomeController extends GetxController {
   final RxList<Map<String, dynamic>> options = <Map<String, dynamic>>[].obs;
+  final RxList<Map<String, dynamic>> addresses = <Map<String, dynamic>>[].obs;
   final RxList<String> hints = ['Tenders', 'Burgers', 'Grocery', 'Deals'].obs;
   final RxInt currentHintIndex = 0.obs;
   TextEditingController searchController = TextEditingController();
@@ -9,6 +10,7 @@ class HomeController extends GetxController {
   void onInit() {
     debugPrint("HomeController onInit");
     loadOptions();
+    loadAddresses();
     Timer.periodic(Duration(seconds: 2), (timer) {
       currentHintIndex.value = (currentHintIndex.value + 1) % hints.length;
     });
@@ -38,6 +40,23 @@ class HomeController extends GetxController {
         'subtitle': 'Grab and go',
         'tag': 'Buy 1 Get 1 Free',
         'image': 'https://i.ibb.co/ZRDYBYTc/image-dine-in.png',
+      },
+    ]);
+  }
+
+  void loadAddresses() {
+    addresses.assignAll([
+      {
+        'name': 'Al Habeeb',
+        'pincode': '382480',
+        'tag': 'Home',
+        'address': 'Al Tadamun Al Arabi St., Mishfirah, Jeddah',
+      },
+      {
+        'name': 'Al Qadir',
+        'pincode': '380028',
+        'tag': 'Work',
+        'address': 'King Abdulaziz Rd, Al-Zahra\'a, Jeddah',
       },
     ]);
   }

@@ -70,6 +70,8 @@ abstract class AppTheme {
 
   FoodOptionCardStyle get foodOptionCardStyle;
 
+  AddressBottomSheetStyle get addressBottomSheetStyle;
+
 }
 
 
@@ -505,5 +507,20 @@ class FoodOptionCardStyle {
     required this.foodCardTagStyle,
     required this.foodCardTimeStyle,
     required this.foodCardDurationStyle,
+  });
+}
+
+
+class AddressBottomSheetStyle {
+  final Color textFieldBgColor;
+  final Color submitButtonBgColor;
+  final TextStyle addressBottomSheetTagTitleStyle;
+  final TextStyle addressBottomSheetTitleStyle;
+
+  AddressBottomSheetStyle({
+    required this.textFieldBgColor,
+    required this.submitButtonBgColor,
+    required this.addressBottomSheetTagTitleStyle,
+    required this.addressBottomSheetTitleStyle,
   });
 }
