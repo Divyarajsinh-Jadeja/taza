@@ -60,5 +60,6 @@
   "selectDeliveryAddress" : "Select delivery address",
   "usePinCode" : "Use pincode to check delivery info",
   "useMyLocation" : "Use my current location",
-  "enterPinCode" : "Enter pin code"
+  "enterPinCode" : "Enter pin code",
+  "submit" : "Submit"
 }

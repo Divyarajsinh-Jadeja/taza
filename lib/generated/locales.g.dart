@@ -74,6 +74,7 @@ class LocaleKeys {
   static const usePinCode = 'usePinCode';
   static const useMyLocation = 'useMyLocation';
   static const enterPinCode = 'enterPinCode';
+  static const submit = 'submit';
 }
 
 class Locales {
@@ -144,6 +145,7 @@ class Locales {
     'usePinCode': 'Use pincode to check delivery info',
     'useMyLocation': 'Use my current location',
     'enterPinCode': 'Enter pin code',
+    'submit': 'Submit',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -210,5 +212,6 @@ class Locales {
     'usePinCode': 'استخدم الرمز البريدي للتحقق من معلومات التوصيل',
     'useMyLocation': 'استخدم موقعي الحالي',
     'enterPinCode': 'أدخل الرمز البريدي',
+    'submit': 'يُقدِّم',
   };
 }

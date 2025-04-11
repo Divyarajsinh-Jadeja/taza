@@ -1,20 +1,16 @@
 import 'package:taza/taza.dart';
 
 class AddressBottomSheet extends StatelessWidget {
-  final RxList<Map<String, dynamic>> addresses;
+  final List<Map<String, dynamic>> addresses;
+
   const AddressBottomSheet({super.key, required this.addresses});
 
   @override
   Widget build(BuildContext context) {
     final style = AppTheme.of(context).addressBottomSheetStyle;
-    return Padding(
-      padding: EdgeInsetsDirectional.only(
-        start: 16.w,
-        end: 16.w,
-        bottom: MediaQuery.of(context).viewInsets.bottom + 16.w,
-        top: 16.w,
-      ),
+    return SafeArea(
       child: SmartSingleChildScrollView(
+        padding: EdgeInsetsDirectional.only(start: 16.w, end: 16.w, top: 16.w),
         child: SmartColumn(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,16 +31,21 @@ class AddressBottomSheet extends StatelessWidget {
               style: style.addressBottomSheetTagTitleStyle,
             ),
             SizedBox(height: 16.h),
-            Obx(() => SmartColumn(
-              children: addresses.map((address) => _buildAddressTile(
-                name: address['name'] ?? "",
-                pincode: address['pincode'] ?? "",
-                tag: address['tag'] ?? "",
-                fullAddress: address['address'] ?? "",
-                style: style,
-                onTap: () {},
-              )).toList(),
-            )),
+            SmartColumn(
+              children:
+                  addresses
+                      .map(
+                        (address) => _buildAddressTile(
+                          name: address['name'] ?? "",
+                          pinCode: address['pincode'] ?? "",
+                          tag: address['tag'] ?? "",
+                          fullAddress: address['address'] ?? "",
+                          style: style,
+                          onTap: () {},
+                        ),
+                      )
+                      .toList(),
+            ),
             Divider(height: 32.h),
             SmartText(
               LocaleKeys.usePinCode.tr,
@@ -67,11 +68,15 @@ class AddressBottomSheet extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: style.submitButtonBgColor,
                     foregroundColor: style.textFieldBgColor,
-                    padding:
-                    EdgeInsetsDirectional.symmetric(horizontal: 20.w, vertical: 14.h),
+                    padding: EdgeInsetsDirectional.symmetric(
+                      horizontal: 20.w,
+                      vertical: 14.h,
+                    ),
                   ),
-                  child: SmartText("Submit",
-                    style: style.addressBottomSheetTitleStyle),
+                  child: SmartText(
+                    LocaleKeys.submit.tr,
+                    style: style.addressBottomSheetTitleStyle,
+                  ),
                 ),
               ],
             ),
@@ -80,21 +85,24 @@ class AddressBottomSheet extends StatelessWidget {
               child: InkWell(
                 onTap: () {
                   Get.back();
-                  // Handle location
                 },
                 child: SmartRow(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.my_location, size: 20.w, color: style.submitButtonBgColor),
+                    Icon(
+                      Icons.my_location,
+                      size: 20.w,
+                      color: style.submitButtonBgColor,
+                    ),
                     SizedBox(width: 6.h),
                     SmartText(
                       LocaleKeys.useMyLocation.tr,
                       style: style.addressBottomSheetTagTitleStyle,
-                    )
+                    ),
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -103,60 +111,61 @@ class AddressBottomSheet extends StatelessWidget {
 
   Widget _buildAddressTile({
     required String name,
-    required String pincode,
+    required String pinCode,
     required String tag,
     required String fullAddress,
-    required VoidCallback onTap, required AddressBottomSheetStyle style,
+    required VoidCallback onTap,
+    required AddressBottomSheetStyle style,
   }) {
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(12.r),
-      child: Container(
+      child: SmartRow(
         padding: EdgeInsetsDirectional.all(12.w),
         margin: EdgeInsetsDirectional.only(bottom: 12.w),
         decoration: BoxDecoration(
-          color: AppThemes().appColor.white,
+          color: style.textFieldBgColor,
           borderRadius: BorderRadius.circular(12.r),
         ),
-        child: SmartRow(
-          children: [
-            Icon(Icons.location_on_outlined, color: AppThemes().appColor.primary),
-            SizedBox(width: 12.w),
-            Expanded(
-              child: SmartColumn(
-                crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(Icons.location_on_outlined, color: style.submitButtonBgColor),
+          SizedBox(width: 12.w),
+          SmartColumn(
+            expanded: true,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SmartRow(
                 children: [
-                  SmartRow(
-                    children: [
-                      SmartText(
-                        "$name, $pincode",
-                        style: style.addressBottomSheetTagTitleStyle,
-                      ),
-                      SizedBox(width: 6.w),
-                      Container(
-                        padding: EdgeInsetsDirectional.symmetric(horizontal: 6.w, vertical: 2.h),
-                        decoration: BoxDecoration(
-                          color: style.textFieldBgColor,
-                          borderRadius: BorderRadius.circular(4.r),
-                        ),
-                        child: SmartText(
-                          tag,
-                          style: style.addressBottomSheetTagTitleStyle
-                        ),
-                      )
-                    ],
-                  ),
-                  SizedBox(height: 4.h),
                   SmartText(
-                    fullAddress,
-                    overflow: TextOverflow.ellipsis,
-                    style: style.addressBottomSheetTitleStyle,
-                  )
+                    "$name, $pinCode",
+                    style: style.addressBottomSheetTagTitleStyle,
+                  ),
+                  SizedBox(width: 6.w),
+                  Container(
+                    padding: EdgeInsetsDirectional.symmetric(
+                      horizontal: 6.w,
+                      vertical: 2.h,
+                    ),
+                    decoration: BoxDecoration(
+                      color: style.textFieldBgColor,
+                      borderRadius: BorderRadius.circular(4.r),
+                    ),
+                    child: SmartText(
+                      tag,
+                      style: style.addressBottomSheetTagTitleStyle,
+                    ),
+                  ),
                 ],
               ),
-            ),
-          ],
-        ),
+              SizedBox(height: 4.h),
+              SmartText(
+                fullAddress,
+                overflow: TextOverflow.ellipsis,
+                style: style.addressBottomSheetTitleStyle,
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

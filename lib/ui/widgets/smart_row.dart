@@ -14,6 +14,7 @@ class SmartRow extends StatelessWidget {
   final double? height;
   final GestureTapCallback? onTap;
   final bool isInkwell;
+  final bool expanded;
   final Color? color;
   final Decoration? decoration;
 
@@ -31,6 +32,7 @@ class SmartRow extends StatelessWidget {
     this.width,
     this.height,
     this.onTap,
+    this.expanded = false,
     this.isInkwell = false,
     this.color,
     this.decoration,
@@ -64,6 +66,10 @@ class SmartRow extends StatelessWidget {
     if (onTap != null) {
       child = isInkwell ? InkWell(onTap: onTap, child: child) : GestureDetector(onTap: onTap, child: child);
     }
+    if (expanded) {
+      child = Expanded(child: child);
+    }
     return child;
   }
 }
+

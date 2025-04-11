@@ -1,8 +1,8 @@
 import 'package:taza/taza.dart';
 
 class HomeController extends GetxController {
-  final RxList<Map<String, dynamic>> options = <Map<String, dynamic>>[].obs;
-  final RxList<Map<String, dynamic>> addresses = <Map<String, dynamic>>[].obs;
+  final List<Map<String, dynamic>> options = <Map<String, dynamic>>[];
+  final List<Map<String, dynamic>> addresses = <Map<String, dynamic>>[];
   final RxList<String> hints = ['Tenders', 'Burgers', 'Grocery', 'Deals'].obs;
   final RxInt currentHintIndex = 0.obs;
   TextEditingController searchController = TextEditingController();

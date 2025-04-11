@@ -35,44 +35,42 @@ class HomePage extends GetView<HomeController> {
                           margin: EdgeInsetsDirectional.symmetric(horizontal: 8.w),
                           color: style.searchBarBorderColor,
                         ),
-                        SmartImage(path : AppImages.icMic),
+                        SmartImage(path : AppImages.icMic, width: 24.w, height: 24.h,),
                       ]),
                 );
               }),
             ),
             SizedBox(height: 10.h),
             Expanded(
-              child: Obx(
-                () => ListView.builder(
-                  itemCount: controller.options.length,
-                  itemBuilder: (context, index) {
-                    final item = controller.options[index];
-                    return Padding(
-                          padding: EdgeInsetsDirectional.symmetric(
-                            vertical: 8.0,
-                          ),
-                          child: FoodOptionCard(
-                              onTap: (){},
-                              title: item['title'],
-                              subtitle: item['subtitle'],
-                              tag: item['tag'],
-                              time: item['time'],
-                              duration: item['duration'],
-                              image: item['image'],
-                          ),
-                        )
-                        .animate()
-                        .slideX(
-                          begin: -1.0,
-                          end: 0.0,
-                          curve: Curves.easeOut,
-                          duration: 500.ms,
-                          delay: (index * 100).ms, // Stagger effect
-                        )
-                        .fadeIn();
-                  },
-                ),
-              ),
+              child: ListView.builder(
+                itemCount: controller.options.length,
+                itemBuilder: (context, index) {
+                  final item = controller.options[index];
+                  return Padding(
+                    padding: EdgeInsetsDirectional.symmetric(
+                      vertical: 8.0,
+                    ),
+                    child: FoodOptionCard(
+                      onTap: (){},
+                      title: item['title'],
+                      subtitle: item['subtitle'],
+                      tag: item['tag'],
+                      time: item['time'],
+                      duration: item['duration'],
+                      image: item['image'],
+                    ),
+                  )
+                      .animate()
+                      .slideX(
+                    begin: -1.0,
+                    end: 0.0,
+                    curve: Curves.easeOut,
+                    duration: 500.ms,
+                    delay: (index * 100).ms, // Stagger effect
+                  )
+                      .fadeIn();
+                },
+              )
             ),
           ],
         ),
@@ -80,7 +78,7 @@ class HomePage extends GetView<HomeController> {
     );
   }
 
-  void showAddressBottomSheet(BuildContext context, RxList<Map<String, dynamic>> addresses) {
+  void showAddressBottomSheet(BuildContext context, List<Map<String, dynamic>> addresses) {
     Utils.showSmartModalBottomSheet(
       context: context,
       isScrollControlled: true,

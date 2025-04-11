@@ -63,10 +63,10 @@ class MyApp extends StatelessWidget {
   /// Build date banner tag on top right corner
   Align buildDateBannerTag() {
     return Align(
-      alignment: Alignment.topRight,
-      child: Container(
-        padding: const EdgeInsets.only(top: 55, right: 50),
-        child: const Banner(message: "8-Apr-25", location: BannerLocation.bottomStart),
+      alignment: AlignmentDirectional.topEnd,
+      child: const Banner(
+        message: "11 April",
+        location: BannerLocation.topEnd,
       ),
     );
   }
