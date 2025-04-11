@@ -288,4 +288,45 @@ class LightModeTheme extends AppTheme {
     primaryColor: colors.primary,
     dividerColor: colors.colorD2D2D7,
   );
+
+  @override
+  SearchBarStyle get searchBarStyle =>
+      SearchBarStyle(
+        searchBarBgColor: colors.white,
+        searchBarBorderColor: colors.colorD2D2D7,
+        searchBarHintStyle: interRegularW400TextStyle.copyWith(fontSize: 16.sp, color: colors.color9c9cA3),
+        searchBarTextStyle: interRegularW400TextStyle.copyWith(fontSize: 16.sp, color: colors.color1D1D1F),
+
+      );
+
+  @override
+  HomeHeaderStyle get homeHeaderStyle =>
+      HomeHeaderStyle(
+        addressTagTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 15.sp),
+        addressTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 13.sp, color: colors.color9c9cA3),
+      );
+
+  @override
+  FoodOptionCardStyle get foodOptionCardStyle =>
+      FoodOptionCardStyle(
+        foodCardTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 22.sp, color: colors.color1D1D1F),
+        foodCardSubTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 16.sp, color: colors.color58585C),
+        foodCardTagStyle: interBoldW700TextStyle.copyWith(fontSize: 12.sp, color: colors.color00A4A2),
+        foodCardTimeStyle: interBoldW700TextStyle.copyWith(fontSize: 13.sp, color: colors.color1D1D1F),
+        foodCardDurationStyle: interRegularW400TextStyle.copyWith(fontSize: 11.sp, color: colors.color58585C),
+        foodCardBgColor: colors.white,
+        tagStartGradientStartColor: colors.colorC6FFF8,
+        tagEndGradientStartColor: colors.white,
+        timeContainerBorderColor: colors.primary,
+      );
+
+  @override
+  AddressBottomSheetStyle get addressBottomSheetStyle =>
+      AddressBottomSheetStyle(
+          addressBottomSheetTagTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 15.sp),
+          addressBottomSheetTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 13.sp, color: colors.color9c9cA3),
+          textFieldBgColor: colors.white,
+          submitButtonBgColor: colors.primary
+
+      );
 }

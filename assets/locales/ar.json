@@ -55,5 +55,12 @@
   "food": "الطعام",
   "cart": "السلة",
   "rewards": "الجوائز",
-  "reorder": "اعادة الطلب"
+  "reorder": "اعادة الطلب",
+  "searchFor": "ابحث عن",
+  "selectDeliveryAddress": "اختر عنوان التوصيل",
+  "usePinCode": "استخدم الرمز البريدي للتحقق من معلومات التوصيل",
+  "useMyLocation": "استخدم موقعي الحالي",
+  "enterPinCode": "أدخل الرمز البريدي",
+  "submit": "يُقدِّم"
+
 }

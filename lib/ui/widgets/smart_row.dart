@@ -102,7 +102,7 @@ class SmartRow extends StatelessWidget {
 
     // Apply animation
     if (animator != null) {
-  return animator!.copyWith(child: child); 
+  return animator!.copyWith(child: child);
 } else {
   return child;
 }
