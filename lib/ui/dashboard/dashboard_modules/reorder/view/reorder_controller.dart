@@ -5,6 +5,7 @@ class ReorderController extends GetxController {
   RxBool isNonVeg = true.obs;
   RxBool isVeg = true.obs;
 
+
   RxList<FoodModel> foodList = [
     FoodModel(
       name: 'Family Bucket',
@@ -84,6 +85,7 @@ class ReorderController extends GetxController {
   @override
   void onInit() {
     debugPrint("ReorderController onInit");
+    Get.find<QuantityController>().initializeQuantities(foodList.length);
     super.onInit();
   }
 

@@ -78,9 +78,7 @@ class SmartRow extends StatelessWidget {
         height: height,
         padding: padding,
         margin: margin,
-        color: decoration == null ? color : null,
-        decoration:
-            decoration ?? (color != null ? BoxDecoration(color: color) : null),
+        decoration: decoration ?? (color != null ? BoxDecoration(color: color) : null),
         child: child,
       );
     }

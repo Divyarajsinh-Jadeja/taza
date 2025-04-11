@@ -39,7 +39,7 @@ class AppThemes {
     color58585C: Color(0xFF58585C),
     color00A4A2: Color(0xFF00A4A2),
     colorC6FFF8: Color(0xFFC6FFF8),
-    color9c9cA3: Color(0xFF9c9cA3),
+    color038153: Color(0xFF038153),
     orangeColor: Colors.orange,
   );
 
@@ -109,7 +109,7 @@ class AppColor {
   final Color color58585C;
   final Color color00A4A2;
   final Color colorC6FFF8;
-  final Color color9c9cA3;
+  final Color color038153;
   final Color orangeColor;
 
   const AppColor({
@@ -143,11 +143,10 @@ class AppColor {
     required this.colorFFBF9F,
     required this.color00BAB3,
     required this.color9C9CA3,
-
     required this.color58585C,
     required this.color00A4A2,
     required this.colorC6FFF8,
-    required this.color9c9cA3,
+    required this.color038153,
     required this.orangeColor,
   });
 }

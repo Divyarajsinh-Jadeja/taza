@@ -61,16 +61,16 @@ class LightModeTheme extends AppTheme {
 
   @override
   TabBarStyle get tabBarStyle => TabBarStyle(
-    unselectedLabelStyle: interBoldW700TextStyle.copyWith(fontSize: 11.sp, color: colors.color9c9cA3),
+    unselectedLabelStyle: interBoldW700TextStyle.copyWith(fontSize: 11.sp, color: colors.color9C9CA3),
     labelStyle: interBoldW700TextStyle.copyWith(fontSize: 12.sp, color: colors.color1D1D1F),
     indicatorColor: colors.primary,
     backgroundColor: colors.white,
     borderColor: colors.colorD3DAE0,
     boxShadowColor: colors.black.withValues(alpha: 0.17),
     selectedIconColor: colors.primary,
-    unselectedIconColor: colors.color9c9cA3,
+    unselectedIconColor: colors.color9C9CA3,
     selectedLabelColor: colors.color1D1D1F,
-    unselectedLabelColor: colors.color9c9cA3,
+    unselectedLabelColor: colors.color9C9CA3,
   );
 
   @override
@@ -254,9 +254,9 @@ class LightModeTheme extends AppTheme {
 
   @override
   SmartChipStyle get smartChipStyle => SmartChipStyle(
-    titleStyle: interBoldW700TextStyle.copyWith(color: colors.color9c9cA3, fontSize: 13.sp),
+    titleStyle: interBoldW700TextStyle.copyWith(color: colors.color9C9CA3, fontSize: 13.sp),
     selectedColor: colors.primary,
-    color: colors.color9c9cA3,
+    color: colors.color9C9CA3,
   );
 
   @override
@@ -276,7 +276,7 @@ class LightModeTheme extends AppTheme {
     borderColor: colors.colorD2D2D7,
     transparent: colors.transparent,
     selectedCategoryTextStyle: interBoldW700TextStyle.copyWith(color: colors.white),
-    unselectedCategoryTextStyle: interBoldW700TextStyle.copyWith(color: colors.color9c9cA3),
+    unselectedCategoryTextStyle: interBoldW700TextStyle.copyWith(color: colors.color9C9CA3),
     categoryTitleTextStyle: interBoldW700TextStyle.copyWith(fontSize: 14.sp),
   );
 
@@ -287,5 +287,35 @@ class LightModeTheme extends AppTheme {
     ratingStyle: interRegularW400TextStyle,
     primaryColor: colors.primary,
     dividerColor: colors.colorD2D2D7,
+  );
+
+  @override
+  SmartCategoryRowStyle get smartCategoryRowStyle =>
+      SmartCategoryRowStyle(titleStyle: interBoldW700TextStyle.copyWith(color: colors.white, fontSize: 15.sp));
+
+  @override
+  CheckoutStyle get checkoutStyle => CheckoutStyle(
+    backgroundColor: colors.colorF5F5F7,
+    primaryColor: colors.primary,
+    whiteColor: colors.white,
+    requestColor: colors.color9C9CA3,
+    greenColor: colors.color038153,
+    tabSelectedBgColor: colors.color00BAB3,
+    tabDisableBgColor: colors.colorF5F5F7,
+    titleStyle: interBoldW700TextStyle.copyWith(fontSize: 13.sp, color: colors.color1D1D1F),
+    subTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 11.sp, color: colors.color9C9CA3),
+    subCardTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 13.sp, color: colors.color9C9CA3),
+    savingTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 13.sp, color: colors.color1D1D1F),
+    toPayTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 13.sp, color: colors.color1D1D1F),
+    toPayTitleDiscountedStyle: interBoldW700TextStyle.copyWith(fontSize: 13.sp, color: colors.color9C9CA3,decoration: TextDecoration.lineThrough),
+    appliedTextStyle: interBoldW700TextStyle.copyWith(fontSize: 12.sp, color: colors.color038153),
+    tabSelectedTextStyle: interBoldW700TextStyle.copyWith(fontSize: 13.sp, color: colors.white),
+    tabDisableTextStyle: interBoldW700TextStyle.copyWith(fontSize: 13.sp, color: colors.color58585C),
+    cardDecoration: BoxDecoration(
+      color: colors.white,
+      borderRadius: BorderRadius.all(Radius.circular(16.r)),
+    ),
+    payUsingTextStyle: interRegularW400TextStyle.copyWith(fontSize: 13.sp, color: colors.color9C9CA3),
+    paymentTextStyle: interBoldW700TextStyle.copyWith(fontSize: 15.sp, color: colors.color1D1D1F),
   );
 }

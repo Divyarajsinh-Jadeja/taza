@@ -196,3 +196,4 @@ class FoodPage extends GetView<FoodController> {
     );
   }
 }
+

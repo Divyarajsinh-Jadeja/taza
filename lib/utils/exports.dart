@@ -126,6 +126,15 @@ export 'package:taza/ui/dashboard/dashboard_modules/reorder/view/reorder_page.da
 export 'package:taza/ui/dashboard/dashboard_modules/rewards/view/rewards_controller.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/rewards/view/rewards_page.dart';
 
+export 'package:taza/ui/widgets/smart_category_card.dart';
+export 'package:taza/ui/widgets/smart_category_row.dart';
+
+export 'package:taza/ui/checkout/view/checkout_controller.dart';
+export 'package:taza/ui/checkout/binding/checkout_binding.dart';
+export 'package:taza/ui/checkout/view/checkout_screen.dart';
+
+/// Model Classes
+export 'package:taza/models/food_category.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/food/components/food_screen_tabs_view.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/food/components/foodscreen_tab_header_delegate.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/food/components/food_tab_children.dart';

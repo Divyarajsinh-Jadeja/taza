@@ -124,38 +124,7 @@ class FoodCard extends StatelessWidget {
                   ),
                 ),
 
-                SmartRow(
-                  height: 32.h,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: style.iconColor),
-                    borderRadius: BorderRadius.circular(32.r),
-                  ),
-                  animator: SmartAnimator(
-                    animationCurve: Curves.decelerate,
-                    animationDelay: 600.ms,
-                    animationDuration: 300.ms,
-                    animateFade: true,
-                    animateSlideX: true,
-                  ),
-                  children: [
-                    if (model.quantity > 0) ...[
-                      IconButton(
-                        padding: EdgeInsets.zero,
-                        onPressed: onDecrease,
-                        icon: Icon(Icons.remove, color: style.iconColor,size: 16.r,),
-                      ),
-                      SmartAnimatedQuantity(
-                        index: index,
-                        style: style.titleStyle.copyWith(fontSize: 13.sp),
-                      ),
-                    ],
-                    IconButton(
-                      padding: EdgeInsets.zero,
-                      onPressed: onIncrease,
-                      icon: Icon(Icons.add, color: style.iconColor,size: 16.r,),
-                    ),
-                  ],
-                ),
+                SmartAnimatedQuantity(index: index, model: model,onDecrease: onDecrease,onIncrease: onIncrease,)
               ],
             ),
           ],
