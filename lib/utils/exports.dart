@@ -31,7 +31,6 @@ export 'package:pin_code_fields/pin_code_fields.dart';
 export 'package:image_picker/image_picker.dart';
 export 'package:flutter_animate/flutter_animate.dart';
 
-
 // Project core
 export 'package:taza/app/app_class.dart';
 export 'package:taza/app/app_const.dart';
@@ -112,7 +111,6 @@ export 'package:taza/ui/dashboard/components/offer_popup.dart';
 export 'package:taza/ui/smart_quantity/view/smart_quantity.dart';
 export 'package:taza/ui/smart_quantity/view/smart_quantity_controller.dart';
 
-
 export 'package:taza/ui/dashboard/dashboard_modules/home/view/home_controller.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/home/view/home_page.dart';
 
@@ -137,3 +135,14 @@ export 'package:taza/ui/checkout/view/checkout_screen.dart';
 
 /// Model Classes
 export 'package:taza/models/food_category.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/food/components/food_screen_tabs_view.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/food/components/foodscreen_tab_header_delegate.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/food/components/food_tab_children.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/food/components/grocery_tab_children.dart';
+
+export 'package:taza/ui/dashboard/dashboard_modules/food/components/food_item_card.dart';
+export 'package:carousel_slider/carousel_controller.dart';
+export 'package:taza/ui/widgets/smart_tab_bar.dart';
+export 'package:carousel_slider/carousel_slider.dart';
+export 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/food/components/filter_category_bar.dart';

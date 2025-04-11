@@ -71,6 +71,12 @@ abstract class AppTheme {
   OfferPopupStyle get offerPopupStyle;
 
   SmartChipStyle get smartChipStyle;
+
+  SmartTabBarStyle get smartTabBarStyle;
+
+  FoodPageStyle get foodPageStyle;
+
+  FoodItemCardStyle get foodItemCardStyle;
 }
 
 class PrimaryButtonStyle {
@@ -445,22 +451,82 @@ class FoodCardStyle {
   final BoxDecoration cardDecoration;
   final BorderRadiusGeometry imageDecoration;
   final Color iconColor;
-  FoodCardStyle({required this.titleStyle, required this.subTitleStyle, required this.amountStyle,required this.cardDecoration,required this.imageDecoration,required this.iconColor});
+  FoodCardStyle({
+    required this.titleStyle,
+    required this.subTitleStyle,
+    required this.amountStyle,
+    required this.cardDecoration,
+    required this.imageDecoration,
+    required this.iconColor,
+  });
 }
 
 class OfferPopupStyle {
   final TextStyle titleStyle;
   final TextStyle subTitleStyle;
 
-  OfferPopupStyle({required this.titleStyle,required this.subTitleStyle});
+  OfferPopupStyle({required this.titleStyle, required this.subTitleStyle});
 }
 
-class SmartChipStyle{
+class SmartChipStyle {
   final TextStyle titleStyle;
   final Color selectedColor;
   final Color color;
 
-  SmartChipStyle({required this.titleStyle,required this.selectedColor,required this.color});
+  SmartChipStyle({required this.titleStyle, required this.selectedColor, required this.color});
+}
+
+class SmartTabBarStyle {
+  final TextStyle selectedTabTextStyle;
+  final TextStyle unselectedTabTextStyle;
+  final Color primaryColor;
+  final Color tabDividerColor;
+  final Color labelColor;
+  final Color unselectedLabelColor;
+
+  SmartTabBarStyle({
+    required this.selectedTabTextStyle,
+    required this.unselectedTabTextStyle,
+    required this.primaryColor,
+    required this.tabDividerColor,
+    required this.labelColor,
+    required this.unselectedLabelColor,
+  });
+}
+
+class FoodPageStyle {
+  final TextStyle headerTextStyle;
+  final Color blackColor;
+  final Color transparent;
+  final Color borderColor;
+  final TextStyle selectedCategoryTextStyle;
+  final TextStyle unselectedCategoryTextStyle;
+  final TextStyle categoryTitleTextStyle;
+  FoodPageStyle({
+    required this.headerTextStyle,
+    required this.blackColor,
+    required this.transparent,
+    required this.borderColor,
+    required this.selectedCategoryTextStyle,
+    required this.unselectedCategoryTextStyle,
+    required this.categoryTitleTextStyle,
+  });
+}
+
+class FoodItemCardStyle {
+  final Color dividerColor;
+  final Color orangeColor;
+  final Color primaryColor;
+  final TextStyle titleStyle;
+  final TextStyle ratingStyle;
+
+  FoodItemCardStyle({
+    required this.orangeColor,
+    required this.titleStyle,
+    required this.ratingStyle,
+    required this.primaryColor,
+    required this.dividerColor,
+  });
 }
 
 class SmartCategoryRowStyle {
