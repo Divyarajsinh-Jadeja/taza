@@ -74,7 +74,6 @@ class FoodOptionCard extends StatelessWidget {
             ),
             SizedBox(height: 4.h),
             Container(
-              height: 30.h,
               padding: EdgeInsetsDirectional.symmetric(
                 vertical: 6.h,
                 horizontal: 12.w,
@@ -98,58 +97,56 @@ class FoodOptionCard extends StatelessWidget {
               ),
             ),
             SizedBox(height: 8.h),
-            time != null
-                ? Align(
-                  alignment: Alignment.centerLeft,
-                  child: SmartRow(
-                    height: 26.h,
-                    isExpanded: true,
-                    mainAxisSize: MainAxisSize.min,
-                    padding: EdgeInsetsDirectional.symmetric(horizontal: 6.w),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(13.r),
-                      border: Border.all(
-                        color:
-                            timeBorderColor ?? style.timeContainerBorderColor,
-                      ),
-                    ),
-                    children: [
-                      SmartAnimator(
-                        animationDuration: const Duration(seconds: 2),
-                        repeat: true,
-                        customEffectBuilder: (context, value, child) {
-                          final yRotation = value * 2 * 3.1416;
-                          final xRotation = 0.2 * sin(value * 2 * 3.1416);
-                          return Transform(
-                            alignment: Alignment.center,
-                            transform: Matrix4.identity()
+            if (time == null) ...[
+              SizedBox(height: 26.h),
+            ] else ...[
+              SmartRow(
+                height: 26.h,
+                mainAxisSize: MainAxisSize.min,
+                padding: EdgeInsetsDirectional.symmetric(horizontal: 6.w),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(13.r),
+                  border: Border.all(
+                    color: timeBorderColor ?? style.timeContainerBorderColor,
+                  ),
+                ),
+                children: [
+                  SmartAnimator(
+                    animationDuration: const Duration(seconds: 2),
+                    repeat: true,
+                    customEffectBuilder: (context, value, child) {
+                      final yRotation = value * 2 * 3.1416;
+                      final xRotation = 0.2 * sin(value * 2 * 3.1416);
+                      return Transform(
+                        alignment: Alignment.center,
+                        transform:
+                            Matrix4.identity()
                               ..rotateX(xRotation)
                               ..rotateY(yRotation),
-                            child: child,
-                          );
-                        },
-                        child: SmartImage(path: AppImages.icFlash),
-                      ),
-                      SizedBox(width: 4.w),
-                      Flexible(
-                        child: SmartRichText(
-                          spans: [
-                            SmartTextSpan(
-                              text: time ?? "",
-                              style: style.foodCardTimeStyle,
-                            ),
-                            SmartTextSpan(text: " "),
-                            SmartTextSpan(
-                              text: duration ?? "",
-                              style: style.foodCardDurationStyle,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
+                        child: child,
+                      );
+                    },
+                    child: SmartImage(path: AppImages.icFlash),
                   ),
-                )
-                : SizedBox(height: 20.h),
+                  SizedBox(width: 4.w),
+                  Flexible(
+                    child: SmartRichText(
+                      spans: [
+                        SmartTextSpan(
+                          text: time ?? "",
+                          style: style.foodCardTimeStyle,
+                        ),
+                        SmartTextSpan(text: " "),
+                        SmartTextSpan(
+                          text: duration ?? "",
+                          style: style.foodCardDurationStyle,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ],
         ),
         SizedBox(width: 10.w),
