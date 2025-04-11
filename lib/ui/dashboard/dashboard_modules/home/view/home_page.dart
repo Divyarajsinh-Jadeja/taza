@@ -46,29 +46,27 @@ class HomePage extends GetView<HomeController> {
                 itemCount: controller.options.length,
                 itemBuilder: (context, index) {
                   final item = controller.options[index];
-                  return Padding(
-                    padding: EdgeInsetsDirectional.symmetric(
-                      vertical: 8.0,
+                  return SmartAnimator(
+                    animateSlideX: true,
+                    slideXBegin: const Offset(-1.0, 0.0),
+                    slideEnd: Offset.zero,
+                    animateFadeIn: true,
+                    animationDuration: const Duration(milliseconds: 500),
+                    animationDelay: Duration(milliseconds: index * 100),
+                    animationCurve: Curves.easeOut,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: FoodOptionCard(
+                        onTap: () {},
+                        title: item['title'],
+                        subtitle: item['subtitle'],
+                        tag: item['tag'],
+                        time: item['time'],
+                        duration: item['duration'],
+                        image: item['image'],
+                      ),
                     ),
-                    child: FoodOptionCard(
-                      onTap: (){},
-                      title: item['title'],
-                      subtitle: item['subtitle'],
-                      tag: item['tag'],
-                      time: item['time'],
-                      duration: item['duration'],
-                      image: item['image'],
-                    ),
-                  )
-                      .animate()
-                      .slideX(
-                    begin: -1.0,
-                    end: 0.0,
-                    curve: Curves.easeOut,
-                    duration: 500.ms,
-                    delay: (index * 100).ms, // Stagger effect
-                  )
-                      .fadeIn();
+                  );
                 },
               )
             ),

@@ -60,16 +60,18 @@ class FoodOptionCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SmartText(
-                title,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: style.foodCardTitleStyle),
+              title,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: style.foodCardTitleStyle,
+            ),
             SizedBox(height: 2.h),
             SmartText(
-                subtitle,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: style.foodCardSubTitleStyle),
+              subtitle,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: style.foodCardSubTitleStyle,
+            ),
             SizedBox(height: 4.h),
             Container(
               height: 30.h,
@@ -89,44 +91,45 @@ class FoodOptionCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20.r),
               ),
               child: SmartText(
-                  tag,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: style.foodCardTagStyle),
+                tag,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: style.foodCardTagStyle,
+              ),
             ),
             SizedBox(height: 8.h),
             time != null
                 ? Align(
-              alignment: Alignment.centerLeft,
-              child: SmartRow(
+                  alignment: Alignment.centerLeft,
+                  child: SmartRow(
                     height: 26.h,
-                    expanded: true,
+                    isExpanded: true,
                     mainAxisSize: MainAxisSize.min,
                     padding: EdgeInsetsDirectional.symmetric(horizontal: 6.w),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(13.r),
                       border: Border.all(
-                        color: timeBorderColor ?? style.timeContainerBorderColor,
+                        color:
+                            timeBorderColor ?? style.timeContainerBorderColor,
                       ),
                     ),
                     children: [
-                      SmartImage(path: AppImages.icFlash)
-                          .animate(onPlay: (controller) => controller.repeat())
-                          .custom(
-                            duration: const Duration(seconds: 2),
-                            builder: (context, value, child) {
-                              final yRotation = value * 2 * 3.1416;
-                              final xRotation = 0.2 * sin(value * 2 * 3.1416);
-                              return Transform(
-                                alignment: Alignment.center,
-                                transform:
-                                    Matrix4.identity()
-                                      ..rotateX(xRotation)
-                                      ..rotateY(yRotation),
-                                child: child,
-                              );
-                            },
-                          ),
+                      SmartAnimator(
+                        animationDuration: const Duration(seconds: 2),
+                        repeat: true,
+                        customEffectBuilder: (context, value, child) {
+                          final yRotation = value * 2 * 3.1416;
+                          final xRotation = 0.2 * sin(value * 2 * 3.1416);
+                          return Transform(
+                            alignment: Alignment.center,
+                            transform: Matrix4.identity()
+                              ..rotateX(xRotation)
+                              ..rotateY(yRotation),
+                            child: child,
+                          );
+                        },
+                        child: SmartImage(path: AppImages.icFlash),
+                      ),
                       SizedBox(width: 4.w),
                       Flexible(
                         child: SmartRichText(

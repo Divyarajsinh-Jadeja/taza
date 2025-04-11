@@ -60,7 +60,7 @@ class HomeAddressHeader extends StatelessWidget {
             fit: BoxFit.cover,
           )
         else
-          SmartImage(path : AppImages.icUser),
+          SmartImage(path : AppImages.icUser, width: 32.w, height: 32.h,),
       ],
     );
   }

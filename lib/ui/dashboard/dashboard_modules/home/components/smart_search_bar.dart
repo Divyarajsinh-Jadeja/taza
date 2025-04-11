@@ -91,32 +91,39 @@ extension on SmartTextField {
                     LocaleKeys.searchFor.tr,
                     style: style.searchBarHintStyle,
                   ),
-                  AnimatedSwitcher(
-                    duration: Duration(milliseconds: 400),
-                    switchInCurve: Curves.easeOut,
-                    switchOutCurve: Curves.easeIn,
-                    transitionBuilder: (Widget child, Animation<double> animation) {
-                      final inAnimation = Tween<Offset>(
-                        begin: Offset(0, 1), // comes from bottom
-                        end: Offset.zero,
-                      ).animate(animation);
-                      final outAnimation = Tween<Offset>(
-                        begin: Offset(0, -1),
-                        end: Offset(0, 0), // goes up
-                      ).animate(animation);
-                      final isEntering = child.key == ValueKey(hintText);
-                      return ClipRect(
-                        child: SlideTransition(
-                          position: isEntering ? inAnimation : outAnimation,
-                          child: child,
-                        ),
-                      );
-                    },
-                    child: SmartText(
-                      "'$hintText'",
-                      key: ValueKey(hintText), // This triggers the switch
-                      textAlign: TextAlign.left,
-                      style: style.searchBarHintStyle,
+                  SmartAnimator(
+                    animateFadeIn: true,
+                    animateSlideY: true,
+                    slideYBegin: const Offset(0, 0.1),
+                    animationDuration: const Duration(milliseconds: 500),
+                    animationCurve: Curves.easeOut,
+                    child: AnimatedSwitcher(
+                      duration: const Duration(milliseconds: 400),
+                      switchInCurve: Curves.easeOut,
+                      switchOutCurve: Curves.easeIn,
+                      transitionBuilder: (Widget child, Animation<double> animation) {
+                        final inAnimation = Tween<Offset>(
+                          begin: Offset(0, 1),
+                          end: Offset.zero,
+                        ).animate(animation);
+                        final outAnimation = Tween<Offset>(
+                          begin: Offset(0, -1),
+                          end: Offset(0, 0),
+                        ).animate(animation);
+                        final isEntering = child.key == ValueKey(hintText);
+                        return ClipRect(
+                          child: SlideTransition(
+                            position: isEntering ? inAnimation : outAnimation,
+                            child: child,
+                          ),
+                        );
+                      },
+                      child: SmartText(
+                        "'$hintText'",
+                        key: ValueKey(hintText), // This triggers the switch
+                        textAlign: TextAlign.left,
+                        style: style.searchBarHintStyle,
+                      ),
                     ),
                   ),
                 ],

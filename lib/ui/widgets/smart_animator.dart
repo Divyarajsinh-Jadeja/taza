@@ -43,6 +43,8 @@ class SmartAnimator extends StatelessWidget {
   final Duration animationDelay;
   final Duration animationDuration;
   final Curve animationCurve;
+  final CustomEffectBuilder? customEffectBuilder;
+  final bool repeat;
 
   const SmartAnimator({
     super.key,
@@ -82,6 +84,8 @@ class SmartAnimator extends StatelessWidget {
     this.animationDelay = const Duration(milliseconds: 300),
     this.animationDuration = const Duration(milliseconds: 500),
     this.animationCurve = Curves.decelerate,
+    this.customEffectBuilder,
+    this.repeat = false,
   });
 
   @override
@@ -184,13 +188,29 @@ class SmartAnimator extends StatelessWidget {
         ),
     ];
 
+    final isCustomAnimation = customEffectBuilder != null && effects.isEmpty;
+    if (isCustomAnimation) {
+      effects.add(FadeEffect(begin: 1, end: 1, duration: animationDuration));
+    }
     if (effects.isEmpty) return child ?? SizedBox();
 
-    return Animate(
+    final animate = Animate(
       delay: animationDelay,
       effects: effects,
-      child: child ?? SizedBox(),
+      onPlay: repeat
+          ? (controller) => controller.repeat()
+          : null,
+      child: child ?? const SizedBox(),
     );
+
+    if (customEffectBuilder != null) {
+      return animate.custom(
+        duration: animationDuration,
+        builder: customEffectBuilder!,
+      );
+    }
+
+    return animate;
   }
 
   /// ✅ Copy the animator but replace the child
