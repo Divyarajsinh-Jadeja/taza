@@ -7,7 +7,7 @@ class CheckoutPage extends GetView<CheckoutController> {
   @override
   Widget build(BuildContext context) {
     final style = AppTheme.of(context).checkoutStyle;
-    final quantityController = Get.put(QuantityController())..initializeQuantities(1);
+    Get.find<QuantityController>().initializeQuantities(1);
 
     return Scaffold(
       backgroundColor: style.backgroundColor,
