@@ -51,7 +51,7 @@ class _SmartDeliveryTabBarState extends State<SmartDeliveryTabBar> with SingleTi
           ),
         ),
         SizedBox(
-          height: 182.h,
+          height: 110.h,
           child: TabBarView(
             controller: _tabController,
             children:
@@ -76,6 +76,7 @@ class _SmartDeliveryTabBarState extends State<SmartDeliveryTabBar> with SingleTi
   }
 
   Widget _buildDeliveryTile({required String title, required String subtitle, required String timeRange, required int value}) {
+    final style = AppTheme.of(context).checkoutStyle;
     return SmartRow(
       crossAxisAlignment: CrossAxisAlignment.start,
       onTap: () {
@@ -110,12 +111,12 @@ class _SmartDeliveryTabBarState extends State<SmartDeliveryTabBar> with SingleTi
           expanded: true,
           children: [
             SizedBox(height: 2.h),
-            SmartText(title, style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.bold)),
+            SmartText(title, style: style.titleStyle),
             SizedBox(height: 4.h),
-            SmartText(subtitle, style: TextStyle(color: Colors.grey[600])),
+            SmartText(subtitle, style: style.subTitleStyle),
           ],
         ),
-        SmartText(timeRange, style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13.sp)),
+        SmartText(timeRange, style: style.titleStyle),
       ],
     );
   }
