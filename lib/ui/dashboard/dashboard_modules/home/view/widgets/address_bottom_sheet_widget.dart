@@ -144,8 +144,7 @@ class AddressBottomSheet extends StatelessWidget {
                     tag,
                     style: style.addressBottomSheetTagTitleStyle,
                   ),
-                ),
-              ],
+                ),],
             ),
             SizedBox(height: 4.h),
             SmartText(
