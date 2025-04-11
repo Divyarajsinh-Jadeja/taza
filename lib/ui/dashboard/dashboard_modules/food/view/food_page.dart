@@ -197,24 +197,3 @@ class FoodPage extends GetView<FoodController> {
   }
 }
 
-// ✅ Proper Delegate Class
-class SearchBarHeaderDelegate extends SliverPersistentHeaderDelegate {
-  @override
-  double get minExtent => 70.h;
-
-  @override
-  double get maxExtent => 70.h;
-
-  @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return Container(
-      color: Colors.white,
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
-      alignment: Alignment.center,
-      child: SmartTextField(hintText: "Search food or restaurant...", prefixIcon: Icon(Icons.search)),
-    );
-  }
-
-  @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) => false;
-}

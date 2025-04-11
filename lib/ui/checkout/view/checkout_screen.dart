@@ -15,10 +15,7 @@ class CheckoutPage extends GetView<CheckoutController> {
       appBar: SmartAppBar(),
       body: SafeArea(
         child: SmartColumn(
-          padding: EdgeInsetsDirectional.symmetric(
-            horizontal: 19.w,
-            vertical: 20.h,
-          ),
+          padding: EdgeInsetsDirectional.all(20.w),
           children: [
             SmartColumn(
               mainAxisAlignment: MainAxisAlignment.start,
