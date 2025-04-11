@@ -76,25 +76,23 @@ class AddressBottomSheet extends StatelessWidget {
             ),
             SizedBox(height: 20.h),
             Center(
-              child: InkWell(
-                onTap: () {
+              child: SmartRow(
+                onTap: (){
                   Get.back();
                 },
-                child: SmartRow(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.my_location,
-                      size: 20.w,
-                      color: style.submitButtonBgColor,
-                    ),
-                    SizedBox(width: 6.h),
-                    SmartText(
-                      LocaleKeys.useMyLocation.tr,
-                      style: style.addressBottomSheetTagTitleStyle,
-                    ),
-                  ],
-                ),
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.my_location,
+                    size: 20.w,
+                    color: style.submitButtonBgColor,
+                  ),
+                  SizedBox(width: 6.h),
+                  SmartText(
+                    LocaleKeys.useMyLocation.tr,
+                    style: style.addressBottomSheetTagTitleStyle,
+                  ),
+                ],
               ),
             ),
           ],
