@@ -6,5 +6,5 @@ class AppFonts {
   static const String interRegular = 'InterRegular';
   static const String interMedium = 'InterMedium';
   static const String interSemiBold = 'InterSemiBold';
-  static const String interSansBold = 'InterBold';
+  static const String interBold = 'InterBold';
 }

@@ -29,6 +29,8 @@ export 'package:another_flushbar/flushbar.dart' hide OnTap;
 export 'package:permission_handler/permission_handler.dart';
 export 'package:pin_code_fields/pin_code_fields.dart';
 export 'package:image_picker/image_picker.dart';
+export 'package:flutter_animate/flutter_animate.dart';
+
 
 // Project core
 export 'package:taza/app/app_class.dart';
@@ -51,6 +53,7 @@ export 'package:taza/utils/exception_file.dart';
 export 'package:taza/extension_methods/string.dart';
 export 'package:taza/extension_methods/date_time.dart';
 export 'package:taza/extension_methods/duration.dart';
+export 'package:taza/extension_methods/widgets_extensions.dart';
 
 // Enums
 export 'package:taza/enums/enums.dart';
@@ -67,6 +70,7 @@ export 'package:taza/data/network/models/user_response.dart';
 export 'package:taza/data/network/repository/app_repository.dart';
 export 'package:taza/data/network/repository/user_repository.dart';
 export 'package:taza/data/network/api_const/api_keys.dart';
+export 'package:taza/data/network/models/food_model.dart';
 
 // Services
 export 'package:taza/common/common_service.dart';
@@ -88,6 +92,8 @@ export 'package:taza/ui/widgets/smart_single_child_scroll_view.dart';
 export 'package:taza/ui/widgets/smart_stepper.dart';
 export 'package:taza/ui/widgets/smart_text.dart';
 export 'package:taza/ui/widgets/text_field.dart';
+export 'package:taza/ui/widgets/smart_switch.dart';
+export 'package:taza/ui/widgets/smart_animator.dart';
 
 // UI Pages & Controllers
 export 'package:taza/ui/splash/binding/splash_binding.dart';
@@ -100,6 +106,12 @@ export 'package:taza/ui/dashboard/view/dashboard_page.dart';
 export 'package:taza/ui/dashboard/components/bottom_navigation_bar_data_model.dart';
 export 'package:taza/ui/dashboard/components/custom_bottom_bar.dart';
 export 'package:taza/ui/dashboard/components/tabdata.dart';
+export 'package:taza/ui/dashboard/components/food_card.dart';
+export 'package:taza/ui/dashboard/components/offer_popup.dart';
+
+export 'package:taza/ui/smart_quantity/view/smart_quantity.dart';
+export 'package:taza/ui/smart_quantity/view/smart_quantity_controller.dart';
+
 
 export 'package:taza/ui/dashboard/dashboard_modules/home/view/home_controller.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/home/view/home_page.dart';

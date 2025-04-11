@@ -64,6 +64,10 @@ abstract class AppTheme {
 
   FoodCardStyle get foodCardStyle;
 
+  OfferPopupStyle get offerPopupStyle;
+
+  SmartChipStyle get smartChipStyle;
+
   SearchBarStyle get searchBarStyle;
 
   HomeHeaderStyle get homeHeaderStyle;
@@ -73,7 +77,6 @@ abstract class AppTheme {
   AddressBottomSheetStyle get addressBottomSheetStyle;
 
 }
-
 
 class PrimaryButtonStyle {
   final Color activeBackgroundColor;
@@ -131,12 +134,7 @@ class CheckboxStyle {
   final Color borderColor;
   final TextStyle textStyle;
 
-  CheckboxStyle({
-    required this.activeColor,
-    required this.checkColor,
-    required this.borderColor,
-    required this.textStyle,
-  });
+  CheckboxStyle({required this.activeColor, required this.checkColor, required this.borderColor, required this.textStyle});
 }
 
 class TabBarStyle {
@@ -180,8 +178,6 @@ class CustomAppBarStyle {
     required this.transparentColor,
   });
 }
-
-
 
 class AuthModuleStyle {
   final Color backgroundColor;
@@ -291,10 +287,7 @@ class ImageCarouselStyle {
   final Color dotColor;
   final Color selectedDotColor;
 
-  ImageCarouselStyle({
-    required this.dotColor,
-    required this.selectedDotColor,
-  });
+  ImageCarouselStyle({required this.dotColor, required this.selectedDotColor});
 }
 
 class SmartImageTitleColumnStyle {
@@ -324,10 +317,7 @@ class NoDataFoundStyle {
   final TextStyle titleStyle;
   final TextStyle subTitleStyle;
 
-  NoDataFoundStyle({
-    required this.titleStyle,
-    required this.subTitleStyle,
-  });
+  NoDataFoundStyle({required this.titleStyle, required this.subTitleStyle});
 }
 
 class ConfirmCancelPopupStyle {
@@ -453,12 +443,29 @@ class TaskDetailsStyle {
   });
 }
 
-class FoodCardStyle{
+class FoodCardStyle {
   final TextStyle titleStyle;
   final TextStyle subTitleStyle;
   final TextStyle amountStyle;
+  final BoxDecoration cardDecoration;
+  final BorderRadiusGeometry imageDecoration;
+  final Color iconColor;
+  FoodCardStyle({required this.titleStyle, required this.subTitleStyle, required this.amountStyle,required this.cardDecoration,required this.imageDecoration,required this.iconColor});
+}
 
-  FoodCardStyle({required this.titleStyle, required this.subTitleStyle, required this.amountStyle});
+class OfferPopupStyle {
+  final TextStyle titleStyle;
+  final TextStyle subTitleStyle;
+
+  OfferPopupStyle({required this.titleStyle,required this.subTitleStyle});
+}
+
+class SmartChipStyle{
+  final TextStyle titleStyle;
+  final Color selectedColor;
+  final Color color;
+
+  SmartChipStyle({required this.titleStyle,required this.selectedColor,required this.color});
 }
 
 class SearchBarStyle {

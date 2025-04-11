@@ -69,6 +69,7 @@ class LocaleKeys {
   static const cart = 'cart';
   static const rewards = 'rewards';
   static const reorder = 'reorder';
+  static const order = 'order';
   static const searchFor = 'searchFor';
   static const selectDeliveryAddress = 'selectDeliveryAddress';
   static const usePinCode = 'usePinCode';
@@ -140,6 +141,8 @@ class Locales {
     'cart': 'Cart',
     'rewards': 'Rewards',
     'reorder': 'Reorder',
+    'order': 'Order',
+
     'searchFor': 'Search for ',
     'selectDeliveryAddress': 'Select delivery address',
     'usePinCode': 'Use pincode to check delivery info',
@@ -207,6 +210,7 @@ class Locales {
     'cart': 'السلة',
     'rewards': 'الجوائز',
     'reorder': 'اعادة الطلب',
+    'order': 'طلب',
     'searchFor': 'ابحث عن',
     'selectDeliveryAddress': 'اختر عنوان التوصيل',
     'usePinCode': 'استخدم الرمز البريدي للتحقق من معلومات التوصيل',

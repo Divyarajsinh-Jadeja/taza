@@ -10,23 +10,31 @@ class LightModeTheme extends AppTheme {
 
   @override
   TextStyle get interRegularW400TextStyle =>
-      TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w400, fontFamily: AppFonts.interRegular, color: colors.color1D1D1F);
+      TextStyle(fontSize: 14.sp,
+          fontWeight: FontWeight.w400,
+          fontFamily: AppFonts.interRegular,
+          color: colors.color1D1D1F);
 
   @override
   TextStyle get interMediumBoldW500TextStyle =>
-      TextStyle(fontSize: 16.0.sp, fontWeight: FontWeight.w500, fontFamily: AppFonts.interMedium, color: colors.color1D1D1F);
+      TextStyle(fontSize: 16.0.sp,
+          fontWeight: FontWeight.w500,
+          fontFamily: AppFonts.interMedium,
+          color: colors.color1D1D1F);
 
   @override
   TextStyle get interSemiBoldW600TextStyle =>
-      TextStyle(fontSize: 16.0.sp, fontWeight: FontWeight.w600, fontFamily: AppFonts.interSemiBold, color: colors.color1D1D1F);
+      TextStyle(fontSize: 16.0.sp,
+          fontWeight: FontWeight.w600,
+          fontFamily: AppFonts.interSemiBold,
+          color: colors.color1D1D1F);
 
   @override
   TextStyle get interBoldW700TextStyle =>
       TextStyle(fontSize: 16.0.sp,
           fontWeight: FontWeight.w700,
-          fontFamily: AppFonts.interSansBold,
+          fontFamily: AppFonts.interBold,
           color: colors.color1D1D1F);
-
 
 
   @override
@@ -290,35 +298,61 @@ class LightModeTheme extends AppTheme {
       );
 
   @override
-  TaskDetailsStyle get taskDetailsStyle =>
-      TaskDetailsStyle(
-        nameStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 16.sp),
-        descriptionStyle: interRegularW400TextStyle.copyWith(
-            fontSize: 14.sp, color: colors.color8C8C8C),
-        appbarTitleStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 18.sp),
-        assignedByStyle: interSemiBoldW600TextStyle.copyWith(
-            fontSize: 15.sp, color: colors.color1D1D1F),
-        //
-        assignedToStyle: interRegularW400TextStyle.copyWith(
-            fontSize: 15.sp, color: colors.color1D1D1F),
-        taskDescriptionStyle: interBoldW700TextStyle.copyWith(
-            fontSize: 18.sp, color: colors.color1D1D1F), //taskDescriptionStyle
-      );
+  TaskDetailsStyle get taskDetailsStyle => TaskDetailsStyle(
+    nameStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 16.sp),
+    descriptionStyle: interRegularW400TextStyle.copyWith(fontSize: 14.sp, color: colors.color8C8C8C),
+    appbarTitleStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 18.sp),
+    assignedByStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 15.sp, color: colors.color1D1D1F),
+    //
+    assignedToStyle: interRegularW400TextStyle.copyWith(fontSize: 15.sp, color: colors.color1D1D1F),
+    taskDescriptionStyle: interBoldW700TextStyle.copyWith(fontSize: 18.sp, color: colors.color1D1D1F), //taskDescriptionStyle
+  );
 
   @override
-  FoodCardStyle get foodCardStyle =>
-      FoodCardStyle(titleStyle: interBoldW700TextStyle,
-          subTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 14.sp),
-          amountStyle: interBoldW700TextStyle);
+  FoodCardStyle get foodCardStyle => FoodCardStyle(
+    titleStyle: interBoldW700TextStyle,
+    subTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 12.sp),
+    amountStyle: interBoldW700TextStyle.copyWith(fontSize: 15.sp),
+    cardDecoration: BoxDecoration(
+      border: Border.all(color: colors.colorD2D2D7),
+      borderRadius: BorderRadius.circular(16.r),
+    ),
+    imageDecoration: BorderRadiusDirectional.only(
+      topStart: Radius.circular(12.r),
+      bottomStart: Radius.circular(12.r),
+    ),
+    iconColor: colors.primary
+  );
 
+  @override
+  OfferPopupStyle get offerPopupStyle => OfferPopupStyle(
+    titleStyle: interBoldW700TextStyle.copyWith(
+      color: colors.white,
+      fontSize: 28.sp,
+    ),
+    subTitleStyle: interBoldW700TextStyle.copyWith(
+      color: colors.white,
+      fontSize: 17.sp,
+    ),
+  );
+
+  @override
+  SmartChipStyle get smartChipStyle => SmartChipStyle(
+    titleStyle: interBoldW700TextStyle.copyWith(
+      color: colors.color9c9cA3,
+      fontSize: 13.sp,
+    ),
+    selectedColor: colors.primary,
+    color: colors.color9c9cA3
+  );
 
   @override
   SearchBarStyle get searchBarStyle =>
       SearchBarStyle(
-          searchBarBgColor: colors.white,
-          searchBarBorderColor: colors.colorD2D2D7,
-          searchBarHintStyle: interRegularW400TextStyle.copyWith(fontSize: 16.sp, color: colors.color9c9cA3),
-          searchBarTextStyle: interRegularW400TextStyle.copyWith(fontSize: 16.sp, color: colors.color1D1D1F),
+        searchBarBgColor: colors.white,
+        searchBarBorderColor: colors.colorD2D2D7,
+        searchBarHintStyle: interRegularW400TextStyle.copyWith(fontSize: 16.sp, color: colors.color9c9cA3),
+        searchBarTextStyle: interRegularW400TextStyle.copyWith(fontSize: 16.sp, color: colors.color1D1D1F),
 
       );
 
@@ -346,10 +380,10 @@ class LightModeTheme extends AppTheme {
   @override
   AddressBottomSheetStyle get addressBottomSheetStyle =>
       AddressBottomSheetStyle(
-        addressBottomSheetTagTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 15.sp),
-        addressBottomSheetTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 13.sp, color: colors.color9c9cA3),
-        textFieldBgColor: colors.white,
-        submitButtonBgColor: colors.primary
+          addressBottomSheetTagTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 15.sp),
+          addressBottomSheetTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 13.sp, color: colors.color9c9cA3),
+          textFieldBgColor: colors.white,
+          submitButtonBgColor: colors.primary
 
       );
 }
