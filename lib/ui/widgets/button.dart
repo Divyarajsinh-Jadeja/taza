@@ -24,7 +24,7 @@ class SmartButton extends StatelessWidget {
   final BoxShadow? boxShadow;
 
   final bool isWhite;
-
+  final SmartAnimator? animator;
   const SmartButton({
     super.key,
     required this.onTap,
@@ -49,6 +49,7 @@ class SmartButton extends StatelessWidget {
     this.imageSize,
     this.boxShadow,
     this.isWhite = false,
+    this.animator
   });
 
   const SmartButton.white({
@@ -74,12 +75,13 @@ class SmartButton extends StatelessWidget {
     this.disableImageColor,
     this.imageSize,
     this.boxShadow,
+    this.animator
   }) : isWhite = true;
 
   @override
   Widget build(BuildContext context) {
     final style = AppTheme.of(context).primaryButtonStyle;
-    return isLoading
+    Widget child = isLoading
         ? SmartCircularProgressIndicator(padding: EdgeInsets.zero, size: height ?? 42.w)
         : Bounceable(
           onTap: isEnabled && !isLoading ? onTap : null,
@@ -165,5 +167,12 @@ class SmartButton extends StatelessWidget {
                     ),
           ),
         );
+
+    // Apply animation
+    if (animator != null) {
+      return animator!.copyWith(child: child);
+    } else {
+      return child;
+    }
   }
 }

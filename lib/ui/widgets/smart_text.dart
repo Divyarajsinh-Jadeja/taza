@@ -16,23 +16,28 @@ class SmartText extends StatelessWidget {
   final bool isFlexible;
   final int flex;
 
+  // Animation
+  final SmartAnimator? animator;
+
+
   SmartText(
-    String? text, {
-    super.key,
-    this.color,
-    TextStyle? style,
-    this.fontWeight,
-    this.optionalPadding,
-    this.overflow,
-    this.textAlign,
-    this.decoration,
-    this.maxLines,
-    this.isAutoSizeText = false,
-    this.onTap,
-    this.isExpanded = false,
-    this.isFlexible = false,
-    this.flex = 1,
-  })  : _text = text,
+      String? text, {
+        super.key,
+        this.color,
+        TextStyle? style,
+        this.fontWeight,
+        this.optionalPadding,
+        this.overflow,
+        this.textAlign,
+        this.decoration,
+        this.maxLines,
+        this.isAutoSizeText = false,
+        this.onTap,
+        this.isExpanded = false,
+        this.isFlexible = false,
+        this.flex = 1,
+        this.animator
+      })  : _text = text,
         _style = style {
     assert(!(isExpanded && isFlexible), 'isExpanded and isFlexible cannot be true at the same time');
   }
@@ -40,7 +45,9 @@ class SmartText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextStyle? style = _style ?? TextStyle(fontSize: 14.0.sp, fontWeight: FontWeight.w400, color: Colors.black);
+
     Widget child;
+
     if (isAutoSizeText) {
       child = AutoSizeText(
         (_text ?? '').tr,
@@ -63,27 +70,29 @@ class SmartText extends StatelessWidget {
       );
     }
 
+    // Wrap with padding if needed
     if (_text != null && _text.isNotEmpty && optionalPadding != null) {
       child = Padding(padding: optionalPadding!, child: child);
     }
+
+    // Wrap with gesture detector if needed
     if (onTap != null) {
-      child = GestureDetector(
-        onTap: onTap,
-        child: child,
-      );
+      child = GestureDetector(onTap: onTap, child: child);
     }
 
+    // Apply layout
     if (isExpanded) {
-      child = Expanded(
-        flex: flex,
-        child: child,
-      );
+      child = Expanded(flex: flex, child: child);
     } else if (isFlexible) {
-      child = Flexible(
-        flex: flex,
-        child: child,
-      );
+      child = Flexible(flex: flex, child: child);
     }
-    return child;
+
+
+    // Apply animation
+    if (animator != null) {
+  return animator!.copyWith(child: child); 
+} else {
+  return child;
+}
   }
 }

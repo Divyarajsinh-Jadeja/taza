@@ -29,7 +29,7 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.titleStyle,
     this.isCenter = false,
     this.isBack = true,
-    this.isBorder = true,
+    this.isBorder = false,
     this.padding,
     this.appBarHeight,
     this.onBack,
@@ -77,7 +77,8 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           Opacity(opacity: isSkip ? 0 : 1, child: SmartImage(path: AppImages.icHome)),
           SizedBox(width: 6.w),
-          SmartText(isSkip ? LocaleKeys.skip.tr : LocaleKeys.back.tr, style: style.backTextStyle),
+          if(isSkip)SmartText(isSkip ? LocaleKeys.skip.tr : LocaleKeys.back.tr, style: style.backTextStyle),
+          Icon(Icons.arrow_back_rounded,color: colors(context).color00BAB3,)
         ],
       );
     } else {

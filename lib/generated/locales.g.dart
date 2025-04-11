@@ -73,6 +73,7 @@ class LocaleKeys {
   static const deliveryType = 'deliveryType';
   static const tip = 'tip';
   static const instruction = 'instruction';
+  static const order = 'order';
 }
 
 class Locales {
@@ -142,6 +143,8 @@ class Locales {
     'deliveryType': 'Delivery Type',
     'tip': 'Tip',
     'instruction': 'Instruction',
+    'order': 'Order',
+
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -207,5 +210,6 @@ class Locales {
     'deliveryType': 'نوع التوصيل',
     'tip': 'إكرامية',
     'instruction': 'تعليمات',
+    'order': 'طلب',
   };
 }
