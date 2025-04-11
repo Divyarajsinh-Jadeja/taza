@@ -9,6 +9,7 @@ class CheckoutPage extends GetView<CheckoutController> {
     final style = AppTheme.of(context).checkoutStyle;
     return Scaffold(
       backgroundColor: style.backgroundColor,
+      /// TODO: appbar need to change
       appBar: SmartAppBar(),
       body: SafeArea(
         child: SmartColumn(
