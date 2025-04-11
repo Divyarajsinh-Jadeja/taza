@@ -78,4 +78,5 @@ class AppImages {
   static const String icNonVeg = 'assets/images/ic_non_veg.svg';
   static const String icVeg = 'assets/images/ic_veg.svg';
   static const String icStar = 'assets/images/ic_star.svg';
+  static const String icArrowRight = 'assets/images/ic_arrow_right.svg';
 }
