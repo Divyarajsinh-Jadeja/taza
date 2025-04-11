@@ -70,26 +70,25 @@ class CheckoutPage extends GetView<CheckoutController> {
                       ],
                     ),
                     SizedBox(width: 12.w),
-                    Expanded(
-                      child: SmartRow(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          SmartAnimatedQuantity(
-                            index: 0,
-                            model: FoodModel(
-                                name: 'Family Bucket',
-                                imageUrl: 'https://i.ibb.co/whRS5nY7/b.jpg',
-                                rating: 4.2,
-                                reviewsCount: 1200,
-                                deliveryTime: '30-35 min',
-                                price: 89.0,
-                                quantity: 1
-                            ),
+                    SmartRow(
+                      isExpanded: true,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SmartAnimatedQuantity(
+                          index: 0,
+                          model: FoodModel(
+                              name: 'Family Bucket',
+                              imageUrl: 'https://i.ibb.co/whRS5nY7/b.jpg',
+                              rating: 4.2,
+                              reviewsCount: 1200,
+                              deliveryTime: '30-35 min',
+                              price: 89.0,
+                              quantity: 1
                           ),
-                          SizedBox(width: 16.w),
-                          SmartText("89 SAR", style: style.titleStyle),
-                        ],
-                      ),
+                        ),
+                        SizedBox(width: 16.w),
+                        SmartText("89 SAR", style: style.titleStyle),
+                      ],
                     ),
                   ],
                 ),
