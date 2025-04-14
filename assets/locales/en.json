@@ -65,5 +65,11 @@
   "applied": "Applied",
   "savingCorner": "Saving Corner",
   "toPayPrefix": "To pay ",
-  "order": "Order"
+  "order": "Order",
+  "searchFor" : "Search for ",
+  "selectDeliveryAddress" : "Select delivery address",
+  "usePinCode" : "Use pincode to check delivery info",
+  "useMyLocation" : "Use my current location",
+  "enterPinCode" : "Enter pin code",
+  "submit" : "Submit"
 }

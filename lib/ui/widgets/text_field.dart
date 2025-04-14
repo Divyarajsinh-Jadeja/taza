@@ -51,6 +51,7 @@ class SmartTextField extends StatelessWidget {
   final double? cursorHeight;
   final TextAlign? textAlign;
   final bool isSearch;
+  final bool isSearchWithPrefix;
 
   SmartTextField({
     super.key,
@@ -103,6 +104,7 @@ class SmartTextField extends StatelessWidget {
     this.prefixIconSize,
     this.cursorHeight,
     this.textAlign,
+    this.isSearchWithPrefix = false,
   }) : labelText = labelText != null ? '$labelText${isRequired == true ? ' *' : ''}' : null,
        isSearch = false;
 
@@ -157,6 +159,7 @@ class SmartTextField extends StatelessWidget {
     this.prefixIconSize,
     this.cursorHeight,
     this.textAlign,
+    this.isSearchWithPrefix = false,
   }) : labelText = labelText != null ? '$labelText${isRequired == true ? ' *' : ''}' : null,
        isSearch = true;
 
@@ -245,7 +248,7 @@ class SmartTextField extends StatelessWidget {
                   hintStyle: textFieldStyle.hintStyle.merge(hintStyle),
                   prefixIcon:
                       prefixIcon ??
-                      (isSearch ? SmartImage(path: AppImages.icHome, fit: BoxFit.contain, margin: EdgeInsets.all(8.w)) : null),
+                      (isSearch ? isSearchWithPrefix ? SmartImage(path: AppImages.icHome, fit: BoxFit.contain, margin: EdgeInsets.all(8.w)) : null : null),
                   suffixIcon:
                       suffixIcon ??
                       (obscured

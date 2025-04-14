@@ -77,6 +77,15 @@ abstract class AppTheme {
   FoodPageStyle get foodPageStyle;
 
   FoodItemCardStyle get foodItemCardStyle;
+
+  SearchBarStyle get searchBarStyle;
+
+  HomeHeaderStyle get homeHeaderStyle;
+
+  FoodOptionCardStyle get foodOptionCardStyle;
+
+  AddressBottomSheetStyle get addressBottomSheetStyle;
+
 }
 
 class PrimaryButtonStyle {
@@ -576,5 +585,69 @@ class CheckoutStyle {
     required this.cardDecoration,
     required this.payUsingTextStyle,
     required this.paymentTextStyle,
+  });
+}
+
+class SearchBarStyle {
+  final Color searchBarBgColor;
+  final Color searchBarBorderColor;
+  final TextStyle searchBarHintStyle;
+  final TextStyle searchBarTextStyle;
+
+  SearchBarStyle({
+    required this.searchBarBgColor,
+    required this.searchBarBorderColor,
+    required this.searchBarHintStyle,
+    required this.searchBarTextStyle,
+  });
+
+}
+
+class HomeHeaderStyle {
+  final TextStyle addressTagTitleStyle;
+  final TextStyle addressTitleStyle;
+
+  HomeHeaderStyle({
+    required this.addressTagTitleStyle,
+    required this.addressTitleStyle,
+  });
+}
+
+class FoodOptionCardStyle {
+  final Color foodCardBgColor;
+  final Color tagStartGradientStartColor;
+  final Color tagEndGradientStartColor;
+  final Color timeContainerBorderColor;
+  final TextStyle foodCardTitleStyle;
+  final TextStyle foodCardSubTitleStyle;
+  final TextStyle foodCardTagStyle;
+  final TextStyle foodCardTimeStyle;
+  final TextStyle foodCardDurationStyle;
+
+  FoodOptionCardStyle({
+    required this.foodCardBgColor,
+    required this.tagStartGradientStartColor,
+    required this.tagEndGradientStartColor,
+    required this.timeContainerBorderColor,
+    required this.foodCardTitleStyle,
+    required this.foodCardSubTitleStyle,
+    required this.foodCardTagStyle,
+    required this.foodCardTimeStyle,
+    required this.foodCardDurationStyle,
+  });
+}
+
+
+class AddressBottomSheetStyle {
+  final Color textFieldBgColor;
+  final Color submitButtonBgColor;
+  final TextStyle addressBottomSheetTagTitleStyle;
+  final TextStyle addressBottomSheetTitleStyle;
+
+  AddressBottomSheetStyle({
+    required this.textFieldBgColor,
+    required this.submitButtonBgColor,
+    required this.addressBottomSheetTagTitleStyle,
+    required this.addressBottomSheetTitleStyle,
   });
 }

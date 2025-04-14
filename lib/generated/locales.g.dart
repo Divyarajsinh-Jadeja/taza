@@ -79,6 +79,12 @@ class LocaleKeys {
   static const savingCorner = 'savingCorner';
   static const toPayPrefix = 'toPayPrefix';
   static const order = 'order';
+  static const searchFor = 'searchFor';
+  static const selectDeliveryAddress = 'selectDeliveryAddress';
+  static const usePinCode = 'usePinCode';
+  static const useMyLocation = 'useMyLocation';
+  static const enterPinCode = 'enterPinCode';
+  static const submit = 'submit';
 }
 
 class Locales {
@@ -154,6 +160,12 @@ class Locales {
     'savingCorner': 'Saving Corner',
     'toPayPrefix': 'To pay ',
     'order': 'Order',
+    'searchFor': 'Search for ',
+    'selectDeliveryAddress': 'Select delivery address',
+    'usePinCode': 'Use pincode to check delivery info',
+    'useMyLocation': 'Use my current location',
+    'enterPinCode': 'Enter pin code',
+    'submit': 'Submit',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -225,5 +237,11 @@ class Locales {
     'savingCorner': 'زاوية التوفير',
     'toPayPrefix': 'المبلغ المستحق ',
     'order': 'طلب',
+    'searchFor': 'ابحث عن',
+    'selectDeliveryAddress': 'اختر عنوان التوصيل',
+    'usePinCode': 'استخدم الرمز البريدي للتحقق من معلومات التوصيل',
+    'useMyLocation': 'استخدم موقعي الحالي',
+    'enterPinCode': 'أدخل الرمز البريدي',
+    'submit': 'يُقدِّم',
   };
 }

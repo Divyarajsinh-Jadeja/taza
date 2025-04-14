@@ -65,5 +65,12 @@
   "applied": "تم التطبيق",
   "savingCorner": "زاوية التوفير",
   "toPayPrefix": "المبلغ المستحق ",
-  "order": "طلب"
+  "order": "طلب",
+  "searchFor": "ابحث عن",
+  "selectDeliveryAddress": "اختر عنوان التوصيل",
+  "usePinCode": "استخدم الرمز البريدي للتحقق من معلومات التوصيل",
+  "useMyLocation": "استخدم موقعي الحالي",
+  "enterPinCode": "أدخل الرمز البريدي",
+  "submit": "يُقدِّم"
+
 }
