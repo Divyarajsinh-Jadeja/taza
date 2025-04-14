@@ -141,17 +141,7 @@ class CheckoutPage extends GetView<CheckoutController> {
               ],
             ),
             SizedBox(height: 20.h),
-            Container(
-              decoration: BoxDecoration(
-                color: style.whiteColor,
-                borderRadius: BorderRadius.all(Radius.circular(16.r)),
-              ),
-              padding: EdgeInsetsDirectional.symmetric(
-                horizontal: 16.w,
-                vertical: 16.w,
-              ),
-              child: SmartDeliveryTabBar(),
-            ),
+            SmartDeliveryTabBar(),
             SizedBox(height: 20.h,),
             SmartColumn(
               decoration: style.cardDecoration,

@@ -13,6 +13,14 @@ class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
     final style = AppTheme.of(context).checkoutStyle;
 
     return SmartColumn(
+      decoration: BoxDecoration(
+        color: style.whiteColor,
+        borderRadius: BorderRadius.all(Radius.circular(16.r)),
+      ),
+      padding: EdgeInsetsDirectional.symmetric(
+        horizontal: 16.w,
+        vertical: 16.w,
+      ),
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
