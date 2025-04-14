@@ -16,7 +16,6 @@ class SmartAnimatedQuantity extends GetView<QuantityController> {
 
   @override
   Widget build(BuildContext context) {
-    RxInt previousQuantity = controller.quantities[index].value.obs;
     var style = AppTheme.of(context).foodCardStyle;
     return SmartRow(
       height: 32.h,
@@ -37,11 +36,11 @@ class SmartAnimatedQuantity extends GetView<QuantityController> {
         if (model.quantity > 0) ...[
           InkWell(
             onTap: onDecrease,
-            child: Icon(Icons.remove, color: style.iconColor, size: 16.r),
+            child: Icon(Icons.remove, color: style.iconColor, size: 16.w),
           ),
           Obx(() {
             final int current = controller.quantities[index].value;
-            final bool isIncreasing = current > previousQuantity.value;
+            final bool isIncreasing = current > controller.quantities[index].value.obs.value;
             final Offset slideOffset =
                 isIncreasing ? const Offset(0, 0.4) : const Offset(0, -0.4);
 
@@ -56,18 +55,18 @@ class SmartAnimatedQuantity extends GetView<QuantityController> {
               ],
               child: SmartText(
                 "$current",textAlign: TextAlign.center,
-                style: style.titleStyle.copyWith(fontSize: 13.sp),
+                style: style.subTitleStyle,
               ),
             );
 
-            previousQuantity.value = current;
+            controller.quantities[index].value = current;
 
             return animated;
           }),
         ],
         InkWell(
           onTap: onIncrease,
-          child: Icon(Icons.add, color: style.iconColor, size: 16.r),
+          child: Icon(Icons.add, color: style.iconColor, size: 16.w),
         ),
       ],
     );

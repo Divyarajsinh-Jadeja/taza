@@ -6,9 +6,6 @@ class CheckoutPage extends GetView<CheckoutController> {
   @override
   Widget build(BuildContext context) {
     final style = AppTheme.of(context).checkoutStyle;
-    Get.find<QuantityController>().initializeQuantities(1);
-    Get.put(SmartDeliveryTabController());
-
     return Scaffold(
       backgroundColor: style.backgroundColor,
       /// TODO: appbar need to change
@@ -149,18 +146,13 @@ class CheckoutPage extends GetView<CheckoutController> {
                 color: style.whiteColor,
                 borderRadius: BorderRadius.all(Radius.circular(16.r)),
               ),
-              //height: 182.h,
               padding: EdgeInsetsDirectional.symmetric(
                 horizontal: 16.w,
                 vertical: 16.w,
               ),
-              child: SmartDeliveryTabBar(
-                onDeliveryTypeChanged: (int selectedType) {
-                  printWrapped("Selected Delivery Type: $selectedType");
-                },
-              ),
+              child: SmartDeliveryTabBar(),
             ),
-            20.verticalSpace,
+            SizedBox(height: 20.h,),
             SmartColumn(
               decoration: style.cardDecoration,
               padding: EdgeInsetsDirectional.all(16.w),
@@ -202,7 +194,7 @@ class CheckoutPage extends GetView<CheckoutController> {
                 ),
                 SmartText(
                   "10 SAR saved on the total!",
-                  style: style.appliedTextStyle.copyWith(fontSize: 11.sp),
+                  style: style.appliedTextStyle,
                   optionalPadding: EdgeInsetsDirectional.only(start: 28.w),
                 ),
               ],

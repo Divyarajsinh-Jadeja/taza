@@ -1,12 +1,10 @@
 import 'package:taza/taza.dart';
 
 class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
-  final Function(int) onDeliveryTypeChanged;
   final List<Widget>? tabBarViewWidgets;
 
   const SmartDeliveryTabBar({
     super.key,
-    required this.onDeliveryTypeChanged,
     this.tabBarViewWidgets,
   });
 
@@ -21,7 +19,7 @@ class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
           height: 40.h,
           padding: EdgeInsets.all(4.w),
           decoration: BoxDecoration(
-            color: Colors.grey[200],
+            color: style.tabDisableBgColor,
             borderRadius: BorderRadius.circular(50.r),
           ),
           child: TabBar(
@@ -61,7 +59,7 @@ class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
     );
   }
 
-  Widget _buildDeliveryOptions(dynamic style) {
+  Widget _buildDeliveryOptions(CheckoutStyle style) {
     return SmartColumn(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -90,33 +88,26 @@ class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
     required String subtitle,
     required String timeRange,
     required int value,
-    required dynamic style,
+    required CheckoutStyle style,
   }) {
     return SmartRow(
       crossAxisAlignment: CrossAxisAlignment.start,
       onTap: () {
         controller.changeDelivery(value);
-        onDeliveryTypeChanged(value);
       },
       children: [
         SizedBox(
           height: 24.w,
           width: 24.w,
-          child: Theme(
-            data: Theme.of(Get.context!).copyWith(
-              visualDensity: VisualDensity.compact,
-            ),
-            child: Obx(() => Radio(
-              value: value,
-              groupValue: controller.selectedDelivery.value,
-              onChanged: (val) {
-                controller.changeDelivery(value);
-                onDeliveryTypeChanged(value);
-              },
-              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              activeColor: Colors.teal,
-            )),
-          ),
+          child: Obx(() => Radio(
+            value: value,
+            groupValue: controller.selectedDelivery.value,
+            onChanged: (val) {
+              controller.changeDelivery(value);
+            },
+            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            activeColor: style.primaryColor,
+          )),
         ),
         SizedBox(width: 8.w),
         SmartColumn(
