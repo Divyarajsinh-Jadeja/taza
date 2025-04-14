@@ -35,7 +35,7 @@ class AppThemes {
     colorF2E6DF: Color(0xFFF2E6DF),
     colorFFBF9F: Color(0xFFFFBF9F),
     color00BAB3: Color(0xFF00BAB3),
-    color9C9CA3: Color(0xFF9C9CA3),
+    color9c9cA3: Color(0xFF9C9CA3),
     color58585C: Color(0xFF58585C),
     color00A4A2: Color(0xFF00A4A2),
     colorC6FFF8: Color(0xFFC6FFF8),
@@ -105,7 +105,7 @@ class AppColor {
   final Color colorF2E6DF;
   final Color colorFFBF9F;
   final Color color00BAB3;
-  final Color color9C9CA3;
+  final Color color9c9cA3;
   final Color color58585C;
   final Color color00A4A2;
   final Color colorC6FFF8;
@@ -142,7 +142,7 @@ class AppColor {
     required this.colorF2E6DF,
     required this.colorFFBF9F,
     required this.color00BAB3,
-    required this.color9C9CA3,
+    required this.color9c9cA3,
     required this.color58585C,
     required this.color00A4A2,
     required this.colorC6FFF8,

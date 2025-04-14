@@ -1,5 +1,4 @@
 import 'package:taza/taza.dart';
-import 'package:taza/ui/widgets/smart_delivery_tabbar.dart';
 
 class CheckoutPage extends GetView<CheckoutController> {
   const CheckoutPage({super.key});
@@ -8,11 +7,12 @@ class CheckoutPage extends GetView<CheckoutController> {
   Widget build(BuildContext context) {
     final style = AppTheme.of(context).checkoutStyle;
     Get.find<QuantityController>().initializeQuantities(1);
+    Get.put(SmartDeliveryTabController());
 
     return Scaffold(
       backgroundColor: style.backgroundColor,
       /// TODO: appbar need to change
-      appBar: SmartAppBar(),
+      appBar: AppBar(),
       body: SafeArea(
         child: SmartColumn(
           padding: EdgeInsetsDirectional.all(20.w),
