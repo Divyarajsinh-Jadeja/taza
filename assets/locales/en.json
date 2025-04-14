@@ -71,5 +71,6 @@
   "usePinCode" : "Use pincode to check delivery info",
   "useMyLocation" : "Use my current location",
   "enterPinCode" : "Enter pin code",
-  "submit" : "Submit"
+  "submit" : "Submit",
+  "viewMoreCoupons" : "View more coupons & offers"
 }

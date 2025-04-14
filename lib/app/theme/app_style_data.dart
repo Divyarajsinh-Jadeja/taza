@@ -317,6 +317,29 @@ class LightModeTheme extends AppTheme {
     ),
     payUsingTextStyle: interRegularW400TextStyle.copyWith(fontSize: 13.sp, color: colors.color9c9cA3),
     paymentTextStyle: interBoldW700TextStyle.copyWith(fontSize: 15.sp, color: colors.color1D1D1F),
+    tipSelectedStyle: interBoldW700TextStyle.copyWith(fontSize: 11.sp, color: colors.black),
+    tipUnSelectedStyle: interBoldW700TextStyle.copyWith(fontSize: 11.sp, color: colors.color1D1D1F),
+    tipSelectedDecoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(12.r),
+      color: colors.white,
+      border: Border.all(color: colors.primary),
+      boxShadow: [
+        BoxShadow(
+          color: colors.primary.withValues(alpha: 0.5),
+          blurRadius: 2,
+          spreadRadius: 1,
+          offset: Offset(0, 2)
+
+        )
+      ]
+    ),
+    tipUnSelectedDecoration: BoxDecoration(
+      color: colors.white,
+      borderRadius: BorderRadius.circular(12.r),
+      border: Border.all(
+        color: colors.color9c9cA3,
+      ),
+    ),
   );
 
   @override

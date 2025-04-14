@@ -52,13 +52,13 @@ class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
           ),
         ),
         SizedBox(
-          height: 110.h,
+          height: 180.h,
           child: TabBarView(
             controller: controller.tabController,
             children: tabBarViewWidgets ??
                 [
                   _buildDeliveryOptions(style),
-                  Center(child: Text('Tip Content')),
+                  _buildTipOptions(style),
                   Center(child: Text('Instruction Content')),
                 ],
           ),
@@ -90,6 +90,51 @@ class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
       ],
     );
   }
+
+  Widget _buildTipOptions(CheckoutStyle style) {
+    final selectedTip = controller.selectedTip;
+
+    return SmartColumn(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        SmartRow(
+          children: [
+            SmartText(
+              "Tip your delivery partner to show your appreciation for their hard work.",
+              isExpanded: true,
+              style: style.tabDisableTextStyle,
+            ),
+            SmartImage(
+              path: AppImages.tipLottie,
+              height: 100.h,
+              width: 120.w,
+              fit: BoxFit.fitWidth,
+            ),
+          ],
+        ),
+        SizedBox(height: 16.h),
+        Obx(() => Wrap(
+          spacing: 8.w,
+          children: controller.tipOptions.map((tip) {
+            final bool isSelected = (selectedTip.value == tip);
+            return GestureDetector(
+              onTap: () => controller.changeTip(tip),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
+                decoration: isSelected ? style.tipSelectedDecoration:style.tipUnSelectedDecoration,
+                child: SmartText(
+                  tip.toCurrencyCodeFormat(),
+                  style: isSelected ? style.tipSelectedStyle:style.tipUnSelectedStyle,
+                ),
+              ),
+            );
+          }).toList(),
+        )),
+      ],
+    );
+  }
+
+
 
   Widget _buildDeliveryTile({
     required String title,

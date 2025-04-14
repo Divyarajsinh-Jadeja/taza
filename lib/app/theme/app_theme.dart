@@ -564,6 +564,10 @@ class CheckoutStyle {
   final BoxDecoration cardDecoration;
   final TextStyle payUsingTextStyle;
   final TextStyle paymentTextStyle;
+  final TextStyle tipSelectedStyle;
+  final TextStyle tipUnSelectedStyle;
+  final BoxDecoration tipSelectedDecoration;
+  final BoxDecoration tipUnSelectedDecoration;
 
   CheckoutStyle({
     required this.backgroundColor,
@@ -585,6 +589,10 @@ class CheckoutStyle {
     required this.cardDecoration,
     required this.payUsingTextStyle,
     required this.paymentTextStyle,
+    required this.tipSelectedStyle,
+    required this.tipUnSelectedStyle,
+    required this.tipSelectedDecoration,
+    required this.tipUnSelectedDecoration,
   });
 }
 

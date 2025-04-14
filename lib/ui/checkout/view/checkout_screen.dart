@@ -8,11 +8,13 @@ class CheckoutPage extends GetView<CheckoutController> {
     final style = AppTheme.of(context).checkoutStyle;
     return Scaffold(
       backgroundColor: style.backgroundColor,
+
       /// TODO: appbar need to change
       appBar: AppBar(),
-      body: SafeArea(
+      body: SmartSingleChildScrollView(
         child: SmartColumn(
           padding: EdgeInsetsDirectional.all(20.w),
+          mainAxisSize: MainAxisSize.min,
           children: [
             SmartColumn(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -71,13 +73,13 @@ class CheckoutPage extends GetView<CheckoutController> {
                         SmartAnimatedQuantity(
                           index: 0,
                           model: FoodModel(
-                              name: 'Family Bucket',
-                              imageUrl: 'https://i.ibb.co/whRS5nY7/b.jpg',
-                              rating: 4.2,
-                              reviewsCount: 1200,
-                              deliveryTime: '30-35 min',
-                              price: 89.0,
-                              quantity: 1
+                            name: 'Family Bucket',
+                            imageUrl: 'https://i.ibb.co/whRS5nY7/b.jpg',
+                            rating: 4.2,
+                            reviewsCount: 1200,
+                            deliveryTime: '30-35 min',
+                            price: 89.0,
+                            quantity: 1,
                           ),
                         ),
                         SizedBox(width: 16.w),
@@ -108,15 +110,18 @@ class CheckoutPage extends GetView<CheckoutController> {
             ),
             SizedBox(height: 20.h),
             SmartColumn(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               width: Get.width,
               padding: EdgeInsetsDirectional.all(16.w),
               decoration: style.cardDecoration,
               children: [
                 SmartRow(
                   children: [
-                    SmartText(LocaleKeys.savingCorner.tr, style: style.subCardTitleStyle),
+                    SmartText(
+                      LocaleKeys.savingCorner.tr,
+                      style: style.subCardTitleStyle,
+                    ),
                   ],
                 ),
                 SizedBox(height: 16.h),
@@ -135,14 +140,28 @@ class CheckoutPage extends GetView<CheckoutController> {
                     Spacer(),
                     Icon(Icons.check, color: style.greenColor, size: 16.w),
                     SizedBox(width: 4.w),
-                    SmartText(LocaleKeys.applied.tr, style: style.appliedTextStyle),
+                    SmartText(
+                      LocaleKeys.applied.tr,
+                      style: style.appliedTextStyle,
+                    ),
                   ],
+                ),
+                SizedBox(height: 10.h,),
+                Divider(),
+                SmartText(
+                  LocaleKeys.viewMoreCoupons.tr,
+                  style: style.subCardTitleStyle,
+                  textAlign: TextAlign.center,
+                  optionalPadding: EdgeInsetsDirectional.only(bottom: 0.h,top: 10.h),
+                  onTap: () {
+        
+                  },
                 ),
               ],
             ),
             SizedBox(height: 20.h),
             SmartDeliveryTabBar(),
-            SizedBox(height: 20.h,),
+            SizedBox(height: 20.h),
             SmartColumn(
               decoration: style.cardDecoration,
               padding: EdgeInsetsDirectional.all(16.w),
@@ -214,7 +233,10 @@ class CheckoutPage extends GetView<CheckoutController> {
               SmartRow(
                 spacing: 4.w,
                 children: [
-                  SmartText(LocaleKeys.payUsing.tr, style: style.payUsingTextStyle),
+                  SmartText(
+                    LocaleKeys.payUsing.tr,
+                    style: style.payUsingTextStyle,
+                  ),
                   SmartImage(path: AppImages.icArrowUp, size: 16.w),
                 ],
               ),

@@ -85,6 +85,7 @@ class LocaleKeys {
   static const useMyLocation = 'useMyLocation';
   static const enterPinCode = 'enterPinCode';
   static const submit = 'submit';
+  static const viewMoreCoupons = 'viewMoreCoupons';
 }
 
 class Locales {
@@ -166,6 +167,7 @@ class Locales {
     'useMyLocation': 'Use my current location',
     'enterPinCode': 'Enter pin code',
     'submit': 'Submit',
+    'viewMoreCoupons': 'View more coupons & offers',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -243,5 +245,6 @@ class Locales {
     'useMyLocation': 'استخدم موقعي الحالي',
     'enterPinCode': 'أدخل الرمز البريدي',
     'submit': 'يُقدِّم',
+    'viewMoreCoupons': 'عرض المزيد من القسائم والعروض',
   };
 }
