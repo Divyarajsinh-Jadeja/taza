@@ -69,6 +69,15 @@ class LocaleKeys {
   static const cart = 'cart';
   static const rewards = 'rewards';
   static const reorder = 'reorder';
+  static const cookingRequest = 'cookingRequest';
+  static const deliveryType = 'deliveryType';
+  static const tip = 'tip';
+  static const instruction = 'instruction';
+  static const payPal = 'payPal';
+  static const payUsing = 'payUsing';
+  static const applied = 'applied';
+  static const savingCorner = 'savingCorner';
+  static const toPayPrefix = 'toPayPrefix';
   static const order = 'order';
   static const searchFor = 'searchFor';
   static const selectDeliveryAddress = 'selectDeliveryAddress';
@@ -76,6 +85,23 @@ class LocaleKeys {
   static const useMyLocation = 'useMyLocation';
   static const enterPinCode = 'enterPinCode';
   static const submit = 'submit';
+  static const viewMoreCoupons = 'viewMoreCoupons';
+  static const enterPhoneNumber = 'enterPhoneNumber';
+  static const continueForLogin = 'continueForLogin';
+  static const byContinueTerms = 'byContinueTerms';
+  static const groceryDeliverTag = 'groceryDeliverTag';
+  static const termsOfUse = 'termsOfUse';
+  static const pleaseEnterNumber = 'pleaseEnterNumber';
+  static const enterValidNumber = 'enterValidNumber';
+  static const coupons = 'coupons';
+  static const tapToApply = 'tapToApply';
+  static const tipYourDeliveryPartner = 'tipYourDeliveryPartner';
+  static const addInstructionForRestaurant = 'addInstructionForRestaurant';
+  static const instructionExample = 'instructionExample';
+  static const expressDelivery = 'expressDelivery';
+  static const expressDeliveryDesc = 'expressDeliveryDesc';
+  static const regularDelivery = 'regularDelivery';
+  static const regularDeliveryDesc = 'regularDeliveryDesc';
 }
 
 class Locales {
@@ -141,14 +167,40 @@ class Locales {
     'cart': 'Cart',
     'rewards': 'Rewards',
     'reorder': 'Reorder',
+    'cookingRequest': 'Cooking Requests',
+    'deliveryType': 'Delivery Type',
+    'tip': 'Tip',
+    'instruction': 'Instruction',
+    'payPal': 'PayPal',
+    'payUsing': 'Pay using',
+    'applied': 'Applied',
+    'savingCorner': 'Saving Corner',
+    'toPayPrefix': 'To pay ',
     'order': 'Order',
-
     'searchFor': 'Search for ',
     'selectDeliveryAddress': 'Select delivery address',
     'usePinCode': 'Use pincode to check delivery info',
     'useMyLocation': 'Use my current location',
     'enterPinCode': 'Enter pin code',
     'submit': 'Submit',
+    'viewMoreCoupons': 'View more coupons & offers',
+    'enterPhoneNumber': 'Enter Phone Number',
+    'continueForLogin': 'Continue',
+    'byContinueTerms': 'By continuing, you agree to our',
+    'groceryDeliverTag': 'Groceries\ndelivered in\n10 minutes',
+    'termsOfUse': 'Terms of Use',
+    'pleaseEnterNumber': 'Please enter your phone number',
+    'enterValidNumber': 'Please enter a valid phone number',
+    'coupons': 'Coupons',
+    'tapToApply': 'Tap to apply',
+    'tipYourDeliveryPartner':
+        'Tip your delivery partner to show your appreciation for their hard work.',
+    'addInstructionForRestaurant': 'Add an instruction for the restaurant',
+    'instructionExample': 'e.g. Instruction for the entire order',
+    'expressDelivery': 'Express Delivery',
+    'expressDeliveryDesc': 'Get it faster with priority shipping!',
+    'regularDelivery': 'Regular Delivery',
+    'regularDeliveryDesc': 'Reliable delivery at a standard pace.',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -210,6 +262,15 @@ class Locales {
     'cart': 'السلة',
     'rewards': 'الجوائز',
     'reorder': 'اعادة الطلب',
+    'cookingRequest': 'طلبات الطهي',
+    'deliveryType': 'نوع التوصيل',
+    'tip': 'إكرامية',
+    'instruction': 'تعليمات',
+    'payPal': 'باي بال',
+    'payUsing': 'الدفع بواسطة',
+    'applied': 'تم التطبيق',
+    'savingCorner': 'زاوية التوفير',
+    'toPayPrefix': 'المبلغ المستحق ',
     'order': 'طلب',
     'searchFor': 'ابحث عن',
     'selectDeliveryAddress': 'اختر عنوان التوصيل',
@@ -217,5 +278,22 @@ class Locales {
     'useMyLocation': 'استخدم موقعي الحالي',
     'enterPinCode': 'أدخل الرمز البريدي',
     'submit': 'يُقدِّم',
+    'viewMoreCoupons': 'عرض المزيد من القسائم والعروض',
+    'enterPhoneNumber': 'أدخل رقم الهاتف',
+    'continueForLogin': 'استمرار',
+    'byContinueTerms': 'بالمتابعة، فإنك توافق على',
+    'groceryDeliverTag': 'المواد الغذائية\nتوصيل خلال\n10 دقائق',
+    'termsOfUse': 'شروط الاستخدام',
+    'pleaseEnterNumber': 'يرجى إدخال رقم هاتفك',
+    'enterValidNumber': 'يرجى إدخال رقم هاتف صالح',
+    'coupons': 'القسائم',
+    'tapToApply': 'اضغط للتطبيق',
+    'tipYourDeliveryPartner': 'قم بإكرامية شريك التوصيل لإظهار تقديرك لجهوده.',
+    'addInstructionForRestaurant': 'أضف تعليمات للمطعم',
+    'instructionExample': 'مثال: تعليمات للطلب بالكامل',
+    'expressDelivery': 'توصيل سريع',
+    'expressDeliveryDesc': 'احصل عليه بسرعة من خلال الشحن ذو الأولوية!',
+    'regularDelivery': 'توصيل عادي',
+    'regularDeliveryDesc': 'توصيل موثوق بسرعة معتدلة.',
   };
 }

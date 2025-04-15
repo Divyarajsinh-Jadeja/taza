@@ -64,6 +64,10 @@ abstract class AppTheme {
 
   FoodCardStyle get foodCardStyle;
 
+  SmartCategoryRowStyle get smartCategoryRowStyle;
+
+  CheckoutStyle get checkoutStyle;
+
   OfferPopupStyle get offerPopupStyle;
 
   SmartChipStyle get smartChipStyle;
@@ -82,6 +86,9 @@ abstract class AppTheme {
 
   AddressBottomSheetStyle get addressBottomSheetStyle;
 
+  GroceryStyle get groceryStyle;
+
+  LoginPageStyle get loginPageStyle;
 }
 
 class PrimaryButtonStyle {
@@ -534,6 +541,69 @@ class FoodItemCardStyle {
   });
 }
 
+class SmartCategoryRowStyle {
+  final TextStyle titleStyle;
+
+  SmartCategoryRowStyle({required this.titleStyle});
+}
+
+class CheckoutStyle {
+  final Color backgroundColor;
+  final Color primaryColor;
+  final Color whiteColor;
+  final Color requestColor;
+  final Color greenColor;
+  final Color tabSelectedBgColor;
+  final Color tabDisableBgColor;
+  final TextStyle titleStyle;
+  final TextStyle subTitleStyle;
+  final TextStyle subCardTitleStyle;
+  final TextStyle savingTitleStyle;
+  final TextStyle toPayTitleStyle;
+  final TextStyle toPayTitleDiscountedStyle;
+  final TextStyle appliedTextStyle;
+  final TextStyle tabSelectedTextStyle;
+  final TextStyle tabDisableTextStyle;
+  final BoxDecoration cardDecoration;
+  final TextStyle payUsingTextStyle;
+  final TextStyle paymentTextStyle;
+  final TextStyle tipSelectedStyle;
+  final TextStyle tipUnSelectedStyle;
+  final BoxDecoration tipSelectedDecoration;
+  final BoxDecoration tipUnSelectedDecoration;
+  final BoxDecoration couponsSelectedDecoration;
+  final BoxDecoration couponsUnSelectedDecoration;
+
+
+  CheckoutStyle({
+    required this.backgroundColor,
+    required this.primaryColor,
+    required this.whiteColor,
+    required this.requestColor,
+    required this.greenColor,
+    required this.tabSelectedBgColor,
+    required this.tabDisableBgColor,
+    required this.titleStyle,
+    required this.subTitleStyle,
+    required this.subCardTitleStyle,
+    required this.savingTitleStyle,
+    required this.toPayTitleStyle,
+    required this.toPayTitleDiscountedStyle,
+    required this.appliedTextStyle,
+    required this.tabSelectedTextStyle,
+    required this.tabDisableTextStyle,
+    required this.cardDecoration,
+    required this.payUsingTextStyle,
+    required this.paymentTextStyle,
+    required this.tipSelectedStyle,
+    required this.tipUnSelectedStyle,
+    required this.tipSelectedDecoration,
+    required this.tipUnSelectedDecoration,
+    required this.couponsSelectedDecoration,
+    required this.couponsUnSelectedDecoration,
+  });
+}
+
 class SearchBarStyle {
   final Color searchBarBgColor;
   final Color searchBarBorderColor;
@@ -583,7 +653,6 @@ class FoodOptionCardStyle {
   });
 }
 
-
 class AddressBottomSheetStyle {
   final Color textFieldBgColor;
   final Color submitButtonBgColor;
@@ -595,5 +664,39 @@ class AddressBottomSheetStyle {
     required this.submitButtonBgColor,
     required this.addressBottomSheetTagTitleStyle,
     required this.addressBottomSheetTitleStyle,
+  });
+}
+class GroceryStyle{
+  final TextStyle titleStyle;
+  final TextStyle subTitleStyle;
+  final BoxDecoration groceryCardDecoration;
+  GroceryStyle({required this.titleStyle, required this.subTitleStyle,required this.groceryCardDecoration});
+}
+
+class LoginPageStyle {
+  final Color skipButtonBgColor;
+  final TextStyle skipButtonTextStyle;
+  final Color loginPageBgColor;
+  final TextStyle tagTextStyle;
+  final Color continueButtonBgColor;
+  final Color inputFieldBgColor;
+  final TextStyle errorTextStyle;
+  final TextStyle continueButtonTextStyle;
+  final TextStyle bottomTextStyle;
+  final TextStyle termsAndPrivacyTextStyle;
+  final TextStyle countryCodeTextStyle;
+
+  LoginPageStyle({
+    required this.skipButtonBgColor,
+    required this.skipButtonTextStyle,
+    required this.loginPageBgColor,
+    required this.tagTextStyle,
+    required this.inputFieldBgColor,
+    required this.errorTextStyle,
+    required this.continueButtonBgColor,
+    required this.continueButtonTextStyle,
+    required this.bottomTextStyle,
+    required this.termsAndPrivacyTextStyle,
+    required this.countryCodeTextStyle,
   });
 }

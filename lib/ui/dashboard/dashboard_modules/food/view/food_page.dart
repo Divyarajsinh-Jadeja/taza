@@ -144,6 +144,7 @@ class FoodPage extends GetView<FoodController> {
 
             _animatedBoxAdapter(child: SizedBox(height: 16.h)),
             _animatedBoxAdapter(child: _buildFoodList(controller.flavorItemList)),
+            _animatedBoxAdapter(child: SizedBox(height: 42.h)),
           ],
         ),
       );
@@ -313,6 +314,7 @@ class _StickySearchAndTabsHeader extends SliverPersistentHeaderDelegate {
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
     final style = AppTheme.of(context).searchBarStyle;
     final controller = Get.find<FoodController>();
+    print("Device height is :: ${Get.height}");
     return ColoredBox(
       color: Colors.white,
       child: Container(
@@ -354,9 +356,9 @@ class _StickySearchAndTabsHeader extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  double get minExtent => 165;
+  double get minExtent => Get.height < 738 ? 147 : 165;
   @override
-  double get maxExtent => 165;
+  double get maxExtent => Get.height < 738 ? 147 : 165;
 
   @override
   bool shouldRebuild(covariant _StickySearchAndTabsHeader oldDelegate) => oldDelegate.themeColor != themeColor || oldDelegate.tabs != tabs;

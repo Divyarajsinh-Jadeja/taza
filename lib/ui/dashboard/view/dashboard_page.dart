@@ -18,7 +18,9 @@ class DashboardPage extends GetView<DashboardController> {
         elevation: 4,
         backgroundColor: style.selectedIconColor,
         shape: const CircleBorder(),
-        onPressed: () => controller.changeTab(2),
+        onPressed: () {
+          Get.toNamed(AppRoutes.checkoutPage);
+        },
         child: SmartImage(path: bottomNavData.icon),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
