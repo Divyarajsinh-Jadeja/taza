@@ -23,7 +23,6 @@ class LoginPage extends GetView<LoginController> {
               animationDelay: const Duration(milliseconds: 10),
               animationCurve: Curves.easeOut,
               child: SmartColumn(
-                expanded: true,
                 padding: EdgeInsetsDirectional.symmetric(horizontal: 20.w),
                 children: [
                   Align(
@@ -37,7 +36,7 @@ class LoginPage extends GetView<LoginController> {
                       },
                       activeBackgroundColor: style.skipButtonBgColor,
                       titleStyle: style.skipButtonTextStyle,
-                      suffixImage: Get.locale?.languageCode == 'ar'? AppImages.icArrowLeft : AppImages.icArrowRight,
+                      suffixImage: Get.locale?.languageCode == 'ar' ? AppImages.icArrowLeft : AppImages.icArrowRight,
                       imageSize: 16.h,
                       activeImageColor: style.inputFieldBgColor,
                     ),
@@ -47,30 +46,21 @@ class LoginPage extends GetView<LoginController> {
                     expanded: true,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Align(
-                        alignment: AlignmentDirectional.centerStart,
-                        child: SmartImage(
-                          width: 160.w,
-                          path: AppImages.icSplashLogo,
-                        ),
-                      ),
+                      Align(alignment: AlignmentDirectional.centerStart, child: SmartImage(width: 160.w, path: AppImages.icSplashLogo)),
                       SizedBox(height: 22.h),
                       Align(
                         alignment: AlignmentDirectional.centerStart,
-                        child: SmartText(
-                          LocaleKeys.groceryDeliverTag.tr,
-                          style: style.tagTextStyle,
-                          textAlign: TextAlign.start),
+                        child: SmartText(LocaleKeys.groceryDeliverTag.tr, style: style.tagTextStyle, textAlign: TextAlign.start),
                       ),
                       SizedBox(height: 22.h),
-                      Obx((){
+                      Obx(() {
                         return SmartTextField(
                           controller: controller.phoneController,
                           prefixIcon: CountryCodePicker(
                             onChanged: print,
                             textStyle: style.countryCodeTextStyle,
                             initialSelection: 'IN',
-                            favorite: ['+91','IN'],
+                            favorite: ['+91', 'IN'],
                             padding: EdgeInsetsDirectional.zero,
                             showCountryOnly: false,
                             showFlag: false,
@@ -118,22 +108,10 @@ class LoginPage extends GetView<LoginController> {
           SmartRichText(
             textAlign: TextAlign.center,
             spans: [
-              SmartTextSpan(
-                text: LocaleKeys.byContinueTerms.tr,
-                style: style.bottomTextStyle,
-              ),
-              SmartTextSpan(
-                text: "\n${LocaleKeys.termsOfUse.tr}",
-                style: style.termsAndPrivacyTextStyle,
-              ),
-              SmartTextSpan(
-                text: " & ",
-                style: style.bottomTextStyle,
-              ),
-              SmartTextSpan(
-                text: LocaleKeys.privacyPolicy.tr,
-                style: style.termsAndPrivacyTextStyle,
-              ),
+              SmartTextSpan(text: LocaleKeys.byContinueTerms.tr, style: style.bottomTextStyle),
+              SmartTextSpan(text: "\n${LocaleKeys.termsOfUse.tr}", style: style.termsAndPrivacyTextStyle),
+              SmartTextSpan(text: " & ", style: style.bottomTextStyle),
+              SmartTextSpan(text: LocaleKeys.privacyPolicy.tr, style: style.termsAndPrivacyTextStyle),
             ],
           ),
           SizedBox(height: 20.h),

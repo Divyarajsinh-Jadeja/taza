@@ -314,7 +314,7 @@ class _StickySearchAndTabsHeader extends SliverPersistentHeaderDelegate {
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
     final style = AppTheme.of(context).searchBarStyle;
     final controller = Get.find<FoodController>();
-    print("Device height is :: ${Get.height}");
+
     return ColoredBox(
       color: Colors.white,
       child: Container(
