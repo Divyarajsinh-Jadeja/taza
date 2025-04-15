@@ -56,11 +56,17 @@
   "cart": "السلة",
   "rewards": "الجوائز",
   "reorder": "اعادة الطلب",
+  "order": "طلب",
   "searchFor": "ابحث عن",
   "selectDeliveryAddress": "اختر عنوان التوصيل",
   "usePinCode": "استخدم الرمز البريدي للتحقق من معلومات التوصيل",
   "useMyLocation": "استخدم موقعي الحالي",
   "enterPinCode": "أدخل الرمز البريدي",
-  "submit": "يُقدِّم"
+  "submit": "يُقدِّم",
+  "enterPhoneNumber" : "أدخل رقم الهاتف",
+  "continueForLogin" : "استمرار",
+  "byContinueTerms" : "بالمتابعة، فإنك توافق على",
+  "groceryDeliverTag": "المواد الغذائية\nتوصيل خلال\n10 دقائق",
+  "termsOfUse": "شروط الاستخدام"
 
 }

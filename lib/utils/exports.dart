@@ -100,6 +100,11 @@ export 'package:taza/ui/splash/binding/splash_binding.dart';
 export 'package:taza/ui/splash/view/splash_controller.dart';
 export 'package:taza/ui/splash/view/splash_screen.dart';
 
+export 'package:taza/ui/login/view/login_page.dart';
+export 'package:taza/ui/login/view/login_controller.dart';
+export 'package:taza/ui/login/binding/login_binding.dart';
+
+
 export 'package:taza/ui/dashboard/binding/dashboard_binding.dart';
 export 'package:taza/ui/dashboard/view/dashboard_controller.dart';
 export 'package:taza/ui/dashboard/view/dashboard_page.dart';
@@ -130,7 +135,6 @@ export 'package:taza/ui/dashboard/dashboard_modules/rewards/view/rewards_page.da
 
 export 'package:taza/ui/dashboard/dashboard_modules/home/view/widgets/address_bottom_sheet_widget.dart';
 
-export 'package:flutter_animate/flutter_animate.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/home/components/smart_search_bar.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/home/components/food_option_card.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/home/components/home_address_header.dart';
@@ -147,3 +151,6 @@ export 'package:taza/ui/widgets/smart_tab_bar.dart';
 export 'package:carousel_slider/carousel_slider.dart';
 export 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/food/components/filter_category_bar.dart';
+
+export 'package:country_code_picker/country_code_picker.dart';
+
