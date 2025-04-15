@@ -628,11 +628,6 @@ class LightModeTheme extends AppTheme {
         textFieldBgColor: colors.white,
         submitButtonBgColor: colors.primary,
       );
-          addressBottomSheetTagTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 15.sp),
-          addressBottomSheetTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 13.sp, color: colors.color9c9cA3),
-          textFieldBgColor: colors.white,
-          submitButtonBgColor: colors.primary
-      );
 
   @override
   GroceryStyle get groceryStyle => GroceryStyle(
@@ -649,7 +644,7 @@ class LightModeTheme extends AppTheme {
       LoginPageStyle(
           skipButtonTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 16.sp, color: colors.white),
           tagTextStyle: interBoldW700TextStyle.copyWith(fontSize: 26.sp, color: colors.white),
-          skipButtonBgColor: colors.white.withOpacity(0.3),
+          skipButtonBgColor: colors.white.withValues(alpha: 0.3),
           continueButtonTextStyle: interBoldW700TextStyle.copyWith(fontSize: 16.sp, color: colors.white),
           continueButtonBgColor: colors.colorF65D3C,
           loginPageBgColor: colors.primary,
