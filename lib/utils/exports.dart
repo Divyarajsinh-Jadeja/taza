@@ -94,6 +94,7 @@ export 'package:taza/ui/widgets/smart_text.dart';
 export 'package:taza/ui/widgets/text_field.dart';
 export 'package:taza/ui/widgets/smart_switch.dart';
 export 'package:taza/ui/widgets/smart_animator.dart';
+export 'package:taza/ui/widgets/smart_tab_bar.dart';
 
 // UI Pages & Controllers
 export 'package:taza/ui/splash/binding/splash_binding.dart';
@@ -117,6 +118,9 @@ export 'package:taza/ui/dashboard/components/offer_popup.dart';
 export 'package:taza/ui/smart_quantity/view/smart_quantity.dart';
 export 'package:taza/ui/smart_quantity/view/smart_quantity_controller.dart';
 
+export 'package:taza/ui/smart_tab_bar/view/smart_delivery_tab_bar.dart';
+export 'package:taza/ui/smart_tab_bar/view/smart_delivery_tab_bar_controller.dart';
+
 
 export 'package:taza/ui/dashboard/dashboard_modules/home/view/home_controller.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/home/view/home_page.dart';
@@ -133,6 +137,13 @@ export 'package:taza/ui/dashboard/dashboard_modules/reorder/view/reorder_page.da
 export 'package:taza/ui/dashboard/dashboard_modules/rewards/view/rewards_controller.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/rewards/view/rewards_page.dart';
 
+
+export 'package:taza/ui/checkout/view/checkout_controller.dart';
+export 'package:taza/ui/checkout/binding/checkout_binding.dart';
+export 'package:taza/ui/checkout/view/checkout_screen.dart';
+
+/// Model Classes
+export 'package:taza/models/food_category.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/home/view/widgets/address_bottom_sheet_widget.dart';
 
 export 'package:taza/ui/dashboard/dashboard_modules/home/components/smart_search_bar.dart';
@@ -147,7 +158,6 @@ export 'package:taza/ui/dashboard/dashboard_modules/food/components/grocery_tab_
 
 export 'package:taza/ui/dashboard/dashboard_modules/food/components/food_item_card.dart';
 export 'package:carousel_slider/carousel_controller.dart';
-export 'package:taza/ui/widgets/smart_tab_bar.dart';
 export 'package:carousel_slider/carousel_slider.dart';
 export 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/food/components/filter_category_bar.dart';

@@ -69,6 +69,15 @@ class LocaleKeys {
   static const cart = 'cart';
   static const rewards = 'rewards';
   static const reorder = 'reorder';
+  static const cookingRequest = 'cookingRequest';
+  static const deliveryType = 'deliveryType';
+  static const tip = 'tip';
+  static const instruction = 'instruction';
+  static const payPal = 'payPal';
+  static const payUsing = 'payUsing';
+  static const applied = 'applied';
+  static const savingCorner = 'savingCorner';
+  static const toPayPrefix = 'toPayPrefix';
   static const order = 'order';
   static const searchFor = 'searchFor';
   static const selectDeliveryAddress = 'selectDeliveryAddress';
@@ -146,6 +155,15 @@ class Locales {
     'cart': 'Cart',
     'rewards': 'Rewards',
     'reorder': 'Reorder',
+    'cookingRequest': 'Cooking Requests',
+    'deliveryType': 'Delivery Type',
+    'tip': 'Tip',
+    'instruction': 'Instruction',
+    'payPal': 'PayPal',
+    'payUsing': 'Pay using',
+    'applied': 'Applied',
+    'savingCorner': 'Saving Corner',
+    'toPayPrefix': 'To pay ',
     'order': 'Order',
     'searchFor': 'Search for ',
     'selectDeliveryAddress': 'Select delivery address',
@@ -219,6 +237,15 @@ class Locales {
     'cart': 'السلة',
     'rewards': 'الجوائز',
     'reorder': 'اعادة الطلب',
+    'cookingRequest': 'طلبات الطهي',
+    'deliveryType': 'نوع التوصيل',
+    'tip': 'إكرامية',
+    'instruction': 'تعليمات',
+    'payPal': 'باي بال',
+    'payUsing': 'الدفع بواسطة',
+    'applied': 'تم التطبيق',
+    'savingCorner': 'زاوية التوفير',
+    'toPayPrefix': 'المبلغ المستحق ',
     'order': 'طلب',
     'searchFor': 'ابحث عن',
     'selectDeliveryAddress': 'اختر عنوان التوصيل',

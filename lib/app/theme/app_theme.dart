@@ -64,6 +64,10 @@ abstract class AppTheme {
 
   FoodCardStyle get foodCardStyle;
 
+  SmartCategoryRowStyle get smartCategoryRowStyle;
+
+  CheckoutStyle get checkoutStyle;
+
   OfferPopupStyle get offerPopupStyle;
 
   SmartChipStyle get smartChipStyle;
@@ -532,6 +536,56 @@ class FoodItemCardStyle {
     required this.ratingStyle,
     required this.primaryColor,
     required this.dividerColor,
+  });
+}
+
+class SmartCategoryRowStyle {
+  final TextStyle titleStyle;
+
+  SmartCategoryRowStyle({required this.titleStyle});
+}
+
+class CheckoutStyle {
+  final Color backgroundColor;
+  final Color primaryColor;
+  final Color whiteColor;
+  final Color requestColor;
+  final Color greenColor;
+  final Color tabSelectedBgColor;
+  final Color tabDisableBgColor;
+  final TextStyle titleStyle;
+  final TextStyle subTitleStyle;
+  final TextStyle subCardTitleStyle;
+  final TextStyle savingTitleStyle;
+  final TextStyle toPayTitleStyle;
+  final TextStyle toPayTitleDiscountedStyle;
+  final TextStyle appliedTextStyle;
+  final TextStyle tabSelectedTextStyle;
+  final TextStyle tabDisableTextStyle;
+  final BoxDecoration cardDecoration;
+  final TextStyle payUsingTextStyle;
+  final TextStyle paymentTextStyle;
+
+  CheckoutStyle({
+    required this.backgroundColor,
+    required this.primaryColor,
+    required this.whiteColor,
+    required this.requestColor,
+    required this.greenColor,
+    required this.tabSelectedBgColor,
+    required this.tabDisableBgColor,
+    required this.titleStyle,
+    required this.subTitleStyle,
+    required this.subCardTitleStyle,
+    required this.savingTitleStyle,
+    required this.toPayTitleStyle,
+    required this.toPayTitleDiscountedStyle,
+    required this.appliedTextStyle,
+    required this.tabSelectedTextStyle,
+    required this.tabDisableTextStyle,
+    required this.cardDecoration,
+    required this.payUsingTextStyle,
+    required this.paymentTextStyle,
   });
 }
 
