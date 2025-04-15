@@ -1,5 +1,4 @@
 import 'package:taza/taza.dart';
-import 'package:taza/ui/widgets/sticky_sliver_header.dart';
 
 class FoodPage extends GetView<FoodController> {
   const FoodPage({super.key});
@@ -18,53 +17,29 @@ class FoodPage extends GetView<FoodController> {
           controller: controller.scrollController,
           physics: ClampingScrollPhysics(),
           slivers: [
-            StickySliver(child: Container(color: tabData.themeColor, child: SafeArea(child: SizedBox()))),
+            SliverPersistentHeader(pinned: true, delegate: _StickyColorSpacerHeader(themeColor: tabData.themeColor, height: 62)),
             _animatedBoxAdapter(
-              child: SmartRow(
-                padding: EdgeInsets.all(16.w),
-                children: [
-                  SmartColumn(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SmartRow(
-                        children: [
-                          SmartImage(path: AppImages.icHome),
-                          SmartText(LocaleKeys.home.tr),
-                          SmartImage(path: AppImages.icArrowUp),
-                        ],
-                      ),
-                      SmartText("Al Tadamun Al Arabi St., Mishfirah, Jeddah  "),
-                    ],
-                  ),
-                  Flexible(child: SmartImage(path: AppImages.icFood)),
-                ],
-              ),
-            ),
-            StickySliver(
-              child: ColoredBox(
-                color: Colors.white,
-                child: Container(
-                  color: tabData.themeColor.withValues(alpha: 0.4),
-                  child: Column(
-                    children: [
-                      SmartTextField(padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h)),
-                      AnimatedTabBar(tabController: controller.foodTabController, tabs: controller.tabs),
-                    ],
-                  ),
+              child: Container(
+                color: tabData.themeColor.withValues(alpha: 0.4),
+                padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w, vertical: 6),
+                child: HomeAddressHeader(
+                  onAddressTap: () {},
+                  addressTypeTag: LocaleKeys.home.tr,
+                  address: "Al Tadamun Al Arabi St., Mishfirah, Jeddah KSA",
+                  textColor: Colors.black,
                 ),
               ),
             ),
-            StickySliver(child: Container(color: tabData.themeColor, child: SizedBox(height: 12))),
-            _animatedBoxAdapter(
-              child: Container(
-                padding: EdgeInsets.all(50),
-                color: tabData.themeColor.withValues(alpha: 0.4),
-                child: SmartText("Banner", textAlign: TextAlign.center),
+            SliverPersistentHeader(
+              pinned: true,
+              delegate: _StickySearchAndTabsHeader(
+                themeColor: tabData.themeColor.withValues(alpha: 0.4),
+                tabController: controller.foodTabController,
+                tabs: controller.tabs,
               ),
             ),
 
-            // _animatedBoxAdapter(child: SizedBox(height: 24.h)),
-            _animatedBoxAdapter(child: const FoodScreenTabsView()),
+            _animatedBoxAdapter(child: tabData.bannerWidget),
             _animatedBoxAdapter(child: SizedBox(height: 24.h)),
 
             /// Categories
@@ -169,7 +144,6 @@ class FoodPage extends GetView<FoodController> {
 
             _animatedBoxAdapter(child: SizedBox(height: 16.h)),
             _animatedBoxAdapter(child: _buildFoodList(controller.flavorItemList)),
-            _animatedBoxAdapter(child: SizedBox(height: 260.h)),
           ],
         ),
       );
@@ -189,7 +163,6 @@ class FoodPage extends GetView<FoodController> {
 
   Widget _buildCategoryCard(BuildContext context, FoodCardStyle style, Map<String, String> category, FoodPageStyle foodPageStyle) {
     return Container(
-      height: 120.h,
       width: 88.w,
       decoration: BoxDecoration(border: Border.all(color: foodPageStyle.borderColor), borderRadius: BorderRadius.circular(12.r)),
       child: Column(
@@ -207,7 +180,7 @@ class FoodPage extends GetView<FoodController> {
           const Spacer(),
           SmartImage(
             path: category['image'] ?? "",
-            height: 60.h,
+            height: 50.h,
             width: double.infinity,
             imageBorderRadius: BorderRadius.circular(12.r),
             clipBehavior: Clip.hardEdge,
@@ -234,7 +207,7 @@ class FoodPage extends GetView<FoodController> {
 
   Widget _buildFoodList(List<FoodItemModel> items) {
     return SizedBox(
-      height: 100.h,
+      height: 115.h,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: items.length,
@@ -258,37 +231,39 @@ class AnimatedTabBar extends GetView<FoodController> {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      return SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: List.generate(tabs.length, (index) {
-            final data = tabs[index];
-            final isSelected = index == controller.selectedFoodTab.value;
-            return GestureDetector(
-              onTap: () {
-                if (!isSelected) {
-                  tabController.animateTo(index);
-                  onTabChange?.call(index);
-                }
-              },
-              child: Container(
+      return TabBar(
+        tabAlignment: TabAlignment.start,
+        controller: tabController,
+        indicatorWeight: 0,
+        dividerColor: Colors.transparent,
+        isScrollable: true,
+        indicatorColor: Colors.transparent,
+        onTap: (index) {
+          if (index != controller.selectedFoodTab.value) {
+            onTabChange?.call(index);
+          }
+        },
+        labelPadding: EdgeInsets.zero,
+        indicator: BoxDecoration(color: Colors.transparent),
+        tabs: List.generate(tabs.length, (index) {
+          final data = tabs[index];
+          final isSelected = index == controller.selectedFoodTab.value;
+
+          return Column(
+            children: [
+              Container(
                 margin: EdgeInsets.only(left: index == 0 ? 19.w : 0, right: index == tabs.length - 1 ? 19.w : 0),
+                key: ValueKey(index),
                 width: 70.w,
                 height: 60.h,
                 child: CustomPaint(
                   painter: CustomTabBarPainter(isSelected: isSelected, themeColor: data.themeColor),
-                  child: Center(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [SizedBox(height: 32, width: 32, child: SmartImage(path: data.imagePath))],
-                    ),
-                  ),
+                  child: Center(child: SizedBox(height: 32.w, width: 32.w, child: SmartImage(path: data.imagePath))),
                 ),
               ),
-            );
-          }),
-        ),
+            ],
+          );
+        }),
       );
     });
   }
@@ -325,4 +300,85 @@ class CustomTabBarPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
+}
+
+class _StickySearchAndTabsHeader extends SliverPersistentHeaderDelegate {
+  final Color themeColor;
+  final TabController tabController;
+  final List<FoodTabData> tabs;
+
+  _StickySearchAndTabsHeader({required this.themeColor, required this.tabController, required this.tabs});
+
+  @override
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+    final style = AppTheme.of(context).searchBarStyle;
+    final controller = Get.find<FoodController>();
+    return ColoredBox(
+      color: Colors.white,
+      child: Container(
+        color: themeColor,
+        child: Column(
+          children: [
+            GestureDetector(
+              onTap: () => FocusScope.of(context).unfocus(),
+              child: Obx(() {
+                return Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: SmartSearchBar(
+                    items: [Get.find<FoodController>().hints[controller.currentHintIndex.value]],
+                    controller: SearchController(),
+                    onChanged: (val) {},
+                    suffixIcon: SmartRow(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        SmartImage(path: AppImages.icSearch, height: 24.h, width: 24.w),
+                        Container(
+                          height: 21.h,
+                          width: 1.w,
+                          margin: EdgeInsetsDirectional.symmetric(horizontal: 8.w),
+                          color: style.searchBarBorderColor,
+                        ),
+                        SmartImage(path: AppImages.icMic, width: 24.w, height: 24.h),
+                      ],
+                    ),
+                  ),
+                );
+              }),
+            ),
+            AnimatedTabBar(tabController: tabController, tabs: tabs),
+            Container(color: controller.currentFoodTabData.themeColor, height: 15),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  double get minExtent => 165;
+  @override
+  double get maxExtent => 165;
+
+  @override
+  bool shouldRebuild(covariant _StickySearchAndTabsHeader oldDelegate) => oldDelegate.themeColor != themeColor || oldDelegate.tabs != tabs;
+}
+
+class _StickyColorSpacerHeader extends SliverPersistentHeaderDelegate {
+  final Color themeColor;
+  final double height;
+
+  _StickyColorSpacerHeader({required this.themeColor, required this.height});
+
+  @override
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return Container(color: themeColor, height: height);
+  }
+
+  @override
+  double get minExtent => height;
+  @override
+  double get maxExtent => height;
+
+  @override
+  bool shouldRebuild(covariant _StickyColorSpacerHeader oldDelegate) =>
+      oldDelegate.themeColor != themeColor || oldDelegate.height != height;
 }
