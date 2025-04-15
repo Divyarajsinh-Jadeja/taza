@@ -23,7 +23,6 @@ class LoginPage extends GetView<LoginController> {
               animationDelay: const Duration(milliseconds: 10),
               animationCurve: Curves.easeOut,
               child: SmartColumn(
-                expanded: true,
                 padding: EdgeInsetsDirectional.symmetric(horizontal: 20.w),
                 children: [
                   Align(
