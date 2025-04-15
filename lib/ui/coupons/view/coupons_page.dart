@@ -8,7 +8,8 @@ class CouponsPage extends GetView<CouponsController> {
     var style = AppTheme.of(context).checkoutStyle;
     return Scaffold(
       backgroundColor: style.backgroundColor,
-      appBar: AppBar(title:Text("Available Coupons")),
+      // TODO: appbar need to change
+      appBar: AppBar(title:Text(LocaleKeys.coupons.tr)),
       body: ListView.builder(
         itemCount: controller.coupons.length,
         itemBuilder: (context, index) {
@@ -21,7 +22,7 @@ class CouponsPage extends GetView<CouponsController> {
               child: InkWell(
                 onTap: () => controller.selectCoupon(coupon),
                 child: ListTile(
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  contentPadding:  EdgeInsetsDirectional.symmetric(horizontal: 16.w, vertical: 8.h),
                   trailing: Icon(
                     isSelected
                         ? Icons.radio_button_checked
@@ -74,7 +75,7 @@ class CouponsPage extends GetView<CouponsController> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SmartButton(onTap: () {Get.back();}, title: "Tap to apply",animator: SmartAnimator(
+            SmartButton(onTap: () {Get.back();}, title: LocaleKeys.tapToApply.tr,animator: SmartAnimator(
               animateSlideY: true,
               slideYBegin: const Offset(0, 2),
               slideEnd: Offset.zero,

@@ -79,5 +79,7 @@
   "groceryDeliverTag" : "Groceries\ndelivered in\n10 minutes",
   "termsOfUse" : "Terms of Use",
   "pleaseEnterNumber": "Please enter your phone number",
-  "enterValidNumber": "Please enter a valid phone number"
+  "enterValidNumber": "Please enter a valid phone number",
+  "coupons": "Coupons",
+  "tapToApply": "Tap to apply"
 }

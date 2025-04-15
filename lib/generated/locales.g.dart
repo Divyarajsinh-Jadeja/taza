@@ -93,6 +93,8 @@ class LocaleKeys {
   static const termsOfUse = 'termsOfUse';
   static const pleaseEnterNumber = 'pleaseEnterNumber';
   static const enterValidNumber = 'enterValidNumber';
+  static const coupons = 'coupons';
+  static const tapToApply = 'tapToApply';
 }
 
 class Locales {
@@ -182,6 +184,8 @@ class Locales {
     'termsOfUse': 'Terms of Use',
     'pleaseEnterNumber': 'Please enter your phone number',
     'enterValidNumber': 'Please enter a valid phone number',
+    'coupons': 'Coupons',
+    'tapToApply': 'Tap to apply',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -267,5 +271,7 @@ class Locales {
     'termsOfUse': 'شروط الاستخدام',
     'pleaseEnterNumber': 'يرجى إدخال رقم هاتفك',
     'enterValidNumber': 'يرجى إدخال رقم هاتف صالح',
+    'coupons': 'القسائم',
+    'tapToApply': 'اضغط للتطبيق',
   };
 }
