@@ -30,6 +30,7 @@ export 'package:permission_handler/permission_handler.dart';
 export 'package:pin_code_fields/pin_code_fields.dart';
 export 'package:image_picker/image_picker.dart';
 export 'package:flutter_animate/flutter_animate.dart';
+export 'package:lottie/lottie.dart';
 
 
 // Project core
@@ -54,6 +55,7 @@ export 'package:taza/extension_methods/string.dart';
 export 'package:taza/extension_methods/date_time.dart';
 export 'package:taza/extension_methods/duration.dart';
 export 'package:taza/extension_methods/widgets_extensions.dart';
+export 'package:taza/extension_methods/number_extension.dart';
 
 // Enums
 export 'package:taza/enums/enums.dart';
@@ -142,8 +144,18 @@ export 'package:taza/ui/checkout/view/checkout_controller.dart';
 export 'package:taza/ui/checkout/binding/checkout_binding.dart';
 export 'package:taza/ui/checkout/view/checkout_screen.dart';
 
+export 'package:taza/ui/coupons/view/coupons_controller.dart';
+export 'package:taza/ui/coupons/binding/coupons_binding.dart';
+export 'package:taza/ui/coupons/view/coupons_page.dart';
+
+export 'package:taza/ui/grocery/view/grocery_controller.dart';
+export 'package:taza/ui/grocery/view/grocery_page.dart';
+
+
 /// Model Classes
 export 'package:taza/models/food_category.dart';
+export 'package:taza/models/grocery_model.dart';
+
 export 'package:taza/ui/dashboard/dashboard_modules/home/view/widgets/address_bottom_sheet_widget.dart';
 
 export 'package:taza/ui/dashboard/dashboard_modules/home/components/smart_search_bar.dart';

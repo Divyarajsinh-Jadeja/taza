@@ -85,6 +85,7 @@ class LocaleKeys {
   static const useMyLocation = 'useMyLocation';
   static const enterPinCode = 'enterPinCode';
   static const submit = 'submit';
+  static const viewMoreCoupons = 'viewMoreCoupons';
   static const enterPhoneNumber = 'enterPhoneNumber';
   static const continueForLogin = 'continueForLogin';
   static const byContinueTerms = 'byContinueTerms';
@@ -92,6 +93,15 @@ class LocaleKeys {
   static const termsOfUse = 'termsOfUse';
   static const pleaseEnterNumber = 'pleaseEnterNumber';
   static const enterValidNumber = 'enterValidNumber';
+  static const coupons = 'coupons';
+  static const tapToApply = 'tapToApply';
+  static const tipYourDeliveryPartner = 'tipYourDeliveryPartner';
+  static const addInstructionForRestaurant = 'addInstructionForRestaurant';
+  static const instructionExample = 'instructionExample';
+  static const expressDelivery = 'expressDelivery';
+  static const expressDeliveryDesc = 'expressDeliveryDesc';
+  static const regularDelivery = 'regularDelivery';
+  static const regularDeliveryDesc = 'regularDeliveryDesc';
 }
 
 class Locales {
@@ -173,6 +183,7 @@ class Locales {
     'useMyLocation': 'Use my current location',
     'enterPinCode': 'Enter pin code',
     'submit': 'Submit',
+    'viewMoreCoupons': 'View more coupons & offers',
     'enterPhoneNumber': 'Enter Phone Number',
     'continueForLogin': 'Continue',
     'byContinueTerms': 'By continuing, you agree to our',
@@ -180,6 +191,16 @@ class Locales {
     'termsOfUse': 'Terms of Use',
     'pleaseEnterNumber': 'Please enter your phone number',
     'enterValidNumber': 'Please enter a valid phone number',
+    'coupons': 'Coupons',
+    'tapToApply': 'Tap to apply',
+    'tipYourDeliveryPartner':
+        'Tip your delivery partner to show your appreciation for their hard work.',
+    'addInstructionForRestaurant': 'Add an instruction for the restaurant',
+    'instructionExample': 'e.g. Instruction for the entire order',
+    'expressDelivery': 'Express Delivery',
+    'expressDeliveryDesc': 'Get it faster with priority shipping!',
+    'regularDelivery': 'Regular Delivery',
+    'regularDeliveryDesc': 'Reliable delivery at a standard pace.',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -257,6 +278,7 @@ class Locales {
     'useMyLocation': 'استخدم موقعي الحالي',
     'enterPinCode': 'أدخل الرمز البريدي',
     'submit': 'يُقدِّم',
+    'viewMoreCoupons': 'عرض المزيد من القسائم والعروض',
     'enterPhoneNumber': 'أدخل رقم الهاتف',
     'continueForLogin': 'استمرار',
     'byContinueTerms': 'بالمتابعة، فإنك توافق على',
@@ -264,5 +286,14 @@ class Locales {
     'termsOfUse': 'شروط الاستخدام',
     'pleaseEnterNumber': 'يرجى إدخال رقم هاتفك',
     'enterValidNumber': 'يرجى إدخال رقم هاتف صالح',
+    'coupons': 'القسائم',
+    'tapToApply': 'اضغط للتطبيق',
+    'tipYourDeliveryPartner': 'قم بإكرامية شريك التوصيل لإظهار تقديرك لجهوده.',
+    'addInstructionForRestaurant': 'أضف تعليمات للمطعم',
+    'instructionExample': 'مثال: تعليمات للطلب بالكامل',
+    'expressDelivery': 'توصيل سريع',
+    'expressDeliveryDesc': 'احصل عليه بسرعة من خلال الشحن ذو الأولوية!',
+    'regularDelivery': 'توصيل عادي',
+    'regularDeliveryDesc': 'توصيل موثوق بسرعة معتدلة.',
   };
 }

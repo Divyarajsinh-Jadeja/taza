@@ -86,6 +86,8 @@ abstract class AppTheme {
 
   AddressBottomSheetStyle get addressBottomSheetStyle;
 
+  GroceryStyle get groceryStyle;
+
   LoginPageStyle get loginPageStyle;
 }
 
@@ -565,6 +567,13 @@ class CheckoutStyle {
   final BoxDecoration cardDecoration;
   final TextStyle payUsingTextStyle;
   final TextStyle paymentTextStyle;
+  final TextStyle tipSelectedStyle;
+  final TextStyle tipUnSelectedStyle;
+  final BoxDecoration tipSelectedDecoration;
+  final BoxDecoration tipUnSelectedDecoration;
+  final BoxDecoration couponsSelectedDecoration;
+  final BoxDecoration couponsUnSelectedDecoration;
+
 
   CheckoutStyle({
     required this.backgroundColor,
@@ -586,6 +595,12 @@ class CheckoutStyle {
     required this.cardDecoration,
     required this.payUsingTextStyle,
     required this.paymentTextStyle,
+    required this.tipSelectedStyle,
+    required this.tipUnSelectedStyle,
+    required this.tipSelectedDecoration,
+    required this.tipUnSelectedDecoration,
+    required this.couponsSelectedDecoration,
+    required this.couponsUnSelectedDecoration,
   });
 }
 
@@ -638,7 +653,6 @@ class FoodOptionCardStyle {
   });
 }
 
-
 class AddressBottomSheetStyle {
   final Color textFieldBgColor;
   final Color submitButtonBgColor;
@@ -651,6 +665,12 @@ class AddressBottomSheetStyle {
     required this.addressBottomSheetTagTitleStyle,
     required this.addressBottomSheetTitleStyle,
   });
+}
+class GroceryStyle{
+  final TextStyle titleStyle;
+  final TextStyle subTitleStyle;
+  final BoxDecoration groceryCardDecoration;
+  GroceryStyle({required this.titleStyle, required this.subTitleStyle,required this.groceryCardDecoration});
 }
 
 class LoginPageStyle {

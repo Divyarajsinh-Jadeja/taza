@@ -22,10 +22,16 @@ class DashboardController extends GetxController {
       bottomNavData: BottomNavigationBarDataModel(icon: AppImages.icShoppingBag, label: LocaleKeys.cart.tr),
       onInit: () => Get.find<CartController>().onTabSelected(),
     ),
-    TabData(
+    /*TabData(
       pageBuilder: (_) => RewardsPage(),
       bottomNavData: BottomNavigationBarDataModel(icon: AppImages.icRewards, label: LocaleKeys.rewards.tr),
       onInit: () => Get.find<RewardsController>().onTabSelected(),
+      shouldAlwaysInitialize: true,
+    ),*/
+    TabData(
+      pageBuilder: (_) => GroceryPage(),
+      bottomNavData: BottomNavigationBarDataModel(icon: AppImages.icRewards, label: LocaleKeys.rewards.tr),
+      onInit: () => Get.find<GroceryController>().onTabSelected(),
       shouldAlwaysInitialize: true,
     ),
     TabData(
