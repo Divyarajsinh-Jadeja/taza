@@ -76,6 +76,8 @@
   "continueForLogin" : "استمرار",
   "byContinueTerms" : "بالمتابعة، فإنك توافق على",
   "groceryDeliverTag": "المواد الغذائية\nتوصيل خلال\n10 دقائق",
-  "termsOfUse": "شروط الاستخدام"
+  "termsOfUse": "شروط الاستخدام",
+  "pleaseEnterNumber": "يرجى إدخال رقم هاتفك",
+  "enterValidNumber": "يرجى إدخال رقم هاتف صالح"
 
 }

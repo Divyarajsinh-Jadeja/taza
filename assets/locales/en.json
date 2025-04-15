@@ -76,5 +76,7 @@
   "continueForLogin" : "Continue",
   "byContinueTerms" : "By continuing, you agree to our",
   "groceryDeliverTag" : "Groceries\ndelivered in\n10 minutes",
-  "termsOfUse" : "Terms of Use"
+  "termsOfUse" : "Terms of Use",
+  "pleaseEnterNumber": "Please enter your phone number",
+  "enterValidNumber": "Please enter a valid phone number"
 }

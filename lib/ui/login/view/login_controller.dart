@@ -13,10 +13,10 @@ class LoginController extends GetxController {
   bool validatePhone() {
     final phone = phoneController.text.trim();
     if (phone.isEmpty) {
-      errorText.value = 'Please enter your phone number';
+      errorText.value = LocaleKeys.pleaseEnterNumber.tr;
       return false;
     } else if (!RegExp(r'^\+?\d{7,13}$').hasMatch(phone)) {
-      errorText.value = 'Please enter a valid phone number';
+      errorText.value = LocaleKeys.enterValidNumber.tr;
       return false;
     }
     errorText.value = null;

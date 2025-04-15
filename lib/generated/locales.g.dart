@@ -90,6 +90,8 @@ class LocaleKeys {
   static const byContinueTerms = 'byContinueTerms';
   static const groceryDeliverTag = 'groceryDeliverTag';
   static const termsOfUse = 'termsOfUse';
+  static const pleaseEnterNumber = 'pleaseEnterNumber';
+  static const enterValidNumber = 'enterValidNumber';
 }
 
 class Locales {
@@ -176,6 +178,8 @@ class Locales {
     'byContinueTerms': 'By continuing, you agree to our',
     'groceryDeliverTag': 'Groceries\ndelivered in\n10 minutes',
     'termsOfUse': 'Terms of Use',
+    'pleaseEnterNumber': 'Please enter your phone number',
+    'enterValidNumber': 'Please enter a valid phone number',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -258,5 +262,7 @@ class Locales {
     'byContinueTerms': 'بالمتابعة، فإنك توافق على',
     'groceryDeliverTag': 'المواد الغذائية\nتوصيل خلال\n10 دقائق',
     'termsOfUse': 'شروط الاستخدام',
+    'pleaseEnterNumber': 'يرجى إدخال رقم هاتفك',
+    'enterValidNumber': 'يرجى إدخال رقم هاتف صالح',
   };
 }
