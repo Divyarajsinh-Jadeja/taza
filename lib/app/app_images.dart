@@ -89,4 +89,5 @@ class AppImages {
   // Coupons Screen assets
   static const String couponLottie = 'assets/images/coupon.json';
   static const String notesLottie = 'assets/images/notes.json';
+  static const String icArrowLeft = 'assets/images/ic_arrow_left.svg';
 }

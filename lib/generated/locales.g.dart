@@ -86,6 +86,13 @@ class LocaleKeys {
   static const enterPinCode = 'enterPinCode';
   static const submit = 'submit';
   static const viewMoreCoupons = 'viewMoreCoupons';
+  static const enterPhoneNumber = 'enterPhoneNumber';
+  static const continueForLogin = 'continueForLogin';
+  static const byContinueTerms = 'byContinueTerms';
+  static const groceryDeliverTag = 'groceryDeliverTag';
+  static const termsOfUse = 'termsOfUse';
+  static const pleaseEnterNumber = 'pleaseEnterNumber';
+  static const enterValidNumber = 'enterValidNumber';
 }
 
 class Locales {
@@ -168,6 +175,13 @@ class Locales {
     'enterPinCode': 'Enter pin code',
     'submit': 'Submit',
     'viewMoreCoupons': 'View more coupons & offers',
+    'enterPhoneNumber': 'Enter Phone Number',
+    'continueForLogin': 'Continue',
+    'byContinueTerms': 'By continuing, you agree to our',
+    'groceryDeliverTag': 'Groceries\ndelivered in\n10 minutes',
+    'termsOfUse': 'Terms of Use',
+    'pleaseEnterNumber': 'Please enter your phone number',
+    'enterValidNumber': 'Please enter a valid phone number',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -246,5 +260,12 @@ class Locales {
     'enterPinCode': 'أدخل الرمز البريدي',
     'submit': 'يُقدِّم',
     'viewMoreCoupons': 'عرض المزيد من القسائم والعروض',
+    'enterPhoneNumber': 'أدخل رقم الهاتف',
+    'continueForLogin': 'استمرار',
+    'byContinueTerms': 'بالمتابعة، فإنك توافق على',
+    'groceryDeliverTag': 'المواد الغذائية\nتوصيل خلال\n10 دقائق',
+    'termsOfUse': 'شروط الاستخدام',
+    'pleaseEnterNumber': 'يرجى إدخال رقم هاتفك',
+    'enterValidNumber': 'يرجى إدخال رقم هاتف صالح',
   };
 }

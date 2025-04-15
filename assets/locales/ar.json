@@ -72,6 +72,13 @@
   "useMyLocation": "استخدم موقعي الحالي",
   "enterPinCode": "أدخل الرمز البريدي",
   "submit": "يُقدِّم",
-  "viewMoreCoupons": "عرض المزيد من القسائم والعروض"
+  "viewMoreCoupons": "عرض المزيد من القسائم والعروض",
+  "enterPhoneNumber" : "أدخل رقم الهاتف",
+  "continueForLogin" : "استمرار",
+  "byContinueTerms" : "بالمتابعة، فإنك توافق على",
+  "groceryDeliverTag": "المواد الغذائية\nتوصيل خلال\n10 دقائق",
+  "termsOfUse": "شروط الاستخدام",
+  "pleaseEnterNumber": "يرجى إدخال رقم هاتفك",
+  "enterValidNumber": "يرجى إدخال رقم هاتف صالح"
 
 }
