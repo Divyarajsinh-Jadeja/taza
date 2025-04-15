@@ -154,7 +154,7 @@ class CheckoutPage extends GetView<CheckoutController> {
                   textAlign: TextAlign.center,
                   optionalPadding: EdgeInsetsDirectional.only(bottom: 0.h,top: 10.h),
                   onTap: () {
-        
+                      Get.toNamed(AppRoutes.couponsPage);
                   },
                 ),
               ],

@@ -85,4 +85,8 @@ class AppImages {
   static const String icArrowDown = 'assets/images/ic_arrow_down.svg';
   static const String icDoc = 'assets/images/ic_doc.svg';
   static const String tipLottie = 'assets/images/tip.json';
+
+  // Coupons Screen assets
+  static const String couponLottie = 'assets/images/coupon.json';
+  static const String notesLottie = 'assets/images/notes.json';
 }

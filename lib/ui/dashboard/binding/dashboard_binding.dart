@@ -10,5 +10,6 @@ class DashboardBinding extends Bindings {
     Get.lazyPut(() => CartController());
     Get.lazyPut(() => RewardsController());
     Get.lazyPut(() => ReorderController());
+    Get.lazyPut(() => GroceryController());
   }
 }

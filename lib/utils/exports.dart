@@ -139,8 +139,18 @@ export 'package:taza/ui/checkout/view/checkout_controller.dart';
 export 'package:taza/ui/checkout/binding/checkout_binding.dart';
 export 'package:taza/ui/checkout/view/checkout_screen.dart';
 
+export 'package:taza/ui/coupons/view/coupons_controller.dart';
+export 'package:taza/ui/coupons/binding/coupons_binding.dart';
+export 'package:taza/ui/coupons/view/coupons_page.dart';
+
+export 'package:taza/ui/grocery/view/grocery_controller.dart';
+export 'package:taza/ui/grocery/view/grocery_page.dart';
+
+
 /// Model Classes
 export 'package:taza/models/food_category.dart';
+export 'package:taza/models/grocery_model.dart';
+
 export 'package:taza/ui/dashboard/dashboard_modules/home/view/widgets/address_bottom_sheet_widget.dart';
 
 export 'package:taza/ui/dashboard/dashboard_modules/home/components/smart_search_bar.dart';

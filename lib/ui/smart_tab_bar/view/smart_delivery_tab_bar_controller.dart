@@ -59,7 +59,7 @@ class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
                 [
                   _buildDeliveryOptions(style),
                   _buildTipOptions(style),
-                  Center(child: Text('Instruction Content')),
+                  _buildInstruction(style)
                 ],
           ),
         ),
@@ -130,6 +130,37 @@ class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
             );
           }).toList(),
         )),
+      ],
+    );
+  }
+
+  Widget _buildInstruction(CheckoutStyle style) {
+
+    return SmartColumn(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        SmartRow(
+          children: [
+            SmartText(
+              "Add a instruction for the restaurant",
+              isExpanded: true,
+              style: style.tabDisableTextStyle,
+            ),
+            SmartImage(
+              path: AppImages.notesLottie,
+              height: 100.h,
+              width: 120.w,
+              fit: BoxFit.fitWidth,
+            ),
+          ],
+        ),
+        SizedBox(height: 5.h),
+        SmartTextField(
+          hintText: "e.g.Instruction for the entire order",
+          hintStyle: style.subCardTitleStyle,
+          color: style.tabDisableBgColor,
+          maxLines: 2,
+        )
       ],
     );
   }
