@@ -86,6 +86,7 @@ abstract class AppTheme {
 
   AddressBottomSheetStyle get addressBottomSheetStyle;
 
+  LoginPageStyle get loginPageStyle;
 }
 
 class PrimaryButtonStyle {
@@ -649,5 +650,33 @@ class AddressBottomSheetStyle {
     required this.submitButtonBgColor,
     required this.addressBottomSheetTagTitleStyle,
     required this.addressBottomSheetTitleStyle,
+  });
+}
+
+class LoginPageStyle {
+  final Color skipButtonBgColor;
+  final TextStyle skipButtonTextStyle;
+  final Color loginPageBgColor;
+  final TextStyle tagTextStyle;
+  final Color continueButtonBgColor;
+  final Color inputFieldBgColor;
+  final TextStyle errorTextStyle;
+  final TextStyle continueButtonTextStyle;
+  final TextStyle bottomTextStyle;
+  final TextStyle termsAndPrivacyTextStyle;
+  final TextStyle countryCodeTextStyle;
+
+  LoginPageStyle({
+    required this.skipButtonBgColor,
+    required this.skipButtonTextStyle,
+    required this.loginPageBgColor,
+    required this.tagTextStyle,
+    required this.inputFieldBgColor,
+    required this.errorTextStyle,
+    required this.continueButtonBgColor,
+    required this.continueButtonTextStyle,
+    required this.bottomTextStyle,
+    required this.termsAndPrivacyTextStyle,
+    required this.countryCodeTextStyle,
   });
 }

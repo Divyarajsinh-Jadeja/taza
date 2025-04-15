@@ -71,5 +71,12 @@
   "usePinCode" : "Use pincode to check delivery info",
   "useMyLocation" : "Use my current location",
   "enterPinCode" : "Enter pin code",
-  "submit" : "Submit"
+  "submit" : "Submit",
+  "enterPhoneNumber" : "Enter Phone Number",
+  "continueForLogin" : "Continue",
+  "byContinueTerms" : "By continuing, you agree to our",
+  "groceryDeliverTag" : "Groceries\ndelivered in\n10 minutes",
+  "termsOfUse" : "Terms of Use",
+  "pleaseEnterNumber": "Please enter your phone number",
+  "enterValidNumber": "Please enter a valid phone number"
 }
