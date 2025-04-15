@@ -95,6 +95,13 @@ class LocaleKeys {
   static const enterValidNumber = 'enterValidNumber';
   static const coupons = 'coupons';
   static const tapToApply = 'tapToApply';
+  static const tipYourDeliveryPartner = 'tipYourDeliveryPartner';
+  static const addInstructionForRestaurant = 'addInstructionForRestaurant';
+  static const instructionExample = 'instructionExample';
+  static const expressDelivery = 'expressDelivery';
+  static const expressDeliveryDesc = 'expressDeliveryDesc';
+  static const regularDelivery = 'regularDelivery';
+  static const regularDeliveryDesc = 'regularDeliveryDesc';
 }
 
 class Locales {
@@ -186,6 +193,14 @@ class Locales {
     'enterValidNumber': 'Please enter a valid phone number',
     'coupons': 'Coupons',
     'tapToApply': 'Tap to apply',
+    'tipYourDeliveryPartner':
+        'Tip your delivery partner to show your appreciation for their hard work.',
+    'addInstructionForRestaurant': 'Add an instruction for the restaurant',
+    'instructionExample': 'e.g. Instruction for the entire order',
+    'expressDelivery': 'Express Delivery',
+    'expressDeliveryDesc': 'Get it faster with priority shipping!',
+    'regularDelivery': 'Regular Delivery',
+    'regularDeliveryDesc': 'Reliable delivery at a standard pace.',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -273,5 +288,12 @@ class Locales {
     'enterValidNumber': 'يرجى إدخال رقم هاتف صالح',
     'coupons': 'القسائم',
     'tapToApply': 'اضغط للتطبيق',
+    'tipYourDeliveryPartner': 'قم بإكرامية شريك التوصيل لإظهار تقديرك لجهوده.',
+    'addInstructionForRestaurant': 'أضف تعليمات للمطعم',
+    'instructionExample': 'مثال: تعليمات للطلب بالكامل',
+    'expressDelivery': 'توصيل سريع',
+    'expressDeliveryDesc': 'احصل عليه بسرعة من خلال الشحن ذو الأولوية!',
+    'regularDelivery': 'توصيل عادي',
+    'regularDeliveryDesc': 'توصيل موثوق بسرعة معتدلة.',
   };
 }

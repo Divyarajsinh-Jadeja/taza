@@ -81,5 +81,13 @@
   "pleaseEnterNumber": "Please enter your phone number",
   "enterValidNumber": "Please enter a valid phone number",
   "coupons": "Coupons",
-  "tapToApply": "Tap to apply"
+  "tapToApply": "Tap to apply",
+  "tipYourDeliveryPartner": "Tip your delivery partner to show your appreciation for their hard work.",
+  "addInstructionForRestaurant": "Add an instruction for the restaurant",
+  "instructionExample": "e.g. Instruction for the entire order",
+  "expressDelivery": "Express Delivery",
+  "expressDeliveryDesc": "Get it faster with priority shipping!",
+  "regularDelivery": "Regular Delivery",
+  "regularDeliveryDesc": "Reliable delivery at a standard pace."
+
 }

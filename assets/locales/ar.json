@@ -81,6 +81,14 @@
   "pleaseEnterNumber": "يرجى إدخال رقم هاتفك",
   "enterValidNumber": "يرجى إدخال رقم هاتف صالح",
   "coupons": "القسائم",
-  "tapToApply": "اضغط للتطبيق"
+  "tapToApply": "اضغط للتطبيق",
+  "tipYourDeliveryPartner": "قم بإكرامية شريك التوصيل لإظهار تقديرك لجهوده.",
+  "addInstructionForRestaurant": "أضف تعليمات للمطعم",
+  "instructionExample": "مثال: تعليمات للطلب بالكامل",
+  "expressDelivery": "توصيل سريع",
+  "expressDeliveryDesc": "احصل عليه بسرعة من خلال الشحن ذو الأولوية!",
+  "regularDelivery": "توصيل عادي",
+  "regularDeliveryDesc": "توصيل موثوق بسرعة معتدلة."
+
 
 }

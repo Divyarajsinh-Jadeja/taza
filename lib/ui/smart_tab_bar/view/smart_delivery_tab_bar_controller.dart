@@ -73,16 +73,16 @@ class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
       children: [
         SizedBox(height: 12.h),
         _buildDeliveryTile(
-          title: 'Express Delivery',
-          subtitle: 'Get it faster with priority shipping!',
+          title: LocaleKeys.expressDelivery.tr,
+          subtitle: LocaleKeys.expressDeliveryDesc.tr,
           timeRange: '10–15 min',
           value: 0,
           style: style,
         ),
         SizedBox(height: 12.h),
         _buildDeliveryTile(
-          title: 'Regular Delivery',
-          subtitle: 'Reliable delivery at a standard pace.',
+          title: LocaleKeys.regularDelivery.tr,
+          subtitle: LocaleKeys.regularDeliveryDesc.tr,
           timeRange: '30–40 min',
           value: 1,
           style: style,
@@ -100,7 +100,7 @@ class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
         SmartRow(
           children: [
             SmartText(
-              "Tip your delivery partner to show your appreciation for their hard work.",
+             LocaleKeys.tipYourDeliveryPartner.tr,
               isExpanded: true,
               style: style.tabDisableTextStyle,
             ),
@@ -142,7 +142,7 @@ class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
         SmartRow(
           children: [
             SmartText(
-              "Add a instruction for the restaurant",
+              LocaleKeys.addInstructionForRestaurant.tr,
               isExpanded: true,
               style: style.tabDisableTextStyle,
             ),
@@ -156,7 +156,7 @@ class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
         ),
         SizedBox(height: 5.h),
         SmartTextField(
-          hintText: "e.g.Instruction for the entire order",
+          hintText: LocaleKeys.instructionExample.tr,
           hintStyle: style.subCardTitleStyle,
           color: style.tabDisableBgColor,
           maxLines: 2,
