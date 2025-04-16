@@ -5,7 +5,7 @@ class SmartColumn extends StatelessWidget {
   final MainAxisAlignment mainAxisAlignment;
   final CrossAxisAlignment crossAxisAlignment;
 
-  final TextDirection textDirection;
+  final TextDirection? textDirection;
   final VerticalDirection verticalDirection;
   final TextBaseline textBaseline;
   final List<Widget> children;
@@ -28,7 +28,7 @@ class SmartColumn extends StatelessWidget {
     this.mainAxisSize = MainAxisSize.max,
     this.mainAxisAlignment = MainAxisAlignment.start,
     this.crossAxisAlignment = CrossAxisAlignment.center,
-    this.textDirection = TextDirection.ltr,
+    this.textDirection,
     this.verticalDirection = VerticalDirection.down,
     this.textBaseline = TextBaseline.alphabetic,
     required this.children,

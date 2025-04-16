@@ -88,7 +88,13 @@
   "expressDelivery": "توصيل سريع",
   "expressDeliveryDesc": "احصل عليه بسرعة من خلال الشحن ذو الأولوية!",
   "regularDelivery": "توصيل عادي",
-  "regularDeliveryDesc": "توصيل موثوق بسرعة معتدلة."
-
-
+  "regularDeliveryDesc": "توصيل موثوق بسرعة معتدلة.",
+  "editProfile": "تعديل الملف الشخصي",
+  "couponCodeTitle": "رمز القسيمة",
+  "couponCodeSubtitle": "يمكنك استخدام القسائم المتوفرة على نطاق واسع",
+  "addressesTitle": "العناوين",
+  "addressesSubtitle": "يمكنك إضافة عنوان جديد",
+  "preferenceTitle": "التفضيلات",
+  "preferenceSubtitle": "يمكنك تغيير لغة التطبيق",
+  "chooseLanguage": "اختر اللغة"
 }

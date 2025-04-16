@@ -81,4 +81,6 @@ class StorageManager {
   void clearSession() {
     localStorage.erase();
   }
+
+
 }

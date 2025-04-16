@@ -31,6 +31,7 @@ export 'package:pin_code_fields/pin_code_fields.dart';
 export 'package:image_picker/image_picker.dart';
 export 'package:flutter_animate/flutter_animate.dart';
 export 'package:lottie/lottie.dart';
+export 'package:flutter_localizations/flutter_localizations.dart';
 
 // Project core
 export 'package:taza/app/app_class.dart';
@@ -146,6 +147,11 @@ export 'package:taza/ui/coupons/view/coupons_page.dart';
 
 export 'package:taza/ui/grocery/view/grocery_controller.dart';
 export 'package:taza/ui/grocery/view/grocery_page.dart';
+
+export 'package:taza/ui/profile/binding/profile_binding.dart';
+export 'package:taza/ui/profile/view/profile_controller.dart';
+export 'package:taza/ui/profile/view/profile_page.dart';
+
 
 /// Model Classes
 export 'package:taza/models/food_category.dart';
