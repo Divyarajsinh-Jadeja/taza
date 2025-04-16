@@ -8,6 +8,7 @@ class AppRoutes {
   static const checkoutPage = '/checkout_page';
   static const couponsPage = '/coupons_page';
   static const profilePage = '/profile_page';
+  static const paymentPage = '/paymentPage';
 
   static final List<GetPage> pages = [
     GetPage(
@@ -49,6 +50,13 @@ class AppRoutes {
       name: AppRoutes.profilePage,
       page: () => const ProfilePage(),
       binding: ProfileBinding(),
+      transition: Transition.cupertino,
+      transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
+    ),
+    GetPage(
+      name: AppRoutes.paymentPage,
+      page: () => const PaymentMethodScreen(),
+      binding: PaymentBinding(),
       transition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
     ),

@@ -93,6 +93,8 @@ abstract class AppTheme {
   ProfilePageStyle get profilePageStyle;
 
   AnimatedTabBarStyle get animatedTabBarStyle;
+
+  PaymentOptionCardStyle get paymentOptionCardStyle;
 }
 
 class PrimaryButtonStyle {
@@ -200,7 +202,6 @@ class CustomAppBarStyle {
     required this.backTextStyle,
     required this.transparentColor,
     required this.subTitleStyle,
-
   });
 }
 
@@ -620,10 +621,8 @@ class CheckoutStyle {
     required this.couponsUnSelectedDecoration,
     required this.redColor,
     required this.couponWhiteStyle,
-    required this.couponColor
+    required this.couponColor,
   });
-
-
 }
 
 class SearchBarStyle {
@@ -720,7 +719,7 @@ class LoginPageStyle {
   });
 }
 
-class ProfilePageStyle{
+class ProfilePageStyle {
   final TextStyle nameTitleStyle;
   final TextStyle titleStyle;
   final TextStyle subTitleStyle;
@@ -732,12 +731,36 @@ class ProfilePageStyle{
   final BoxDecoration selectedLanguageDecoration;
   final BoxDecoration unSelectedLanguageDecoration;
 
-  ProfilePageStyle({required this.nameTitleStyle, required this.titleStyle, required this.subTitleStyle, required this.primaryColor, required this.whiteColor, required this.primaryStyle, required this.languageSelectedStyle, required this.languageUnSelectedStyle,required this.selectedLanguageDecoration,required this.unSelectedLanguageDecoration});
-
-
-
+  ProfilePageStyle({
+    required this.nameTitleStyle,
+    required this.titleStyle,
+    required this.subTitleStyle,
+    required this.primaryColor,
+    required this.whiteColor,
+    required this.primaryStyle,
+    required this.languageSelectedStyle,
+    required this.languageUnSelectedStyle,
+    required this.selectedLanguageDecoration,
+    required this.unSelectedLanguageDecoration,
+  });
 }
+
 class AnimatedTabBarStyle {
   final Color transparentColor;
   AnimatedTabBarStyle({required this.transparentColor});
+}
+
+class PaymentOptionCardStyle {
+  final Color primaryColor;
+  final Color whiteColor;
+  final Color greyColor;
+  final TextStyle titleStyle;
+  final TextStyle subTitleStyle;
+  PaymentOptionCardStyle({
+    required this.primaryColor,
+    required this.whiteColor,
+    required this.titleStyle,
+    required this.subTitleStyle,
+    required this.greyColor,
+  });
 }

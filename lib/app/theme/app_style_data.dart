@@ -83,7 +83,7 @@ class LightModeTheme extends AppTheme {
     borderColor: colors.color0CF52B,
     dividerColor: colors.color9c9cA3,
     transparentColor: colors.transparent,
-    subTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 13.sp,color: colors.color9c9cA3)
+    subTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 13.sp, color: colors.color9c9cA3),
   );
 
   @override
@@ -324,10 +324,7 @@ class LightModeTheme extends AppTheme {
     payUsingTextStyle: interRegularW400TextStyle.copyWith(fontSize: 13.sp, color: colors.color9c9cA3),
     paymentTextStyle: interBoldW700TextStyle.copyWith(fontSize: 15.sp, color: colors.color1D1D1F),
     tipSelectedStyle: interBoldW700TextStyle.copyWith(fontSize: 11.sp, color: colors.black),
-    mostTippedStyle: interSemiBoldW600TextStyle.copyWith(
-      fontSize: 8.sp,
-      color: colors.white,
-    ),
+    mostTippedStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 8.sp, color: colors.white),
 
     tipUnSelectedStyle: interBoldW700TextStyle.copyWith(fontSize: 11.sp, color: colors.color1D1D1F),
     tipSelectedDecoration: BoxDecoration(
@@ -354,8 +351,8 @@ class LightModeTheme extends AppTheme {
       border: Border.all(color: colors.color9c9cA3),
     ),
     redColor: colors.colorFF0000,
-    couponWhiteStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp,color: colors.white),
-    couponColor: colors.color8C8C8C
+    couponWhiteStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.white),
+    couponColor: colors.color8C8C8C,
   );
 
   @override
@@ -400,49 +397,51 @@ class LightModeTheme extends AppTheme {
     groceryCardDecoration: BoxDecoration(color: colors.colorF5F5F7, borderRadius: BorderRadius.circular(16.r)),
   );
   @override
-  LoginPageStyle get loginPageStyle =>
-      LoginPageStyle(
-          skipButtonTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 16.sp, color: colors.white),
-          tagTextStyle: interBoldW700TextStyle.copyWith(fontSize: 26.sp, color: colors.white),
-          skipButtonBgColor: colors.white.withValues(alpha: 0.3),
-          continueButtonTextStyle: interBoldW700TextStyle.copyWith(fontSize: 16.sp, color: colors.white),
-          continueButtonBgColor: colors.colorF65D3C,
-          loginPageBgColor: colors.primary,
-          inputFieldBgColor: colors.white,
-          errorTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.colorFF0000),
-          bottomTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.white),
-          termsAndPrivacyTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.colorF65D3C),
-          countryCodeTextStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 16.sp, color: colors.color1D1D1F),
-      );
+  LoginPageStyle get loginPageStyle => LoginPageStyle(
+    skipButtonTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 16.sp, color: colors.white),
+    tagTextStyle: interBoldW700TextStyle.copyWith(fontSize: 26.sp, color: colors.white),
+    skipButtonBgColor: colors.white.withValues(alpha: 0.3),
+    continueButtonTextStyle: interBoldW700TextStyle.copyWith(fontSize: 16.sp, color: colors.white),
+    continueButtonBgColor: colors.colorF65D3C,
+    loginPageBgColor: colors.primary,
+    inputFieldBgColor: colors.white,
+    errorTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.colorFF0000),
+    bottomTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.white),
+    termsAndPrivacyTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.colorF65D3C),
+    countryCodeTextStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 16.sp, color: colors.color1D1D1F),
+  );
 
   @override
   ProfilePageStyle get profilePageStyle => ProfilePageStyle(
-      nameTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 18.sp),
-      titleStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 16.sp),
-      subTitleStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 12.sp,color: colors.color8C8C8C),
-      primaryColor: colors.primary,
-      primaryStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 12.sp,color: colors.primary),
-      whiteColor: colors.white,
-      languageSelectedStyle:interSemiBoldW600TextStyle.copyWith(fontSize: 16.sp),
-      languageUnSelectedStyle:interRegularW400TextStyle.copyWith(fontSize: 16.sp),
+    nameTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 18.sp),
+    titleStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 16.sp),
+    subTitleStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 12.sp, color: colors.color8C8C8C),
+    primaryColor: colors.primary,
+    primaryStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 12.sp, color: colors.primary),
+    whiteColor: colors.white,
+    languageSelectedStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 16.sp),
+    languageUnSelectedStyle: interRegularW400TextStyle.copyWith(fontSize: 16.sp),
     selectedLanguageDecoration: BoxDecoration(
-      border: Border.all(
-        color: colors.primary,
-        width: 1.5.w,
-      ),
+      border: Border.all(color: colors.primary, width: 1.5.w),
       borderRadius: BorderRadius.circular(12.r),
       color: colors.primary.withValues(alpha: 0.2),
     ),
     unSelectedLanguageDecoration: BoxDecoration(
-      border: Border.all(
-        color: colors.color9c9cA3,
-        width: 1.w,
-      ),
+      border: Border.all(color: colors.color9c9cA3, width: 1.w),
       borderRadius: BorderRadius.circular(12.r),
       color: colors.white,
-    )
+    ),
   );
 
   @override
   AnimatedTabBarStyle get animatedTabBarStyle => AnimatedTabBarStyle(transparentColor: colors.transparent);
+
+  @override
+  PaymentOptionCardStyle get paymentOptionCardStyle => PaymentOptionCardStyle(
+    primaryColor: colors.primary,
+    whiteColor: colors.white,
+    titleStyle: interBoldW700TextStyle.copyWith(fontSize: 16.sp),
+    subTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 14.sp, color: colors.color58585C),
+    greyColor: colors.colorD3DAE0,
+  );
 }

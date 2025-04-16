@@ -7,36 +7,39 @@ class HomePage extends GetView<HomeController> {
   Widget build(BuildContext context) {
     final style = AppTheme.of(context).searchBarStyle;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: SmartColumn(
           padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
           children: [
             HomeAddressHeader(
-                onAddressTap: () {
-                  showAddressBottomSheet(context, controller.addresses);
-                },
-                addressTypeTag: LocaleKeys.home.tr,
-                address: "Al Tadamun Al Arabi St., Mishfirah, Jeddah KSA"),
+              onAddressTap: () {
+                showAddressBottomSheet(context, controller.addresses);
+              },
+              addressTypeTag: LocaleKeys.home.tr,
+              address: "Al Tadamun Al Arabi St., Mishfirah, Jeddah KSA",
+            ),
             SizedBox(height: 16.h),
             GestureDetector(
               onTap: () => FocusScope.of(context).unfocus(),
-              child: Obx((){
+              child: Obx(() {
                 return SmartSearchBar(
                   items: [controller.hints[controller.currentHintIndex.value]],
                   controller: controller.searchController,
-                  onChanged: (val){},
+                  onChanged: (val) {},
                   suffixIcon: SmartRow(
                     mainAxisSize: MainAxisSize.min,
-                      children: [
-                        SmartImage(path : AppImages.icSearch, height: 24.h, width: 24.w),
-                        Container(
-                          height: 21.h,
-                          width: 1.w,
-                          margin: EdgeInsetsDirectional.symmetric(horizontal: 8.w),
-                          color: style.searchBarBorderColor,
-                        ),
-                        SmartImage(path : AppImages.icMic, width: 24.w, height: 24.h,),
-                      ]),
+                    children: [
+                      SmartImage(path: AppImages.icSearch, height: 24.h, width: 24.w),
+                      Container(
+                        height: 21.h,
+                        width: 1.w,
+                        margin: EdgeInsetsDirectional.symmetric(horizontal: 8.w),
+                        color: style.searchBarBorderColor,
+                      ),
+                      SmartImage(path: AppImages.icMic, width: 24.w, height: 24.h),
+                    ],
+                  ),
                 );
               }),
             ),
@@ -68,7 +71,7 @@ class HomePage extends GetView<HomeController> {
                     ),
                   );
                 },
-              )
+              ),
             ),
           ],
         ),
@@ -80,8 +83,7 @@ class HomePage extends GetView<HomeController> {
     Utils.showSmartModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      builder:
-          (context) => SmartSingleChildScrollView(child: AddressBottomSheet(addresses: addresses,)),
+      builder: (context) => SmartSingleChildScrollView(child: AddressBottomSheet(addresses: addresses)),
     );
   }
 }
