@@ -24,7 +24,7 @@ class HomeAddressHeader extends StatelessWidget {
     this.userImagePath,
     this.userImageWidth,
     this.userImageHeight,
-    this.padding
+    this.padding,
     this.backGroundColor,
     this.textColor,
     this.homeIconColor,
