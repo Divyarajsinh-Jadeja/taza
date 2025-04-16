@@ -1,4 +1,5 @@
 class FoodModel {
+    String id;
    String name;
    String imageUrl;
    double rating;
@@ -6,8 +7,9 @@ class FoodModel {
    String deliveryTime;
    double price;
    int quantity;
-
+   bool isVeg;
   FoodModel({
+    this.id="",
     required this.name,
     required this.imageUrl,
     required this.rating,
@@ -15,5 +17,6 @@ class FoodModel {
     required this.deliveryTime,
     required this.price,
     this.quantity = 1,
+    this.isVeg=true,
   });
 }

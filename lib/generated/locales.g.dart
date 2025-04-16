@@ -85,6 +85,7 @@ class LocaleKeys {
   static const useMyLocation = 'useMyLocation';
   static const enterPinCode = 'enterPinCode';
   static const submit = 'submit';
+  static const viewMoreCoupons = 'viewMoreCoupons';
   static const enterPhoneNumber = 'enterPhoneNumber';
   static const continueForLogin = 'continueForLogin';
   static const byContinueTerms = 'byContinueTerms';
@@ -92,6 +93,23 @@ class LocaleKeys {
   static const termsOfUse = 'termsOfUse';
   static const pleaseEnterNumber = 'pleaseEnterNumber';
   static const enterValidNumber = 'enterValidNumber';
+  static const coupons = 'coupons';
+  static const tapToApply = 'tapToApply';
+  static const tipYourDeliveryPartner = 'tipYourDeliveryPartner';
+  static const addInstructionForRestaurant = 'addInstructionForRestaurant';
+  static const instructionExample = 'instructionExample';
+  static const expressDelivery = 'expressDelivery';
+  static const expressDeliveryDesc = 'expressDeliveryDesc';
+  static const regularDelivery = 'regularDelivery';
+  static const regularDeliveryDesc = 'regularDeliveryDesc';
+  static const editProfile = 'editProfile';
+  static const couponCodeTitle = 'couponCodeTitle';
+  static const couponCodeSubtitle = 'couponCodeSubtitle';
+  static const addressesTitle = 'addressesTitle';
+  static const addressesSubtitle = 'addressesSubtitle';
+  static const preferenceTitle = 'preferenceTitle';
+  static const preferenceSubtitle = 'preferenceSubtitle';
+  static const chooseLanguage = 'chooseLanguage';
   static const account = 'account';
   static const loginCreateAccount = 'loginCreateAccount';
   static const enterNumberToProceed = 'enterNumberToProceed';
@@ -194,6 +212,7 @@ class Locales {
     'useMyLocation': 'Use my current location',
     'enterPinCode': 'Enter pin code',
     'submit': 'Submit',
+    'viewMoreCoupons': 'View more coupons & offers',
     'enterPhoneNumber': 'Enter Phone Number',
     'continueForLogin': 'Continue',
     'byContinueTerms': 'By clicking, I accept the',
@@ -202,6 +221,24 @@ class Locales {
     'termsOfUse': 'Terms & Conditions',
     'pleaseEnterNumber': 'Please enter your phone number',
     'enterValidNumber': 'Please enter a valid phone number',
+    'coupons': 'Coupons',
+    'tapToApply': 'Tap to apply',
+    'tipYourDeliveryPartner':
+        'Tip your delivery partner to show your appreciation for their hard work.',
+    'addInstructionForRestaurant': 'Add an instruction for the restaurant',
+    'instructionExample': 'e.g. Instruction for the entire order',
+    'expressDelivery': 'Express Delivery',
+    'expressDeliveryDesc': 'Get it faster with priority shipping!',
+    'regularDelivery': 'Regular Delivery',
+    'regularDeliveryDesc': 'Reliable delivery at a standard pace.',
+    'editProfile': 'Edit Profile',
+    'couponCodeTitle': 'Coupon Code',
+    'couponCodeSubtitle': 'You can use widely available coupons',
+    'addressesTitle': 'Addresses',
+    'addressesSubtitle': 'You can add new address',
+    'preferenceTitle': 'Preference',
+    'preferenceSubtitle': 'You can change app language',
+    'chooseLanguage': 'Choose Language',
     'account': 'Account',
     'loginCreateAccount': 'Login/Create Account to manage orders',
     'enterNumberToProceed': 'Enter your phone number to proceed',
@@ -305,6 +342,7 @@ class Locales {
     'useMyLocation': 'استخدم موقعي الحالي',
     'enterPinCode': 'أدخل الرمز البريدي',
     'submit': 'يُقدِّم',
+    'viewMoreCoupons': 'عرض المزيد من القسائم والعروض',
     'enterPhoneNumber': 'أدخل رقم الهاتف',
     'continueForLogin': 'استمرار',
     'byContinueTerms': 'بالنقر، أوافق على',
@@ -313,6 +351,23 @@ class Locales {
     'termsOfUse': ' الشروط والأحكام',
     'pleaseEnterNumber': 'يرجى إدخال رقم هاتفك',
     'enterValidNumber': 'يرجى إدخال رقم هاتف صالح',
+    'coupons': 'القسائم',
+    'tapToApply': 'اضغط للتطبيق',
+    'tipYourDeliveryPartner': 'قم بإكرامية شريك التوصيل لإظهار تقديرك لجهوده.',
+    'addInstructionForRestaurant': 'أضف تعليمات للمطعم',
+    'instructionExample': 'مثال: تعليمات للطلب بالكامل',
+    'expressDelivery': 'توصيل سريع',
+    'expressDeliveryDesc': 'احصل عليه بسرعة من خلال الشحن ذو الأولوية!',
+    'regularDelivery': 'توصيل عادي',
+    'regularDeliveryDesc': 'توصيل موثوق بسرعة معتدلة.',
+    'editProfile': 'تعديل الملف الشخصي',
+    'couponCodeTitle': 'رمز القسيمة',
+    'couponCodeSubtitle': 'يمكنك استخدام القسائم المتوفرة على نطاق واسع',
+    'addressesTitle': 'العناوين',
+    'addressesSubtitle': 'يمكنك إضافة عنوان جديد',
+    'preferenceTitle': 'التفضيلات',
+    'preferenceSubtitle': 'يمكنك تغيير لغة التطبيق',
+    'chooseLanguage': 'اختر اللغة',
     'account': 'الحساب',
     'loginCreateAccount': 'قم بتسجيل الدخول/إنشاء حساب لإدارة الطلبات',
     'enterNumberToProceed': 'أدخل رقم هاتفك للمتابعة',

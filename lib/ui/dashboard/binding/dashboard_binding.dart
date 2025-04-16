@@ -5,10 +5,11 @@ class DashboardBinding extends Bindings {
   void dependencies() {
     Get.put(DashboardController());
     Get.put(HomeController());
-    Get.put(QuantityController());
+    Get.put(QuantityController()).initializeQuantities(20);
     Get.lazyPut(() => FoodController());
     Get.lazyPut(() => CartController());
     Get.lazyPut(() => RewardsController());
     Get.lazyPut(() => ReorderController());
+    Get.lazyPut(() => GroceryController());
   }
 }

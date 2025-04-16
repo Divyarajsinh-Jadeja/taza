@@ -8,29 +8,35 @@ class DashboardController extends GetxController {
   final tabs = <TabData>[
     TabData(
       pageBuilder: (_) => HomePage(),
-      bottomNavData: BottomNavigationBarDataModel(icon: AppImages.icHome, label: LocaleKeys.home.tr),
+      bottomNavData: BottomNavigationBarDataModel(icon: AppImages.icHome, label: LocaleKeys.home),
       onInit: () => Get.find<HomeController>().onTabSelected(),
       shouldAlwaysInitialize: true,
     ),
     TabData(
       pageBuilder: (_) => FoodPage(),
-      bottomNavData: BottomNavigationBarDataModel(icon: AppImages.icFoodIcon, label: LocaleKeys.food.tr),
+      bottomNavData: BottomNavigationBarDataModel(icon: AppImages.icFoodIcon, label: LocaleKeys.food),
       onInit: () => Get.find<FoodController>().onTabSelected(),
     ),
     TabData(
       pageBuilder: (_) => CartPage(),
-      bottomNavData: BottomNavigationBarDataModel(icon: AppImages.icShoppingBag, label: LocaleKeys.cart.tr),
+      bottomNavData: BottomNavigationBarDataModel(icon: AppImages.icShoppingBag, label: LocaleKeys.cart),
       onInit: () => Get.find<CartController>().onTabSelected(),
     ),
-    TabData(
+    /*TabData(
       pageBuilder: (_) => RewardsPage(),
-      bottomNavData: BottomNavigationBarDataModel(icon: AppImages.icRewards, label: LocaleKeys.rewards.tr),
+      bottomNavData: BottomNavigationBarDataModel(icon: AppImages.icRewards, label: LocaleKeys.rewards),
       onInit: () => Get.find<RewardsController>().onTabSelected(),
+      shouldAlwaysInitialize: true,
+    ),*/
+    TabData(
+      pageBuilder: (_) => GroceryPage(),
+      bottomNavData: BottomNavigationBarDataModel(icon: AppImages.icRewards, label: LocaleKeys.rewards),
+      onInit: () => Get.find<GroceryController>().onTabSelected(),
       shouldAlwaysInitialize: true,
     ),
     TabData(
       pageBuilder: (_) => ReorderPage(),
-      bottomNavData: BottomNavigationBarDataModel(icon: AppImages.icReorder, label: LocaleKeys.reorder.tr),
+      bottomNavData: BottomNavigationBarDataModel(icon: AppImages.icReorder, label: LocaleKeys.reorder),
       onInit: () => Get.find<ReorderController>().onTabSelected(),
     ),
   ];

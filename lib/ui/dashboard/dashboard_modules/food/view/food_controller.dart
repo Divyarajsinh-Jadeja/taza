@@ -1,13 +1,89 @@
 import 'package:taza/taza.dart';
 
 class FoodController extends GetxController with GetSingleTickerProviderStateMixin {
-  late TabController tabController;
+  /// food tab controller
+  late TabController foodTabController;
+
+  /// craving tab controller
   late TabController cravingTabController;
 
-  final scrollController = ScrollController();
-  final searchController = TextEditingController();
+  /// food scroll controller
+  ScrollController scrollController = ScrollController();
 
-  final tabs = const ["Food", "Grocery"];
+  /// search controller
+  final TextEditingController searchController = TextEditingController();
+
+  RxInt selectedFoodTab = 0.obs;
+
+  final RxList<String> hints = ['Tenders', 'Burgers', 'Grocery', 'Deals'].obs;
+  final RxInt currentHintIndex = 0.obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    foodTabController = TabController(length: tabs.length, vsync: this);
+    foodTabController.addListener(() {
+      selectedFoodTab.value = foodTabController.index;
+    });
+    Timer.periodic(Duration(seconds: 2), (timer) {
+      currentHintIndex.value = (currentHintIndex.value + 1) % hints.length;
+    });
+    if (Get.context != null) {
+      precacheImage(AssetImage('assets/images/banner-2.jpg'), Get.context!);
+    }
+  }
+
+  final GlobalKey headerKey = GlobalKey();
+
+  final List<FoodTabData> tabs = [
+    FoodTabData(
+      imagePath: "https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg",
+      themeColor: Color(0xFFfcd44b),
+      bannerWidget: Image.asset(AppImages.icBannerGif, fit: BoxFit.cover),
+      tabText: "Breakfast",
+    ),
+    FoodTabData(
+      imagePath: "https://images.pexels.com/photos/704569/pexels-photo-704569.jpeg",
+      themeColor: Color(0xFF0c3271),
+      bannerWidget: SmartImage(path: "assets/images/banner-2.jpg", fit: BoxFit.cover),
+      tabText: "Fast Food",
+    ),
+    FoodTabData(
+      imagePath: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg",
+      themeColor: Color(0xFF3f6800),
+      bannerWidget: SmartImage(path: "assets/images/banner-3.jpg", fit: BoxFit.cover),
+      tabText: "Healthy",
+    ),
+    FoodTabData(
+      imagePath: "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg",
+      themeColor: Color(0xFFfd235d),
+      bannerWidget: SmartImage(path: "assets/images/banner-4.jpg", fit: BoxFit.cover),
+      tabText: "Italian",
+    ),
+    FoodTabData(
+      imagePath: "https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg",
+      themeColor: Color(0xFF633174),
+      bannerWidget: SmartImage(path: "assets/images/banner-5.jpg", fit: BoxFit.cover),
+      tabText: "Asian",
+    ),
+    FoodTabData(
+      imagePath: "https://images.pexels.com/photos/3026808/pexels-photo-3026808.jpeg",
+      themeColor: Color(0xFFE91E63),
+      bannerWidget: SizedBox(),
+      tabText: "Desserts",
+    ),
+    FoodTabData(
+      imagePath: "https://images.pexels.com/photos/616401/pexels-photo-616401.jpeg",
+      themeColor: Color(0xFF3F51B5),
+      bannerWidget: SizedBox(),
+      tabText: "Drinks",
+    ),
+  ];
+
+  FoodTabData get currentFoodTabData => tabs[selectedFoodTab.value];
+
+  /// bottom navigation bar tab callback
+  void onTabSelected() {}
 
   final List<Map<String, String>> categoriesOfferZone = const [
     {'title': 'Large Order', 'image': 'assets/images/food-2.png'},
@@ -116,70 +192,70 @@ class FoodController extends GetxController with GetSingleTickerProviderStateMix
       children: [
         SmartImage(
           path: 'https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg',
-          width: 80,
-          height: 80,
-          imageBorderRadius: BorderRadius.all(Radius.circular(8)),
+          width: 80.w,
+          height: 80.w,
+          imageBorderRadius: BorderRadius.all(Radius.circular(8.r)),
           clipBehavior: Clip.antiAlias,
         ),
-        SizedBox(height: 8),
+        SizedBox(height: 8.w),
         SmartText("Salad"),
-        SizedBox(height: 8),
+        SizedBox(height: 8.w),
       ],
     ),
     Column(
       children: [
         SmartImage(
           path: 'https://images.pexels.com/photos/1633525/pexels-photo-1633525.jpeg',
-          width: 80,
-          height: 80,
-          imageBorderRadius: BorderRadius.all(Radius.circular(8)),
+          width: 80.w,
+          height: 80.w,
+          imageBorderRadius: BorderRadius.all(Radius.circular(8.r)),
           clipBehavior: Clip.antiAlias,
         ),
-        SizedBox(height: 8),
+        SizedBox(height: 8.w),
         SmartText("Burger"),
-        SizedBox(height: 8),
+        SizedBox(height: 8.w),
       ],
     ),
     Column(
       children: [
         SmartImage(
           path: 'https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg',
-          width: 80,
-          height: 80,
-          imageBorderRadius: BorderRadius.all(Radius.circular(8)),
+          width: 80.w,
+          height: 80.w,
+          imageBorderRadius: BorderRadius.all(Radius.circular(8.r)),
           clipBehavior: Clip.antiAlias,
         ),
-        SizedBox(height: 8),
+        SizedBox(height: 8.w),
         SmartText("Dessert"),
-        SizedBox(height: 8),
+        SizedBox(height: 8.w),
       ],
     ),
     Column(
       children: [
         SmartImage(
           path: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg',
-          width: 80,
-          height: 80,
-          imageBorderRadius: BorderRadius.all(Radius.circular(8)),
+          width: 80.w,
+          height: 80.w,
+          imageBorderRadius: BorderRadius.all(Radius.circular(8.r)),
           clipBehavior: Clip.antiAlias,
         ),
-        SizedBox(height: 8),
+        SizedBox(height: 8.w),
         SmartText("Sushi"),
-        SizedBox(height: 8),
+        SizedBox(height: 8.w),
       ],
     ),
     Column(
       children: [
         SmartImage(
           path: 'https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg',
-          width: 80,
-          height: 80,
-          imageBorderRadius: BorderRadius.all(Radius.circular(8)),
+          width: 80.w,
+          height: 80.w,
+          imageBorderRadius: BorderRadius.all(Radius.circular(8.r)),
           clipBehavior: Clip.antiAlias,
         ),
-        SizedBox(height: 8),
+        SizedBox(height: 8.w),
         SmartText("Pasta"),
-        SizedBox(height: 8),
+        SizedBox(height: 8.w),
       ],
     ),
   ];
@@ -324,29 +400,28 @@ class FoodController extends GetxController with GetSingleTickerProviderStateMix
   ];
 
   @override
-  void onInit() {
-    super.onInit();
-    tabController = TabController(length: tabs.length, vsync: this);
-    setupTabControllerListener();
-    debugPrint("FoodController initialized");
-  }
-
-  void onTabSelected() {}
-
-  void setupTabControllerListener() {
-    tabController.addListener(() {
-      if (!tabController.indexIsChanging) {
-        /// TODO :: callback
-      }
-    });
-  }
-
-  @override
   void onClose() {
-    tabController.dispose();
+    foodTabController.dispose();
     cravingTabController.dispose();
     scrollController.dispose();
     searchController.dispose();
     super.onClose();
   }
+
+  RxDouble headerHeight = 0.0.obs;
+
+  void updateHeaderHeight(double height) {
+    if (headerHeight.value != height) {
+      headerHeight.value = height;
+    }
+  }
+}
+
+class FoodTabData {
+  final String imagePath;
+  final Color themeColor;
+  final Widget bannerWidget;
+  final String? tabText;
+
+  FoodTabData({required this.imagePath, required this.themeColor, required this.bannerWidget, this.tabText});
 }

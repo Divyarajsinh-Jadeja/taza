@@ -86,7 +86,13 @@ abstract class AppTheme {
 
   AddressBottomSheetStyle get addressBottomSheetStyle;
 
+  GroceryStyle get groceryStyle;
+
   LoginPageStyle get loginPageStyle;
+
+  ProfilePageStyle get profilePageStyle;
+
+  AnimatedTabBarStyle get animatedTabBarStyle;
 
   OrderTrackingPageStyle get orderTrackingPageStyle;
 }
@@ -177,18 +183,26 @@ class TabBarStyle {
 }
 
 class CustomAppBarStyle {
+  final Color primaryColor;
   final Color backgroundColor;
   final Color borderColor;
+  final Color dividerColor;
   final TextStyle titleStyle;
+  final TextStyle homeTitleStyle;
   final TextStyle backTextStyle;
   final Color transparentColor;
-
+  final TextStyle subTitleStyle;
   CustomAppBarStyle({
+    required this.primaryColor,
     required this.backgroundColor,
     required this.borderColor,
+    required this.dividerColor,
     required this.titleStyle,
+    required this.homeTitleStyle,
     required this.backTextStyle,
     required this.transparentColor,
+    required this.subTitleStyle,
+
   });
 }
 
@@ -514,6 +528,7 @@ class FoodPageStyle {
   final TextStyle selectedCategoryTextStyle;
   final TextStyle unselectedCategoryTextStyle;
   final TextStyle categoryTitleTextStyle;
+  final Color whiteColor;
   FoodPageStyle({
     required this.headerTextStyle,
     required this.blackColor,
@@ -522,6 +537,7 @@ class FoodPageStyle {
     required this.selectedCategoryTextStyle,
     required this.unselectedCategoryTextStyle,
     required this.categoryTitleTextStyle,
+    required this.whiteColor,
   });
 }
 
@@ -567,7 +583,16 @@ class CheckoutStyle {
   final BoxDecoration cardDecoration;
   final TextStyle payUsingTextStyle;
   final TextStyle paymentTextStyle;
-
+  final TextStyle tipSelectedStyle;
+  final TextStyle tipUnSelectedStyle;
+  final TextStyle mostTippedStyle;
+  final BoxDecoration tipSelectedDecoration;
+  final BoxDecoration tipUnSelectedDecoration;
+  final BoxDecoration couponsSelectedDecoration;
+  final BoxDecoration couponsUnSelectedDecoration;
+  final TextStyle couponWhiteStyle;
+  final Color redColor;
+  final Color couponColor;
   CheckoutStyle({
     required this.backgroundColor,
     required this.primaryColor,
@@ -588,7 +613,19 @@ class CheckoutStyle {
     required this.cardDecoration,
     required this.payUsingTextStyle,
     required this.paymentTextStyle,
+    required this.tipSelectedStyle,
+    required this.mostTippedStyle,
+    required this.tipUnSelectedStyle,
+    required this.tipSelectedDecoration,
+    required this.tipUnSelectedDecoration,
+    required this.couponsSelectedDecoration,
+    required this.couponsUnSelectedDecoration,
+    required this.redColor,
+    required this.couponWhiteStyle,
+    required this.couponColor
   });
+
+
 }
 
 class SearchBarStyle {
@@ -603,17 +640,13 @@ class SearchBarStyle {
     required this.searchBarHintStyle,
     required this.searchBarTextStyle,
   });
-
 }
 
 class HomeHeaderStyle {
   final TextStyle addressTagTitleStyle;
   final TextStyle addressTitleStyle;
 
-  HomeHeaderStyle({
-    required this.addressTagTitleStyle,
-    required this.addressTitleStyle,
-  });
+  HomeHeaderStyle({required this.addressTagTitleStyle, required this.addressTitleStyle});
 }
 
 class FoodOptionCardStyle {
@@ -640,7 +673,6 @@ class FoodOptionCardStyle {
   });
 }
 
-
 class AddressBottomSheetStyle {
   final Color textFieldBgColor;
   final Color submitButtonBgColor;
@@ -653,6 +685,13 @@ class AddressBottomSheetStyle {
     required this.addressBottomSheetTagTitleStyle,
     required this.addressBottomSheetTitleStyle,
   });
+}
+
+class GroceryStyle {
+  final TextStyle titleStyle;
+  final TextStyle subTitleStyle;
+  final BoxDecoration groceryCardDecoration;
+  GroceryStyle({required this.titleStyle, required this.subTitleStyle, required this.groceryCardDecoration});
 }
 
 class LoginPageStyle {
@@ -685,6 +724,28 @@ class LoginPageStyle {
     required this.termsAndPrivacyTextStyle,
     required this.countryCodeTextStyle,
   });
+}
+
+class ProfilePageStyle{
+  final TextStyle nameTitleStyle;
+  final TextStyle titleStyle;
+  final TextStyle subTitleStyle;
+  final Color primaryColor;
+  final Color whiteColor;
+  final TextStyle primaryStyle;
+  final TextStyle languageSelectedStyle;
+  final TextStyle languageUnSelectedStyle;
+  final BoxDecoration selectedLanguageDecoration;
+  final BoxDecoration unSelectedLanguageDecoration;
+
+  ProfilePageStyle({required this.nameTitleStyle, required this.titleStyle, required this.subTitleStyle, required this.primaryColor, required this.whiteColor, required this.primaryStyle, required this.languageSelectedStyle, required this.languageUnSelectedStyle,required this.selectedLanguageDecoration,required this.unSelectedLanguageDecoration});
+
+
+
+}
+class AnimatedTabBarStyle {
+  final Color transparentColor;
+  AnimatedTabBarStyle({required this.transparentColor});
 }
 
 

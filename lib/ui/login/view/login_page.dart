@@ -22,6 +22,7 @@ class LoginPage extends GetView<LoginController> {
               animationDelay: const Duration(milliseconds: 10),
               animationCurve: Curves.easeOut,
               child: SmartColumn(
+                padding: EdgeInsetsDirectional.symmetric(horizontal: 20.w),
                 decoration: BoxDecoration(color: style.loginPageBgColor),
                 children: [
                   SmartColumn(

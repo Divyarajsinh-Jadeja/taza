@@ -1,4 +1,5 @@
 import 'package:taza/taza.dart';
+
 class SmartImage extends StatelessWidget {
   final String path;
   final double? height;
@@ -37,6 +38,8 @@ class SmartImage extends StatelessWidget {
     this.animator,
   });
 
+  bool get isLottie => path.toLowerCase().endsWith('.json');
+
   @override
   Widget build(BuildContext context) {
     final double? finalHeight = size ?? height;
@@ -55,65 +58,81 @@ class SmartImage extends StatelessWidget {
     }
 
     if (child == null) {
-      switch (path.imageType) {
-        case ImageType.svg:
-          child = SvgPicture.asset(
-            path,
-            width: finalWidth,
-            height: finalHeight,
-            fit: fit ?? BoxFit.contain,
-            colorFilter: color != null
-                ? ColorFilter.mode(color!, BlendMode.srcIn)
-                : null,
-          );
-          break;
-        case ImageType.asset:
-          child = Image.asset(
-            path,
-            height: finalHeight,
-            width: finalWidth,
-            fit: fit,
-          );
-          break;
-        case ImageType.file:
-          child = Image.file(
-            File(path),
-            height: finalHeight,
-            width: finalWidth,
-            fit: fit,
-          );
-          break;
-        case ImageType.network:
-          child = path.isSvgUrl
-              ? SvgPicture.network(
-            path,
-            width: finalWidth,
-            height: finalHeight,
-          )
-              : CachedNetworkImage(
-            height: finalHeight,
-            width: finalWidth,
-            fit: fit,
-            errorWidget: (context, url, error) => Image.asset(
-              AppImages.icHome,
+      if (isLottie) {
+        child = path.startsWith('http')
+            ? Lottie.network(
+          path,
+          height: finalHeight,
+          width: finalWidth,
+          fit: fit ?? BoxFit.contain,
+        )
+            : Lottie.asset(
+          path,
+          height: finalHeight,
+          width: finalWidth,
+          fit: fit ?? BoxFit.contain,
+        );
+      } else {
+        switch (path.imageType) {
+          case ImageType.svg:
+            child = SvgPicture.asset(
+              path,
+              width: finalWidth,
+              height: finalHeight,
+              fit: fit ?? BoxFit.contain,
+              colorFilter: color != null
+                  ? ColorFilter.mode(color!, BlendMode.srcIn)
+                  : null,
+            );
+            break;
+          case ImageType.asset:
+            child = Image.asset(
+              path,
               height: finalHeight,
               width: finalWidth,
               fit: fit,
-            ),
-            placeholder: (context, url) => SizedBox(
-              height: finalHeight ?? 50.w,
-              width: finalWidth ?? 50.w,
-              child: Center(
-                child: SizedBox(
-                  height: 20.w,
-                  width: 20.w,
-                  child: SmartCircularProgressIndicator(padding: EdgeInsets.zero),
+            );
+            break;
+          case ImageType.file:
+            child = Image.file(
+              File(path),
+              height: finalHeight,
+              width: finalWidth,
+              fit: fit,
+            );
+            break;
+          case ImageType.network:
+            child = path.isSvgUrl
+                ? SvgPicture.network(
+              path,
+              width: finalWidth,
+              height: finalHeight,
+            )
+                : CachedNetworkImage(
+              height: finalHeight,
+              width: finalWidth,
+              fit: fit,
+              errorWidget: (context, url, error) => Image.asset(
+                AppImages.icHome,
+                height: finalHeight,
+                width: finalWidth,
+                fit: fit,
+              ),
+              placeholder: (context, url) => SizedBox(
+                height: finalHeight ?? 50.w,
+                width: finalWidth ?? 50.w,
+                child: Center(
+                  child: SizedBox(
+                    height: 20.w,
+                    width: 20.w,
+                    child: SmartCircularProgressIndicator(padding: EdgeInsets.zero),
+                  ),
                 ),
               ),
-            ),
-            imageUrl: path,
-          );
-          break;
+              imageUrl: path,
+            );
+            break;
+        }
       }
     }
 

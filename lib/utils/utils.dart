@@ -98,7 +98,7 @@ class Utils {
       barrierLabel: barrierLabel,
       elevation: elevation,
       shape:
-          shape ?? RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(6.r), topRight: Radius.circular(6.r))),
+          shape ?? RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(22.r), topRight: Radius.circular(22.r))),
       clipBehavior: clipBehavior,
       constraints: constraints,
       barrierColor: barrierColor,
@@ -263,6 +263,14 @@ class Utils {
     }
 
     return false; // Fallback case
+  }
+
+  static Color getContrastColor(Color color) {
+    // Calculate luminance to determine brightness
+    final double luminance = color.computeLuminance();
+
+    // Return black for light colors, white for dark colors
+    return luminance > 0.5 ? Colors.black : Colors.white;
   }
 }
 

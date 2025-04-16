@@ -80,10 +80,17 @@ class AppImages {
   static const String icStar = 'assets/images/ic_star.svg';
   static const String icArrowRight = 'assets/images/ic_arrow_right.svg';
 
+  static const String icBannerGif = 'assets/images/banner_one.gif';
+
   // Checkout Screen assets
   static const String icSaveTag = 'assets/images/ic_save_tag.svg';
   static const String icArrowDown = 'assets/images/ic_arrow_down.svg';
   static const String icDoc = 'assets/images/ic_doc.svg';
+  static const String tipLottie = 'assets/images/tip.json';
+
+  // Coupons Screen assets
+  static const String couponLottie = 'assets/images/coupon.json';
+  static const String notesLottie = 'assets/images/notes.json';
   static const String icArrowLeft = 'assets/images/ic_arrow_left.svg';
 
 
