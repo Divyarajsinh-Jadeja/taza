@@ -124,7 +124,7 @@ class ProfilePage extends GetView<ProfileController> {
               ),
             ),
             if (isSelected)
-              Icon(Icons.check_circle, color: style.primaryColor, size: 20.r),
+              Icon(Icons.check_circle, color: style.primaryColor, size: 20.w),
           ],
         ),
       ),
@@ -132,7 +132,7 @@ class ProfilePage extends GetView<ProfileController> {
   }
 
   void _showLanguageSheet(BuildContext context) {
-    final style = AppTheme.of(Get.context!).profilePageStyle;
+    final style = AppTheme.of(context).profilePageStyle;
 
     Utils.showSmartModalBottomSheet(
       context: context,
