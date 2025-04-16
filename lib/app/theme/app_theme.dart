@@ -181,6 +181,7 @@ class TabBarStyle {
 }
 
 class CustomAppBarStyle {
+  final Color primaryColor;
   final Color backgroundColor;
   final Color borderColor;
   final Color dividerColor;
@@ -190,6 +191,7 @@ class CustomAppBarStyle {
   final Color transparentColor;
   final TextStyle subTitleStyle;
   CustomAppBarStyle({
+    required this.primaryColor,
     required this.backgroundColor,
     required this.borderColor,
     required this.dividerColor,

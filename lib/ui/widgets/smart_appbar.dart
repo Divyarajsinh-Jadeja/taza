@@ -93,7 +93,7 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
               isSkip ? LocaleKeys.skip.tr : LocaleKeys.back.tr,
               style: style.backTextStyle,
             ),
-          Icon(Icons.arrow_back_rounded, color: colors(context).color00BAB3),
+          Icon(Icons.arrow_back_rounded, color: style.primaryColor),
         ],
       );
     } else {
@@ -164,11 +164,11 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
   List<Widget> _buildActions() {
     final List<Widget> actionsList = [];
     if (onSearch != null) {
-      actionsList.add(_buildIconButton(onSearch!, AppImages.icHome, size: 24));
+      actionsList.add(_buildIconButton(onSearch!, AppImages.icHome, size: 24.w));
     }
     if (onFavorite != null) {
       actionsList.add(
-        _buildIconButton(onFavorite!, AppImages.icHome, size: 24),
+        _buildIconButton(onFavorite!, AppImages.icHome, size: 24.w),
       );
     }
     if (actions != null) actionsList.add(SizedBox(width: 17.w));

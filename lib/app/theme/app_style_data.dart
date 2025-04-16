@@ -75,6 +75,7 @@ class LightModeTheme extends AppTheme {
 
   @override
   CustomAppBarStyle get appBarStyle => CustomAppBarStyle(
+    primaryColor: colors.primary,
     backgroundColor: colors.white,
     titleStyle: interBoldW700TextStyle.copyWith(fontSize: 20.sp),
     homeTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 15.sp),
