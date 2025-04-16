@@ -158,9 +158,6 @@ export 'package:taza/ui/dashboard/dashboard_modules/home/components/food_option_
 export 'package:taza/ui/dashboard/dashboard_modules/home/components/home_address_header.dart';
 
 export 'package:taza/ui/dashboard/dashboard_modules/food/components/food_screen_tabs_view.dart';
-export 'package:taza/ui/dashboard/dashboard_modules/food/components/foodscreen_tab_header_delegate.dart';
-export 'package:taza/ui/dashboard/dashboard_modules/food/components/food_tab_children.dart';
-export 'package:taza/ui/dashboard/dashboard_modules/food/components/grocery_tab_children.dart';
 
 export 'package:taza/ui/dashboard/dashboard_modules/food/components/food_item_card.dart';
 export 'package:carousel_slider/carousel_controller.dart';
@@ -169,3 +166,5 @@ export 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/food/components/filter_category_bar.dart';
 
 export 'package:country_code_picker/country_code_picker.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/food/components/food_page_header_sliver.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/food/model/food_tab_data.dart';
