@@ -11,6 +11,7 @@ class HomeAddressHeader extends StatelessWidget {
   final double? userImageHeight;
   final Color? backGroundColor;
   final Color? textColor;
+  final Color? homeIconColor;
 
   const HomeAddressHeader({
     super.key,
@@ -24,6 +25,7 @@ class HomeAddressHeader extends StatelessWidget {
     this.userImageHeight,
     this.backGroundColor,
     this.textColor,
+    this.homeIconColor,
   });
 
   @override
@@ -40,11 +42,11 @@ class HomeAddressHeader extends StatelessWidget {
           children: [
             SmartRow(
               children: [
-                SmartImage(path: homeIcon ?? AppImages.icHome),
+                SmartImage(path: homeIcon ?? AppImages.icHome, color: homeIconColor),
                 SizedBox(width: 8.h),
-                SmartText(addressTypeTag, style: style.addressTagTitleStyle),
+                SmartText(addressTypeTag, style: style.addressTagTitleStyle.copyWith(color: textColor)),
                 SizedBox(width: 6.h),
-                SmartImage(path: dropDownIcon ?? AppImages.icArrowDropDown, onTap: onAddressTap),
+                SmartImage(path: dropDownIcon ?? AppImages.icArrowDropDown, onTap: onAddressTap, color: textColor),
               ],
             ),
             SizedBox(height: 3.h),

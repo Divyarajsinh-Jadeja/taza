@@ -91,6 +91,8 @@ abstract class AppTheme {
   LoginPageStyle get loginPageStyle;
 
   ProfilePageStyle get profilePageStyle;
+
+  AnimatedTabBarStyle get animatedTabBarStyle;
 }
 
 class PrimaryButtonStyle {
@@ -522,6 +524,7 @@ class FoodPageStyle {
   final TextStyle selectedCategoryTextStyle;
   final TextStyle unselectedCategoryTextStyle;
   final TextStyle categoryTitleTextStyle;
+  final Color whiteColor;
   FoodPageStyle({
     required this.headerTextStyle,
     required this.blackColor,
@@ -530,6 +533,7 @@ class FoodPageStyle {
     required this.selectedCategoryTextStyle,
     required this.unselectedCategoryTextStyle,
     required this.categoryTitleTextStyle,
+    required this.whiteColor,
   });
 }
 
@@ -583,7 +587,6 @@ class CheckoutStyle {
   final BoxDecoration couponsSelectedDecoration;
   final BoxDecoration couponsUnSelectedDecoration;
 
-
   CheckoutStyle({
     required this.backgroundColor,
     required this.primaryColor,
@@ -627,17 +630,13 @@ class SearchBarStyle {
     required this.searchBarHintStyle,
     required this.searchBarTextStyle,
   });
-
 }
 
 class HomeHeaderStyle {
   final TextStyle addressTagTitleStyle;
   final TextStyle addressTitleStyle;
 
-  HomeHeaderStyle({
-    required this.addressTagTitleStyle,
-    required this.addressTitleStyle,
-  });
+  HomeHeaderStyle({required this.addressTagTitleStyle, required this.addressTitleStyle});
 }
 
 class FoodOptionCardStyle {
@@ -677,11 +676,12 @@ class AddressBottomSheetStyle {
     required this.addressBottomSheetTitleStyle,
   });
 }
-class GroceryStyle{
+
+class GroceryStyle {
   final TextStyle titleStyle;
   final TextStyle subTitleStyle;
   final BoxDecoration groceryCardDecoration;
-  GroceryStyle({required this.titleStyle, required this.subTitleStyle,required this.groceryCardDecoration});
+  GroceryStyle({required this.titleStyle, required this.subTitleStyle, required this.groceryCardDecoration});
 }
 
 class LoginPageStyle {
@@ -728,4 +728,8 @@ class ProfilePageStyle{
 
 
 
+}
+class AnimatedTabBarStyle {
+  final Color transparentColor;
+  AnimatedTabBarStyle({required this.transparentColor});
 }

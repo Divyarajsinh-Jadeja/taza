@@ -264,6 +264,14 @@ class Utils {
 
     return false; // Fallback case
   }
+
+  static Color getContrastColor(Color color) {
+    // Calculate luminance to determine brightness
+    final double luminance = color.computeLuminance();
+
+    // Return black for light colors, white for dark colors
+    return luminance > 0.5 ? Colors.black : Colors.white;
+  }
 }
 
 extension EmailValidator on String {
