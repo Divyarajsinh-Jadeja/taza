@@ -69,7 +69,9 @@ class CheckoutPage extends GetView<CheckoutController> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SmartAnimatedQuantity(
-                          index: 0,
+                          index: 19,
+                          onIncrease: () => Get.find<QuantityController>().increment(19),
+                          onDecrease: () => Get.find<QuantityController>().decrement(19),
                           model: FoodModel(
                             name: 'Family Bucket',
                             imageUrl: 'https://i.ibb.co/whRS5nY7/b.jpg',

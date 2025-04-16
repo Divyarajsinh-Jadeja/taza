@@ -3,6 +3,7 @@ class QuantityController extends GetxController {
   final RxList<RxInt> quantities = <RxInt>[].obs;
 
   void initializeQuantities(int length) {
+    quantities.value = [];
     quantities.value = List.generate(length, (_) => 0.obs);
   }
 
