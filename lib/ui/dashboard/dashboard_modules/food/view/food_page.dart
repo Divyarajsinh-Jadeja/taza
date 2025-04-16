@@ -86,45 +86,45 @@ class FoodPage extends GetView<FoodController> {
     ];
   }
 
-  Widget _buildCategoriesSliver(FoodCardStyle style, FoodPageStyle foodPageStyle) {
-    return _animatedBoxAdapter(
-      child: SizedBox(
-        height: 120.h,
-        child: ListView.separated(
-          scrollDirection: Axis.horizontal,
-          itemCount: controller.categoriesOfferZone.length,
-          padding: EdgeInsets.symmetric(horizontal: 19.w),
-          separatorBuilder: (_, __) => SizedBox(width: 8.w),
-          itemBuilder: (context, index) => _buildCategoryCard(context, style, controller.categoriesOfferZone[index], foodPageStyle),
-        ),
-      ),
-    );
+              Widget _buildCategoriesSliver(FoodCardStyle style, FoodPageStyle foodPageStyle) {
+             return _animatedBoxAdapter(
+                child: SizedBox(
+                  height: 120.h,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: controller.categoriesOfferZone.length,
+                    padding: EdgeInsets.symmetric(horizontal: 19.w),
+                    separatorBuilder: (_, __) => SizedBox(width: 8.w),
+                    itemBuilder: (context, index) => _buildCategoryCard(context, style, controller.categoriesOfferZone[index], foodPageStyle),
+                    ),
+                  ),
+                );
+              }
+
+              Widget _buildPromoBannerSliver() {
+              return
+              _animatedBoxAdapter(
+                child: SmartImage(
+                  path: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3",
+                  width: 352.w,
+                  height: 200.h,
+                  fit: BoxFit.fill,
+                  margin: EdgeInsets.symmetric(horizontal: 19.w),
+                  imageBorderRadius: BorderRadius.circular(16.r),
+                  clipBehavior: Clip.antiAlias,
+                ),
+              );
   }
 
-  Widget _buildPromoBannerSliver() {
-    return _animatedBoxAdapter(
-      child: SmartImage(
-        path: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3",
-        width: 352.w,
-        height: 200.h,
-        fit: BoxFit.fill,
-        margin: EdgeInsets.symmetric(horizontal: 19.w),
-        imageBorderRadius: BorderRadius.circular(16.r),
-        clipBehavior: Clip.antiAlias,
-      ),
-    );
+        List<Widget> _buildReorderSection(FoodPageStyle foodPageStyle) {
+    return [      _animatedBoxAdapter(child: SizedBox(height: 32.h)),
+              _buildSectionHeader("Loved it? Reorder Now!", foodPageStyle, showArrow: false
+              ),
+              _animatedBoxAdapter(child: SizedBox(height: 16.h)),
+              _animatedBoxAdapter(child: _buildFoodList(controller.foodItemList)),];
   }
 
-  List<Widget> _buildReorderSection(FoodPageStyle foodPageStyle) {
-    return [
-      _animatedBoxAdapter(child: SizedBox(height: 32.h)),
-      _buildSectionHeader("Loved it? Reorder Now!", foodPageStyle, showArrow: false),
-      _animatedBoxAdapter(child: SizedBox(height: 16.h)),
-      _animatedBoxAdapter(child: _buildFoodList(controller.foodItemList)),
-    ];
-  }
-
-  List<Widget> _buildCravingSection(FoodPageStyle foodPageStyle) {
+        List<Widget> _buildCravingSection(FoodPageStyle foodPageStyle) {
     return [
       _animatedBoxAdapter(child: SizedBox(height: 32.h)),
       _buildSectionHeader("Craving Something Special?", foodPageStyle),
@@ -134,9 +134,8 @@ class FoodPage extends GetView<FoodController> {
   }
 
   List<Widget> _buildFlavorSection(FoodPageStyle foodPageStyle) {
-    return [
-      _animatedBoxAdapter(child: SizedBox(height: 32.h)),
-      _buildSectionHeader("Ahmed, Pick Your Flavor", foodPageStyle),
+    return [      _animatedBoxAdapter(child: SizedBox(height: 32.h)),
+             _buildSectionHeader("Ahmed, Pick Your Flavor", foodPageStyle),
       _animatedBoxAdapter(child: SizedBox(height: 16.h)),
       _animatedBoxAdapter(child: CategoryFilterBar()),
       _animatedBoxAdapter(child: SizedBox(height: 16.h)),
@@ -147,15 +146,15 @@ class FoodPage extends GetView<FoodController> {
 
   Widget _buildSectionHeader(String title, FoodPageStyle foodPageStyle, {bool showArrow = true}) {
     return _animatedBoxAdapter(
-      child: SmartRow(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        padding: EdgeInsets.symmetric(horizontal: 19.w),
-        children: [
-          SmartText(title, style: foodPageStyle.headerTextStyle, isFlexible: true),
-          if (showArrow) SmartImage(path: AppImages.icArrowRight),
-        ],
-      ),
-    );
+                child: SmartRow(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  padding: EdgeInsets.symmetric(horizontal: 19.w),
+                  children: [
+                    SmartText(title, style: foodPageStyle.headerTextStyle, isFlexible: true),
+                   if (showArrow) SmartImage(path: AppImages.icArrowRight),
+                  ],
+                ),
+              );
   }
 
   Widget _buildCravingTabsSliver() {
