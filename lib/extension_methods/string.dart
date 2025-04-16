@@ -83,7 +83,7 @@ extension StringExtensions on String {
       return ImageType.network;
     } else if (toLowerCase().endsWith('.svg')) {
       return ImageType.svg;
-    } else if (startsWith('assets/') && endsWith('.png')) {
+    } else if (startsWith('assets/') && (endsWith('.png') || endsWith('.jpg') || endsWith('.jpeg') || endsWith('.gif'))) {
       return ImageType.asset;
     } else {
       return ImageType.file;

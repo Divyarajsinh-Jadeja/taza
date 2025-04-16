@@ -9,6 +9,9 @@ class HomeAddressHeader extends StatelessWidget {
   final String? userImagePath;
   final double? userImageWidth;
   final double? userImageHeight;
+  final Color? backGroundColor;
+  final Color? textColor;
+  final Color? homeIconColor;
 
   const HomeAddressHeader({
     super.key,
@@ -20,6 +23,9 @@ class HomeAddressHeader extends StatelessWidget {
     this.userImagePath,
     this.userImageWidth,
     this.userImageHeight,
+    this.backGroundColor,
+    this.textColor,
+    this.homeIconColor,
   });
 
   @override
@@ -27,6 +33,7 @@ class HomeAddressHeader extends StatelessWidget {
     final style = AppTheme.of(context).homeHeaderStyle;
 
     return SmartRow(
+      decoration: BoxDecoration(color: backGroundColor),
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SmartColumn(
@@ -35,30 +42,20 @@ class HomeAddressHeader extends StatelessWidget {
           children: [
             SmartRow(
               children: [
-                SmartImage(path : homeIcon ?? AppImages.icHome),
+                SmartImage(path: homeIcon ?? AppImages.icHome, color: homeIconColor),
                 SizedBox(width: 8.h),
-                SmartText(
-                  addressTypeTag,
-                  style: style.addressTagTitleStyle,
-                ),
+                SmartText(addressTypeTag, style: style.addressTagTitleStyle.copyWith(color: textColor)),
                 SizedBox(width: 6.h),
-                SmartImage(path: dropDownIcon ?? AppImages.icArrowDropDown, onTap: onAddressTap),
+                SmartImage(path: dropDownIcon ?? AppImages.icArrowDropDown, onTap: onAddressTap, color: textColor),
               ],
             ),
             SizedBox(height: 3.h),
-            SmartText(
-              address,
-              style: style.addressTitleStyle,
-            ),
+            SmartText(address, style: textColor != null ? style.addressTitleStyle.copyWith(color: textColor) : style.addressTitleStyle),
           ],
         ),
-        userImagePath != null ?
-          SmartImage(
-            path: userImagePath ?? "",
-            width: userImageWidth ?? 40.w,
-            height: userImageHeight ?? 40.h,
-            fit: BoxFit.cover,
-          ) : SmartImage(path : AppImages.icUser, width: 32.w, height: 32.h,),
+        userImagePath != null
+            ? SmartImage(path: userImagePath ?? "", width: userImageWidth ?? 40.w, height: userImageHeight ?? 40.h, fit: BoxFit.cover)
+            : SmartImage(path: AppImages.icUser, width: 32.w, height: 32.h),
       ],
     );
   }
