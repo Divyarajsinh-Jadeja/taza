@@ -9,6 +9,7 @@ class HomeAddressHeader extends StatelessWidget {
   final String? userImagePath;
   final double? userImageWidth;
   final double? userImageHeight;
+  final EdgeInsetsGeometry? padding;
 
   const HomeAddressHeader({
     super.key,
@@ -20,6 +21,7 @@ class HomeAddressHeader extends StatelessWidget {
     this.userImagePath,
     this.userImageWidth,
     this.userImageHeight,
+    this.padding
   });
 
   @override
@@ -27,6 +29,7 @@ class HomeAddressHeader extends StatelessWidget {
     final style = AppTheme.of(context).homeHeaderStyle;
 
     return SmartRow(
+      padding: padding   ,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SmartColumn(

@@ -164,3 +164,12 @@ export 'package:taza/ui/dashboard/dashboard_modules/food/components/filter_categ
 
 export 'package:country_code_picker/country_code_picker.dart';
 
+export 'package:lottie/lottie.dart';
+export 'package:taza/ui/login/components/terms_privacy_widget.dart';
+export 'package:taza/ui/login/components/login_bottom_sheet.dart';
+export 'package:taza/ui/widgets/notched_message.dart';
+export 'package:taza/ui/track_order/view/order_tracking_controller.dart';
+
+
+
+

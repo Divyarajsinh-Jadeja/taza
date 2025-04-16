@@ -221,7 +221,9 @@ class CheckoutPage extends GetView<CheckoutController> {
               SmartText(LocaleKeys.payPal.tr, style: style.paymentTextStyle),
             ],
           ),
-          Expanded(child: SmartButton(onTap: () {}, title: "Pay 79 SAR")),
+          Expanded(child: SmartButton(onTap: () {
+            Get.offNamed(AppRoutes.orderTrackingPage);
+          }, title: "Pay 79 SAR")),
         ],
       ),
     );

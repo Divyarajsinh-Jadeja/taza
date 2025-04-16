@@ -92,6 +92,27 @@ class LocaleKeys {
   static const termsOfUse = 'termsOfUse';
   static const pleaseEnterNumber = 'pleaseEnterNumber';
   static const enterValidNumber = 'enterValidNumber';
+  static const account = 'account';
+  static const loginCreateAccount = 'loginCreateAccount';
+  static const enterNumberToProceed = 'enterNumberToProceed';
+  static const packingYourOrder = 'packingYourOrder';
+  static const arrivingInMinutes = 'arrivingInMinutes';
+  static const assignDeliveryPartner = 'assignDeliveryPartner';
+  static const deliveryPartnerName = 'deliveryPartnerName';
+  static const yourBlinkitStoreDistance = 'yourBlinkitStoreDistance';
+  static const payAmountBeforeDelivery = 'payAmountBeforeDelivery';
+  static const keepChangeOrPayOnline = 'keepChangeOrPayOnline';
+  static const payOnline = 'payOnline';
+  static const addDeliveryInstructions = 'addDeliveryInstructions';
+  static const helpDeliveryPartner = 'helpDeliveryPartner';
+  static const pickedUpOnWay = 'pickedUpOnWay';
+  static const deliveringHappiness = 'deliveringHappiness';
+  static const thankThemByTip = 'thankThemByTip';
+  static const hotDayKindness = 'hotDayKindness';
+  static const instructionDontRingBell = 'instructionDontRingBell';
+  static const instructionPetAtHome = 'instructionPetAtHome';
+  static const instructionLeaveAtDoor = 'instructionLeaveAtDoor';
+  static const instructionLeaveAtGate = 'instructionLeaveAtGate';
 }
 
 class Locales {
@@ -175,11 +196,38 @@ class Locales {
     'submit': 'Submit',
     'enterPhoneNumber': 'Enter Phone Number',
     'continueForLogin': 'Continue',
-    'byContinueTerms': 'By continuing, you agree to our',
-    'groceryDeliverTag': 'Groceries\ndelivered in\n10 minutes',
-    'termsOfUse': 'Terms of Use',
+    'byContinueTerms': 'By clicking, I accept the',
+    'groceryDeliverTag':
+        'One app for food, dining, groceries & more in minutes!',
+    'termsOfUse': 'Terms & Conditions',
     'pleaseEnterNumber': 'Please enter your phone number',
     'enterValidNumber': 'Please enter a valid phone number',
+    'account': 'Account',
+    'loginCreateAccount': 'Login/Create Account to manage orders',
+    'enterNumberToProceed': 'Enter your phone number to proceed',
+    'packingYourOrder': 'Packing your order',
+    'arrivingInMinutes': 'Arriving in 15 minutes',
+    'assignDeliveryPartner':
+        'We\'ll assign a delivery partner as soon as your order is packed',
+    'deliveryPartnerName': 'I\'m Laxmikant, your delivery partner',
+    'yourBlinkitStoreDistance':
+        'Your Blinkit store is only 1.5 km away. Learn about delivery partner safety',
+    'payAmountBeforeDelivery': 'Pay ₹142 before or on delivery',
+    'keepChangeOrPayOnline':
+        'Please keep a change of ₹142 handy or avoid the hassle by paying online',
+    'payOnline': 'Pay Online',
+    'addDeliveryInstructions': 'Add delivery instructions',
+    'helpDeliveryPartner': 'Help your delivery partner reach you faster',
+    'pickedUpOnWay':
+        'I have picked up your order, and I am on the way to your location',
+    'deliveringHappiness': 'Delivering happiness at your doorstep!',
+    'thankThemByTip': 'Thank them by leaving a tip',
+    'hotDayKindness':
+        'It\'s hot day! Show some kindness by offering water to your delivery partner',
+    'instructionDontRingBell': 'Don\'t ring the bell',
+    'instructionPetAtHome': 'Pet at home',
+    'instructionLeaveAtDoor': 'Leave at door',
+    'instructionLeaveAtGate': 'Leave at gate',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -259,10 +307,34 @@ class Locales {
     'submit': 'يُقدِّم',
     'enterPhoneNumber': 'أدخل رقم الهاتف',
     'continueForLogin': 'استمرار',
-    'byContinueTerms': 'بالمتابعة، فإنك توافق على',
-    'groceryDeliverTag': 'المواد الغذائية\nتوصيل خلال\n10 دقائق',
-    'termsOfUse': 'شروط الاستخدام',
+    'byContinueTerms': 'بالنقر، أوافق على',
+    'groceryDeliverTag':
+        'تطبيق واحد للطعام والمأكولات والبقالة والمزيد خلال دقائق!',
+    'termsOfUse': ' الشروط والأحكام',
     'pleaseEnterNumber': 'يرجى إدخال رقم هاتفك',
     'enterValidNumber': 'يرجى إدخال رقم هاتف صالح',
+    'account': 'الحساب',
+    'loginCreateAccount': 'قم بتسجيل الدخول/إنشاء حساب لإدارة الطلبات',
+    'enterNumberToProceed': 'أدخل رقم هاتفك للمتابعة',
+    'packingYourOrder': 'جارٍ تجهيز طلبك',
+    'arrivingInMinutes': 'سيصل خلال 15 دقيقة',
+    'assignDeliveryPartner': 'سنُخصص شريك توصيل بمجرد تجهيز طلبك',
+    'deliveryPartnerName': 'أنا لاكشميكانت، شريك التوصيل الخاص بك',
+    'yourBlinkitStoreDistance':
+        'متجر Blinkit يبعد فقط 1.5 كم. تعرف على سلامة شريك التوصيل',
+    'payAmountBeforeDelivery': 'ادفع ₹142 قبل أو عند التوصيل',
+    'keepChangeOrPayOnline':
+        'يرجى الاحتفاظ بمبلغ ₹142 أو تجنب المتاعب بالدفع عبر الإنترنت',
+    'payOnline': 'ادفع عبر الإنترنت',
+    'addDeliveryInstructions': 'أضف تعليمات التوصيل',
+    'helpDeliveryPartner': 'ساعد شريك التوصيل في الوصول إليك بشكل أسرع',
+    'pickedUpOnWay': 'لقد استلمت طلبك، وأنا في الطريق إلى موقعك',
+    'deliveringHappiness': 'نوصّل السعادة إلى باب منزلك!',
+    'thankThemByTip': 'اشكرهم بترك بقشيش',
+    'hotDayKindness': 'إنه يوم حار! كن لطيفًا وقدم الماء لشريك التوصيل',
+    'instructionDontRingBell': 'لا تقرع الجرس',
+    'instructionPetAtHome': 'يوجد حيوان أليف في المنزل',
+    'instructionLeaveAtDoor': 'اترك الطلب عند الباب',
+    'instructionLeaveAtGate': 'اترك الطلب عند البوابة',
   };
 }

@@ -363,15 +363,48 @@ class LightModeTheme extends AppTheme {
   LoginPageStyle get loginPageStyle =>
       LoginPageStyle(
           skipButtonTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 16.sp, color: colors.white),
-          tagTextStyle: interBoldW700TextStyle.copyWith(fontSize: 26.sp, color: colors.white),
-          skipButtonBgColor: colors.white.withOpacity(0.3),
+          tagTextStyle: interBoldW700TextStyle.copyWith(fontSize: 18.sp, color: colors.white),
+          dividerColor: colors.color1D1D1F,
           continueButtonTextStyle: interBoldW700TextStyle.copyWith(fontSize: 16.sp, color: colors.white),
-          continueButtonBgColor: colors.colorF65D3C,
-          loginPageBgColor: colors.primary,
+          continueButtonBgColor: colors.primary,
+          continueButtonDisableBgColor: colors.primary.withOpacity(0.4),
+          loginPageBgColor: colors.white,
           inputFieldBgColor: colors.white,
           errorTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.colorFF0000),
-          bottomTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.white),
-          termsAndPrivacyTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.colorF65D3C),
+          bottomTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 11.sp, color: colors.color9c9cA3),
+          termsAndPrivacyTextStyle: interBoldW700TextStyle.copyWith(fontSize: 12.sp, color: colors.color1D1D1F),
           countryCodeTextStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 16.sp, color: colors.color1D1D1F),
+        accountTextStyle: interBoldW700TextStyle.copyWith(fontSize: 20.sp, color: colors.color1D1D1F),
+      );
+
+
+  @override
+  OrderTrackingPageStyle get orderTrackingPageStyle =>
+      OrderTrackingPageStyle(
+        circleBgColor: colors.colorF5F5F7,
+        cardDecoration: BoxDecoration(
+          color: colors.colorF5F5F7,
+          borderRadius: BorderRadius.circular(16.r),
+        ),
+        mainCardDecoration: BoxDecoration(
+          color: colors.white,
+          borderRadius: BorderRadius.circular(12.r),
+          boxShadow: [
+            BoxShadow(
+              color: const Color.fromRGBO(178, 189, 194, 0.25),
+              blurRadius: 5.r,
+              spreadRadius: 5.r,
+            ),
+          ],
+        ),
+        mainCardColor: colors.white,
+        payOnlineTextStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 14.sp, color: colors.primary),
+        headerBgColor: colors.primary,
+        titleTextStyle: interBoldW700TextStyle.copyWith(fontSize: 16.sp, color: colors.color1D1D1F),
+        dividerColor: colors.colorF5F5F7,
+        subtitleTextStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 12.sp, color: colors.color1D1D1F),
+        payOnlineSubTitleStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 12.sp, color: colors.color1D1D1F),
+        headerTagStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 16.sp, color: colors.white),
+        headerTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 18.sp, color: colors.white)
       );
 }
