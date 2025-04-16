@@ -52,8 +52,8 @@ class HomeAddressHeader extends StatelessWidget {
           ],
         ),
         userImagePath != null
-            ? SmartImage(path: userImagePath ?? "", width: userImageWidth ?? 40.w, height: userImageHeight ?? 40.h, fit: BoxFit.cover)
-            : SmartImage(path: AppImages.icUser, width: 32.w, height: 32.h),
+            ? SmartImage(path: userImagePath ?? "", width: userImageWidth ?? 40.w, height: userImageHeight ?? 40.h, fit: BoxFit.cover,onTap: () => Get.toNamed(AppRoutes.profilePage),)
+            : SmartImage(path: AppImages.icUser, width: 32.w, height: 32.h,onTap: () => Get.toNamed(AppRoutes.profilePage),),
       ],
     );
   }

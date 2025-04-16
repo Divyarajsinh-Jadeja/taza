@@ -119,9 +119,12 @@ class LightModeTheme extends AppTheme {
   CustomAppBarStyle get appBarStyle => CustomAppBarStyle(
     backgroundColor: colors.white,
     titleStyle: interBoldW700TextStyle.copyWith(fontSize: 20.sp),
+    homeTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 15.sp),
     backTextStyle: interRegularW400TextStyle.copyWith(fontSize: 16.sp),
     borderColor: colors.color0CF52B,
+    dividerColor: colors.color9c9cA3,
     transparentColor: colors.transparent,
+    subTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 13.sp,color: colors.color9c9cA3)
   );
 
   @override
@@ -521,6 +524,11 @@ class LightModeTheme extends AppTheme {
       fontSize: 11.sp,
       color: colors.black,
     ),
+    mostTippedStyle: interSemiBoldW600TextStyle.copyWith(
+      fontSize: 8.sp,
+      color: colors.white,
+    ),
+
     tipUnSelectedStyle: interBoldW700TextStyle.copyWith(
       fontSize: 11.sp,
       color: colors.color1D1D1F,
@@ -654,4 +662,32 @@ class LightModeTheme extends AppTheme {
           termsAndPrivacyTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.colorF65D3C),
           countryCodeTextStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 16.sp, color: colors.color1D1D1F),
       );
+
+  @override
+  ProfilePageStyle get profilePageStyle => ProfilePageStyle(
+      nameTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 18.sp),
+      titleStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 16.sp),
+      subTitleStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 12.sp,color: colors.color8C8C8C),
+      primaryColor: colors.primary,
+      primaryStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 12.sp,color: colors.primary),
+      whiteColor: colors.white,
+      languageSelectedStyle:interSemiBoldW600TextStyle.copyWith(fontSize: 16.sp),
+      languageUnSelectedStyle:interRegularW400TextStyle.copyWith(fontSize: 16.sp),
+    selectedLanguageDecoration: BoxDecoration(
+      border: Border.all(
+        color: colors.primary,
+        width: 1.5,
+      ),
+      borderRadius: BorderRadius.circular(12.r),
+      color: colors.primary.withValues(alpha: 0.2),
+    ),
+    unSelectedLanguageDecoration: BoxDecoration(
+      border: Border.all(
+        color: colors.color9c9cA3,
+        width: 1,
+      ),
+      borderRadius: BorderRadius.circular(12.r),
+      color: colors.white,
+    )
+  );
 }

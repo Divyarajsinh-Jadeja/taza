@@ -26,8 +26,15 @@ class MyApp extends StatelessWidget {
           initialRoute: AppRoutes.initialRoute,
           navigatorKey: NavigatorKey.navigatorKey,
           translationsKeys: AppTranslation.translations,
-          locale: Get.deviceLocale,
-          fallbackLocale: const Locale('en'),
+          locale: AppController.to.appLocale.value,
+          //fallbackLocale: const Locale('en'),
+          supportedLocales: AppController.to.supportedLocales,
+          localizationsDelegates: const [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+
         );
       },
     );

@@ -102,6 +102,14 @@ class LocaleKeys {
   static const expressDeliveryDesc = 'expressDeliveryDesc';
   static const regularDelivery = 'regularDelivery';
   static const regularDeliveryDesc = 'regularDeliveryDesc';
+  static const editProfile = 'editProfile';
+  static const couponCodeTitle = 'couponCodeTitle';
+  static const couponCodeSubtitle = 'couponCodeSubtitle';
+  static const addressesTitle = 'addressesTitle';
+  static const addressesSubtitle = 'addressesSubtitle';
+  static const preferenceTitle = 'preferenceTitle';
+  static const preferenceSubtitle = 'preferenceSubtitle';
+  static const chooseLanguage = 'chooseLanguage';
 }
 
 class Locales {
@@ -201,6 +209,14 @@ class Locales {
     'expressDeliveryDesc': 'Get it faster with priority shipping!',
     'regularDelivery': 'Regular Delivery',
     'regularDeliveryDesc': 'Reliable delivery at a standard pace.',
+    'editProfile': 'Edit Profile',
+    'couponCodeTitle': 'Coupon Code',
+    'couponCodeSubtitle': 'You can use widely available coupons',
+    'addressesTitle': 'Addresses',
+    'addressesSubtitle': 'You can add new address',
+    'preferenceTitle': 'Preference',
+    'preferenceSubtitle': 'You can change app language',
+    'chooseLanguage': 'Choose Language',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -295,5 +311,13 @@ class Locales {
     'expressDeliveryDesc': 'احصل عليه بسرعة من خلال الشحن ذو الأولوية!',
     'regularDelivery': 'توصيل عادي',
     'regularDeliveryDesc': 'توصيل موثوق بسرعة معتدلة.',
+    'editProfile': 'تعديل الملف الشخصي',
+    'couponCodeTitle': 'رمز القسيمة',
+    'couponCodeSubtitle': 'يمكنك استخدام القسائم المتوفرة على نطاق واسع',
+    'addressesTitle': 'العناوين',
+    'addressesSubtitle': 'يمكنك إضافة عنوان جديد',
+    'preferenceTitle': 'التفضيلات',
+    'preferenceSubtitle': 'يمكنك تغيير لغة التطبيق',
+    'chooseLanguage': 'اختر اللغة',
   };
 }

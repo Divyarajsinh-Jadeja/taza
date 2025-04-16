@@ -8,9 +8,7 @@ class CheckoutPage extends GetView<CheckoutController> {
     final style = AppTheme.of(context).checkoutStyle;
     return Scaffold(
       backgroundColor: style.backgroundColor,
-
-      /// TODO: appbar need to change
-      appBar: AppBar(),
+      appBar: SmartAppBar(showHomeWithAddress: true,),
       body: SmartSingleChildScrollView(
         child: SmartColumn(
           padding: EdgeInsetsDirectional.all(20.w),
@@ -146,15 +144,18 @@ class CheckoutPage extends GetView<CheckoutController> {
                     ),
                   ],
                 ),
-                SizedBox(height: 10.h,),
+                SizedBox(height: 10.h),
                 Divider(),
                 SmartText(
                   LocaleKeys.viewMoreCoupons.tr,
                   style: style.subCardTitleStyle,
                   textAlign: TextAlign.center,
-                  optionalPadding: EdgeInsetsDirectional.only(bottom: 0.h,top: 10.h),
+                  optionalPadding: EdgeInsetsDirectional.only(
+                    bottom: 0.h,
+                    top: 10.h,
+                  ),
                   onTap: () {
-                      Get.toNamed(AppRoutes.couponsPage);
+                    Get.toNamed(AppRoutes.couponsPage);
                   },
                 ),
               ],

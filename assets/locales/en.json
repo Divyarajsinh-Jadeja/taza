@@ -88,6 +88,13 @@
   "expressDelivery": "Express Delivery",
   "expressDeliveryDesc": "Get it faster with priority shipping!",
   "regularDelivery": "Regular Delivery",
-  "regularDeliveryDesc": "Reliable delivery at a standard pace."
-
+  "regularDeliveryDesc": "Reliable delivery at a standard pace.",
+  "editProfile": "Edit Profile",
+  "couponCodeTitle": "Coupon Code",
+  "couponCodeSubtitle": "You can use widely available coupons",
+  "addressesTitle": "Addresses",
+  "addressesSubtitle": "You can add new address",
+  "preferenceTitle": "Preference",
+  "preferenceSubtitle": "You can change app language",
+  "chooseLanguage": "Choose Language"
 }

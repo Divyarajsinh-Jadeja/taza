@@ -17,7 +17,8 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool isBorder;
   final double? optionalEndSpacing;
   final EdgeInsets? padding;
-
+  final bool? showHomeWithAddress;
+  final Widget? flexibleSpace;
   SmartAppBar({
     super.key,
     this.title,
@@ -36,10 +37,14 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.child,
     this.optionalEndSpacing,
     this.isSkip = false,
+    this.showHomeWithAddress,
+    this.flexibleSpace
   }) {
     if (isSkip) {
       if (!isBack) {
-        throw Exception('if isSkip is set to true then isBack must be set to true');
+        throw Exception(
+          'if isSkip is set to true then isBack must be set to true',
+        );
       }
       if (onBack == null) {
         throw Exception('if isSkip is set to true then onBack must be set');
@@ -62,7 +67,14 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
       titleSpacing: 0,
       title: _buildTitle(style, context),
       actions: _buildActions(),
-      bottom: isBorder ? PreferredSize(preferredSize: Size.fromHeight(2.h), child: SmartGradientContainer()) : null,
+      bottom:
+          isBorder
+              ? PreferredSize(
+                preferredSize: Size.fromHeight(2.h),
+                child: SmartGradientContainer(),
+              )
+              : null,
+      flexibleSpace: flexibleSpace,
     );
   }
 
@@ -75,10 +87,13 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
         padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 10.h),
         color: style.transparentColor,
         children: [
-          Opacity(opacity: isSkip ? 0 : 1, child: SmartImage(path: AppImages.icHome)),
           SizedBox(width: 6.w),
-          if(isSkip)SmartText(isSkip ? LocaleKeys.skip.tr : LocaleKeys.back.tr, style: style.backTextStyle),
-          Icon(Icons.arrow_back_rounded,color: colors(context).color00BAB3,)
+          if (isSkip)
+            SmartText(
+              isSkip ? LocaleKeys.skip.tr : LocaleKeys.back.tr,
+              style: style.backTextStyle,
+            ),
+          Icon(Icons.arrow_back_rounded, color: colors(context).color00BAB3),
         ],
       );
     } else {
@@ -88,11 +103,13 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   Widget _buildTitle(CustomAppBarStyle style, BuildContext context) {
     return SmartRow(
-      mainAxisAlignment: isCenter ? MainAxisAlignment.center : MainAxisAlignment.start,
+      mainAxisAlignment:
+          isCenter ? MainAxisAlignment.center : MainAxisAlignment.start,
       children: [
         if (!isBack) SizedBox(width: 20.w),
         leadingIcon(context, style),
-        if ((isBack || leadingImage?.isNotEmpty == true) && title != null) SizedBox(width: 6.w),
+        if ((isBack || leadingImage?.isNotEmpty == true) && title != null)
+          SizedBox(width: 6.w),
         if (title != null)
           Expanded(
             child: SmartText(
@@ -102,21 +119,71 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
               overflow: TextOverflow.ellipsis,
             ),
           ),
+        if (showHomeWithAddress == true)
+          Expanded(
+            child: IntrinsicHeight(
+              child: SmartRow(
+                spacing: 4.w,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SmartImage(path: AppImages.icHome, height: 22.h, width: 17.w),
+                  SmartText(
+                    LocaleKeys.home.tr,
+                    style: style.homeTitleStyle,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+              
+                  ),
+                  SizedBox(
+                      height: 18.h,
+                      child: VerticalDivider(color: style.dividerColor,)),
+                  SmartText(
+                    "Al Tadamun Al Arabi St., Mishfirah, Jeddah KSA",
+                    style: style.subTitleStyle,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    isFlexible: true,
+                  ),
+                  SmartImage(
+                    path: AppImages.icArrowDown,
+                    height: 16.w,
+                    width: 16.w,
+                  ),
+                  IconButton(onPressed: () {
+
+                  }, icon: Icon(Icons.more_vert_rounded))
+              
+                ],
+              ),
+            ),
+          ),
       ],
     );
   }
 
   List<Widget> _buildActions() {
     final List<Widget> actionsList = [];
-    if (onSearch != null) actionsList.add(_buildIconButton(onSearch!, AppImages.icHome, size: 24));
-    if (onFavorite != null) actionsList.add(_buildIconButton(onFavorite!, AppImages.icHome, size: 24));
+    if (onSearch != null) {
+      actionsList.add(_buildIconButton(onSearch!, AppImages.icHome, size: 24));
+    }
+    if (onFavorite != null) {
+      actionsList.add(
+        _buildIconButton(onFavorite!, AppImages.icHome, size: 24),
+      );
+    }
     if (actions != null) actionsList.add(SizedBox(width: 17.w));
     actionsList.addAll(actions ?? []);
-    if (optionalEndSpacing != null) actionsList.add(SizedBox(width: optionalEndSpacing));
+    if (optionalEndSpacing != null) {
+      actionsList.add(SizedBox(width: optionalEndSpacing));
+    }
     return actionsList;
   }
 
-  Widget _buildIconButton(VoidCallback onTap, String assetPath, {double? size}) {
+  Widget _buildIconButton(
+    VoidCallback onTap,
+    String assetPath, {
+    double? size,
+  }) {
     return Padding(
       padding: EdgeInsets.only(left: 20.w),
       child: InkWell(
@@ -124,7 +191,9 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: SizedBox(
           height: size?.w,
           width: size?.w,
-          child: Center(child: SmartImage(path: assetPath, height: size?.w, width: size?.w)),
+          child: Center(
+            child: SmartImage(path: assetPath, height: size?.w, width: size?.w),
+          ),
         ),
       ),
     );

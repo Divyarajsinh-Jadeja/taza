@@ -106,7 +106,7 @@ class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
             ),
             SmartImage(
               path: AppImages.tipLottie,
-              height: 100.h,
+              height: 80.h,
               width: 120.w,
               fit: BoxFit.fitWidth,
             ),
@@ -115,16 +115,37 @@ class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
         SizedBox(height: 16.h),
         Obx(() => Wrap(
           spacing: 8.w,
+          crossAxisAlignment: WrapCrossAlignment.start,
+          alignment: WrapAlignment.start,
           children: controller.tipOptions.map((tip) {
             final bool isSelected = (selectedTip.value == tip);
             return GestureDetector(
               onTap: () => controller.changeTip(tip),
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
+                height: 35.h,
+                width: 70.w,
                 decoration: isSelected ? style.tipSelectedDecoration:style.tipUnSelectedDecoration,
-                child: SmartText(
-                  tip.toCurrencyCodeFormat(),
-                  style: isSelected ? style.tipSelectedStyle:style.tipUnSelectedStyle,
+                child: SmartColumn(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Center(
+                        child: SmartText(
+                          tip.toCurrencyCodeFormat(),
+                          style: isSelected ? style.tipSelectedStyle:style.tipUnSelectedStyle,
+                        ),
+                      ),
+                    ),
+                    if(tip==20)Container(
+                      height: 15.h,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(12.r),bottomRight: Radius.circular(12.r)),
+                        color: Colors.red
+                      ),
+                      child: Center(child: SmartText("Most Tipped",style: style.mostTippedStyle,)),
+                    )
+                  ],
                 ),
               ),
             );

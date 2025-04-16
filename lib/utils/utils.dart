@@ -98,7 +98,7 @@ class Utils {
       barrierLabel: barrierLabel,
       elevation: elevation,
       shape:
-          shape ?? RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(6.r), topRight: Radius.circular(6.r))),
+          shape ?? RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(22.r), topRight: Radius.circular(22.r))),
       clipBehavior: clipBehavior,
       constraints: constraints,
       barrierColor: barrierColor,

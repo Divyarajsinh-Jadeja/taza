@@ -6,9 +6,13 @@ class AppController extends GetMaterialController {
   final Connectivity _connectivity = Connectivity();
 
   Rx<ThemeData> themeData = ThemeData.light().obs; // Temporary default theme
+  Rx<Locale> appLocale = const Locale('en').obs;
+  final List<Locale> supportedLocales = const [
+    Locale('en'),
+    Locale('ar'),
+  ];
 
   Stream? _connectivityStream;
-
   var isShowLoading = false.obs;
 
   /// Show-hide top level loading
@@ -24,7 +28,7 @@ class AppController extends GetMaterialController {
       _connectivityStream = _connectivity.onConnectivityChanged;
       _connectivityStream!.listen((result) => checkConnectivityResult(result));
     }
-
+    _loadAppLocale();
     _loadAppTheme();
   }
 
@@ -74,5 +78,27 @@ class AppController extends GetMaterialController {
   // Method to check connectivity result (as per your original code)
   void checkConnectivityResult(dynamic result) {
     // Add your connectivity handling logic here
+  }
+
+  // Load and set locale on startup
+  Future<void> _loadAppLocale() async {
+    final code = StorageManager.instance.getUserLanguage();
+    if (code != null) {
+      appLocale.value = supportedLocales.firstWhere(
+            (loc) => loc.languageCode == code,
+        orElse: () => const Locale('en', 'US'),
+      );
+    } else {
+      appLocale.value = Get.deviceLocale ?? const Locale('en', 'US');
+    }
+
+    Get.updateLocale(appLocale.value);
+  }
+
+  // Change language
+  void changeLocale(Locale locale) {
+    appLocale.value = locale;
+    Get.updateLocale(locale);
+    StorageManager.instance.saveUserLanguage(locale.languageCode);
   }
 }

@@ -89,6 +89,8 @@ abstract class AppTheme {
   GroceryStyle get groceryStyle;
 
   LoginPageStyle get loginPageStyle;
+
+  ProfilePageStyle get profilePageStyle;
 }
 
 class PrimaryButtonStyle {
@@ -179,16 +181,22 @@ class TabBarStyle {
 class CustomAppBarStyle {
   final Color backgroundColor;
   final Color borderColor;
+  final Color dividerColor;
   final TextStyle titleStyle;
+  final TextStyle homeTitleStyle;
   final TextStyle backTextStyle;
   final Color transparentColor;
-
+  final TextStyle subTitleStyle;
   CustomAppBarStyle({
     required this.backgroundColor,
     required this.borderColor,
+    required this.dividerColor,
     required this.titleStyle,
+    required this.homeTitleStyle,
     required this.backTextStyle,
     required this.transparentColor,
+    required this.subTitleStyle,
+
   });
 }
 
@@ -569,6 +577,7 @@ class CheckoutStyle {
   final TextStyle paymentTextStyle;
   final TextStyle tipSelectedStyle;
   final TextStyle tipUnSelectedStyle;
+  final TextStyle mostTippedStyle;
   final BoxDecoration tipSelectedDecoration;
   final BoxDecoration tipUnSelectedDecoration;
   final BoxDecoration couponsSelectedDecoration;
@@ -596,11 +605,13 @@ class CheckoutStyle {
     required this.payUsingTextStyle,
     required this.paymentTextStyle,
     required this.tipSelectedStyle,
+    required this.mostTippedStyle,
     required this.tipUnSelectedStyle,
     required this.tipSelectedDecoration,
     required this.tipUnSelectedDecoration,
     required this.couponsSelectedDecoration,
     required this.couponsUnSelectedDecoration,
+
   });
 }
 
@@ -699,4 +710,22 @@ class LoginPageStyle {
     required this.termsAndPrivacyTextStyle,
     required this.countryCodeTextStyle,
   });
+}
+
+class ProfilePageStyle{
+  final TextStyle nameTitleStyle;
+  final TextStyle titleStyle;
+  final TextStyle subTitleStyle;
+  final Color primaryColor;
+  final Color whiteColor;
+  final TextStyle primaryStyle;
+  final TextStyle languageSelectedStyle;
+  final TextStyle languageUnSelectedStyle;
+  final BoxDecoration selectedLanguageDecoration;
+  final BoxDecoration unSelectedLanguageDecoration;
+
+  ProfilePageStyle({required this.nameTitleStyle, required this.titleStyle, required this.subTitleStyle, required this.primaryColor, required this.whiteColor, required this.primaryStyle, required this.languageSelectedStyle, required this.languageUnSelectedStyle,required this.selectedLanguageDecoration,required this.unSelectedLanguageDecoration});
+
+
+
 }
