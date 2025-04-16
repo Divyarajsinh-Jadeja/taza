@@ -151,7 +151,6 @@ class CheckoutPage extends GetView<CheckoutController> {
                   style: style.subCardTitleStyle,
                   textAlign: TextAlign.center,
                   optionalPadding: EdgeInsetsDirectional.only(
-                    bottom: 0.h,
                     top: 10.h,
                   ),
                   onTap: () {

@@ -676,7 +676,7 @@ class LightModeTheme extends AppTheme {
     selectedLanguageDecoration: BoxDecoration(
       border: Border.all(
         color: colors.primary,
-        width: 1.5,
+        width: 1.5.w,
       ),
       borderRadius: BorderRadius.circular(12.r),
       color: colors.primary.withValues(alpha: 0.2),
@@ -684,7 +684,7 @@ class LightModeTheme extends AppTheme {
     unSelectedLanguageDecoration: BoxDecoration(
       border: Border.all(
         color: colors.color9c9cA3,
-        width: 1,
+        width: 1.w,
       ),
       borderRadius: BorderRadius.circular(12.r),
       color: colors.white,

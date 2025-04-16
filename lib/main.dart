@@ -27,7 +27,6 @@ class MyApp extends StatelessWidget {
           navigatorKey: NavigatorKey.navigatorKey,
           translationsKeys: AppTranslation.translations,
           locale: AppController.to.appLocale.value,
-          //fallbackLocale: const Locale('en'),
           supportedLocales: AppController.to.supportedLocales,
           localizationsDelegates: const [
             GlobalMaterialLocalizations.delegate,
