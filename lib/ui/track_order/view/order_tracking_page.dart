@@ -41,6 +41,7 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
         color: style.circleBgColor,
         height: 24.h,
         width: 24.w,
+        onTap: Get.back,
       ),
       title: SmartColumn(
         mainAxisSize: MainAxisSize.min,

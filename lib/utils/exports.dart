@@ -31,6 +31,8 @@ export 'package:pin_code_fields/pin_code_fields.dart';
 export 'package:image_picker/image_picker.dart';
 export 'package:flutter_animate/flutter_animate.dart';
 export 'package:lottie/lottie.dart';
+export 'package:flutter_localizations/flutter_localizations.dart';
+
 
 // Project core
 export 'package:taza/app/app_class.dart';
