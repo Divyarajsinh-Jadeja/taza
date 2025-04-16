@@ -588,7 +588,9 @@ class CheckoutStyle {
   final BoxDecoration tipUnSelectedDecoration;
   final BoxDecoration couponsSelectedDecoration;
   final BoxDecoration couponsUnSelectedDecoration;
+  final TextStyle couponWhiteStyle;
   final Color redColor;
+  final Color couponColor;
   CheckoutStyle({
     required this.backgroundColor,
     required this.primaryColor,
@@ -616,7 +618,9 @@ class CheckoutStyle {
     required this.tipUnSelectedDecoration,
     required this.couponsSelectedDecoration,
     required this.couponsUnSelectedDecoration,
-    required this.redColor
+    required this.redColor,
+    required this.couponWhiteStyle,
+    required this.couponColor
   });
 
 

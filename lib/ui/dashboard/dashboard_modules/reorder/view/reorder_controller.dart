@@ -85,7 +85,6 @@ class ReorderController extends GetxController {
   @override
   void onInit() {
     debugPrint("ReorderController onInit");
-    Get.find<QuantityController>().initializeQuantities(foodList.length);
     super.onInit();
   }
 

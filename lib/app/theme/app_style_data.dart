@@ -353,7 +353,9 @@ class LightModeTheme extends AppTheme {
       borderRadius: BorderRadius.circular(28.r),
       border: Border.all(color: colors.color9c9cA3),
     ),
-    redColor: colors.colorFF0000
+    redColor: colors.colorFF0000,
+    couponWhiteStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp,color: colors.white),
+    couponColor: colors.color8C8C8C
   );
 
   @override

@@ -49,6 +49,7 @@ class ReorderPage extends GetView<ReorderController> {
               ],
             ),
           ),
+
           Expanded(
             child: Obx(() {
               return ListView.builder(
