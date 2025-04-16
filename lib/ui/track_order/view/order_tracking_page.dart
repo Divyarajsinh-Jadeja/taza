@@ -14,15 +14,15 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
             padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
             children: [
               SizedBox(height: 12.h),
-              _buildMap(),
+              _buildMapWidget(),
               SizedBox(height: 20.h),
-              _infoCard(style, controller),
+              _infoAssignDeliveryCard(style),
               SizedBox(height: 20.h),
-              _tipCard(style, controller),
+              _tipCardWidget(style),
               SizedBox(height: 20.h),
-              _paymentCard(style, controller),
+              _paymentCardWidget(style),
               SizedBox(height: 20.h),
-              _addDeliveryAddressCard(style, controller),
+              _addDeliveryAddressCardWidget(style),
               SizedBox(height: 20.h),
             ],
           ),
@@ -54,7 +54,7 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
     );
   }
 
-  Widget _buildMap() {
+  Widget _buildMapWidget() {
     return ClipRRect(
       borderRadius: BorderRadius.circular(12.r),
       child: SmartImage(
@@ -65,7 +65,7 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
     );
   }
 
-  Widget _infoCard(OrderTrackingPageStyle style, OrderTrackingController controller) {
+  Widget _infoAssignDeliveryCard(OrderTrackingPageStyle style) {
     return SmartColumn(
       decoration: style.mainCardDecoration,
       children: [
@@ -138,7 +138,7 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
     );
   }
 
-  Widget _paymentCard(OrderTrackingPageStyle style, OrderTrackingController controller) {
+  Widget _paymentCardWidget(OrderTrackingPageStyle style) {
     return SmartColumn(
       decoration: style.mainCardDecoration,
       children: [
@@ -172,7 +172,7 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
     );
   }
 
-  Widget _addDeliveryAddressCard(OrderTrackingPageStyle style, OrderTrackingController controller) {
+  Widget _addDeliveryAddressCardWidget(OrderTrackingPageStyle style) {
     return SmartColumn(
       decoration: style.mainCardDecoration,
       padding: EdgeInsetsDirectional.only(bottom: 10.w),
@@ -196,7 +196,7 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
 
   Widget _buildDeliveryInstructionsList(OrderTrackingPageStyle style, OrderTrackingController controller) {
     return SizedBox(
-      height: 110,
+      height: 110.h,
       child: ListView.separated(
         padding: EdgeInsetsDirectional.symmetric(horizontal: 10.w),
         scrollDirection: Axis.horizontal,
@@ -213,12 +213,12 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
               SmartRow(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SmartImage(path: item['icon']!, height: 24.h, width: 24.h),
+                  SmartImage(path: item['icon'] ?? "", height: 24.h, width: 24.h),
                   Obx(() {
                     final isSelected = controller.selectedInstructionIndexes.contains(index);
                     return SizedBox(
-                      height: 28,
-                      width: 28,
+                      height: 28.h,
+                      width: 28.w,
                       child: Checkbox(
                         value: isSelected,
                         onChanged: (_) => controller.toggleInstructionIndex(index),
@@ -240,68 +240,22 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
     );
   }
 
-  Widget _tipCard(OrderTrackingPageStyle style, OrderTrackingController controller) {
+  Widget _tipCardWidget(OrderTrackingPageStyle style) {
     return SmartColumn(
       decoration: style.mainCardDecoration,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _infoTipRow(style),
-        Padding(
-          padding: EdgeInsetsDirectional.symmetric(horizontal: 10.w),
-          child: NotchedMessageBubble(
-            message: LocaleKeys.pickedUpOnWay.tr,
-          ),
-        ),
-        Padding(
+        NotchedMessageBubble(
+          margin:  EdgeInsetsDirectional.all(8.w),
           padding: EdgeInsetsDirectional.all(10.w),
-          child: SmartColumn(
-            height: 120.h,
-            width: double.infinity,
-            padding: EdgeInsetsDirectional.all(10.w),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12.r),
-              border: Border.all(color: style.circleBgColor),
-            ),
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SmartText(LocaleKeys.deliveringHappiness.tr, style: style.titleTextStyle.copyWith(fontSize: 12.sp)),
-              SmartText(LocaleKeys.thankThemByTip.tr, style: style.subtitleTextStyle),
-              SizedBox(height: 10.h),
-              SizedBox(
-                height: 40.h,
-                child: ListView.separated(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 4,
-                  separatorBuilder: (builder, index) => SizedBox(width: 12.w),
-                  itemBuilder: (builder, index) {
-                    final tipItems = controller.tips[index];
-                    return SmartRow(
-                      padding: EdgeInsetsDirectional.all(10.w),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12.r),
-                        border: Border.all(color: style.circleBgColor),
-                      ),
-                      children: [
-                        SmartImage(path: AppImages.icEmoji),
-                        SizedBox(width: 4.w,),
-                        SmartText(
-                          "${tipItems['rupees']}",
-                          style: style.headerTagStyle.copyWith(
-                            color: Colors.black,
-                          ),
-                        ),
-                      ],
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
+          message: LocaleKeys.pickedUpOnWay.tr,
         ),
+        _leavingATpWidget(style),
         SmartRow(
           padding: EdgeInsetsDirectional.all(10.w),
           children: [
-            SmartImage(path: AppImages.icSun, height: 30.h, width: 30.h),
+            SmartImage(path: AppImages.icSun, height: 32.h, width: 32.h),
             SizedBox(width: 8.w),
             SmartText(
               LocaleKeys.hotDayKindness.tr,
@@ -355,6 +309,53 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
                 style: style.subtitleTextStyle,
               ),
           ],
+        ),
+      ],
+    );
+  }
+
+  Widget _leavingATpWidget(OrderTrackingPageStyle style) {
+    return SmartColumn(
+      margin: EdgeInsetsDirectional.all(10.w),
+      height: 120.h,
+      width: double.infinity,
+      padding: EdgeInsetsDirectional.all(10.w),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12.r),
+        border: Border.all(color: style.circleBgColor),
+      ),
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SmartText(LocaleKeys.deliveringHappiness.tr, style: style.titleTextStyle.copyWith(fontSize: 12.sp)),
+        SmartText(LocaleKeys.thankThemByTip.tr, style: style.subtitleTextStyle),
+        SizedBox(height: 10.h),
+        SizedBox(
+          height: 40.h,
+          child: ListView.separated(
+            scrollDirection: Axis.horizontal,
+            itemCount: 4,
+            separatorBuilder: (builder, index) => SizedBox(width: 12.w),
+            itemBuilder: (builder, index) {
+              final tipItems = controller.tips[index];
+              return SmartRow(
+                padding: EdgeInsetsDirectional.all(10.w),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12.r),
+                  border: Border.all(color: style.circleBgColor),
+                ),
+                children: [
+                  SmartImage(path: AppImages.icEmoji),
+                  SizedBox(width: 4.w,),
+                  SmartText(
+                    "${tipItems['rupees']}",
+                    style: style.headerTagStyle.copyWith(
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
+              );
+            },
+          ),
         ),
       ],
     );

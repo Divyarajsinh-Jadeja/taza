@@ -95,7 +95,10 @@ abstract class AppTheme {
   AnimatedTabBarStyle get animatedTabBarStyle;
 
   OrderTrackingPageStyle get orderTrackingPageStyle;
+
+  NotchedMsgStyle get notchedMsgStyle;
 }
+
 
 class PrimaryButtonStyle {
   final Color activeBackgroundColor;
@@ -776,5 +779,15 @@ class OrderTrackingPageStyle {
     required this.payOnlineTextStyle,
     required this.payOnlineSubTitleStyle,
     required this.cardDecoration,
+  });
+}
+
+class NotchedMsgStyle {
+  final Color notchedBgColor;
+  final TextStyle notchedTextStyle;
+
+  NotchedMsgStyle({
+    required this.notchedBgColor,
+    required this.notchedTextStyle,
   });
 }

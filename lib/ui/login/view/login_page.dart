@@ -7,75 +7,72 @@ class LoginPage extends GetView<LoginController> {
   Widget build(BuildContext context) {
     final style = AppTheme.of(context).loginPageStyle;
     return Scaffold(
-      body: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
-        child: Container(
-          color: style.continueButtonBgColor,
-          child: SafeArea(
-            bottom: false,
-            child: SmartAnimator(
-              animateSlideX: true,
-              slideXBegin: const Offset(-1.0, 0.0),
-              slideEnd: Offset.zero,
-              animateFadeIn: true,
-              animationDuration: const Duration(milliseconds: 300),
-              animationDelay: const Duration(milliseconds: 10),
-              animationCurve: Curves.easeOut,
-              child: SmartColumn(
-                decoration: BoxDecoration(color: style.loginPageBgColor),
-                children: [
-                  SmartColumn(
-                    color: style.continueButtonBgColor,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SizedBox(height: 40.h,),
-                      SmartImage(width: 80.w, path: AppImages.icSplashLogo),
-                      SizedBox(height: 10.h),
-                      SmartText(
-                        optionalPadding: EdgeInsetsDirectional.symmetric(horizontal: 36.w),
-                        LocaleKeys.groceryDeliverTag.tr,
-                        style: style.tagTextStyle,
-                        maxLines: 2,
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(height: 12.h),
-                      SmartImage(fit: BoxFit.fill, height: 130.h, width: 280.w, path: AppImages.icFood,)
-                    ],
-                  ),
-                  SmartColumn(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
-                    children: [
-                      SizedBox(height: 20.h),
-                      SmartText(
-                        LocaleKeys.account.tr.toUpperCase(),
-                        style: style.accountTextStyle,
-                        // textAlign: TextAlign.start,
-                      ),
-                      SmartText(
-                        LocaleKeys.loginCreateAccount.tr,
-                        style: style.bottomTextStyle,
-                        textAlign: TextAlign.start,
-                      ),
-                      SizedBox(height: 16.h),
-                      SmartButton(
-                        title: LocaleKeys.login.tr.toUpperCase(),
-                        onTap: () {
-                          _showLoginBottomSheet(context, style);
-                        },
-                        width: double.infinity,
-                        borderRadius: BorderRadius.zero,
-                        activeBackgroundColor: style.continueButtonBgColor,
-                        titleStyle: style.continueButtonTextStyle,
-                      ),
-                      SizedBox(height: 16.h),
-                      TermsPrivacyWidget(),
-                      SizedBox(height: 20.h),
-                      Divider(height: 2.0.h, color: style.dividerColor),
-                    ],
-                  ),
-                ],
-              ),
+      body: Container(
+        color: style.continueButtonBgColor,
+        child: SafeArea(
+          bottom: false,
+          child: SmartAnimator(
+            animateSlideX: true,
+            slideXBegin: const Offset(-1.0, 0.0),
+            slideEnd: Offset.zero,
+            animateFadeIn: true,
+            animationDuration: const Duration(milliseconds: 300),
+            animationDelay: const Duration(milliseconds: 10),
+            animationCurve: Curves.easeOut,
+            child: SmartColumn(
+              decoration: BoxDecoration(color: style.loginPageBgColor),
+              children: [
+                SmartColumn(
+                  color: style.continueButtonBgColor,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 40.h,),
+                    SmartImage(width: 80.w, path: AppImages.icSplashLogo),
+                    SizedBox(height: 10.h),
+                    SmartText(
+                      optionalPadding: EdgeInsetsDirectional.symmetric(horizontal: 36.w),
+                      LocaleKeys.groceryDeliverTag.tr,
+                      style: style.tagTextStyle,
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(height: 12.h),
+                    SmartImage(fit: BoxFit.fill, height: 130.h, width: 280.w, path: AppImages.icFood,)
+                  ],
+                ),
+                SmartColumn(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
+                  children: [
+                    SizedBox(height: 20.h),
+                    SmartText(
+                      LocaleKeys.account.tr.toUpperCase(),
+                      style: style.accountTextStyle,
+                      // textAlign: TextAlign.start,
+                    ),
+                    SmartText(
+                      LocaleKeys.loginCreateAccount.tr,
+                      style: style.bottomTextStyle,
+                      textAlign: TextAlign.start,
+                    ),
+                    SizedBox(height: 16.h),
+                    SmartButton(
+                      title: LocaleKeys.login.tr.toUpperCase(),
+                      onTap: () {
+                        _showLoginBottomSheet(context, style);
+                      },
+                      width: double.infinity,
+                      borderRadius: BorderRadius.zero,
+                      activeBackgroundColor: style.continueButtonBgColor,
+                      titleStyle: style.continueButtonTextStyle,
+                    ),
+                    SizedBox(height: 16.h),
+                    TermsPrivacyWidget(),
+                    SizedBox(height: 20.h),
+                    Divider(height: 2.0.h, color: style.dividerColor),
+                  ],
+                ),
+              ],
             ),
           ),
         ),
@@ -92,6 +89,8 @@ class LoginPage extends GetView<LoginController> {
       backgroundColor: style.loginPageBgColor,
       builder:
           (context) => LoginBottomSheet(),
-    );
+    ).whenComplete((){
+      controller.isExpanded.value = false;
+    });
   }
 }

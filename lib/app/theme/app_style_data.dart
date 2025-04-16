@@ -478,4 +478,10 @@ class LightModeTheme extends AppTheme {
 
   @override
   AnimatedTabBarStyle get animatedTabBarStyle => AnimatedTabBarStyle(transparentColor: colors.transparent);
+
+  @override
+  NotchedMsgStyle get notchedMsgStyle => NotchedMsgStyle(
+      notchedBgColor: colors.colorE8FFF0,
+      notchedTextStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 12.sp, color: colors.color34A853)
+  );
 }

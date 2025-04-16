@@ -2,24 +2,28 @@ import 'package:taza/taza.dart';
 
 class NotchedMessageBubble extends StatelessWidget {
   final String message;
-
-  const NotchedMessageBubble({super.key, required this.message});
+  final EdgeInsetsGeometry? margin;
+  final EdgeInsetsGeometry? padding;
+  const NotchedMessageBubble({super.key, required this.message, this.margin, this.padding});
 
   @override
   Widget build(BuildContext context) {
+    final style = AppTheme.of(context).notchedMsgStyle;
     return CustomPaint(
       painter: NotchPainter(),
-      child: Container(
-        margin: const EdgeInsets.only(top: 10),
-        padding: const EdgeInsets.all(12),
+      child: SmartColumn(
+        margin: margin,
+        padding: padding,
         decoration: BoxDecoration(
-          color: const Color(0xFFE8FFF0), // soft green
+          color: style.notchedBgColor,
           borderRadius: BorderRadius.circular(12),
         ),
-        child: Text(
-          message,
-          style: const TextStyle(color: Color(0xFF34A853), fontSize: 12),
-        ),
+        children: [
+          Text(
+            message,
+            style: style.notchedTextStyle,
+          ),
+        ],
       ),
     );
   }
