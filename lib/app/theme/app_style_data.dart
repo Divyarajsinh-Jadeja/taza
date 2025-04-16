@@ -352,6 +352,7 @@ class LightModeTheme extends AppTheme {
       borderRadius: BorderRadius.circular(28.r),
       border: Border.all(color: colors.color9c9cA3),
     ),
+    redColor: colors.colorFF0000
   );
 
   @override
@@ -437,19 +438,6 @@ class LightModeTheme extends AppTheme {
       borderRadius: BorderRadius.circular(12.r),
       color: colors.white,
     )
-  );
-  LoginPageStyle get loginPageStyle => LoginPageStyle(
-    skipButtonTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 16.sp, color: colors.white),
-    tagTextStyle: interBoldW700TextStyle.copyWith(fontSize: 26.sp, color: colors.white),
-    skipButtonBgColor: colors.white.withValues(alpha: 0.3),
-    continueButtonTextStyle: interBoldW700TextStyle.copyWith(fontSize: 16.sp, color: colors.white),
-    continueButtonBgColor: colors.colorF65D3C,
-    loginPageBgColor: colors.primary,
-    inputFieldBgColor: colors.white,
-    errorTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.colorFF0000),
-    bottomTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.white),
-    termsAndPrivacyTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.colorF65D3C),
-    countryCodeTextStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 16.sp, color: colors.color1D1D1F),
   );
 
   @override

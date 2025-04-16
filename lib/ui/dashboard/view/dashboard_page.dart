@@ -6,24 +6,14 @@ class DashboardPage extends GetView<DashboardController> {
   @override
   Widget build(BuildContext context) {
     final style = AppTheme.of(context).tabBarStyle;
-    final bottomNavData = controller.tabs[2].bottomNavData;
 
+    BottomNavigationBarDataModel bottomNavData = controller.tabs[2].bottomNavData;
     return Scaffold(
-      extendBody: true,
-      body: Stack(
-        children: [
-          PageView(
-            controller: controller.pageController,
-            physics: const NeverScrollableScrollPhysics(),
-            children:
-                controller.tabs
-                    .map((tab) => Builder(builder: tab.pageBuilder))
-                    .toList(),
-          ),
-          
-        ],
+      body: PageView(
+        controller: controller.pageController,
+        physics: const NeverScrollableScrollPhysics(),
+        children: controller.tabs.map((tab) => Builder(builder: tab.pageBuilder)).toList(),
       ),
-
       floatingActionButton: FloatingActionButton(
         elevation: 4,
         backgroundColor: style.selectedIconColor,
@@ -34,7 +24,6 @@ class DashboardPage extends GetView<DashboardController> {
         child: SmartImage(path: bottomNavData.icon),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-
       bottomNavigationBar: Obx(() {
         return CustomBottomBar(
           selectedIndex: controller.currentIndex.value,
@@ -45,5 +34,3 @@ class DashboardPage extends GetView<DashboardController> {
     );
   }
 }
-
-

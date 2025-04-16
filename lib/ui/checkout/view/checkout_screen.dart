@@ -212,7 +212,7 @@ class CheckoutPage extends GetView<CheckoutController> {
         ),
       ),
       bottomNavigationBar: SmartRow(
-        height: 88.h,
+        height: 95.h,
         decoration: BoxDecoration(color: style.whiteColor),
         padding: EdgeInsetsDirectional.only(
           top: 16.h,

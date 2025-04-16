@@ -112,7 +112,7 @@ class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
             ),
           ],
         ),
-        SizedBox(height: 16.h),
+        Spacer(),
         Obx(() => Wrap(
           spacing: 8.w,
           crossAxisAlignment: WrapCrossAlignment.start,
@@ -140,8 +140,8 @@ class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
                       height: 15.h,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(12.r),bottomRight: Radius.circular(12.r)),
-                        color: Colors.red
+                        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8.r),bottomRight: Radius.circular(12.r)),
+                        color: style.redColor
                       ),
                       child: Center(child: SmartText("Most Tipped",style: style.mostTippedStyle,)),
                     )
@@ -161,6 +161,7 @@ class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
       mainAxisSize: MainAxisSize.min,
       children: [
         SmartRow(
+
           children: [
             SmartText(
               LocaleKeys.addInstructionForRestaurant.tr,
@@ -169,13 +170,13 @@ class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
             ),
             SmartImage(
               path: AppImages.notesLottie,
-              height: 100.h,
+              height: 80.h,
               width: 120.w,
               fit: BoxFit.fitWidth,
             ),
           ],
         ),
-        SizedBox(height: 5.h),
+        Spacer(),
         SmartTextField(
           hintText: LocaleKeys.instructionExample.tr,
           hintStyle: style.subCardTitleStyle,
