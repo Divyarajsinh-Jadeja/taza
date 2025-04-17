@@ -32,6 +32,7 @@ class AppImages {
   //Home screen assets
   static const String icFlash = 'assets/images/ic_flash.svg';
   static const String icMic = 'assets/images/ic_microphone.svg';
+  static const String deliveryLottie = 'assets/images/delivery.json';
 
   // Bottom Tab Bar Icons
   static const String icProfileInactive = 'assets/images/ic_profile_inactive.svg';
