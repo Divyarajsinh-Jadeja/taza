@@ -74,6 +74,8 @@ class AppImages {
 
   // Reorder Screens asset
   static const String icBgRed = 'assets/images/bg_red.png';
+  static const String icBgYellow = 'assets/images/yellow.jpeg';
+  static const String icBgBlue = 'assets/images/bluebg.jpeg';
   static const String icFood = 'assets/images/food.png';
   static const String icClose = 'assets/images/ic_close.svg';
   static const String icNonVeg = 'assets/images/ic_non_veg.svg';

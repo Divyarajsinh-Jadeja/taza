@@ -21,7 +21,9 @@ class DashboardPage extends GetView<DashboardController> {
                     .map((tab) => Builder(builder: tab.pageBuilder))
                     .toList(),
           ),
-        //  Positioned(bottom: 0.h, left: 0.w, right: 0.w, child: CartWidget()),
+          Positioned.directional(
+              textDirection: TextDirection.ltr,
+              bottom: 0.h, end: 0.w, start: 0.w, child: BottomCartWidget()),
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -52,8 +54,8 @@ class DashboardPage extends GetView<DashboardController> {
   }
 }
 
-class CartWidget extends StatelessWidget {
-  CartWidget({super.key});
+class BottomCartWidget extends StatelessWidget {
+  BottomCartWidget({super.key});
 
   final ValueNotifier<bool> showMenu = ValueNotifier(false);
   final list = [
@@ -64,7 +66,7 @@ class CartWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final style = AppTheme.of(context).tabBarStyle;
+    final style = AppTheme.of(context).bottomCartStyle;
     return ValueListenableBuilder<bool>(
       valueListenable: showMenu,
       builder: (context, value, child) {
@@ -72,7 +74,7 @@ class CartWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             if (!value) _buildHeader(style),
-            if (!value) _buildProducts(style),
+            if (value) _buildProducts(style),
             _buildItemWidget(style),
           ],
         );
@@ -80,7 +82,7 @@ class CartWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader(TabBarStyle style) {
+  Widget _buildHeader(BottomCartStyle style) {
     return SizedBox(
       height: 90.h,
       child: Stack(
@@ -90,125 +92,137 @@ class CartWidget extends StatelessWidget {
             height: 50.h,
             width: double.infinity,
             padding: EdgeInsetsDirectional.symmetric(horizontal: 20.w),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(24.r),
-                topRight: Radius.circular(24.r),
-              ),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black12,
-                  blurRadius: 8,
-                  offset: Offset(0, -2),
-                ),
-              ],
-            ),
+            decoration: style.defaultDecoration,
             child: SmartColumn(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.only(start: 50.w, top: 10.h),
-                  child: SmartText(
-                    "Hooray! FREE DELIVERY unlocked!",
-                    style: style.labelStyle,
-                  ),
+                SmartText(
+                  "Hooray! FREE DELIVERY unlocked!",
+                  style: style.titleStyle,
                 ),
-                SizedBox(height: 15.h),
+                SizedBox(height: 10.h),
                 Divider(),
               ],
             ),
           ),
-          Positioned(
-            top: 10.h,
-            left: 20.w,
-            child: CircleAvatar(
-              backgroundColor: style.indicatorColor,
-              radius: 25.r,
-              child: SmartImage(path: AppImages.deliveryLottie),
-            ),
+          Positioned.directional(
+            textDirection: TextDirection.ltr,
+            top: 35.h,
+            start: 10.w,
+            child: SmartImage(path: AppImages.deliveryLottie,size: 50.w,),
           ),
         ],
       ),
     );
   }
 
-  Widget _buildProducts(TabBarStyle style) {
-    return Container(
-      height: 250.h,
-      width: Get.width,
-      padding: EdgeInsetsDirectional.symmetric(
-        horizontal: 20.w,
-        vertical: 10.h,
-      ),
-      decoration: BoxDecoration(
-        color: Colors.grey,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(24.r),
-          topRight: Radius.circular(24.r),
+  Widget _buildProducts(BottomCartStyle style) {
+    return SmartAnimator(
+      animateSlideY: true,
+      slideYBegin: const Offset(0, 2),
+      slideEnd: Offset.zero,
+      animationDelay: 10.ms,
+      animationDuration: 200.ms,
+      animationCurve: Curves.easeInOutCubic,
+      child: Container(
+        height: 250.h,
+        width: Get.width,
+        padding: EdgeInsetsDirectional.symmetric(
+          horizontal: 20.w,
+          vertical: 10.h,
         ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 8,
-            offset: Offset(0, -2),
-          ),
-        ],
-      ),
-      child: SmartColumn(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SmartRow(
-            children: [
-              SmartText("Review Items",isExpanded: true,),
-              IconButton(
-                onPressed: () => showMenu.value = !showMenu.value,
-                icon: Icon(Icons.close),
-              ),
-            ],
-          ),
-          SmartRow(
-              spacing: 4.w,
+        decoration: style.reviewDecoration,
+        child: SmartColumn(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SmartRow(
               children: [
-            SmartImage(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(
-                  color: Colors.grey.withValues(alpha: 0.8),
-                  width: 1,
-                ),
-                borderRadius: BorderRadius.circular(6.r),
-              ),
-              size: 40.w,
-              path: list.first,
-              imageBorderRadius: BorderRadius.circular(6.r),
-              clipBehavior: Clip.antiAlias,
+                SmartText("Review Items", isExpanded: true,style: style.reviewTitleStyle,),
+                SmartImage(path: AppImages.icClose,onTap: () => showMenu.value = !showMenu.value,),
+
+              ],
             ),
-          ])
-        ],
+            SizedBox(height: 10.h,),
+            Expanded(
+              child: Container(
+                padding: EdgeInsetsDirectional.all(12.w),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12.r),
+                ),
+                child: ListView.separated(
+                  padding: EdgeInsets.zero,
+                  itemCount: 5,
+                  separatorBuilder: (context, index) => Divider(),
+                  itemBuilder:
+                      (context, index) => SmartRow(
+                        spacing: 10.w,
+                        padding: EdgeInsetsDirectional.only(bottom: 10.h),
+                        children: [
+                          SmartImage(
+
+                            size: 40.w,
+                            path: list.first,
+                            imageBorderRadius: BorderRadius.circular(6.r),
+                            clipBehavior: Clip.antiAlias,
+                          ),
+                          SmartColumn(
+                            expanded: true,
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SmartText("Burger loaded with cheese",style: style.itemNameStyle,),
+                              SmartText(180.toCurrencyCodeFormat(),style: style.itemAmountStyle,),
+                            ],
+                          ),
+                          SmartAnimatedQuantity(
+                            index: 19,
+                            onIncrease:
+                                () => Get.find<QuantityController>().increment(19),
+                            onDecrease:
+                                () => Get.find<QuantityController>().decrement(19),
+                            model: FoodModel(
+                              name: 'Family Bucket',
+                              imageUrl: 'https://i.ibb.co/whRS5nY7/b.jpg',
+                              rating: 4.2,
+                              reviewsCount: 1200,
+                              deliveryTime: '30-35 min',
+                              price: 89.0,
+                              quantity: 1,
+                            ),
+                          ),
+                        ],
+                      ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 
-  _buildItemWidget(style) {
-
+  _buildItemWidget(BottomCartStyle style) {
     return SmartRow(
-      color: Colors.white,
-      padding: EdgeInsetsDirectional.only(bottom: 110.h,top: 10.h),
+      color: style.whiteColor,
+      padding: EdgeInsetsDirectional.only(bottom: 10.h, top: 10.h),
+      margin: EdgeInsetsDirectional.only(start: 10.h, end: 10.h),
       mainAxisSize: MainAxisSize.min,
       width: Get.width,
       onTap: () {
         showMenu.value = !showMenu.value;
       },
+      spacing: 10.w,
       children: [
-        Container(
-          padding: EdgeInsetsDirectional.symmetric(horizontal: 20.w),
+        SizedBox(
           width: 50.w,
           height: 35.h,
           child: Stack(
             clipBehavior: Clip.none,
+            alignment: Alignment.center,
             children: List.generate(3, (index) {
               return Positioned(
                 left: index * 10.w,
@@ -217,10 +231,7 @@ class CartWidget extends StatelessWidget {
                   height: 35.w,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    border: Border.all(
-                      color: Colors.white,
-                      width: 1,
-                    ),
+                    border: Border.all(color: Colors.white, width: 1),
                     borderRadius: BorderRadius.circular(6.r),
                   ),
                   child: SmartImage(
@@ -233,14 +244,13 @@ class CartWidget extends StatelessWidget {
             }),
           ),
         ),
-        SizedBox(width: 30.w),
         SmartColumn(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
-                SmartText('4 Items', style: style.labelStyle),
+                SmartText('4 Items', style: style.itemNameStyle),
                 ValueListenableBuilder(
                   valueListenable: showMenu,
                   builder: (_, bool expanded, __) {
@@ -259,7 +269,7 @@ class CartWidget extends StatelessWidget {
                 ),
               ],
             ),
-            SmartText('You save ₹10', style: style.unselectedLabelStyle),
+            SmartText('You save ₹10', style: style.itemAmountStyle),
           ],
         ),
       ],
