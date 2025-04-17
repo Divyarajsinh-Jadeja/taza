@@ -93,4 +93,16 @@ class AppImages {
   static const String couponLottie = 'assets/images/coupon.json';
   static const String notesLottie = 'assets/images/notes.json';
   static const String icArrowLeft = 'assets/images/ic_arrow_left.svg';
+
+
+  static const String icShield = 'assets/images/ic_shield.png';
+  static const String icSun = 'assets/images/ic_sun.json';
+  static const String icDeliveryBoy = 'assets/images/ic_delivery_boy.png';
+  static const String icCard = 'assets/images/ic_card.png';
+  static const String icDog = 'assets/images/ic_dog.png';
+  static const String icDoor = 'assets/images/ic_door.png';
+  static const String icSecurityGuard = 'assets/images/ic_security_guard.png';
+  static const String icBellWithSplash = 'assets/images/ic_bell.png';
+  static const String icCall = 'assets/images/ic_call.png';
+  static const String icEmoji = 'assets/images/ic_emoji.json';
 }

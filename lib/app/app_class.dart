@@ -7,10 +7,7 @@ class AppController extends GetMaterialController {
 
   Rx<ThemeData> themeData = ThemeData.light().obs; // Temporary default theme
   Rx<Locale> appLocale = const Locale('en').obs;
-  final List<Locale> supportedLocales = const [
-    Locale('en'),
-    Locale('ar'),
-  ];
+  final List<Locale> supportedLocales = const [Locale('en'), Locale('ar')];
 
   Stream? _connectivityStream;
   var isShowLoading = false.obs;
@@ -42,7 +39,7 @@ class AppController extends GetMaterialController {
     } else if (theme == AppConst.themeLight) {
       themeData.value = appThemes.light();
     } else if (theme == AppConst.themeSystem) {
-      //TODO: Need to change based on system theme
+      /// TODO: Need to change based on system theme
     }
   }
 
@@ -84,10 +81,7 @@ class AppController extends GetMaterialController {
   Future<void> _loadAppLocale() async {
     final code = StorageManager.instance.getUserLanguage();
     if (code != null) {
-      appLocale.value = supportedLocales.firstWhere(
-            (loc) => loc.languageCode == code,
-        orElse: () => const Locale('en', 'US'),
-      );
+      appLocale.value = supportedLocales.firstWhere((loc) => loc.languageCode == code, orElse: () => const Locale('en', 'US'));
     } else {
       appLocale.value = Get.deviceLocale ?? const Locale('en', 'US');
     }

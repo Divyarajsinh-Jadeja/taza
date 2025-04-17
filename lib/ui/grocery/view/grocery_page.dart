@@ -32,8 +32,7 @@ class GroceryPage extends GetView<GroceryController> {
                       children: [
                         SmartImage(
                           path: AppImages.icSearch,
-                          height: 24.w,
-                          width: 24.w,
+                          size: 24.w,
                         ),
                         Container(
                           height: 21.h,

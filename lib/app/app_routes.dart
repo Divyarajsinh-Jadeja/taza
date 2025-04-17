@@ -1,11 +1,13 @@
 import 'package:taza/taza.dart';
 
+
 /// All routes for app pages are defined here
 class AppRoutes {
   static const initialRoute = '/';
   static const loginPage = '/login_page';
   static const dashboardPage = '/dashboard_page';
   static const checkoutPage = '/checkout_page';
+  static const orderTrackingPage = '/order_tracking_page';
   static const couponsPage = '/coupons_page';
   static const profilePage = '/profile_page';
 
@@ -50,6 +52,13 @@ class AppRoutes {
       page: () => const ProfilePage(),
       binding: ProfileBinding(),
       transition: Transition.cupertino,
+      transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
+    ),
+    GetPage(
+      name: AppRoutes.orderTrackingPage,
+      page: () => const OrderTrackingPage(),
+      binding: OrderTrackingBinding(),
+      transition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
     ),
   ];
