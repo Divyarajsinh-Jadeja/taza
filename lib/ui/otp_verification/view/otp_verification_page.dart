@@ -30,7 +30,13 @@ class OtpVerificationPage extends GetView<OtpVerificationController> {
       padding: EdgeInsetsDirectional.all(16.w),
       color: style.headerCardColor,
       children: [
-        SmartImage(onTap: (){ Get.back(); },path: AppImages.icArrowLeft, padding: EdgeInsetsDirectional.symmetric(vertical: 6.h)),
+        SmartImage(
+          onTap: () {
+            Get.back();
+          },
+          path: AppImages.icArrowLeft,
+          padding: EdgeInsetsDirectional.symmetric(vertical: 6.h),
+        ),
         SmartRow(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -39,7 +45,7 @@ class OtpVerificationPage extends GetView<OtpVerificationController> {
               children: [
                 SmartText(
                   LocaleKeys.verifyDetails.tr.toUpperCase(),
-                  style: style.verifyTextStyle
+                  style: style.verifyTextStyle,
                 ),
                 SizedBox(height: 4.h),
                 SmartText(
@@ -48,7 +54,7 @@ class OtpVerificationPage extends GetView<OtpVerificationController> {
                 ),
               ],
             ),
-            SmartImage(path: AppImages.imgOtp, height: 65.h, width: 85.w,),
+            SmartImage(path: AppImages.imgOtp, height: 65.h, width: 85.w),
           ],
         ),
       ],
@@ -60,22 +66,27 @@ class OtpVerificationPage extends GetView<OtpVerificationController> {
       padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SmartText(LocaleKeys.enterOTP.tr.toUpperCase(), style: style.subTitlesTextStyle),
+        SmartText(
+          LocaleKeys.enterOTP.tr.toUpperCase(),
+          style: style.subTitlesTextStyle,
+        ),
         SizedBox(height: 12.h),
         _buildOtpFields(style),
         Obx(() {
           return controller.errorText.value != null
               ? SmartText(
-            controller.errorText.value!,
-            style: style.errorTextStyle,
-          )
+                controller.errorText.value!,
+                style: style.errorTextStyle,
+              )
               : SizedBox();
         }),
         SizedBox(height: 20.h),
         Obx(() {
           return SmartText(
             !controller.isTimerCompleted.value
-                ? LocaleKeys.otpRetryIn.tr.interpolate([controller.secondsRemaining])
+                ? LocaleKeys.otpRetryIn.tr.interpolate([
+                  controller.secondsRemaining,
+                ])
                 : LocaleKeys.otpRetryNow.tr,
             style: style.subTitlesTextStyle,
           );
@@ -83,15 +94,25 @@ class OtpVerificationPage extends GetView<OtpVerificationController> {
         SizedBox(height: 16.h),
         Obx(() {
           return controller.isTimerCompleted.value
-              ? SmartRow(children: [
-            _resendOption(style, AppImages.icMessage, LocaleKeys.sms.tr.toUpperCase()),
-            SizedBox(width: 20.w),
-            _resendOption(style, AppImages.icCall, LocaleKeys.call.tr.toUpperCase()),
-          ])
+              ? SmartRow(
+                children: [
+                  _resendOption(
+                    style,
+                    AppImages.icMessage,
+                    LocaleKeys.sms.tr.toUpperCase(),
+                  ),
+                  SizedBox(width: 20.w),
+                  _resendOption(
+                    style,
+                    AppImages.icCall,
+                    LocaleKeys.call.tr.toUpperCase(),
+                  ),
+                ],
+              )
               : SizedBox();
         }),
         SizedBox(height: 26.h),
-        Obx((){
+        Obx(() {
           return SmartButton(
             onTap: () {
               if (controller.isOtpValid.value) {
@@ -103,7 +124,10 @@ class OtpVerificationPage extends GetView<OtpVerificationController> {
                 }
               }
             },
-            title: controller.isOtpValid.value ? LocaleKeys.verifyAndProceed.tr.toUpperCase() : LocaleKeys.enterOTP.tr.toUpperCase(),
+            title:
+                controller.isOtpValid.value
+                    ? LocaleKeys.verifyAndProceed.tr.toUpperCase()
+                    : LocaleKeys.enterOTP.tr.toUpperCase(),
             width: double.infinity,
             disableTitleStyle: style.enterOtpButtonTextStyle,
             isEnabled: controller.isOtpValid.value,
@@ -113,7 +137,6 @@ class OtpVerificationPage extends GetView<OtpVerificationController> {
             titleStyle: style.enterOtpButtonTextStyle,
           );
         }),
-
       ],
     );
   }
