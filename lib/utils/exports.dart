@@ -182,6 +182,10 @@ export 'package:taza/ui/widgets/notched_message.dart';
 export 'package:taza/ui/track_order/view/order_tracking_controller.dart';
 export 'package:taza/ui/track_order/binding/order_tracking_binding.dart';
 export 'package:taza/ui/track_order/view/order_tracking_page.dart';
+export 'package:taza/ui/otp_verification/view/otp_verification_controller.dart';
+export 'package:taza/ui/otp_verification/binding/otp_verification_binding.dart';
+export 'package:taza/ui/otp_verification/view/otp_verification_page.dart';
+
 
 
 

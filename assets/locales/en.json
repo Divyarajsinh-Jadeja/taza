@@ -118,5 +118,16 @@
   "instructionDontRingBell": "Don't ring the bell",
   "instructionPetAtHome": "Pet at home",
   "instructionLeaveAtDoor": "Leave at door",
-  "instructionLeaveAtGate": "Leave at gate"
+  "instructionLeaveAtGate": "Leave at gate",
+
+  "verifyDetails": "Verify Details",
+  "otpSentTo": "OTP sent to {#}",
+  "enterOtp": "Enter OTP",
+  "otpInvalid": "Oops! Entered OTP is invalid",
+  "otpRetryNow": "Didn't receive the OTP? Retry now",
+  "otpRetryIn": "Didn't receive the OTP? Retry in 00:{#}",
+  "sms": "SMS",
+  "call": "CALL",
+  "verifyAndProceed": "Verify and proceed",
+  "enterOtpBtn": "Enter Otp"
 }

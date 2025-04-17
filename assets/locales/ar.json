@@ -117,6 +117,16 @@
   "instructionDontRingBell": "لا تقرع الجرس",
   "instructionPetAtHome": "يوجد حيوان أليف في المنزل",
   "instructionLeaveAtDoor": "اترك الطلب عند الباب",
-  "instructionLeaveAtGate": "اترك الطلب عند البوابة"
+  "instructionLeaveAtGate": "اترك الطلب عند البوابة",
+  "verifyDetails": "تحقق من التفاصيل",
+  "otpSentTo": "تم إرسال رمز التحقق إلى {#}",
+  "enterOtp": "أدخل رمز التحقق",
+  "otpInvalid": "عذرًا! رمز التحقق الذي تم إدخاله غير صحيح",
+  "otpRetryNow": "لم تستلم رمز التحقق؟ أعد المحاولة الآن",
+  "otpRetryIn": "لم تستلم رمز التحقق؟ أعد المحاولة خلال 00:{#}",
+  "sms": "رسالة نصية",
+  "call": "اتصال",
+  "verifyAndProceed": "تحقق وتابع",
+  "enterOtpBtn": "أدخل رمز التحقق"
 
 }

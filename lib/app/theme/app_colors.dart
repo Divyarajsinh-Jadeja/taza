@@ -42,6 +42,7 @@ class AppThemes {
     color038153: Color(0xFF038153),
     colorE8FFF0: Color(0xFFE8FFF0),
     color34A853: Color(0xFF34A853),
+    colorF1F5FD: Color(0xFFF1F5FD),
     boxShadowColor : Color.fromRGBO(178, 189, 194, 0.25),
     orangeColor: Colors.orange,
   );
@@ -116,6 +117,7 @@ class AppColor {
   final Color orangeColor;
   final Color colorE8FFF0;
   final Color color34A853;
+  final Color colorF1F5FD;
   final Color boxShadowColor;
 
   const AppColor({
@@ -156,6 +158,7 @@ class AppColor {
     required this.orangeColor,
     required this.colorE8FFF0,
     required this.color34A853,
+    required this.colorF1F5FD,
     required this.boxShadowColor,
 
   });

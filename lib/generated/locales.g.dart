@@ -131,6 +131,16 @@ class LocaleKeys {
   static const instructionPetAtHome = 'instructionPetAtHome';
   static const instructionLeaveAtDoor = 'instructionLeaveAtDoor';
   static const instructionLeaveAtGate = 'instructionLeaveAtGate';
+  static const verifyDetails = 'verifyDetails';
+  static const otpSentTo = 'otpSentTo';
+  static const enterOtp = 'enterOtp';
+  static const otpInvalid = 'otpInvalid';
+  static const otpRetryNow = 'otpRetryNow';
+  static const otpRetryIn = 'otpRetryIn';
+  static const sms = 'sms';
+  static const call = 'call';
+  static const verifyAndProceed = 'verifyAndProceed';
+  static const enterOtpBtn = 'enterOtpBtn';
 }
 
 class Locales {
@@ -265,6 +275,16 @@ class Locales {
     'instructionPetAtHome': 'Pet at home',
     'instructionLeaveAtDoor': 'Leave at door',
     'instructionLeaveAtGate': 'Leave at gate',
+    'verifyDetails': 'Verify Details',
+    'otpSentTo': 'OTP sent to {#}',
+    'enterOtp': 'Enter OTP',
+    'otpInvalid': 'Oops! Entered OTP is invalid',
+    'otpRetryNow': 'Didn\'t receive the OTP? Retry now',
+    'otpRetryIn': 'Didn\'t receive the OTP? Retry in 00:{#}',
+    'sms': 'SMS',
+    'call': 'CALL',
+    'verifyAndProceed': 'Verify and proceed',
+    'enterOtpBtn': 'Enter Otp',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -391,5 +411,15 @@ class Locales {
     'instructionPetAtHome': 'يوجد حيوان أليف في المنزل',
     'instructionLeaveAtDoor': 'اترك الطلب عند الباب',
     'instructionLeaveAtGate': 'اترك الطلب عند البوابة',
+    'verifyDetails': 'تحقق من التفاصيل',
+    'otpSentTo': 'تم إرسال رمز التحقق إلى {#}',
+    'enterOtp': 'أدخل رمز التحقق',
+    'otpInvalid': 'عذرًا! رمز التحقق الذي تم إدخاله غير صحيح',
+    'otpRetryNow': 'لم تستلم رمز التحقق؟ أعد المحاولة الآن',
+    'otpRetryIn': 'لم تستلم رمز التحقق؟ أعد المحاولة خلال 00:{#}',
+    'sms': 'رسالة نصية',
+    'call': 'اتصال',
+    'verifyAndProceed': 'تحقق وتابع',
+    'enterOtpBtn': 'أدخل رمز التحقق',
   };
 }
