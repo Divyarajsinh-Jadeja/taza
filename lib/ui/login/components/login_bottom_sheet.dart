@@ -27,7 +27,7 @@ class LoginBottomSheet extends GetView<LoginController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               height:
                   controller.isExpanded.value
-                      ? MediaQuery.of(context).size.height
+                      ? Get.height
                       : 500.h,
               padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
               children: [
@@ -78,7 +78,7 @@ class LoginBottomSheet extends GetView<LoginController> {
                     }
                   },
                   isEnabled: controller.isPhoneValid.value,
-                  width: double.infinity,
+                  width: Get.width,
                   disableTitleStyle: style.continueButtonTextStyle,
                   disableBackgroudColor: style.continueButtonDisableBgColor,
                   borderRadius: BorderRadius.circular(6.r),

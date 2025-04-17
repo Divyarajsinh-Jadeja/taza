@@ -46,7 +46,7 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
         imageBorderRadius: BorderRadius.circular(12.r),
         clipBehavior: Clip.antiAlias,
         path: "https://i.ibb.co/S4037GTr/google-map.png",
-        width: double.infinity,
+        width:Get.width,
         height: 250.h,
       );
   }
@@ -138,8 +138,8 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
               expanded: true,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SmartText(LocaleKeys.payAmountBeforeDelivery.tr, style: style.titleTextStyle),
-                SmartText(LocaleKeys.keepChangeOrPayOnline.tr, style: style.payOnlineSubTitleStyle),
+                SmartText(LocaleKeys.payAmountBeforeDelivery.tr.interpolate([142]), style: style.titleTextStyle),
+                SmartText(LocaleKeys.keepChangeOrPayOnline.tr.interpolate([142]), style: style.payOnlineSubTitleStyle),
               ],
             ),
           ],
@@ -292,7 +292,7 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
     return SmartColumn(
       margin: EdgeInsetsDirectional.all(10.w),
       height: 120.h,
-      width: double.infinity,
+      width: Get.width,
       padding: EdgeInsetsDirectional.all(10.w),
       decoration: style.tipCardDecoration,
       crossAxisAlignment: CrossAxisAlignment.start,
