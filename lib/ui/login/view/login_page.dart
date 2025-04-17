@@ -48,7 +48,6 @@ class LoginPage extends GetView<LoginController> {
                     SmartText(
                       LocaleKeys.account.tr.toUpperCase(),
                       style: style.accountTextStyle,
-                      // textAlign: TextAlign.start,
                     ),
                     SmartText(
                       LocaleKeys.loginCreateAccount.tr,

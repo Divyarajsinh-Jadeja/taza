@@ -32,37 +32,23 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
   }
 
   PreferredSizeWidget _buildAppBar(OrderTrackingPageStyle style) {
-    return AppBar(
+    return SmartAppBar(
       backgroundColor: style.headerBgColor,
-      centerTitle: true,
-      leading: SmartImage(
-        padding: EdgeInsetsDirectional.all(16.w),
-        path: AppImages.icArrowLeft,
-        color: style.circleBgColor,
-        height: 24.h,
-        width: 24.w,
-        onTap: Get.back,
-      ),
-      title: SmartColumn(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SmartText(LocaleKeys.packingYourOrder.tr, style: style.headerTagStyle),
-          SmartText(LocaleKeys.arrivingInMinutes.tr, style: style.headerTitleStyle),
-        ],
-      ),
+      leadingImage: AppImages.icArrowLeft,
+      backIconColor: style.circleBgColor,
+      showTitleAndSubtitle: true,
     );
   }
 
+
   Widget _buildMapWidget() {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(12.r),
-      child: SmartImage(
+    return SmartImage(
+        imageBorderRadius: BorderRadius.circular(12.r),
+        clipBehavior: Clip.antiAlias,
         path: "https://i.ibb.co/S4037GTr/google-map.png",
         width: double.infinity,
         height: 250.h,
-      ),
-    );
+      );
   }
 
   Widget _infoAssignDeliveryCard(OrderTrackingPageStyle style) {
@@ -90,13 +76,9 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
       children: [
         SmartImage(
           path: AppImages.icDeliveryBoy,
-          height: 42.h,
-          width: 42.h,
+          size: 42.h,
           padding: EdgeInsetsDirectional.all(6.w),
-          decoration: BoxDecoration(
-            color: style.circleBgColor,
-            shape: BoxShape.circle,
-          ),
+          decoration: style.circleBgDecoration,
         ),
         SizedBox(width: 8.w),
         SmartText(
@@ -111,10 +93,7 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
           height: 38.h,
           width: 38.h,
           padding: EdgeInsetsDirectional.all(6.w),
-          decoration: BoxDecoration(
-            color: style.circleBgColor,
-            shape: BoxShape.circle,
-          ),
+          decoration: style.circleBgDecoration,
         ),
       ],
     );
@@ -147,8 +126,7 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
           children: [
             SmartImage(
               path: AppImages.icCard,
-              height: 42.h,
-              width: 42.w,
+              size: 42.h,
               padding: EdgeInsetsDirectional.all(6.w),
               decoration: BoxDecoration(
                 color: style.circleBgColor,
@@ -213,7 +191,7 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
               SmartRow(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SmartImage(path: item['icon'] ?? "", height: 24.h, width: 24.h),
+                  SmartImage(path: item['icon'] ?? "", size : 24.w),
                   Obx(() {
                     final isSelected = controller.selectedInstructionIndexes.contains(index);
                     return SizedBox(
@@ -282,13 +260,9 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
       children: [
         SmartImage(
           path: image,
-          height: 42.h,
-          width: 42.h,
+          size: 42.w,
           padding: EdgeInsetsDirectional.all(6.w),
-          decoration: BoxDecoration(
-            color: style.circleBgColor,
-            shape: BoxShape.circle,
-          ),
+          decoration: style.circleBgDecoration,
         ),
         SizedBox(width: 8.w),
         SmartColumn(

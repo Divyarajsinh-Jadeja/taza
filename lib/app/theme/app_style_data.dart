@@ -83,7 +83,9 @@ class LightModeTheme extends AppTheme {
     borderColor: colors.color0CF52B,
     dividerColor: colors.color9c9cA3,
     transparentColor: colors.transparent,
-    subTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 13.sp,color: colors.color9c9cA3)
+    subTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 13.sp,color: colors.color9c9cA3),
+    groupTitleStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 16.sp, color: colors.white),
+    groupSubTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 18.sp, color: colors.white),
   );
 
   @override
@@ -450,7 +452,11 @@ class LightModeTheme extends AppTheme {
           borderRadius: BorderRadius.circular(12.r),
           border: Border.all(color: colors.colorF5F5F7),
         ),
-        tipAmountTextStyle: interMediumBoldW500TextStyle.copyWith(color: colors.color1D1D1F)
+        tipAmountTextStyle: interMediumBoldW500TextStyle.copyWith(color: colors.color1D1D1F),
+        circleBgDecoration: BoxDecoration(
+          color: colors.colorF5F5F7,
+          shape: BoxShape.circle,
+        )
       );
 
   @override

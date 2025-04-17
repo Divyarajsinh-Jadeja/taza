@@ -191,10 +191,13 @@ class CustomAppBarStyle {
   final Color borderColor;
   final Color dividerColor;
   final TextStyle titleStyle;
+  final TextStyle groupTitleStyle;
+  final TextStyle groupSubTitleStyle;
+  final TextStyle subTitleStyle;
   final TextStyle homeTitleStyle;
   final TextStyle backTextStyle;
   final Color transparentColor;
-  final TextStyle subTitleStyle;
+
   CustomAppBarStyle({
     required this.primaryColor,
     required this.backgroundColor,
@@ -205,6 +208,8 @@ class CustomAppBarStyle {
     required this.backTextStyle,
     required this.transparentColor,
     required this.subTitleStyle,
+    required this.groupTitleStyle,
+    required this.groupSubTitleStyle,
 
   });
 }
@@ -767,6 +772,7 @@ class OrderTrackingPageStyle {
   final TextStyle payOnlineSubTitleStyle;
   final BoxDecoration cardDecoration;
   final BoxDecoration tipCardDecoration;
+  final BoxDecoration circleBgDecoration;
 
   OrderTrackingPageStyle({
     required this.headerBgColor,
@@ -783,6 +789,7 @@ class OrderTrackingPageStyle {
     required this.payOnlineSubTitleStyle,
     required this.cardDecoration,
     required this.tipCardDecoration,
+    required this.circleBgDecoration,
   });
 }
 

@@ -13,7 +13,6 @@ class LoginController extends GetxController {
     focusNode.addListener(() {
       isFocused.value = focusNode.hasFocus;
 
-      // Expand when focused
       if (focusNode.hasFocus) {
         isExpanded.value = true;
       }
@@ -24,11 +23,6 @@ class LoginController extends GetxController {
     });
 
     super.onInit();
-  }
-
-  void collapseSheet() {
-    isExpanded.value = false;
-    focusNode.unfocus();
   }
 
   @override
