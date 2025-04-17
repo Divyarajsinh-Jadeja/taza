@@ -26,6 +26,7 @@ class OtpVerificationPage extends GetView<OtpVerificationController> {
   Widget _otpPageHeader(OtpPageStyle style) {
     return SmartColumn(
       width: Get.height,
+      height: 140.h,
       crossAxisAlignment: CrossAxisAlignment.start,
       padding: EdgeInsetsDirectional.all(16.w),
       color: style.headerCardColor,
