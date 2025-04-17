@@ -131,6 +131,11 @@ class LocaleKeys {
   static const instructionPetAtHome = 'instructionPetAtHome';
   static const instructionLeaveAtDoor = 'instructionLeaveAtDoor';
   static const instructionLeaveAtGate = 'instructionLeaveAtGate';
+  static const scanIt = 'scanIt';
+  static const sayIt = 'sayIt';
+  static const writeIt = 'writeIt';
+  static const haveAShoppingList = 'haveAShoppingList';
+  static const haveAShoppingListDesc = 'haveAShoppingListDesc';
 }
 
 class Locales {
@@ -265,6 +270,12 @@ class Locales {
     'instructionPetAtHome': 'Pet at home',
     'instructionLeaveAtDoor': 'Leave at door',
     'instructionLeaveAtGate': 'Leave at gate',
+    'scanIt': 'Scan it',
+    'sayIt': 'Say it',
+    'writeIt': 'Write it',
+    'haveAShoppingList': 'Have a shopping list?',
+    'haveAShoppingListDesc':
+        'Find all items in one go & build your cart 10x faster!',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -391,5 +402,10 @@ class Locales {
     'instructionPetAtHome': 'يوجد حيوان أليف في المنزل',
     'instructionLeaveAtDoor': 'اترك الطلب عند الباب',
     'instructionLeaveAtGate': 'اترك الطلب عند البوابة',
+    'scanIt': 'امسحه',
+    'sayIt': 'قُلها',
+    'writeIt': 'اكتبها',
+    'haveAShoppingList': 'لديك قائمة التسوق',
+    'haveAShoppingListDesc': 'لا يمكنك استخدام القسائم المتوفرة على نطاق واسع',
   };
 }

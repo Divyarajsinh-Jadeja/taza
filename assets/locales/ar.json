@@ -56,10 +56,10 @@
   "cart": "السلة",
   "rewards": "الجوائز",
   "reorder": "اعادة الطلب",
-  "cookingRequest" : "طلبات الطهي",
-  "deliveryType" : "نوع التوصيل",
-  "tip" : "إكرامية",
-  "instruction" : "تعليمات",
+  "cookingRequest": "طلبات الطهي",
+  "deliveryType": "نوع التوصيل",
+  "tip": "إكرامية",
+  "instruction": "تعليمات",
   "payPal": "باي بال",
   "payUsing": "الدفع بواسطة",
   "applied": "تم التطبيق",
@@ -73,8 +73,8 @@
   "enterPinCode": "أدخل الرمز البريدي",
   "submit": "يُقدِّم",
   "viewMoreCoupons": "عرض المزيد من القسائم والعروض",
-  "enterPhoneNumber" : "أدخل رقم الهاتف",
-  "continueForLogin" : "استمرار",
+  "enterPhoneNumber": "أدخل رقم الهاتف",
+  "continueForLogin": "استمرار",
   "byContinueTerms": "بالنقر، أوافق على",
   "groceryDeliverTag": "تطبيق واحد للطعام والمأكولات والبقالة والمزيد خلال دقائق!",
   "termsOfUse": " الشروط والأحكام",
@@ -117,6 +117,10 @@
   "instructionDontRingBell": "لا تقرع الجرس",
   "instructionPetAtHome": "يوجد حيوان أليف في المنزل",
   "instructionLeaveAtDoor": "اترك الطلب عند الباب",
-  "instructionLeaveAtGate": "اترك الطلب عند البوابة"
-
+  "instructionLeaveAtGate": "اترك الطلب عند البوابة",
+  "scanIt": "امسحه",
+  "sayIt": "قُلها",
+  "writeIt": "اكتبها",
+  "haveAShoppingList": "لديك قائمة التسوق",
+  "haveAShoppingListDesc": "لا يمكنك استخدام القسائم المتوفرة على نطاق واسع"
 }
