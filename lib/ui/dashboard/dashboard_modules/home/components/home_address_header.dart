@@ -9,6 +9,7 @@ class HomeAddressHeader extends StatelessWidget {
   final String? userImagePath;
   final double? userImageWidth;
   final double? userImageHeight;
+  final EdgeInsetsGeometry? padding;
   final Color? backGroundColor;
   final Color? textColor;
   final Color? homeIconColor;
@@ -23,6 +24,7 @@ class HomeAddressHeader extends StatelessWidget {
     this.userImagePath,
     this.userImageWidth,
     this.userImageHeight,
+    this.padding,
     this.backGroundColor,
     this.textColor,
     this.homeIconColor,
@@ -33,6 +35,7 @@ class HomeAddressHeader extends StatelessWidget {
     final style = AppTheme.of(context).homeHeaderStyle;
 
     return SmartRow(
+      padding: padding   ,
       decoration: BoxDecoration(color: backGroundColor),
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

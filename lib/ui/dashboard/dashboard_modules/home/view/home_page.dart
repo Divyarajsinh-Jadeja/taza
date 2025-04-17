@@ -9,9 +9,9 @@ class HomePage extends GetView<HomeController> {
     return Scaffold(
       body: SafeArea(
         child: SmartColumn(
-          padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
           children: [
             HomeAddressHeader(
+      padding:   EdgeInsetsDirectional.symmetric(horizontal : 16.w),
                 onAddressTap: () {
                   showAddressBottomSheet(context, controller.addresses);
                 },
@@ -22,6 +22,7 @@ class HomePage extends GetView<HomeController> {
               onTap: () => FocusScope.of(context).unfocus(),
               child: Obx((){
                 return SmartSearchBar(
+                  margin: EdgeInsetsDirectional.symmetric(horizontal : 16.w),
                   items: [controller.hints[controller.currentHintIndex.value]],
                   controller: controller.searchController,
                   onChanged: (val){},
@@ -55,7 +56,7 @@ class HomePage extends GetView<HomeController> {
                     animationDelay: Duration(milliseconds: index * 100),
                     animationCurve: Curves.easeOut,
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      padding: EdgeInsetsDirectional.symmetric(vertical: 8.0.h, horizontal: 16.0.w),
                       child: FoodOptionCard(
                         onTap: () {},
                         title: item['title'],
@@ -81,7 +82,7 @@ class HomePage extends GetView<HomeController> {
       context: context,
       isScrollControlled: true,
       builder:
-          (context) => SmartSingleChildScrollView(child: AddressBottomSheet(addresses: addresses,)),
+          (context) => AddressBottomSheet(addresses: addresses),
     );
   }
 }

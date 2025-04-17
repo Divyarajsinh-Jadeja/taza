@@ -13,6 +13,8 @@ class SmartSearchBar extends StatelessWidget {
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final ValueChanged<String>? onChanged;
+  final EdgeInsetsGeometry? margin;
+
 
   const SmartSearchBar({
     super.key,
@@ -28,6 +30,7 @@ class SmartSearchBar extends StatelessWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.onChanged,
+    this.margin,
   });
 
   @override
@@ -36,7 +39,8 @@ class SmartSearchBar extends StatelessWidget {
         .of(context)
         .searchBarStyle;
     return SmartRow(
-      padding: EdgeInsetsDirectional.only(end: 8.w),
+      margin: margin,
+      padding: EdgeInsetsDirectional.only(end: 10.w),
       decoration: BoxDecoration(
         color: backgroundColor ?? style.searchBarBgColor,
         border: Border.all(color: borderColor ?? style.searchBarBorderColor),

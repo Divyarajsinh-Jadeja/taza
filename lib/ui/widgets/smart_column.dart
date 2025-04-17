@@ -4,13 +4,13 @@ class SmartColumn extends StatelessWidget {
   final MainAxisSize mainAxisSize;
   final MainAxisAlignment mainAxisAlignment;
   final CrossAxisAlignment crossAxisAlignment;
-
   final TextDirection? textDirection;
   final VerticalDirection verticalDirection;
-  final TextBaseline textBaseline;
+  final TextBaseline? textBaseline;
   final List<Widget> children;
 
   final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
   final double? width;
   final double? height;
   final Color? color;
@@ -43,7 +43,8 @@ class SmartColumn extends StatelessWidget {
     this.alignment,
     this.clipBehavior = Clip.none,
     this.spacing=0,
-    this.animator
+    this.animator,
+    this.margin
   });
 
   @override
@@ -60,7 +61,7 @@ class SmartColumn extends StatelessWidget {
       children: children,
     );
 
-    if (padding != null || width != null || height != null || color != null || decoration != null || alignment != null) {
+    if (padding != null || width != null || height != null || color != null || decoration != null || alignment != null || margin != null) {
       child = Container(
         width: width,
         height: height,
@@ -69,6 +70,7 @@ class SmartColumn extends StatelessWidget {
         decoration: decoration,
         alignment: alignment,
         clipBehavior: clipBehavior,
+        margin: margin,
         child: child,
       );
     }
