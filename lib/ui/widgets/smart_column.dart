@@ -8,7 +8,6 @@ class SmartColumn extends StatelessWidget {
   final VerticalDirection verticalDirection;
   final TextBaseline? textBaseline;
   final List<Widget> children;
-
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
   final double? width;
@@ -21,6 +20,7 @@ class SmartColumn extends StatelessWidget {
   final AlignmentGeometry? alignment;
   final Clip clipBehavior;
   final double spacing;
+  final bool isSafeArea;
 
   final SmartAnimator? animator;
   const SmartColumn({
@@ -42,9 +42,10 @@ class SmartColumn extends StatelessWidget {
     this.decoration,
     this.alignment,
     this.clipBehavior = Clip.none,
-    this.spacing=0,
+    this.spacing = 0,
     this.animator,
-    this.margin
+    this.margin,
+    this.isSafeArea = false,
   });
 
   @override
@@ -84,9 +85,11 @@ class SmartColumn extends StatelessWidget {
 
     // Apply animation
     if (animator != null) {
-  return animator!.copyWith(child: child); 
-} else {
-  return child;
-}
+      return animator!.copyWith(child: child);
+    } else if (isSafeArea) {
+      return SafeArea(child: child);
+    } else {
+      return child;
+    }
   }
 }
