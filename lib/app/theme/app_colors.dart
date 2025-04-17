@@ -43,8 +43,14 @@ class AppThemes {
     colorE8FFF0: Color(0xFFE8FFF0),
     color34A853: Color(0xFF34A853),
     colorF1F5FD: Color(0xFFF1F5FD),
-    boxShadowColor : Color.fromRGBO(178, 189, 194, 0.25),
+    boxShadowColor: Color.fromRGBO(178, 189, 194, 0.25),
     orangeColor: Colors.orange,
+    colorFDE8DE: Color(0xFFFDE8DE),
+    colorF5C9B8: Color(0xFFF5C9B8),
+    colorD9EAFD: Color(0xFFD9EAFD),
+    colorA5CDFE: Color(0xFFA5CDFE),
+    colorFFE6B8: Color(0xFFFFE6B8),
+    colorFFF86D: Color(0xFFFFF86D),
   );
 
   ThemeData light({MaterialColor? theme}) {
@@ -119,6 +125,12 @@ class AppColor {
   final Color color34A853;
   final Color colorF1F5FD;
   final Color boxShadowColor;
+  final Color colorFDE8DE;
+  final Color colorD9EAFD;
+  final Color colorF5C9B8;
+  final Color colorA5CDFE;
+  final Color colorFFE6B8;
+  final Color colorFFF86D;
 
   const AppColor({
     required this.primary,
@@ -160,7 +172,12 @@ class AppColor {
     required this.color34A853,
     required this.colorF1F5FD,
     required this.boxShadowColor,
-
+    required this.colorFDE8DE,
+    required this.colorD9EAFD,
+    required this.colorF5C9B8,
+    required this.colorA5CDFE,
+    required this.colorFFE6B8,
+    required this.colorFFF86D,
   });
 }
 

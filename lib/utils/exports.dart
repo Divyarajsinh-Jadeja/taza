@@ -33,7 +33,6 @@ export 'package:flutter_animate/flutter_animate.dart';
 export 'package:lottie/lottie.dart';
 export 'package:flutter_localizations/flutter_localizations.dart';
 
-
 // Project core
 export 'package:taza/app/app_class.dart';
 export 'package:taza/app/app_const.dart';
@@ -153,7 +152,6 @@ export 'package:taza/ui/profile/binding/profile_binding.dart';
 export 'package:taza/ui/profile/view/profile_controller.dart';
 export 'package:taza/ui/profile/view/profile_page.dart';
 
-
 /// Model Classes
 export 'package:taza/models/food_category.dart';
 export 'package:taza/models/grocery_model.dart';
@@ -171,17 +169,16 @@ export 'package:carousel_slider/carousel_controller.dart';
 export 'package:carousel_slider/carousel_slider.dart';
 export 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/food/components/filter_category_bar.dart';
-
 export 'package:country_code_picker/country_code_picker.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/food/components/food_page_header_sliver.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/food/model/food_tab_data.dart';
-
 export 'package:taza/ui/login/components/terms_privacy_widget.dart';
 export 'package:taza/ui/login/components/login_bottom_sheet.dart';
 export 'package:taza/ui/widgets/notched_message.dart';
 export 'package:taza/ui/track_order/view/order_tracking_controller.dart';
 export 'package:taza/ui/track_order/binding/order_tracking_binding.dart';
 export 'package:taza/ui/track_order/view/order_tracking_page.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/food/view/search_button_bottom_sheet.dart';
 export 'package:taza/ui/otp_verification/view/otp_verification_controller.dart';
 export 'package:taza/ui/otp_verification/binding/otp_verification_binding.dart';
 export 'package:taza/ui/otp_verification/view/otp_verification_page.dart';

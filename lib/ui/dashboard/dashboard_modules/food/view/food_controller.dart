@@ -399,6 +399,40 @@ class FoodController extends GetxController with GetSingleTickerProviderStateMix
     ),
   ];
 
+  List<ShoppingListOption> getOptions(BuildContext context) {
+    final colors = AppTheme.of(context).colors;
+
+    return [
+      ShoppingListOption(
+        title: LocaleKeys.scanIt.tr,
+        icon: Icons.camera_alt,
+        backgroundGradientStart: colors.colorFDE8DE,
+        backgroundGradientEnd: colors.colorF5C9B8,
+        onTap: () {
+          Get.back();
+        },
+      ),
+      ShoppingListOption(
+        title: LocaleKeys.sayIt.tr,
+        icon: Icons.mic,
+        backgroundGradientStart: colors.colorD9EAFD,
+        backgroundGradientEnd: colors.colorA5CDFE,
+        onTap: () {
+          Get.back();
+        },
+      ),
+      ShoppingListOption(
+        title: LocaleKeys.writeIt.tr,
+        icon: Icons.edit,
+        backgroundGradientStart: colors.colorFFE6B8,
+        backgroundGradientEnd: colors.colorFFF86D,
+        onTap: () {
+          Get.back();
+        },
+      ),
+    ];
+  }
+
   @override
   void onClose() {
     foodTabController.dispose();
@@ -415,13 +449,4 @@ class FoodController extends GetxController with GetSingleTickerProviderStateMix
       headerHeight.value = height;
     }
   }
-}
-
-class FoodTabData {
-  final String imagePath;
-  final Color themeColor;
-  final Widget bannerWidget;
-  final String? tabText;
-
-  FoodTabData({required this.imagePath, required this.themeColor, required this.bannerWidget, this.tabText});
 }

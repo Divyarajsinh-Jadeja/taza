@@ -131,6 +131,11 @@ class LocaleKeys {
   static const instructionPetAtHome = 'instructionPetAtHome';
   static const instructionLeaveAtDoor = 'instructionLeaveAtDoor';
   static const instructionLeaveAtGate = 'instructionLeaveAtGate';
+  static const scanIt = 'scanIt';
+  static const sayIt = 'sayIt';
+  static const writeIt = 'writeIt';
+  static const haveAShoppingList = 'haveAShoppingList';
+  static const haveAShoppingListDesc = 'haveAShoppingListDesc';
   static const verifyDetails = 'verifyDetails';
   static const otpSentTo = 'otpSentTo';
   static const enterOtp = 'enterOtp';
@@ -275,6 +280,12 @@ class Locales {
     'instructionPetAtHome': 'Pet at home',
     'instructionLeaveAtDoor': 'Leave at door',
     'instructionLeaveAtGate': 'Leave at gate',
+    'scanIt': 'Scan it',
+    'sayIt': 'Say it',
+    'writeIt': 'Write it',
+    'haveAShoppingList': 'Have a shopping list?',
+    'haveAShoppingListDesc':
+        'Find all items in one go & build your cart 10x faster!',
     'verifyDetails': 'Verify Details',
     'otpSentTo': 'OTP sent to {#}',
     'enterOtp': 'Enter OTP',
@@ -411,6 +422,11 @@ class Locales {
     'instructionPetAtHome': 'يوجد حيوان أليف في المنزل',
     'instructionLeaveAtDoor': 'اترك الطلب عند الباب',
     'instructionLeaveAtGate': 'اترك الطلب عند البوابة',
+    'scanIt': 'امسحه',
+    'sayIt': 'قُلها',
+    'writeIt': 'اكتبها',
+    'haveAShoppingList': 'لديك قائمة التسوق',
+    'haveAShoppingListDesc': 'لا يمكنك استخدام القسائم المتوفرة على نطاق واسع',
     'verifyDetails': 'تحقق من التفاصيل',
     'otpSentTo': 'تم إرسال رمز التحقق إلى {#}',
     'enterOtp': 'أدخل رمز التحقق',
