@@ -16,10 +16,10 @@ class NotchedMessageBubble extends StatelessWidget {
         padding: padding,
         decoration: BoxDecoration(
           color: style.notchedBgColor,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r),
         ),
         children: [
-          Text(
+          SmartText(
             message,
             style: style.notchedTextStyle,
           ),

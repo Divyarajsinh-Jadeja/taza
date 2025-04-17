@@ -18,9 +18,9 @@ class LoginBottomSheet extends GetView<LoginController> {
                   begin: AlignmentDirectional.topCenter,
                   end: AlignmentDirectional.bottomCenter,
                   colors: [
-                    style.loginPageBgColor.withOpacity(0.3),
+                    style.loginPageBgColor.withValues(alpha: 0.3),
                     Colors.transparent,
-                    style.loginPageBgColor.withOpacity(0.05),
+                    style.loginPageBgColor.withValues(alpha: 0.05),
                   ],
                 ),
               ),

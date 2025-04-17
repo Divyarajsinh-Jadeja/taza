@@ -180,6 +180,8 @@ export 'package:taza/ui/login/components/terms_privacy_widget.dart';
 export 'package:taza/ui/login/components/login_bottom_sheet.dart';
 export 'package:taza/ui/widgets/notched_message.dart';
 export 'package:taza/ui/track_order/view/order_tracking_controller.dart';
+export 'package:taza/ui/track_order/binding/order_tracking_binding.dart';
+export 'package:taza/ui/track_order/view/order_tracking_page.dart';
 
 
 

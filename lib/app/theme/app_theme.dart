@@ -763,8 +763,10 @@ class OrderTrackingPageStyle {
   final Color dividerColor;
   final TextStyle subtitleTextStyle;
   final TextStyle payOnlineTextStyle;
+  final TextStyle tipAmountTextStyle;
   final TextStyle payOnlineSubTitleStyle;
   final BoxDecoration cardDecoration;
+  final BoxDecoration tipCardDecoration;
 
   OrderTrackingPageStyle({
     required this.headerBgColor,
@@ -775,10 +777,12 @@ class OrderTrackingPageStyle {
     required this.titleTextStyle,
     required this.circleBgColor,
     required this.dividerColor,
+    required this.tipAmountTextStyle,
     required this.subtitleTextStyle,
     required this.payOnlineTextStyle,
     required this.payOnlineSubTitleStyle,
     required this.cardDecoration,
+    required this.tipCardDecoration,
   });
 }
 

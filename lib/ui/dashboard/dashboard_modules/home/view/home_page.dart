@@ -56,7 +56,7 @@ class HomePage extends GetView<HomeController> {
                     animationDelay: Duration(milliseconds: index * 100),
                     animationCurve: Curves.easeOut,
                     child: Padding(
-                      padding: EdgeInsetsDirectional.symmetric(vertical: 8.0, horizontal: 16.0),
+                      padding: EdgeInsetsDirectional.symmetric(vertical: 8.0.h, horizontal: 16.0.w),
                       child: FoodOptionCard(
                         onTap: () {},
                         title: item['title'],

@@ -1,6 +1,5 @@
 import 'package:taza/taza.dart';
-import 'package:taza/ui/track_order/binding/order_tracking_binding.dart';
-import 'package:taza/ui/track_order/view/order_tracking_page.dart';
+
 
 /// All routes for app pages are defined here
 class AppRoutes {

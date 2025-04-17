@@ -217,7 +217,7 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
                   Obx(() {
                     final isSelected = controller.selectedInstructionIndexes.contains(index);
                     return SizedBox(
-                      height: 28.h,
+                      height: 28.w,
                       width: 28.w,
                       child: Checkbox(
                         value: isSelected,
@@ -226,7 +226,7 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
                           borderRadius: BorderRadius.circular(4.r),
                         ),
                         activeColor: style.headerBgColor,
-                        side: const BorderSide(color: Colors.grey),
+                        side: BorderSide(color: style.dividerColor),
                       ),
                     );
                   }),
@@ -251,7 +251,7 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
           padding: EdgeInsetsDirectional.all(10.w),
           message: LocaleKeys.pickedUpOnWay.tr,
         ),
-        _leavingATpWidget(style),
+        _leavingATipWidget(style),
         SmartRow(
           padding: EdgeInsetsDirectional.all(10.w),
           children: [
@@ -314,19 +314,16 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
     );
   }
 
-  Widget _leavingATpWidget(OrderTrackingPageStyle style) {
+  Widget _leavingATipWidget(OrderTrackingPageStyle style) {
     return SmartColumn(
       margin: EdgeInsetsDirectional.all(10.w),
       height: 120.h,
       width: double.infinity,
       padding: EdgeInsetsDirectional.all(10.w),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12.r),
-        border: Border.all(color: style.circleBgColor),
-      ),
+      decoration: style.tipCardDecoration,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SmartText(LocaleKeys.deliveringHappiness.tr, style: style.titleTextStyle.copyWith(fontSize: 12.sp)),
+        SmartText(LocaleKeys.deliveringHappiness.tr, style: style.titleTextStyle),
         SmartText(LocaleKeys.thankThemByTip.tr, style: style.subtitleTextStyle),
         SizedBox(height: 10.h),
         SizedBox(
@@ -339,18 +336,13 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
               final tipItems = controller.tips[index];
               return SmartRow(
                 padding: EdgeInsetsDirectional.all(10.w),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12.r),
-                  border: Border.all(color: style.circleBgColor),
-                ),
+                decoration: style.tipCardDecoration,
                 children: [
                   SmartImage(path: AppImages.icEmoji),
                   SizedBox(width: 4.w,),
                   SmartText(
                     "${tipItems['rupees']}",
-                    style: style.headerTagStyle.copyWith(
-                      color: Colors.black,
-                    ),
+                    style: style.tipAmountTextStyle
                   ),
                 ],
               );

@@ -407,7 +407,7 @@ class LightModeTheme extends AppTheme {
           dividerColor: colors.color1D1D1F,
           continueButtonTextStyle: interBoldW700TextStyle.copyWith(fontSize: 16.sp, color: colors.white),
           continueButtonBgColor: colors.primary,
-          continueButtonDisableBgColor: colors.primary.withOpacity(0.4),
+          continueButtonDisableBgColor: colors.primary.withValues(alpha: 0.4),
           loginPageBgColor: colors.white,
           inputFieldBgColor: colors.white,
           errorTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.colorFF0000),
@@ -431,7 +431,7 @@ class LightModeTheme extends AppTheme {
           borderRadius: BorderRadius.circular(12.r),
           boxShadow: [
             BoxShadow(
-              color: const Color.fromRGBO(178, 189, 194, 0.25),
+              color: colors.boxShadowColor,
               blurRadius: 5.r,
               spreadRadius: 5.r,
             ),
@@ -440,12 +440,17 @@ class LightModeTheme extends AppTheme {
         mainCardColor: colors.white,
         payOnlineTextStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 14.sp, color: colors.primary),
         headerBgColor: colors.primary,
-        titleTextStyle: interBoldW700TextStyle.copyWith(fontSize: 16.sp, color: colors.color1D1D1F),
+        titleTextStyle: interBoldW700TextStyle.copyWith(fontSize: 12.sp, color: colors.color1D1D1F),
         dividerColor: colors.colorF5F5F7,
         subtitleTextStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 12.sp, color: colors.color1D1D1F),
         payOnlineSubTitleStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 12.sp, color: colors.color1D1D1F),
         headerTagStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 16.sp, color: colors.white),
-        headerTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 18.sp, color: colors.white)
+        headerTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 18.sp, color: colors.white),
+        tipCardDecoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12.r),
+          border: Border.all(color: colors.colorF5F5F7),
+        ),
+        tipAmountTextStyle: interMediumBoldW500TextStyle.copyWith(color: colors.color1D1D1F)
       );
 
   @override
