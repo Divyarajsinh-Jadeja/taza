@@ -1,9 +1,11 @@
 import 'package:taza/taza.dart';
 
+
 /// All routes for app pages are defined here
 class AppRoutes {
   static const initialRoute = '/';
   static const loginPage = '/login_page';
+  static const otpVerificationPage = '/otp_verification_page';
   static const dashboardPage = '/dashboard_page';
   static const checkoutPage = '/checkout_page';
   static const orderTrackingPage = '/order_tracking_page';
@@ -23,6 +25,13 @@ class AppRoutes {
       name: AppRoutes.loginPage,
       page: () => const LoginPage(),
       binding: LoginBinding(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
+    ),
+    GetPage(
+      name: AppRoutes.otpVerificationPage,
+      page: () => const OtpVerificationPage(),
+      binding: OtpVerificationBinding(),
       transition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
     ),

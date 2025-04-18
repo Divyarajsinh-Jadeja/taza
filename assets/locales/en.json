@@ -119,9 +119,22 @@
   "instructionPetAtHome": "Pet at home",
   "instructionLeaveAtDoor": "Leave at door",
   "instructionLeaveAtGate": "Leave at gate",
+  "verifyDetails": "Verify Details",
+  "otpSentTo": "OTP sent to {#}",
+  "enterOtp": "Enter OTP",
+  "otpInvalid": "Oops! Entered OTP is invalid",
+  "otpRetryNow": "Didn't receive the OTP? Retry now",
+  "otpRetryIn": "Didn't receive the OTP? Retry in 00:{#}",
+  "sms": "SMS",
+  "call": "CALL",
+  "verifyAndProceed": "Verify and proceed",
+  "enterOtpBtn": "Enter Otp",
   "scanIt": "Scan it",
   "sayIt": "Say it",
   "writeIt": "Write it",
+  "enterYourNumber": "Enter your number",
   "haveAShoppingList": "Have a shopping list?",
-  "haveAShoppingListDesc": "Find all items in one go & build your cart 10x faster!"
+  "haveAShoppingListDesc": "Find all items in one go & build your cart 10x faster!",
+  "getViaSms": "Get via SMS",
+  "getViaCall": "Get via Call"
 }
