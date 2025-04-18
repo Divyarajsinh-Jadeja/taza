@@ -51,7 +51,7 @@ class ProductCheckoutCard extends StatelessWidget {
               if(isOutOfStock==true) SmartRow(
                 spacing: 4.w,
                 children: [
-                  SmartText("Out of stock",style: style.productTitle,),
+                  SmartText(LocaleKeys.outOfStock.tr,style: style.productTitle,),
                   Icon(Icons.delete_forever,size: 20.w,)
                 ],
               ),

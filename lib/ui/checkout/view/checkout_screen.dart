@@ -236,11 +236,11 @@ class CheckoutPage extends GetView<CheckoutController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                SmartText("Delivery in", style: style.tabDisableTextStyle),
+                SmartText(LocaleKeys.deliveryIn.tr, style: style.tabDisableTextStyle),
                 SmartText("35 Mins", style: style.deliveryHeaderStyle),
               ],
             ),
-            SmartText("9 Items", style: style.tabDisableTextStyle),
+            SmartText(LocaleKeys.itemsCount.tr.interpolate(["2"]), style: style.tabDisableTextStyle),
           ],
         ),
         Divider(),
