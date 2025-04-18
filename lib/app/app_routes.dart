@@ -12,6 +12,7 @@ class AppRoutes {
   static const couponsPage = '/coupons_page';
   static const profilePage = '/profile_page';
   static const paymentPage = '/paymentPage';
+  static const foodDetailsPage = '/food_details_page';
 
   static final List<GetPage> pages = [
     GetPage(
@@ -74,6 +75,13 @@ class AppRoutes {
       name: AppRoutes.paymentPage,
       page: () => const PaymentMethodScreen(),
       binding: PaymentBinding(),
+      transition: Transition.cupertino,
+      transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
+    ),
+    GetPage(
+      name: AppRoutes.foodDetailsPage,
+      page: () => const FoodDetailsPage(),
+      binding: FoodDetailsBinding(),
       transition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
     ),

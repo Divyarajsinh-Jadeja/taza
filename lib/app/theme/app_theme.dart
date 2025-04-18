@@ -100,6 +100,8 @@ abstract class AppTheme {
 
   OtpPageStyle get otpPageStyle;
 
+  FoodDetailsPageStyle get foodDetailsPageStyle;
+
   PaymentOptionCardStyle get paymentOptionCardStyle;
 }
 
@@ -488,6 +490,7 @@ class FoodCardStyle {
   final BoxDecoration cardDecoration;
   final BorderRadiusGeometry imageDecoration;
   final Color iconColor;
+
   FoodCardStyle({
     required this.titleStyle,
     required this.subTitleStyle,
@@ -540,6 +543,7 @@ class FoodPageStyle {
   final TextStyle unselectedCategoryTextStyle;
   final TextStyle categoryTitleTextStyle;
   final Color whiteColor;
+
   FoodPageStyle({
     required this.headerTextStyle,
     required this.blackColor,
@@ -601,7 +605,7 @@ class CheckoutStyle {
   final BoxDecoration tipUnSelectedDecoration;
   final BoxDecoration couponsSelectedDecoration;
   final BoxDecoration couponsUnSelectedDecoration;
-  final TextStyle couponWhiteStyle;
+final TextStyle couponWhiteStyle;
   final Color redColor;
   final Color couponColor;
   CheckoutStyle({
@@ -700,6 +704,7 @@ class GroceryStyle {
   final TextStyle titleStyle;
   final TextStyle subTitleStyle;
   final BoxDecoration groceryCardDecoration;
+
   GroceryStyle({required this.titleStyle, required this.subTitleStyle, required this.groceryCardDecoration});
 }
 
@@ -860,5 +865,37 @@ class OtpPageStyle {
     required this.errorBorderColor,
     required this.callBoxDecoration,
     required this.callBoxTitleStyle,
+  });
+}
+
+class FoodDetailsPageStyle {
+  final Color iconColors;
+  final Color flashColors;
+  final Color greenColor;
+  final Color highlightBgColor;
+  final TextStyle rattingTextStyle;
+  final TextStyle titleTextStyle;
+  final TextStyle timeTextStyle;
+  final TextStyle descriptionTextStyle;
+  final TextStyle maxSaverPriceTextStyle;
+  final TextStyle maxSaverTitleStyle;
+  final TextStyle addButtonStyle;
+  final TextStyle highlightTitleStyle;
+  final TextStyle highlightDescriptionStyle;
+
+  FoodDetailsPageStyle({
+    required this.iconColors,
+    required this.flashColors,
+    required this.greenColor,
+    required this.highlightBgColor,
+    required this.rattingTextStyle,
+    required this.titleTextStyle,
+    required this.timeTextStyle,
+    required this.descriptionTextStyle,
+    required this.maxSaverPriceTextStyle,
+    required this.maxSaverTitleStyle,
+    required this.addButtonStyle,
+    required this.highlightTitleStyle,
+    required this.highlightDescriptionStyle,
   });
 }

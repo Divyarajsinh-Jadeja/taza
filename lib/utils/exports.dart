@@ -171,6 +171,10 @@ export 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/food/components/filter_category_bar.dart';
 export 'package:country_code_picker/country_code_picker.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/food/components/food_page_header_sliver.dart';
+
+export 'package:taza/ui/food_details/view/food_details_controller.dart';
+export 'package:taza/ui/food_details/binding/food_details_binding.dart';
+export 'package:taza/ui/food_details/view/food_details_page.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/food/model/food_tab_data.dart';
 export 'package:taza/ui/payment/view/payment_controller.dart';
 export 'package:taza/ui/payment/model/payment_method.dart';
@@ -187,8 +191,4 @@ export 'package:taza/ui/dashboard/dashboard_modules/food/view/search_button_bott
 export 'package:taza/ui/otp_verification/view/otp_verification_controller.dart';
 export 'package:taza/ui/otp_verification/binding/otp_verification_binding.dart';
 export 'package:taza/ui/otp_verification/view/otp_verification_page.dart';
-
-
-
-
 

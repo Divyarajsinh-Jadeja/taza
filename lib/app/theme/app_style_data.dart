@@ -479,7 +479,24 @@ class LightModeTheme extends AppTheme {
   @override
   NotchedMsgStyle get notchedMsgStyle => NotchedMsgStyle(
     notchedBgColor: colors.colorE8FFF0,
-    notchedTextStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 12.sp, color: colors.color34A853),
+    notchedTextStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 12.sp, color: colors.color34A853)
+  );
+
+  @override
+  FoodDetailsPageStyle get foodDetailsPageStyle => FoodDetailsPageStyle(
+    iconColors: colors.primary,
+    flashColors: colors.color9c9cA3,
+    greenColor: colors.color30D158,
+    highlightBgColor: colors.colorF5F5F7,
+    rattingTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.color9c9cA3),
+    timeTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.color9c9cA3),
+    titleTextStyle: interBoldW700TextStyle.copyWith(fontSize: 19.sp, color: colors.color1D1D1F),
+    descriptionTextStyle: interRegularW400TextStyle.copyWith(fontSize: 17.sp, color: colors.color9c9cA3),
+    maxSaverPriceTextStyle: interBoldW700TextStyle.copyWith(fontSize: 17.sp, color: colors.black),
+    maxSaverTitleStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 12.sp, color: colors.color30D158),
+    addButtonStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 16.sp, color: colors.color30D158),
+    highlightTitleStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 15.sp, color: colors.color1D1D1F),
+    highlightDescriptionStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 15.sp, color: colors.black),
   );
 
   @override
