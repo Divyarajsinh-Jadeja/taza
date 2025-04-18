@@ -99,7 +99,6 @@ abstract class AppTheme {
   NotchedMsgStyle get notchedMsgStyle;
 
   FoodDetailsPageStyle get foodDetailsPageStyle;
-}
 
   PaymentOptionCardStyle get paymentOptionCardStyle;
 }
