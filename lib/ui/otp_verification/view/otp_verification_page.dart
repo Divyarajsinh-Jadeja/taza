@@ -120,19 +120,12 @@ class OtpVerificationPage extends GetView<OtpVerificationController> {
   Widget _buildOtpFields(OtpPageStyle style) {
     return OtpTextField(
       controller: controller.otpController,
-      appContext: navigator!.context,
+      appContext: Get.context!,
       autoFocus: true,
       length: 6,
       keyboardType: TextInputType.number,
       onCompleted: (onSubmit) {
-        if (controller.isOtpValid.value) {
-          if (controller.otpController.text.trim() == "123456") {
-            controller.errorText.value = null;
-            Get.offNamed(AppRoutes.dashboardPage);
-          } else {
-            controller.errorText.value = LocaleKeys.otpInvalid.tr;
-          }
-        }
+        controller.navigateToDashboardPage();
       },
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
       textStyle: style.otpInputTextStyle,

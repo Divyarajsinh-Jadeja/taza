@@ -9,6 +9,7 @@ class LoginController extends GetxController {
   final isPhoneValid = false.obs;
   final isInitialLoginPhoneValid = false.obs;
 
+
   @override
   void onInit() {
     focusNode.addListener(() {
@@ -26,10 +27,17 @@ class LoginController extends GetxController {
     super.onInit();
   }
 
+
   @override
   void dispose() {
     focusNode.dispose();
     phoneController.dispose();
     super.dispose();
+  }
+
+  void navigateToOtpScreen() {
+    if (isPhoneValid.value) {
+      Get.offNamed(AppRoutes.otpVerificationPage);
+    }
   }
 }

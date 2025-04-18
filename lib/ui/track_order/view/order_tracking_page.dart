@@ -156,7 +156,7 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
       padding: EdgeInsetsDirectional.only(bottom: 10.w),
       children: [
         Theme(
-          data: Theme.of(navigator!.context).copyWith(dividerColor: Colors.transparent),
+          data: Theme.of(Get.context!).copyWith(dividerColor: Colors.transparent),
           child: ExpansionTile(
             tilePadding: EdgeInsetsDirectional.only(end: 10.w),
             title: _circleImageTextRow(

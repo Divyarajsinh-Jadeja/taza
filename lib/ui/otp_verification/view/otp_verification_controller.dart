@@ -45,4 +45,15 @@ class OtpVerificationController extends GetxController {
     _timer?.cancel();
     super.dispose();
   }
+
+  void navigateToDashboardPage(){
+    if (isOtpValid.value) {
+      if (otpController.text.trim() == "123456") {
+        errorText.value = null;
+        Get.offNamed(AppRoutes.dashboardPage);
+      } else {
+        errorText.value = LocaleKeys.otpInvalid.tr;
+      }
+    }
+  }
 }

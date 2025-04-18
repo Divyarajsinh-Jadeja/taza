@@ -65,6 +65,7 @@ class LoginPage extends GetView<LoginController> {
         showCountryOnly: false,
         showFlagDialog: true,
         alignLeft: false,
+        flagWidth: 26.w,
         margin: EdgeInsetsDirectional.zero,
       ),
       keyboardType: TextInputType.number,
@@ -81,7 +82,7 @@ class LoginPage extends GetView<LoginController> {
       customFocusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.r),
           borderSide: BorderSide(
-            color: style.continueButtonBgColor,)),
+            color: style.continueButtonBgColor)),
       contentPadding: EdgeInsetsDirectional.symmetric(
         horizontal: 10.w,
         vertical: 14.h,
@@ -103,9 +104,7 @@ class LoginPage extends GetView<LoginController> {
             return SmartButton(
               title: LocaleKeys.continueForLogin.tr.toUpperCase(),
               onTap: () {
-                if (controller.isPhoneValid.value) {
-                  Get.offNamed(AppRoutes.otpVerificationPage);
-                }
+                controller.navigateToOtpScreen();
               },
               isEnabled: controller.isPhoneValid.value,
               width: Get.width,
