@@ -10,6 +10,7 @@ class AppRoutes {
   static const orderTrackingPage = '/order_tracking_page';
   static const couponsPage = '/coupons_page';
   static const profilePage = '/profile_page';
+  static const foodDetailsPage = '/food_details_page';
 
   static final List<GetPage> pages = [
     GetPage(
@@ -59,6 +60,13 @@ class AppRoutes {
       page: () => const OrderTrackingPage(),
       binding: OrderTrackingBinding(),
       transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
+    ),
+    GetPage(
+      name: AppRoutes.foodDetailsPage,
+      page: () => const FoodDetailsPage(),
+      binding: FoodDetailsBinding(),
+      transition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
     ),
   ];

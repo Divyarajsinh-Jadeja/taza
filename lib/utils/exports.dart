@@ -171,6 +171,10 @@ export 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/food/components/filter_category_bar.dart';
 export 'package:country_code_picker/country_code_picker.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/food/components/food_page_header_sliver.dart';
+
+export 'package:taza/ui/food_details/view/food_details_controller.dart';
+export 'package:taza/ui/food_details/binding/food_details_binding.dart';
+export 'package:taza/ui/food_details/view/food_details_page.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/food/model/food_tab_data.dart';
 export 'package:taza/ui/login/components/terms_privacy_widget.dart';
 export 'package:taza/ui/login/components/login_bottom_sheet.dart';
