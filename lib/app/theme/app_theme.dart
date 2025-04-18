@@ -97,8 +97,9 @@ abstract class AppTheme {
   OrderTrackingPageStyle get orderTrackingPageStyle;
 
   NotchedMsgStyle get notchedMsgStyle;
-}
 
+  PaymentOptionCardStyle get paymentOptionCardStyle;
+}
 
 class PrimaryButtonStyle {
   final Color activeBackgroundColor;
@@ -210,7 +211,6 @@ class CustomAppBarStyle {
     required this.subTitleStyle,
     required this.groupTitleStyle,
     required this.groupSubTitleStyle,
-
   });
 }
 
@@ -630,10 +630,8 @@ class CheckoutStyle {
     required this.couponsUnSelectedDecoration,
     required this.redColor,
     required this.couponWhiteStyle,
-    required this.couponColor
+    required this.couponColor,
   });
-
-
 }
 
 class SearchBarStyle {
@@ -734,7 +732,7 @@ class LoginPageStyle {
   });
 }
 
-class ProfilePageStyle{
+class ProfilePageStyle {
   final TextStyle nameTitleStyle;
   final TextStyle titleStyle;
   final TextStyle subTitleStyle;
@@ -746,16 +744,24 @@ class ProfilePageStyle{
   final BoxDecoration selectedLanguageDecoration;
   final BoxDecoration unSelectedLanguageDecoration;
 
-  ProfilePageStyle({required this.nameTitleStyle, required this.titleStyle, required this.subTitleStyle, required this.primaryColor, required this.whiteColor, required this.primaryStyle, required this.languageSelectedStyle, required this.languageUnSelectedStyle,required this.selectedLanguageDecoration,required this.unSelectedLanguageDecoration});
-
-
-
+  ProfilePageStyle({
+    required this.nameTitleStyle,
+    required this.titleStyle,
+    required this.subTitleStyle,
+    required this.primaryColor,
+    required this.whiteColor,
+    required this.primaryStyle,
+    required this.languageSelectedStyle,
+    required this.languageUnSelectedStyle,
+    required this.selectedLanguageDecoration,
+    required this.unSelectedLanguageDecoration,
+  });
 }
+
 class AnimatedTabBarStyle {
   final Color transparentColor;
   AnimatedTabBarStyle({required this.transparentColor});
 }
-
 
 class OrderTrackingPageStyle {
   final Color headerBgColor;
@@ -797,8 +803,20 @@ class NotchedMsgStyle {
   final Color notchedBgColor;
   final TextStyle notchedTextStyle;
 
-  NotchedMsgStyle({
-    required this.notchedBgColor,
-    required this.notchedTextStyle,
+  NotchedMsgStyle({required this.notchedBgColor, required this.notchedTextStyle});
+}
+
+class PaymentOptionCardStyle {
+  final Color primaryColor;
+  final Color whiteColor;
+  final Color greyColor;
+  final TextStyle titleStyle;
+  final TextStyle subTitleStyle;
+  PaymentOptionCardStyle({
+    required this.primaryColor,
+    required this.whiteColor,
+    required this.titleStyle,
+    required this.subTitleStyle,
+    required this.greyColor,
   });
 }

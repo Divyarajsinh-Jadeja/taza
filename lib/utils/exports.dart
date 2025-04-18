@@ -172,6 +172,11 @@ export 'package:taza/ui/dashboard/dashboard_modules/food/components/filter_categ
 export 'package:country_code_picker/country_code_picker.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/food/components/food_page_header_sliver.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/food/model/food_tab_data.dart';
+export 'package:taza/ui/payment/view/payment_controller.dart';
+export 'package:taza/ui/payment/model/payment_method.dart';
+export 'package:taza/ui/payment/components/payment_option_card.dart';
+export 'package:taza/ui/payment/binding/payment_binding.dart';
+export 'package:taza/ui/payment/view/payment_method_screen.dart';
 export 'package:taza/ui/login/components/terms_privacy_widget.dart';
 export 'package:taza/ui/login/components/login_bottom_sheet.dart';
 export 'package:taza/ui/widgets/notched_message.dart';
