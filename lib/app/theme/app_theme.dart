@@ -98,10 +98,13 @@ abstract class AppTheme {
 
   NotchedMsgStyle get notchedMsgStyle;
 
+  OtpPageStyle get otpPageStyle;
+
   FoodDetailsPageStyle get foodDetailsPageStyle;
 
   PaymentOptionCardStyle get paymentOptionCardStyle;
 }
+
 
 class PrimaryButtonStyle {
   final Color activeBackgroundColor;
@@ -719,6 +722,7 @@ class LoginPageStyle {
   final TextStyle bottomTextStyle;
   final TextStyle termsAndPrivacyTextStyle;
   final TextStyle countryCodeTextStyle;
+  final TextStyle lebelTextStyle;
 
   LoginPageStyle({
     required this.dividerColor,
@@ -734,6 +738,7 @@ class LoginPageStyle {
     required this.bottomTextStyle,
     required this.termsAndPrivacyTextStyle,
     required this.countryCodeTextStyle,
+    required this.lebelTextStyle
   });
 }
 
@@ -823,6 +828,43 @@ class PaymentOptionCardStyle {
     required this.titleStyle,
     required this.subTitleStyle,
     required this.greyColor,
+  });
+}
+
+
+class OtpPageStyle {
+  final Color otpPageBgColor;
+  final TextStyle verifyTextStyle;
+  final Color enterOtpButtonBgColor;
+  final Color headerCardColor;
+  final Color enterOtpButtonDisableBgColor;
+  final TextStyle errorTextStyle;
+  final TextStyle enterOtpButtonTextStyle;
+  final TextStyle subTitlesTextStyle;
+  final TextStyle otpInputTextStyle;
+  final Color activeColor;
+  final Color inactiveColor;
+  final Color selectedColor;
+  final Color errorBorderColor;
+  final BoxDecoration callBoxDecoration;
+  final TextStyle callBoxTitleStyle;
+
+  OtpPageStyle({
+    required this.otpPageBgColor,
+    required this.verifyTextStyle,
+    required this.headerCardColor,
+    required this.enterOtpButtonBgColor,
+    required this.enterOtpButtonDisableBgColor,
+    required this.errorTextStyle,
+    required this.enterOtpButtonTextStyle,
+    required this.subTitlesTextStyle,
+    required this.otpInputTextStyle,
+    required this.activeColor,
+    required this.inactiveColor,
+    required this.selectedColor,
+    required this.errorBorderColor,
+    required this.callBoxDecoration,
+    required this.callBoxTitleStyle,
   });
 }
 

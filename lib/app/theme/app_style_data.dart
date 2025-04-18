@@ -401,21 +401,23 @@ class LightModeTheme extends AppTheme {
   );
 
   @override
-  LoginPageStyle get loginPageStyle => LoginPageStyle(
-    skipButtonTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 16.sp, color: colors.white),
-    tagTextStyle: interBoldW700TextStyle.copyWith(fontSize: 18.sp, color: colors.white),
-    dividerColor: colors.color1D1D1F,
-    continueButtonTextStyle: interBoldW700TextStyle.copyWith(fontSize: 16.sp, color: colors.white),
-    continueButtonBgColor: colors.primary,
-    continueButtonDisableBgColor: colors.primary.withValues(alpha: 0.4),
-    loginPageBgColor: colors.white,
-    inputFieldBgColor: colors.white,
-    errorTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.colorFF0000),
-    bottomTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 11.sp, color: colors.color9c9cA3),
-    termsAndPrivacyTextStyle: interBoldW700TextStyle.copyWith(fontSize: 12.sp, color: colors.color1D1D1F),
-    countryCodeTextStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 16.sp, color: colors.color1D1D1F),
-    accountTextStyle: interBoldW700TextStyle.copyWith(fontSize: 20.sp, color: colors.color1D1D1F),
-  );
+  LoginPageStyle get loginPageStyle =>
+      LoginPageStyle(
+          skipButtonTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 16.sp, color: colors.white),
+          tagTextStyle: interBoldW700TextStyle.copyWith(fontSize: 18.sp, color: colors.white),
+          dividerColor: colors.color1D1D1F,
+          continueButtonTextStyle: interBoldW700TextStyle.copyWith(fontSize: 16.sp, color: colors.white),
+          continueButtonBgColor: colors.primary,
+          continueButtonDisableBgColor: colors.primary.withValues(alpha: 0.4),
+          loginPageBgColor: colors.white,
+          inputFieldBgColor: colors.white,
+          errorTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.colorFF0000),
+          bottomTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 11.sp, color: colors.color9c9cA3),
+          termsAndPrivacyTextStyle: interBoldW700TextStyle.copyWith(fontSize: 12.sp, color: colors.color1D1D1F),
+          countryCodeTextStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 16.sp, color: colors.color1D1D1F),
+        accountTextStyle: interBoldW700TextStyle.copyWith(fontSize: 20.sp, color: colors.color1D1D1F),
+        lebelTextStyle: interBoldW700TextStyle.copyWith(fontSize: 14.sp, color: colors.primary),
+      );
 
   @override
   OrderTrackingPageStyle get orderTrackingPageStyle => OrderTrackingPageStyle(
@@ -496,4 +498,27 @@ class LightModeTheme extends AppTheme {
     highlightTitleStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 15.sp, color: colors.color1D1D1F),
     highlightDescriptionStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 15.sp, color: colors.black),
   );
+
+  @override
+  OtpPageStyle get otpPageStyle =>
+      OtpPageStyle(
+        enterOtpButtonTextStyle: interBoldW700TextStyle.copyWith(fontSize: 16.sp, color: colors.white),
+        enterOtpButtonBgColor: colors.primary,
+        enterOtpButtonDisableBgColor: colors.primary.withValues(alpha: 0.4),
+        otpPageBgColor: colors.white,
+        errorTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 12.sp, color: colors.colorFF0000),
+        subTitlesTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 13.sp, color: colors.color9c9cA3),
+        verifyTextStyle: interBoldW700TextStyle.copyWith(fontSize: 19.sp, color: colors.color1D1D1F),
+        headerCardColor:  colors.colorF1F5FD,
+        otpInputTextStyle: interBoldW700TextStyle.copyWith(fontSize: 18.sp, color: colors.primary),
+        activeColor: colors.primary,
+        inactiveColor: colors.colorD2D2D7,
+        selectedColor: colors.primary,
+        errorBorderColor: colors.colorFF0000,
+        callBoxDecoration:  BoxDecoration(
+            borderRadius: BorderRadius.circular(8.r),
+            border: Border.all(color: colors.primary, width: 2.w)
+        ),
+        callBoxTitleStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.primary)
+      );
 }
