@@ -417,6 +417,7 @@ class LightModeTheme extends AppTheme {
           termsAndPrivacyTextStyle: interBoldW700TextStyle.copyWith(fontSize: 12.sp, color: colors.color1D1D1F),
           countryCodeTextStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 16.sp, color: colors.color1D1D1F),
         accountTextStyle: interBoldW700TextStyle.copyWith(fontSize: 20.sp, color: colors.color1D1D1F),
+        lebelTextStyle: interBoldW700TextStyle.copyWith(fontSize: 14.sp, color: colors.primary),
       );
 
 

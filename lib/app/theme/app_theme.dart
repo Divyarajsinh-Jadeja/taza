@@ -718,6 +718,7 @@ class LoginPageStyle {
   final TextStyle bottomTextStyle;
   final TextStyle termsAndPrivacyTextStyle;
   final TextStyle countryCodeTextStyle;
+  final TextStyle lebelTextStyle;
 
   LoginPageStyle({
     required this.dividerColor,
@@ -733,6 +734,7 @@ class LoginPageStyle {
     required this.bottomTextStyle,
     required this.termsAndPrivacyTextStyle,
     required this.countryCodeTextStyle,
+    required this.lebelTextStyle
   });
 }
 

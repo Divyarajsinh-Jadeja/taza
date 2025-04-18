@@ -65,36 +65,12 @@ class LoginPage extends GetView<LoginController> {
         showCountryOnly: false,
         showFlagDialog: true,
         alignLeft: false,
-        builder: (country) {
-          return SmartRow(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              16.horizontalSpace,
-              Image.asset(
-                country!.flagUri!,
-                package: 'country_code_picker',
-                width: 24.w,
-              ),
-              4.horizontalSpace,
-              SmartText(
-                country.dialCode ?? '',
-                style: style.countryCodeTextStyle,
-              ),
-              4.horizontalSpace,
-              Container(
-                height: 20.h,
-                width: 1.w,
-                color: style.dividerColor,
-              ),
-              2.horizontalSpace,
-            ],
-          );
-        },
+        margin: EdgeInsetsDirectional.zero,
       ),
       keyboardType: TextInputType.number,
       enabledBorderColor: style.continueButtonBgColor,
       inputDecorationLabelText: LocaleKeys.mobileNumber.tr,
-      inputDecorationLabelStyle: style.termsAndPrivacyTextStyle,
+      inputDecorationLabelStyle: style.lebelTextStyle,
       textInputFormatter: [
         FilteringTextInputFormatter.digitsOnly
       ],
