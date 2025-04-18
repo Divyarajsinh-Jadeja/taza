@@ -99,10 +99,10 @@ abstract class AppTheme {
   NotchedMsgStyle get notchedMsgStyle;
 
   OtpPageStyle get otpPageStyle;
-}
 
   PaymentOptionCardStyle get paymentOptionCardStyle;
 }
+
 
 class PrimaryButtonStyle {
   final Color activeBackgroundColor;
