@@ -35,13 +35,6 @@ class DashboardPage extends GetView<DashboardController> {
         },
         child: SmartImage(path: bottomNavData.icon),
       ),
-      /*.animate(onPlay: (controller) => controller.repeat(reverse: true))
-          .scale(
-            begin: const Offset(1.0, 1.0),
-            end: const Offset(1.1, 1.1),
-            duration: Duration(seconds: 1),
-            curve: Curves.easeInOut,
-          )*/
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: Obx(() {
         return CustomBottomBar(
