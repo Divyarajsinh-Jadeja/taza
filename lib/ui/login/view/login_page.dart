@@ -50,61 +50,6 @@ class LoginPage extends GetView<LoginController> {
               ],)
           ],
         )
-        /// Note - This code is commented for future build (2nd Login Flow)
-        /*SmartColumn(
-          color: style.loginPageBgColor,
-          children: [
-            SmartColumn(
-              color: style.continueButtonBgColor,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(height: 40.h,),
-                SmartImage(width: 80.w, path: AppImages.icSplashLogo),
-                SizedBox(height: 10.h),
-                SmartText(
-                  optionalPadding: EdgeInsetsDirectional.symmetric(horizontal: 36.w),
-                  LocaleKeys.groceryDeliverTag.tr,
-                  style: style.tagTextStyle,
-                  maxLines: 2,
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(height: 12.h),
-                SmartImage(fit: BoxFit.fill, height: 130.h, width: 280.w, path: AppImages.icFood,)
-              ],
-            ),
-            SmartColumn(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
-              children: [
-                SizedBox(height: 20.h),
-                SmartText(
-                  LocaleKeys.account.tr.toUpperCase(),
-                  style: style.accountTextStyle,
-                ),
-                SmartText(
-                  LocaleKeys.loginCreateAccount.tr,
-                  style: style.bottomTextStyle,
-                  textAlign: TextAlign.start,
-                ),
-                SizedBox(height: 16.h),
-                SmartButton(
-                  title: LocaleKeys.login.tr.toUpperCase(),
-                  onTap: () {
-                    _showInitialLoginBottomSheet(context, style);
-                  },
-                  width: Get.width,
-                  borderRadius: BorderRadius.zero,
-                  activeBackgroundColor: style.continueButtonBgColor,
-                  titleStyle: style.continueButtonTextStyle,
-                ),
-                SizedBox(height: 16.h),
-                TermsPrivacyWidget(),
-                SizedBox(height: 20.h),
-                Divider(height: 2.0.h, color: style.dividerColor),
-              ],
-            ),
-          ],
-        )*/,
       ),
     );
   }
@@ -204,19 +149,4 @@ class LoginPage extends GetView<LoginController> {
       ),
     );
   }
-
-  ///Note This code will commented for future build (2nd Login Flow)
-  /*void _showLoginBottomSheet(BuildContext context, LoginPageStyle style) {
-    Utils.showSmartModalBottomSheet(
-      context: context,
-      isDismissible: false,
-      barrierColor: Colors.transparent,
-      sheetAnimationStyle: AnimationStyle(curve: Curves.easeInOut, duration: Duration(milliseconds: 500)),
-      backgroundColor: style.loginPageBgColor,
-      builder:
-          (context) => LoginBottomSheet(),
-    ).whenComplete((){
-      controller.isExpanded.value = false;
-    });
-  }*/
 }
