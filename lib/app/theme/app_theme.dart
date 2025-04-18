@@ -99,7 +99,6 @@ abstract class AppTheme {
   NotchedMsgStyle get notchedMsgStyle;
 
   FoodDetailsPageStyle get foodDetailsPageStyle;
-}
 
   PaymentOptionCardStyle get paymentOptionCardStyle;
 }
@@ -603,9 +602,10 @@ class CheckoutStyle {
   final BoxDecoration tipUnSelectedDecoration;
   final BoxDecoration couponsSelectedDecoration;
   final BoxDecoration couponsUnSelectedDecoration;
-final TextStyle couponWhiteStyle;
+  final TextStyle couponWhiteStyle;
   final Color redColor;
   final Color couponColor;
+
   CheckoutStyle({
     required this.backgroundColor,
     required this.primaryColor,
@@ -766,6 +766,7 @@ class ProfilePageStyle {
 
 class AnimatedTabBarStyle {
   final Color transparentColor;
+
   AnimatedTabBarStyle({required this.transparentColor});
 }
 
@@ -818,6 +819,7 @@ class PaymentOptionCardStyle {
   final Color greyColor;
   final TextStyle titleStyle;
   final TextStyle subTitleStyle;
+
   PaymentOptionCardStyle({
     required this.primaryColor,
     required this.whiteColor,
