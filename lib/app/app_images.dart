@@ -107,4 +107,6 @@ class AppImages {
   static const String icBellWithSplash = 'assets/images/ic_bell.png';
   static const String icCall = 'assets/images/ic_call.png';
   static const String icEmoji = 'assets/images/ic_emoji.json';
+
+  static const String reward = 'assets/images/reward.png';
 }

@@ -99,6 +99,8 @@ abstract class AppTheme {
   NotchedMsgStyle get notchedMsgStyle;
 
   BottomCartStyle get bottomCartStyle;
+
+  RewardDialogStyle get rewardDialogStyle;
 }
 
 
@@ -602,6 +604,12 @@ class CheckoutStyle {
   final TextStyle couponWhiteStyle;
   final Color redColor;
   final Color couponColor;
+  final TextStyle billingTitleStyle;
+  final TextStyle billingSubTitleStyle;
+  final TextStyle billingSubTitleGreenStyle;
+  final TextStyle deliveryHeaderStyle;
+  final TextStyle productTitle;
+  final TextStyle productSubtitle;
   CheckoutStyle({
     required this.backgroundColor,
     required this.primaryColor,
@@ -631,7 +639,14 @@ class CheckoutStyle {
     required this.couponsUnSelectedDecoration,
     required this.redColor,
     required this.couponWhiteStyle,
-    required this.couponColor
+    required this.couponColor,
+    required this.billingTitleStyle,
+    required this.billingSubTitleGreenStyle,
+    required this.billingSubTitleStyle,
+    required this.deliveryHeaderStyle,
+    required this.productTitle,
+    required this.productSubtitle,
+
   });
 
 
@@ -810,9 +825,29 @@ class BottomCartStyle{
   final TextStyle itemAmountStyle;
   final TextStyle titleStyle;
   final BoxDecoration defaultDecoration;
+  final BoxDecoration fullDefaultDecoration;
   final BoxDecoration reviewDecoration;
   final Color whiteColor;
-  BottomCartStyle({required this.reviewTitleStyle,required this.itemNameStyle, required this.itemAmountStyle, required this.titleStyle, required this.defaultDecoration,required this.reviewDecoration,required this.whiteColor});
+  final Color primaryColor;
+  BottomCartStyle({required this.reviewTitleStyle,required this.itemNameStyle, required this.itemAmountStyle, required this.titleStyle, required this.defaultDecoration,required this.reviewDecoration,required this.whiteColor,required this.fullDefaultDecoration,required this.primaryColor});
 
 
+}
+
+class RewardDialogStyle {
+  final Color? backgroundColor;
+  final TextStyle? titleTextStyle;
+  final TextStyle? highlightTextStyle;
+  final TextStyle? subtitleTextStyle;
+  final TextStyle? celebrateTextStyle;
+  final Color? closeIconColor;
+
+  const RewardDialogStyle({
+    this.backgroundColor,
+    this.titleTextStyle,
+    this.highlightTextStyle,
+    this.subtitleTextStyle,
+    this.celebrateTextStyle,
+    this.closeIconColor,
+  });
 }

@@ -161,10 +161,15 @@ class SmartImage extends StatelessWidget {
     }
 
     if (onTap != null) {
-      child = InkWell(
-        onTap: onTap,
-        borderRadius: inkwellBorderRadius,
-        child: child,
+      child = Material(
+         color: Colors.transparent,
+        child: InkWell(
+          onTap: onTap,
+          highlightColor: Colors.transparent,
+          splashFactory: NoSplash.splashFactory,
+          borderRadius: inkwellBorderRadius,
+          child: child,
+        ),
       );
     }
 
