@@ -23,9 +23,17 @@ class FoodHeaderSliver extends GetView<FoodController> {
                   suffixIcon: SmartRow(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      SmartImage(path: AppImages.icSearch, height: 24.h, width: 24.w),
-                      Container(height: 21.h, width: 1.w, margin: EdgeInsetsDirectional.symmetric(horizontal: 8.w)),
-                      SmartImage(path: AppImages.icMic, width: 24.w, height: 24.h),
+                      SmartImage(path: AppImages.icSearch, size: 24.w),
+                      IconButton(
+                        padding: EdgeInsets.zero,
+                        icon: Icon(Icons.edit_note_sharp),
+                        onPressed: () {
+                          Utils.showSmartModalBottomSheet(
+                            context: context,
+                            builder: (context) => ShoppingListDialog(options: controller.getOptions(context)),
+                          );
+                        },
+                      ),
                     ],
                   ),
                 ),

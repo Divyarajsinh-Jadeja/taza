@@ -94,6 +94,10 @@ abstract class AppTheme {
 
   AnimatedTabBarStyle get animatedTabBarStyle;
 
+  OrderTrackingPageStyle get orderTrackingPageStyle;
+
+  NotchedMsgStyle get notchedMsgStyle;
+
   PaymentOptionCardStyle get paymentOptionCardStyle;
 }
 
@@ -188,10 +192,13 @@ class CustomAppBarStyle {
   final Color borderColor;
   final Color dividerColor;
   final TextStyle titleStyle;
+  final TextStyle groupTitleStyle;
+  final TextStyle groupSubTitleStyle;
+  final TextStyle subTitleStyle;
   final TextStyle homeTitleStyle;
   final TextStyle backTextStyle;
   final Color transparentColor;
-  final TextStyle subTitleStyle;
+
   CustomAppBarStyle({
     required this.primaryColor,
     required this.backgroundColor,
@@ -202,6 +209,8 @@ class CustomAppBarStyle {
     required this.backTextStyle,
     required this.transparentColor,
     required this.subTitleStyle,
+    required this.groupTitleStyle,
+    required this.groupSubTitleStyle,
   });
 }
 
@@ -692,11 +701,13 @@ class GroceryStyle {
 }
 
 class LoginPageStyle {
-  final Color skipButtonBgColor;
+  final Color dividerColor;
   final TextStyle skipButtonTextStyle;
   final Color loginPageBgColor;
   final TextStyle tagTextStyle;
+  final TextStyle accountTextStyle;
   final Color continueButtonBgColor;
+  final Color continueButtonDisableBgColor;
   final Color inputFieldBgColor;
   final TextStyle errorTextStyle;
   final TextStyle continueButtonTextStyle;
@@ -705,13 +716,15 @@ class LoginPageStyle {
   final TextStyle countryCodeTextStyle;
 
   LoginPageStyle({
-    required this.skipButtonBgColor,
+    required this.dividerColor,
     required this.skipButtonTextStyle,
     required this.loginPageBgColor,
     required this.tagTextStyle,
+    required this.accountTextStyle,
     required this.inputFieldBgColor,
     required this.errorTextStyle,
     required this.continueButtonBgColor,
+    required this.continueButtonDisableBgColor,
     required this.continueButtonTextStyle,
     required this.bottomTextStyle,
     required this.termsAndPrivacyTextStyle,
@@ -748,6 +761,49 @@ class ProfilePageStyle {
 class AnimatedTabBarStyle {
   final Color transparentColor;
   AnimatedTabBarStyle({required this.transparentColor});
+}
+
+class OrderTrackingPageStyle {
+  final Color headerBgColor;
+  final BoxDecoration mainCardDecoration;
+  final Color mainCardColor;
+  final TextStyle titleTextStyle;
+  final TextStyle headerTagStyle;
+  final TextStyle headerTitleStyle;
+  final Color circleBgColor;
+  final Color dividerColor;
+  final TextStyle subtitleTextStyle;
+  final TextStyle payOnlineTextStyle;
+  final TextStyle tipAmountTextStyle;
+  final TextStyle payOnlineSubTitleStyle;
+  final BoxDecoration cardDecoration;
+  final BoxDecoration tipCardDecoration;
+  final BoxDecoration circleBgDecoration;
+
+  OrderTrackingPageStyle({
+    required this.headerBgColor,
+    required this.mainCardDecoration,
+    required this.mainCardColor,
+    required this.headerTagStyle,
+    required this.headerTitleStyle,
+    required this.titleTextStyle,
+    required this.circleBgColor,
+    required this.dividerColor,
+    required this.tipAmountTextStyle,
+    required this.subtitleTextStyle,
+    required this.payOnlineTextStyle,
+    required this.payOnlineSubTitleStyle,
+    required this.cardDecoration,
+    required this.tipCardDecoration,
+    required this.circleBgDecoration,
+  });
+}
+
+class NotchedMsgStyle {
+  final Color notchedBgColor;
+  final TextStyle notchedTextStyle;
+
+  NotchedMsgStyle({required this.notchedBgColor, required this.notchedTextStyle});
 }
 
 class PaymentOptionCardStyle {

@@ -188,7 +188,7 @@ class CheckoutPage extends GetView<CheckoutController> {
           Expanded(
             child: SmartButton(
               onTap: () {
-                Get.toNamed(AppRoutes.paymentPage);
+                Get.offNamed(AppRoutes.orderTrackingPage);
               },
               title: "Pay 79 SAR",
             ),

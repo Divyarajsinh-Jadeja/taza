@@ -2,6 +2,7 @@ import 'package:taza/taza.dart';
 
 class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
+  final Widget? titleWidget;
   final String? leadingImage;
   final List<Widget>? actions;
   final Color? backgroundColor;
@@ -18,10 +19,13 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double? optionalEndSpacing;
   final EdgeInsets? padding;
   final bool? showHomeWithAddress;
+  final bool? showTitleAndSubtitle;
+  final Color? backIconColor;
   final Widget? flexibleSpace;
   SmartAppBar({
     super.key,
     this.title,
+    this.titleWidget,
     this.leadingImage,
     this.actions,
     this.backgroundColor,
@@ -38,7 +42,9 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.optionalEndSpacing,
     this.isSkip = false,
     this.showHomeWithAddress,
-    this.flexibleSpace
+    this.showTitleAndSubtitle,
+    this.flexibleSpace,
+    this.backIconColor
   }) {
     if (isSkip) {
       if (!isBack) {
@@ -93,7 +99,7 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
               isSkip ? LocaleKeys.skip.tr : LocaleKeys.back.tr,
               style: style.backTextStyle,
             ),
-          Icon(Icons.arrow_back_rounded, color: style.primaryColor),
+          Icon(Icons.arrow_back_rounded, color: backIconColor ??  style.primaryColor),
         ],
       );
     } else {
@@ -132,7 +138,7 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
                     style: style.homeTitleStyle,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-              
+
                   ),
                   SizedBox(
                       height: 18.h,
@@ -150,12 +156,25 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
                     width: 16.w,
                   ),
                   IconButton(onPressed: () {
-
                   }, icon: Icon(Icons.more_vert_rounded))
-              
                 ],
               ),
             ),
+          ),
+        if (showTitleAndSubtitle == true)
+          SmartColumn(
+            expanded: true,
+            padding: EdgeInsetsDirectional.only(end: 26.w),
+            children: [
+              SmartText(
+                LocaleKeys.packingYourOrder.tr,
+                style: style.groupTitleStyle,
+              ),
+              SmartText(
+                LocaleKeys.arrivingInMinutes.tr,
+                style: style.groupSubTitleStyle,
+              ),
+            ],
           ),
       ],
     );
