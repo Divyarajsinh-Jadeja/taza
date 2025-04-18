@@ -254,7 +254,7 @@ class LightModeTheme extends AppTheme {
 
   @override
   OfferPopupStyle get offerPopupStyle => OfferPopupStyle(
-    titleStyle: interBoldW700TextStyle.copyWith(color: colors.white, fontSize: 28.sp),
+    titleStyle: interBoldW700TextStyle.copyWith(color: colors.white, fontSize: 38.sp),
     subTitleStyle: interBoldW700TextStyle.copyWith(color: colors.white, fontSize: 17.sp),
   );
 
@@ -494,5 +494,32 @@ class LightModeTheme extends AppTheme {
   NotchedMsgStyle get notchedMsgStyle => NotchedMsgStyle(
       notchedBgColor: colors.colorE8FFF0,
       notchedTextStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 12.sp, color: colors.color34A853)
+  );
+
+  @override
+  BottomCartStyle get bottomCartStyle => BottomCartStyle(
+      reviewTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 16.sp),
+      titleStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 12.sp),
+      itemNameStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 12.sp),
+      itemAmountStyle: interRegularW400TextStyle.copyWith(fontSize: 10.sp),
+      reviewDecoration: BoxDecoration(
+
+          color: colors.colorF5F5F7,borderRadius: BorderRadius.only(topRight: Radius.circular(24.r),topLeft: Radius.circular(24.r),),boxShadow: [
+        BoxShadow(
+          color: Colors.black12,
+          blurRadius: 8,
+          offset: Offset(0, -2),
+        ),
+      ],),
+      defaultDecoration: BoxDecoration(color: colors.white,borderRadius: BorderRadius.only(topRight: Radius.circular(24.r),topLeft: Radius.circular(24.r),),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 8,
+            offset: Offset(0, -2),
+          ),
+        ],
+      ),
+    whiteColor: colors.white
   );
 }

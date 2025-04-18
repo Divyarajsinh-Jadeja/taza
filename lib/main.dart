@@ -71,7 +71,7 @@ class MyApp extends StatelessWidget {
     return Align(
       alignment: AlignmentDirectional.topEnd,
       child: const Banner(
-        message: "11 April",
+        message: "17 April",
         location: BannerLocation.topEnd,
       ),
     );

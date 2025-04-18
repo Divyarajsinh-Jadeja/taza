@@ -25,6 +25,14 @@ class LoginPage extends GetView<LoginController> {
                 color: style.continueButtonBgColor,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  SmartRow(
+                    onTap: () => Get.toNamed(AppRoutes.dashboardPage),
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    padding: EdgeInsetsDirectional.symmetric(horizontal: 20.w),
+                    children: [
+                      SmartText(LocaleKeys.skip,style: style.skipButtonTextStyle,),
+                    ],
+                  ),
                   SizedBox(height: 40.h,),
                   SmartImage(width: 80.w, path: AppImages.icSplashLogo),
                   SizedBox(height: 10.h),

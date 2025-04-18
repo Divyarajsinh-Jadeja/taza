@@ -32,6 +32,7 @@ class AppImages {
   //Home screen assets
   static const String icFlash = 'assets/images/ic_flash.svg';
   static const String icMic = 'assets/images/ic_microphone.svg';
+  static const String deliveryLottie = 'assets/images/delivery.json';
 
   // Bottom Tab Bar Icons
   static const String icProfileInactive = 'assets/images/ic_profile_inactive.svg';
@@ -73,6 +74,8 @@ class AppImages {
 
   // Reorder Screens asset
   static const String icBgRed = 'assets/images/bg_red.png';
+  static const String icBgYellow = 'assets/images/yellow.jpeg';
+  static const String icBgBlue = 'assets/images/bluebg.jpeg';
   static const String icFood = 'assets/images/food.png';
   static const String icClose = 'assets/images/ic_close.svg';
   static const String icNonVeg = 'assets/images/ic_non_veg.svg';

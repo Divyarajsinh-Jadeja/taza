@@ -97,6 +97,8 @@ abstract class AppTheme {
   OrderTrackingPageStyle get orderTrackingPageStyle;
 
   NotchedMsgStyle get notchedMsgStyle;
+
+  BottomCartStyle get bottomCartStyle;
 }
 
 
@@ -498,7 +500,6 @@ class FoodCardStyle {
 class OfferPopupStyle {
   final TextStyle titleStyle;
   final TextStyle subTitleStyle;
-
   OfferPopupStyle({required this.titleStyle, required this.subTitleStyle});
 }
 
@@ -801,4 +802,17 @@ class NotchedMsgStyle {
     required this.notchedBgColor,
     required this.notchedTextStyle,
   });
+}
+
+class BottomCartStyle{
+  final TextStyle reviewTitleStyle;
+  final TextStyle itemNameStyle;
+  final TextStyle itemAmountStyle;
+  final TextStyle titleStyle;
+  final BoxDecoration defaultDecoration;
+  final BoxDecoration reviewDecoration;
+  final Color whiteColor;
+  BottomCartStyle({required this.reviewTitleStyle,required this.itemNameStyle, required this.itemAmountStyle, required this.titleStyle, required this.defaultDecoration,required this.reviewDecoration,required this.whiteColor});
+
+
 }

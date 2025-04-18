@@ -5,6 +5,23 @@ class DashboardController extends GetxController {
   final PageController pageController = PageController(initialPage: 0);
   final tabInitialized = <int, bool>{};
 
+  @override
+  void onInit() {
+    super.onInit();
+    Future.delayed(Duration(seconds: 1),() => Utils.showSmartModalBottomSheet(
+      context: Get.context!,
+      backgroundColor: Colors.transparent,
+      builder: (context) => OfferPopup(
+        title: "Free Delivery",
+        buttonText: "Got it! Thanks",
+        subTitle: "on all order above 199",
+        image: AppImages.deliveryLottie,
+        bgImage: AppImages.icBgYellow,
+
+      ),
+    ),);
+
+  }
   final tabs = <TabData>[
     TabData(
       pageBuilder: (_) => HomePage(),

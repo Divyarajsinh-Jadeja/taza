@@ -74,7 +74,7 @@ class GroceryPage extends GetView<GroceryController> {
                       crossAxisCount: 3,
                       crossAxisSpacing: 12.w,
                       mainAxisSpacing: 12.h,
-                      childAspectRatio: 0.75,
+                      childAspectRatio: 0.72,
                     ),
                     itemCount: controller.groceryList[index].subCategories.length, // or controller.items.length
                     itemBuilder: (context, gridIndex) {
@@ -119,6 +119,8 @@ class GroceryPage extends GetView<GroceryController> {
           model.name,
           textAlign: TextAlign.center,
           style: style.subTitleStyle,
+          overflow: TextOverflow.ellipsis,
+          maxLines: 2,
           optionalPadding: EdgeInsetsDirectional.symmetric(horizontal: 4.h),
         ),
       ],
