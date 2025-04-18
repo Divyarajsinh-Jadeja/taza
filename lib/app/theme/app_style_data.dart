@@ -83,6 +83,7 @@ class LightModeTheme extends AppTheme {
     borderColor: colors.color0CF52B,
     dividerColor: colors.color9c9cA3,
     transparentColor: colors.transparent,
+
     subTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 13.sp, color: colors.color9c9cA3),
     groupTitleStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 16.sp, color: colors.white),
     groupSubTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 18.sp, color: colors.white),
@@ -465,9 +466,18 @@ class LightModeTheme extends AppTheme {
   AnimatedTabBarStyle get animatedTabBarStyle => AnimatedTabBarStyle(transparentColor: colors.transparent);
 
   @override
+  PaymentOptionCardStyle get paymentOptionCardStyle => PaymentOptionCardStyle(
+    primaryColor: colors.primary,
+    whiteColor: colors.white,
+    titleStyle: interBoldW700TextStyle.copyWith(fontSize: 16.sp),
+    subTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 14.sp, color: colors.color58585C),
+    greyColor: colors.colorD3DAE0,
+  );
+
+  @override
   NotchedMsgStyle get notchedMsgStyle => NotchedMsgStyle(
     notchedBgColor: colors.colorE8FFF0,
-    notchedTextStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 12.sp, color: colors.color34A853),
+    notchedTextStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 12.sp, color: colors.color34A853)
   );
 
   @override
