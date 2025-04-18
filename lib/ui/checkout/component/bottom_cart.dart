@@ -43,7 +43,7 @@ class BottomCartWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SmartText(
-                  "Hooray! FREE DELIVERY unlocked!",
+                  LocaleKeys.freeDeliveryMessage.tr,
                   style: style.titleStyle,
                 ),
                 SizedBox(height: 10.h),
@@ -85,7 +85,7 @@ class BottomCartWidget extends StatelessWidget {
           children: [
             SmartRow(
               children: [
-                SmartText("Review Items", isExpanded: true,style: style.reviewTitleStyle,),
+                SmartText(LocaleKeys.reviewItems.tr, isExpanded: true,style: style.reviewTitleStyle,),
                 SmartImage(path: AppImages.icClose,onTap: () => showMenu.value = !showMenu.value,),
 
               ],
@@ -125,7 +125,7 @@ class BottomCartWidget extends StatelessWidget {
                           if(index==1) SmartRow(
                             spacing: 4.w,
                             children: [
-                              SmartText("Out of stock",style: style.itemNameStyle,),
+                              SmartText(LocaleKeys.outOfStock.tr,style: style.itemNameStyle,),
                               Icon(Icons.delete_forever,size: 20.w,)
                             ],
                           ),
@@ -212,7 +212,7 @@ class BottomCartWidget extends StatelessWidget {
           children: [
             SmartRow(
               children: [
-                SmartText('4 Items', style: style.itemNameStyle),
+                SmartText(LocaleKeys.itemsCount.tr.interpolate([10.toCurrencyCodeFormat()]), style: style.itemNameStyle),
                 ValueListenableBuilder(
                   valueListenable: showMenu,
                   builder: (_, bool expanded, __) {
@@ -231,7 +231,7 @@ class BottomCartWidget extends StatelessWidget {
                 ),
               ],
             ),
-            SmartText('You save ₹10', style: style.itemAmountStyle),
+            SmartText(LocaleKeys.youSave.tr.interpolate([20.toCurrencyCodeFormat()]), style: style.itemAmountStyle),
           ],
         ),
       ],

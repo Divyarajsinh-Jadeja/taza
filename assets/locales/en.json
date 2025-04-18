@@ -123,5 +123,21 @@
   "sayIt": "Say it",
   "writeIt": "Write it",
   "haveAShoppingList": "Have a shopping list?",
-  "haveAShoppingListDesc": "Find all items in one go & build your cart 10x faster!"
+  "haveAShoppingListDesc": "Find all items in one go & build your cart 10x faster!",
+  "freeDeliveryMessage": "Hooray! FREE DELIVERY unlocked!",
+  "reviewItems": "Review Items",
+  "itemName1": "Burger loaded with cheese",
+  "outOfStock": "Out of stock",
+  "youSave": "You save {#}",
+  "itemsCount": "{#} Items",
+  "freeDeliveryApplied": "{#} free delivery applied on this order",
+  "savedOnTotal": "{#} saved on the total!",
+  "itemTotal": "Item Total",
+  "extraDiscount": "Extra discount for you",
+  "deliveryFee": "Delivery Fee",
+  "platformFee": "Platform fee",
+  "toPayFinal": "To Pay",
+  "deliveryIn": "Delivery in",
+  "deliveryTime": "{#} Mins",
+  "itemCount": "{#} Items"
 }

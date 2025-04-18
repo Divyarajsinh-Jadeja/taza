@@ -89,7 +89,7 @@ class CheckoutPage extends GetView<CheckoutController> {
       ),
       child: Center(
         child: SmartText(
-          "877 free delivery applied on this order",
+          LocaleKeys.freeDeliveryApplied.tr.interpolate([120.toCurrencyCodeFormat()]),
           style: style.appliedTextStyle,
         ),
       ),
@@ -115,7 +115,7 @@ class CheckoutPage extends GetView<CheckoutController> {
                     style: style.toPayTitleStyle,
                   ),
                   SmartTextSpan(
-                    text: "89 SAR",
+                    text: 89.toCurrencyCodeFormat(),
                     style: style.toPayTitleDiscountedStyle,
                   ),
                   SmartTextSpan(text: " 79 SAR", style: style.toPayTitleStyle),
@@ -125,37 +125,37 @@ class CheckoutPage extends GetView<CheckoutController> {
           ],
         ),
         SmartText(
-          "10 SAR saved on the total!",
+          LocaleKeys.savedOnTotal.tr.interpolate([10.toCurrencyCodeFormat()]),
           style: style.appliedTextStyle,
           optionalPadding: EdgeInsetsDirectional.only(start: 28.w),
         ),
         Padding(
-          padding: const EdgeInsetsDirectional.symmetric(vertical: 4.0),
+          padding:  EdgeInsetsDirectional.symmetric(vertical: 4.0.h),
           child: Divider(),
         ),
         _buildBillingRow(
           style: style,
-          title: "Item Total",
+          title: LocaleKeys.itemTotal.tr,
           originalPrice: 258.toCurrencyCodeFormat(),
           price: 150.toCurrencyCodeFormat(),
         ),
         _buildBillingRow(
           style: style,
-          title: "Extra discount for you",
+          title: LocaleKeys.extraDiscount.tr,
           price: "- ${20.toCurrencyCodeFormat()}",
         ),
         _buildBillingRow(
           style: style,
-          title: "Delivery Fee",
+          title: LocaleKeys.deliveryFee.tr,
           price: 50.toCurrencyCodeFormat(),
         ),
         _buildBillingRow(
           style: style,
-          title: "Platform fee",
+          title: LocaleKeys.platformFee.tr,
           price: 50.toCurrencyCodeFormat(),
         ),
         Padding(
-          padding: const EdgeInsetsDirectional.symmetric(vertical: 4.0),
+          padding:  EdgeInsetsDirectional.symmetric(vertical: 4.0.h),
           child: Divider(),
         ),
         SmartRow(
