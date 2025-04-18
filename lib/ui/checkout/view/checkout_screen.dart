@@ -8,9 +8,7 @@ class CheckoutPage extends GetView<CheckoutController> {
     final style = AppTheme.of(context).checkoutStyle;
     return Scaffold(
       backgroundColor: style.backgroundColor,
-
-      /// TODO: appbar need to change
-      appBar: AppBar(),
+      appBar: SmartAppBar(showHomeWithAddress: true,),
       body: SmartSingleChildScrollView(
         child: SmartColumn(
           padding: EdgeInsetsDirectional.all(20.w),
@@ -71,7 +69,9 @@ class CheckoutPage extends GetView<CheckoutController> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SmartAnimatedQuantity(
-                          index: 0,
+                          index: 19,
+                          onIncrease: () => Get.find<QuantityController>().increment(19),
+                          onDecrease: () => Get.find<QuantityController>().decrement(19),
                           model: FoodModel(
                             name: 'Family Bucket',
                             imageUrl: 'https://i.ibb.co/whRS5nY7/b.jpg',
@@ -146,15 +146,17 @@ class CheckoutPage extends GetView<CheckoutController> {
                     ),
                   ],
                 ),
-                SizedBox(height: 10.h,),
+                SizedBox(height: 10.h),
                 Divider(),
                 SmartText(
                   LocaleKeys.viewMoreCoupons.tr,
                   style: style.subCardTitleStyle,
                   textAlign: TextAlign.center,
-                  optionalPadding: EdgeInsetsDirectional.only(bottom: 0.h,top: 10.h),
+                  optionalPadding: EdgeInsetsDirectional.only(
+                    top: 10.h,
+                  ),
                   onTap: () {
-                      Get.toNamed(AppRoutes.couponsPage);
+                    Get.toNamed(AppRoutes.couponsPage);
                   },
                 ),
               ],
@@ -212,7 +214,7 @@ class CheckoutPage extends GetView<CheckoutController> {
         ),
       ),
       bottomNavigationBar: SmartRow(
-        height: 88.h,
+        height: 95.h,
         decoration: BoxDecoration(color: style.whiteColor),
         padding: EdgeInsetsDirectional.only(
           top: 16.h,
@@ -243,7 +245,9 @@ class CheckoutPage extends GetView<CheckoutController> {
               SmartText(LocaleKeys.payPal.tr, style: style.paymentTextStyle),
             ],
           ),
-          Expanded(child: SmartButton(onTap: () {}, title: "Pay 79 SAR")),
+          Expanded(child: SmartButton(onTap: () {
+            Get.offNamed(AppRoutes.orderTrackingPage);
+          }, title: "Pay 79 SAR")),
         ],
       ),
     );

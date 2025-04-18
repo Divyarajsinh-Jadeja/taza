@@ -9,6 +9,7 @@ class HomeAddressHeader extends StatelessWidget {
   final String? userImagePath;
   final double? userImageWidth;
   final double? userImageHeight;
+  final EdgeInsetsGeometry? padding;
   final Color? backGroundColor;
   final Color? textColor;
   final Color? homeIconColor;
@@ -23,6 +24,7 @@ class HomeAddressHeader extends StatelessWidget {
     this.userImagePath,
     this.userImageWidth,
     this.userImageHeight,
+    this.padding,
     this.backGroundColor,
     this.textColor,
     this.homeIconColor,
@@ -33,6 +35,7 @@ class HomeAddressHeader extends StatelessWidget {
     final style = AppTheme.of(context).homeHeaderStyle;
 
     return SmartRow(
+      padding: padding   ,
       decoration: BoxDecoration(color: backGroundColor),
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -44,9 +47,9 @@ class HomeAddressHeader extends StatelessWidget {
               children: [
                 SmartImage(path: homeIcon ?? AppImages.icHome, color: homeIconColor),
                 SizedBox(width: 8.h),
-                SmartText(addressTypeTag, style: style.addressTagTitleStyle),
+                SmartText(addressTypeTag, style: style.addressTagTitleStyle.copyWith(color: textColor)),
                 SizedBox(width: 6.h),
-                SmartImage(path: dropDownIcon ?? AppImages.icArrowDropDown, onTap: onAddressTap),
+                SmartImage(path: dropDownIcon ?? AppImages.icArrowDropDown, onTap: onAddressTap, color: textColor),
               ],
             ),
             SizedBox(height: 3.h),
@@ -54,8 +57,8 @@ class HomeAddressHeader extends StatelessWidget {
           ],
         ),
         userImagePath != null
-            ? SmartImage(path: userImagePath ?? "", width: userImageWidth ?? 40.w, height: userImageHeight ?? 40.h, fit: BoxFit.cover)
-            : SmartImage(path: AppImages.icUser, width: 32.w, height: 32.h),
+            ? SmartImage(path: userImagePath ?? "", width: userImageWidth ?? 40.w, height: userImageHeight ?? 40.h, fit: BoxFit.cover,onTap: () => Get.toNamed(AppRoutes.profilePage),)
+            : SmartImage(path: AppImages.icUser, width: 32.w, height: 32.h,onTap: () => Get.toNamed(AppRoutes.profilePage),),
       ],
     );
   }

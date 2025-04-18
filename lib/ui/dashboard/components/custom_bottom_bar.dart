@@ -36,7 +36,7 @@ class CustomBottomBar extends StatelessWidget {
                 SizedBox(height: 4.h),
                 Expanded(
                   child: SmartText(
-                    item.label,
+                    item.label.tr,
                     style: style.unselectedLabelStyle.copyWith(color: textColor),
                     textAlign: item.textAlign,
                     maxLines: 1,

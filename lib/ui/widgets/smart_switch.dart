@@ -74,7 +74,7 @@ class SmartSwitch extends StatefulWidget {
   final bool disabled;
 
   @override
-  _SmartSwitchState createState() => _SmartSwitchState();
+  State<SmartSwitch> createState() => _SmartSwitchState();
 }
 
 class _SmartSwitchState extends State<SmartSwitch> with SingleTickerProviderStateMixin {
@@ -84,17 +84,11 @@ class _SmartSwitchState extends State<SmartSwitch> with SingleTickerProviderStat
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(
-      vsync: this,
-      value: widget.value ? 1.0 : 0.0,
-      duration: widget.duration,
-    );
+    _animationController = AnimationController(vsync: this, value: widget.value ? 1.0 : 0.0, duration: widget.duration);
     _toggleAnimation = AlignmentTween(
       begin: Alignment.centerLeft,
       end: Alignment.centerRight,
-    ).animate(
-      CurvedAnimation(parent: _animationController, curve: Curves.linear),
-    );
+    ).animate(CurvedAnimation(parent: _animationController, curve: Curves.linear));
   }
 
   @override
@@ -113,21 +107,22 @@ class _SmartSwitchState extends State<SmartSwitch> with SingleTickerProviderStat
 
   @override
   Widget build(BuildContext context) {
-    Color _toggleColor = widget.value
-        ? (widget.activeToggleColor ?? widget.toggleColor)
-        : (widget.inactiveToggleColor ?? widget.toggleColor);
+    Color toggleColor =
+        widget.value ? (widget.activeToggleColor ?? widget.toggleColor) : (widget.inactiveToggleColor ?? widget.toggleColor);
 
-    Color _switchColor = widget.value ? widget.activeColor : widget.inactiveColor;
+    Color switchColor = widget.value ? widget.activeColor : widget.inactiveColor;
 
-    Border? _switchBorder = widget.value
-        ? (widget.activeSwitchBorder as Border?) ?? widget.switchBorder as Border?
-        : (widget.inactiveSwitchBorder as Border?) ?? widget.switchBorder as Border?;
+    Border? switchBorder =
+        widget.value
+            ? (widget.activeSwitchBorder as Border?) ?? widget.switchBorder as Border?
+            : (widget.inactiveSwitchBorder as Border?) ?? widget.switchBorder as Border?;
 
-    Border? _toggleBorder = widget.value
-        ? (widget.activeToggleBorder as Border?) ?? widget.toggleBorder as Border?
-        : (widget.inactiveToggleBorder as Border?) ?? widget.toggleBorder as Border?;
+    Border? toggleBorder =
+        widget.value
+            ? (widget.activeToggleBorder as Border?) ?? widget.toggleBorder as Border?
+            : (widget.inactiveToggleBorder as Border?) ?? widget.toggleBorder as Border?;
 
-    double _textSpace = widget.width.w - widget.toggleSize.w;
+    double textSpace = widget.width.w - widget.toggleSize.w;
 
     return AnimatedBuilder(
       animation: _animationController,
@@ -148,7 +143,7 @@ class _SmartSwitchState extends State<SmartSwitch> with SingleTickerProviderStat
                 padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(widget.borderRadius.r),
-                  border: _switchBorder ?? Border.all(color: Colors.grey),
+                  border: switchBorder ?? Border.all(color: Colors.grey),
                 ),
                 child: Stack(
                   alignment: Alignment.center,
@@ -156,16 +151,13 @@ class _SmartSwitchState extends State<SmartSwitch> with SingleTickerProviderStat
                     Container(
                       height: 10.h,
                       width: 40.w,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(widget.borderRadius.r),
-                        color: _switchColor,
-                      ),
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(widget.borderRadius.r), color: switchColor),
                     ),
                     AnimatedOpacity(
                       opacity: widget.value ? 1.0 : 0.0,
                       duration: widget.duration,
                       child: Container(
-                        width: _textSpace,
+                        width: textSpace,
                         padding: EdgeInsets.symmetric(horizontal: 4.w),
                         alignment: Alignment.centerLeft,
                         child: _activeText,
@@ -177,7 +169,7 @@ class _SmartSwitchState extends State<SmartSwitch> with SingleTickerProviderStat
                         opacity: !widget.value ? 1.0 : 0.0,
                         duration: widget.duration,
                         child: Container(
-                          width: _textSpace,
+                          width: textSpace,
                           padding: EdgeInsets.symmetric(horizontal: 4.w),
                           alignment: Alignment.centerRight,
                           child: _inactiveText,
@@ -189,11 +181,7 @@ class _SmartSwitchState extends State<SmartSwitch> with SingleTickerProviderStat
                       child: Container(
                         width: widget.toggleSize.w,
                         height: widget.toggleSize.w,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: _toggleColor,
-                          border: _toggleBorder,
-                        ),
+                        decoration: BoxDecoration(shape: BoxShape.circle, color: toggleColor, border: toggleBorder),
                         child: FittedBox(
                           fit: BoxFit.contain,
                           child: Stack(
@@ -227,21 +215,15 @@ class _SmartSwitchState extends State<SmartSwitch> with SingleTickerProviderStat
     );
   }
 
-  FontWeight get _activeTextFontWeight =>
-      widget.activeTextFontWeight ?? FontWeight.w900;
+  FontWeight get _activeTextFontWeight => widget.activeTextFontWeight ?? FontWeight.w900;
 
-  FontWeight get _inactiveTextFontWeight =>
-      widget.inactiveTextFontWeight ?? FontWeight.w900;
+  FontWeight get _inactiveTextFontWeight => widget.inactiveTextFontWeight ?? FontWeight.w900;
 
   Widget get _activeText {
     if (widget.showOnOff) {
       return Text(
         widget.activeText ?? "On",
-        style: TextStyle(
-          color: widget.activeTextColor,
-          fontWeight: _activeTextFontWeight,
-          fontSize: widget.valueFontSize.sp,
-        ),
+        style: TextStyle(color: widget.activeTextColor, fontWeight: _activeTextFontWeight, fontSize: widget.valueFontSize.sp),
       );
     }
     return const SizedBox.shrink();
@@ -251,11 +233,7 @@ class _SmartSwitchState extends State<SmartSwitch> with SingleTickerProviderStat
     if (widget.showOnOff) {
       return Text(
         widget.inactiveText ?? "Off",
-        style: TextStyle(
-          color: widget.inactiveTextColor,
-          fontWeight: _inactiveTextFontWeight,
-          fontSize: widget.valueFontSize.sp,
-        ),
+        style: TextStyle(color: widget.inactiveTextColor, fontWeight: _inactiveTextFontWeight, fontSize: widget.valueFontSize.sp),
         textAlign: TextAlign.right,
       );
     }

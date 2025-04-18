@@ -35,7 +35,7 @@ dependencies:
   dartz: ^0.10.1
 
   #intl package for localization
-  intl: ^0.20.2
+  intl: 0.19.0
 
   #flutter_svg package for svg
   flutter_svg: ^2.0.17
@@ -71,6 +71,8 @@ dependencies:
   country_code_picker: ^3.3.0
 
 dev_dependencies:
+  flutter_localizations:
+    sdk: flutter
   flutter_test:
     sdk: flutter
 
@@ -80,6 +82,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

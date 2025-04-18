@@ -41,44 +41,42 @@ class AnimatedTabBar extends GetView<FoodController> {
               key: ValueKey(isSelected),
               child: CustomPaint(
                 painter: CustomTabBarPainter(isSelected: isSelected, themeColor: data.themeColor),
-                child: Container(
+                child: SmartColumn(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12.r),
                     color: isSelected ? data.themeColor : style.transparentColor,
                   ),
-                  child: SmartColumn(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 16.w, right: 16.w, top: 12.h),
-                        child: AnimatedSlide(
-                          offset: isSelected ? Offset(0, 0) : Offset(0, 0.3),
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(left: 16.w, right: 16.w, top: 12.h),
+                      child: AnimatedSlide(
+                        offset: isSelected ? Offset(0, 0) : Offset(0, 0.3),
+                        duration: Duration(milliseconds: 400),
+                        curve: Curves.easeOut,
+                        child: AnimatedOpacity(
+                          opacity: isSelected ? 1 : 0.6,
                           duration: Duration(milliseconds: 400),
-                          curve: Curves.easeOut,
-                          child: AnimatedOpacity(
-                            opacity: isSelected ? 1 : 0.6,
-                            duration: Duration(milliseconds: 400),
-                            child: SizedBox(height: 32.w, width: 32.w, child: SmartImage(path: data.imagePath)),
-                          ),
+                          child: SizedBox(height: 32.w, width: 32.w, child: SmartImage(path: data.imagePath)),
                         ),
                       ),
-                      SizedBox(height: 16.h),
-                      Container(
-                        alignment: Alignment.center,
-                        margin: EdgeInsets.only(left: 1.w, right: 1.w, top: 2),
-                        color: isSelected ? style.transparentColor : controller.currentFoodTabData.themeColor.withValues(alpha: 0.5),
-                        child: SmartText(
-                          data.tabText,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: AppTheme.of(context).interRegularW400TextStyle.copyWith(
-                            fontSize: 10.sp,
-                            color: Utils.getContrastColor(controller.currentFoodTabData.themeColor),
-                          ),
+                    ),
+                    SizedBox(height: 16.h),
+                    Container(
+                      alignment: Alignment.center,
+                      margin: EdgeInsets.only(left: 1.w, right: 1.w, top: 2),
+                      color: isSelected ? style.transparentColor : controller.currentFoodTabData.themeColor.withValues(alpha: 0.5),
+                      child: SmartText(
+                        data.tabText,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: AppTheme.of(context).interRegularW400TextStyle.copyWith(
+                          fontSize: 10.sp,
+                          color: Utils.getContrastColor(controller.currentFoodTabData.themeColor),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),

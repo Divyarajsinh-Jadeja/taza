@@ -63,7 +63,7 @@ class FoodPage extends GetView<FoodController> {
             onAddressTap: () {},
             addressTypeTag: LocaleKeys.home.tr,
             address: "Al Tadamun Al Arabi St., Mishfirah, Jeddah KSA",
-            textColor: Colors.black,
+            textColor: Utils.getContrastColor(controller.currentFoodTabData.themeColor),
             homeIconColor: controller.currentFoodTabData.themeColor,
           ),
         ),
@@ -124,7 +124,7 @@ class FoodPage extends GetView<FoodController> {
               _animatedBoxAdapter(child: _buildFoodList(controller.foodItemList)),];
   }
 
-        List<Widget> _buildCravingSection(FoodPageStyle foodPageStyle) {
+  List<Widget> _buildCravingSection(FoodPageStyle foodPageStyle) {
     return [
       _animatedBoxAdapter(child: SizedBox(height: 32.h)),
       _buildSectionHeader("Craving Something Special?", foodPageStyle),
@@ -134,8 +134,9 @@ class FoodPage extends GetView<FoodController> {
   }
 
   List<Widget> _buildFlavorSection(FoodPageStyle foodPageStyle) {
-    return [      _animatedBoxAdapter(child: SizedBox(height: 32.h)),
-             _buildSectionHeader("Ahmed, Pick Your Flavor", foodPageStyle),
+    return [
+      _animatedBoxAdapter(child: SizedBox(height: 32.h)),
+      _buildSectionHeader("Ahmed, Pick Your Flavor", foodPageStyle),
       _animatedBoxAdapter(child: SizedBox(height: 16.h)),
       _animatedBoxAdapter(child: CategoryFilterBar()),
       _animatedBoxAdapter(child: SizedBox(height: 16.h)),
@@ -146,15 +147,15 @@ class FoodPage extends GetView<FoodController> {
 
   Widget _buildSectionHeader(String title, FoodPageStyle foodPageStyle, {bool showArrow = true}) {
     return _animatedBoxAdapter(
-                child: SmartRow(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  padding: EdgeInsets.symmetric(horizontal: 19.w),
-                  children: [
-                    SmartText(title, style: foodPageStyle.headerTextStyle, isFlexible: true),
-                   if (showArrow) SmartImage(path: AppImages.icArrowRight),
-                  ],
-                ),
-              );
+      child: SmartRow(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        padding: EdgeInsets.symmetric(horizontal: 19.w),
+        children: [
+          SmartText(title, style: foodPageStyle.headerTextStyle, isFlexible: true),
+          if (showArrow) SmartImage(path: AppImages.icArrowRight),
+        ],
+      ),
+    );
   }
 
   Widget _buildCravingTabsSliver() {
@@ -178,7 +179,7 @@ class FoodPage extends GetView<FoodController> {
   }
 
   Widget _buildCravingTabContent() {
-    return Column(
+    return SmartColumn(
       children: [
         SizedBox(height: 16.h),
         _buildFoodList(controller.menuItems),
