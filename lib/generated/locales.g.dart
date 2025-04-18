@@ -131,11 +131,24 @@ class LocaleKeys {
   static const instructionPetAtHome = 'instructionPetAtHome';
   static const instructionLeaveAtDoor = 'instructionLeaveAtDoor';
   static const instructionLeaveAtGate = 'instructionLeaveAtGate';
+  static const verifyDetails = 'verifyDetails';
+  static const otpSentTo = 'otpSentTo';
+  static const enterOtp = 'enterOtp';
+  static const otpInvalid = 'otpInvalid';
+  static const otpRetryNow = 'otpRetryNow';
+  static const otpRetryIn = 'otpRetryIn';
+  static const sms = 'sms';
+  static const call = 'call';
+  static const verifyAndProceed = 'verifyAndProceed';
+  static const enterOtpBtn = 'enterOtpBtn';
   static const scanIt = 'scanIt';
   static const sayIt = 'sayIt';
   static const writeIt = 'writeIt';
+  static const enterYourNumber = 'enterYourNumber';
   static const haveAShoppingList = 'haveAShoppingList';
   static const haveAShoppingListDesc = 'haveAShoppingListDesc';
+  static const getViaSms = 'getViaSms';
+  static const getViaCall = 'getViaCall';
 }
 
 class Locales {
@@ -270,12 +283,25 @@ class Locales {
     'instructionPetAtHome': 'Pet at home',
     'instructionLeaveAtDoor': 'Leave at door',
     'instructionLeaveAtGate': 'Leave at gate',
+    'verifyDetails': 'Verify Details',
+    'otpSentTo': 'OTP sent to {#}',
+    'enterOtp': 'Enter OTP',
+    'otpInvalid': 'Oops! Entered OTP is invalid',
+    'otpRetryNow': 'Didn\'t receive the OTP? Retry now',
+    'otpRetryIn': 'Didn\'t receive the OTP? Retry in 00:{#}',
+    'sms': 'SMS',
+    'call': 'CALL',
+    'verifyAndProceed': 'Verify and proceed',
+    'enterOtpBtn': 'Enter Otp',
     'scanIt': 'Scan it',
     'sayIt': 'Say it',
     'writeIt': 'Write it',
+    'enterYourNumber': 'Enter your number',
     'haveAShoppingList': 'Have a shopping list?',
     'haveAShoppingListDesc':
         'Find all items in one go & build your cart 10x faster!',
+    'getViaSms': 'Get via SMS',
+    'getViaCall': 'Get via Call',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -407,5 +433,18 @@ class Locales {
     'writeIt': 'اكتبها',
     'haveAShoppingList': 'لديك قائمة التسوق',
     'haveAShoppingListDesc': 'لا يمكنك استخدام القسائم المتوفرة على نطاق واسع',
+    'verifyDetails': 'تحقق من التفاصيل',
+    'otpSentTo': 'تم إرسال رمز التحقق إلى {#}',
+    'enterOtp': 'أدخل رمز التحقق',
+    'otpInvalid': 'عذرًا! رمز التحقق الذي تم إدخاله غير صحيح',
+    'otpRetryNow': 'لم تستلم رمز التحقق؟ أعد المحاولة الآن',
+    'otpRetryIn': 'لم تستلم رمز التحقق؟ أعد المحاولة خلال 00:{#}',
+    'sms': 'رسالة نصية',
+    'call': 'اتصال',
+    'verifyAndProceed': 'تحقق وتابع',
+    'enterOtpBtn': 'أدخل رمز التحقق',
+    'enterYourNumber': 'أدخل رقم هاتفك',
+    'getViaSms': 'احصل عليه عبر الرسائل القصيرة',
+    'getViaCall': 'احصل عليه عبر الاتصال',
   };
 }

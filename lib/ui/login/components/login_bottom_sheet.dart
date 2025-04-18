@@ -56,8 +56,9 @@ class LoginBottomSheet extends GetView<LoginController> {
                     showOnlyCountryWhenClosed: false,
                     alignLeft: false,
                   ),
-                  keyboardType: TextInputType.phone,
+                  keyboardType: TextInputType.number,
                   hintText: LocaleKeys.enterPhoneNumber.tr,
+                  textInputFormatter: [FilteringTextInputFormatter.digitsOnly],
                   maxLength: 10,
                   focusNode: controller.focusNode,
                   style: style.countryCodeTextStyle,
@@ -74,7 +75,7 @@ class LoginBottomSheet extends GetView<LoginController> {
                   title: LocaleKeys.continueForLogin.tr.toUpperCase(),
                   onTap: () {
                     if (controller.isPhoneValid.value) {
-                      Get.offNamed(AppRoutes.dashboardPage);
+                      Get.offNamed(AppRoutes.otpVerificationPage);
                     }
                   },
                   isEnabled: controller.isPhoneValid.value,

@@ -7,6 +7,8 @@ class SmartTextField extends StatelessWidget {
   final TextStyle? hintStyle;
   final EdgeInsets? padding;
   final String? labelText;
+  final String? inputDecorationLabelText;
+  final TextStyle? inputDecorationLabelStyle;
   final TextStyle? labelStyle;
   final String? errorText;
   final bool obscured;
@@ -104,6 +106,8 @@ class SmartTextField extends StatelessWidget {
     this.prefixIconSize,
     this.cursorHeight,
     this.textAlign,
+    this.inputDecorationLabelText,
+    this.inputDecorationLabelStyle,
     this.isSearchWithPrefix = false,
   }) : labelText = labelText != null ? '$labelText${isRequired == true ? ' *' : ''}' : null,
        isSearch = false;
@@ -159,7 +163,9 @@ class SmartTextField extends StatelessWidget {
     this.prefixIconSize,
     this.cursorHeight,
     this.textAlign,
+    this.inputDecorationLabelText,
     this.isSearchWithPrefix = false,
+    this.inputDecorationLabelStyle
   }) : labelText = labelText != null ? '$labelText${isRequired == true ? ' *' : ''}' : null,
        isSearch = true;
 
@@ -229,6 +235,8 @@ class SmartTextField extends StatelessWidget {
                 decoration: InputDecoration(
                   suffixText: suffixText,
                   prefixText: prefixText,
+                  labelText: inputDecorationLabelText,
+                  labelStyle: inputDecorationLabelStyle,
                   prefixStyle: textFieldStyle.textStyle.merge(style),
                   suffixStyle: textFieldStyle.textStyle.merge(style),
                   errorMaxLines: 6,
