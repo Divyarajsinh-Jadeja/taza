@@ -131,11 +131,6 @@ class LocaleKeys {
   static const instructionPetAtHome = 'instructionPetAtHome';
   static const instructionLeaveAtDoor = 'instructionLeaveAtDoor';
   static const instructionLeaveAtGate = 'instructionLeaveAtGate';
-  static const scanIt = 'scanIt';
-  static const sayIt = 'sayIt';
-  static const writeIt = 'writeIt';
-  static const haveAShoppingList = 'haveAShoppingList';
-  static const haveAShoppingListDesc = 'haveAShoppingListDesc';
   static const verifyDetails = 'verifyDetails';
   static const otpSentTo = 'otpSentTo';
   static const enterOtp = 'enterOtp';
@@ -146,6 +141,14 @@ class LocaleKeys {
   static const call = 'call';
   static const verifyAndProceed = 'verifyAndProceed';
   static const enterOtpBtn = 'enterOtpBtn';
+  static const scanIt = 'scanIt';
+  static const sayIt = 'sayIt';
+  static const writeIt = 'writeIt';
+  static const enterYourNumber = 'enterYourNumber';
+  static const haveAShoppingList = 'haveAShoppingList';
+  static const haveAShoppingListDesc = 'haveAShoppingListDesc';
+  static const getViaSms = 'getViaSms';
+  static const getViaCall = 'getViaCall';
 }
 
 class Locales {
@@ -280,12 +283,6 @@ class Locales {
     'instructionPetAtHome': 'Pet at home',
     'instructionLeaveAtDoor': 'Leave at door',
     'instructionLeaveAtGate': 'Leave at gate',
-    'scanIt': 'Scan it',
-    'sayIt': 'Say it',
-    'writeIt': 'Write it',
-    'haveAShoppingList': 'Have a shopping list?',
-    'haveAShoppingListDesc':
-        'Find all items in one go & build your cart 10x faster!',
     'verifyDetails': 'Verify Details',
     'otpSentTo': 'OTP sent to {#}',
     'enterOtp': 'Enter OTP',
@@ -296,6 +293,15 @@ class Locales {
     'call': 'CALL',
     'verifyAndProceed': 'Verify and proceed',
     'enterOtpBtn': 'Enter Otp',
+    'scanIt': 'Scan it',
+    'sayIt': 'Say it',
+    'writeIt': 'Write it',
+    'enterYourNumber': 'Enter your number',
+    'haveAShoppingList': 'Have a shopping list?',
+    'haveAShoppingListDesc':
+        'Find all items in one go & build your cart 10x faster!',
+    'getViaSms': 'Get via SMS',
+    'getViaCall': 'Get via Call',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -437,5 +443,8 @@ class Locales {
     'call': 'اتصال',
     'verifyAndProceed': 'تحقق وتابع',
     'enterOtpBtn': 'أدخل رمز التحقق',
+    'enterYourNumber': 'أدخل رقم هاتفك',
+    'getViaSms': 'احصل عليه عبر الرسائل القصيرة',
+    'getViaCall': 'احصل عليه عبر الاتصال',
   };
 }

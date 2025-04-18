@@ -122,7 +122,7 @@
   "sayIt": "قُلها",
   "writeIt": "اكتبها",
   "haveAShoppingList": "لديك قائمة التسوق",
-  "haveAShoppingListDesc": "لا يمكنك استخدام القسائم المتوفرة على نطاق واسع"
+  "haveAShoppingListDesc": "لا يمكنك استخدام القسائم المتوفرة على نطاق واسع",
   "verifyDetails": "تحقق من التفاصيل",
   "otpSentTo": "تم إرسال رمز التحقق إلى {#}",
   "enterOtp": "أدخل رمز التحقق",
@@ -132,6 +132,8 @@
   "sms": "رسالة نصية",
   "call": "اتصال",
   "verifyAndProceed": "تحقق وتابع",
-  "enterOtpBtn": "أدخل رمز التحقق"
-
+  "enterOtpBtn": "أدخل رمز التحقق",
+  "enterYourNumber": "أدخل رقم هاتفك",
+  "getViaSms": "احصل عليه عبر الرسائل القصيرة",
+  "getViaCall": "احصل عليه عبر الاتصال"
 }

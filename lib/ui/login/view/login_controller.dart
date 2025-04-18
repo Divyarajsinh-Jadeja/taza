@@ -7,6 +7,7 @@ class LoginController extends GetxController {
   final isFocused = false.obs;
   final isExpanded = false.obs;
   final isPhoneValid = false.obs;
+  final isInitialLoginPhoneValid = false.obs;
 
   @override
   void onInit() {

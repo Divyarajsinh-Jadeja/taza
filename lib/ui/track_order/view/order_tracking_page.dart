@@ -204,7 +204,7 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
                           borderRadius: BorderRadius.circular(4.r),
                         ),
                         activeColor: style.headerBgColor,
-                        side: BorderSide(color: style.dividerColor),
+                        side: BorderSide(color: style.headerBgColor),
                       ),
                     );
                   }),
