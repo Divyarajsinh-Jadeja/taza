@@ -8,7 +8,7 @@ class CheckoutPage extends GetView<CheckoutController> {
     final style = AppTheme.of(context).checkoutStyle;
     return Scaffold(
       backgroundColor: style.backgroundColor,
-      appBar: SmartAppBar(showHomeWithAddress: true,),
+      appBar: SmartAppBar(showHomeWithAddress: true),
       body: SmartSingleChildScrollView(
         child: SmartColumn(
           padding: EdgeInsetsDirectional.all(20.w),
@@ -28,18 +28,9 @@ class CheckoutPage extends GetView<CheckoutController> {
                       children: [
                         SmartRow(
                           children: [
-                            SmartImage(
-                              path: AppImages.icNonVeg,
-                              height: 16.w,
-                              width: 16.w,
-                            ),
+                            SmartImage(path: AppImages.icNonVeg, height: 16.w, width: 16.w),
                             SizedBox(width: 8.w),
-                            SmartText(
-                              "Family Bucket",
-                              style: style.titleStyle,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                            ),
+                            SmartText("Family Bucket", style: style.titleStyle, maxLines: 1, overflow: TextOverflow.ellipsis),
                           ],
                         ),
                         SizedBox(height: 4.h),
@@ -54,11 +45,7 @@ class CheckoutPage extends GetView<CheckoutController> {
                               ),
                             ),
                             SizedBox(width: 4.w),
-                            SmartImage(
-                              path: AppImages.icArrowDown,
-                              height: 16.w,
-                              width: 16.w,
-                            ),
+                            SmartImage(path: AppImages.icArrowDown, height: 16.w, width: 16.w),
                           ],
                         ),
                       ],
@@ -100,10 +87,7 @@ class CheckoutPage extends GetView<CheckoutController> {
                   children: [
                     SmartImage(path: AppImages.icEditPen),
                     SizedBox(width: 4.w),
-                    SmartText(
-                      LocaleKeys.cookingRequest.tr,
-                      style: style.subCardTitleStyle,
-                    ),
+                    SmartText(LocaleKeys.cookingRequest.tr, style: style.subCardTitleStyle),
                   ],
                 ),
               ],
@@ -116,34 +100,17 @@ class CheckoutPage extends GetView<CheckoutController> {
               padding: EdgeInsetsDirectional.all(16.w),
               decoration: style.cardDecoration,
               children: [
-                SmartRow(
-                  children: [
-                    SmartText(
-                      LocaleKeys.savingCorner.tr,
-                      style: style.subCardTitleStyle,
-                    ),
-                  ],
-                ),
+                SmartRow(children: [SmartText(LocaleKeys.savingCorner.tr, style: style.subCardTitleStyle)]),
                 SizedBox(height: 16.h),
                 SmartRow(
                   children: [
-                    SmartImage(
-                      path: AppImages.icSaveTag,
-                      width: 16.w,
-                      height: 16.w,
-                    ),
+                    SmartImage(path: AppImages.icSaveTag, width: 16.w, height: 16.w),
                     SizedBox(width: 8.w),
-                    SmartText(
-                      "10 SAR saved with ‘Save 10’",
-                      style: style.savingTitleStyle,
-                    ),
+                    SmartText("10 SAR saved with ‘Save 10’", style: style.savingTitleStyle),
                     Spacer(),
                     Icon(Icons.check, color: style.greenColor, size: 16.w),
                     SizedBox(width: 4.w),
-                    SmartText(
-                      LocaleKeys.applied.tr,
-                      style: style.appliedTextStyle,
-                    ),
+                    SmartText(LocaleKeys.applied.tr, style: style.appliedTextStyle),
                   ],
                 ),
                 SizedBox(height: 10.h),
@@ -152,9 +119,7 @@ class CheckoutPage extends GetView<CheckoutController> {
                   LocaleKeys.viewMoreCoupons.tr,
                   style: style.subCardTitleStyle,
                   textAlign: TextAlign.center,
-                  optionalPadding: EdgeInsetsDirectional.only(
-                    top: 10.h,
-                  ),
+                  optionalPadding: EdgeInsetsDirectional.only(top: 10.h),
                   onTap: () {
                     Get.toNamed(AppRoutes.couponsPage);
                   },
@@ -173,34 +138,17 @@ class CheckoutPage extends GetView<CheckoutController> {
                 SmartRow(
                   spacing: 8.w,
                   children: [
-                    SmartImage(
-                      path: AppImages.icDoc,
-                      height: 20.w,
-                      width: 20.w,
-                    ),
+                    SmartImage(path: AppImages.icDoc, height: 20.w, width: 20.w),
                     Expanded(
                       child: SmartRichText(
                         spans: [
-                          SmartTextSpan(
-                            text: "${LocaleKeys.toPayPrefix.tr} ",
-                            style: style.toPayTitleStyle,
-                          ),
-                          SmartTextSpan(
-                            text: "89 SAR",
-                            style: style.toPayTitleDiscountedStyle,
-                          ),
-                          SmartTextSpan(
-                            text: " 79 SAR",
-                            style: style.toPayTitleStyle,
-                          ),
+                          SmartTextSpan(text: "${LocaleKeys.toPayPrefix.tr} ", style: style.toPayTitleStyle),
+                          SmartTextSpan(text: "89 SAR", style: style.toPayTitleDiscountedStyle),
+                          SmartTextSpan(text: " 79 SAR", style: style.toPayTitleStyle),
                         ],
                       ),
                     ),
-                    SmartImage(
-                      path: AppImages.icArrowDropDown,
-                      height: 16.w,
-                      width: 16.w,
-                    ),
+                    SmartImage(path: AppImages.icArrowDropDown, height: 16.w, width: 16.w),
                   ],
                 ),
                 SmartText(
@@ -216,12 +164,7 @@ class CheckoutPage extends GetView<CheckoutController> {
       bottomNavigationBar: SmartRow(
         height: 95.h,
         decoration: BoxDecoration(color: style.whiteColor),
-        padding: EdgeInsetsDirectional.only(
-          top: 16.h,
-          bottom: 26.h,
-          start: 19.w,
-          end: 19.w,
-        ),
+        padding: EdgeInsetsDirectional.only(top: 16.h, bottom: 26.h, start: 19.w, end: 19.w),
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -235,19 +178,21 @@ class CheckoutPage extends GetView<CheckoutController> {
               SmartRow(
                 spacing: 4.w,
                 children: [
-                  SmartText(
-                    LocaleKeys.payUsing.tr,
-                    style: style.payUsingTextStyle,
-                  ),
+                  SmartText(LocaleKeys.payUsing.tr, style: style.payUsingTextStyle),
                   SmartImage(path: AppImages.icArrowUp, size: 16.w),
                 ],
               ),
               SmartText(LocaleKeys.payPal.tr, style: style.paymentTextStyle),
             ],
           ),
-          Expanded(child: SmartButton(onTap: () {
-            Get.offNamed(AppRoutes.orderTrackingPage);
-          }, title: "Pay 79 SAR")),
+          Expanded(
+            child: SmartButton(
+              onTap: () {
+                Get.offNamed(AppRoutes.orderTrackingPage);
+              },
+              title: "Pay 79 SAR",
+            ),
+          ),
         ],
       ),
     );

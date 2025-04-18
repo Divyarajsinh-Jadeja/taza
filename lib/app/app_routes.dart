@@ -1,7 +1,6 @@
 import 'package:taza/taza.dart';
 
 
-
 /// All routes for app pages are defined here
 class AppRoutes {
   static const initialRoute = '/';
@@ -12,6 +11,7 @@ class AppRoutes {
   static const orderTrackingPage = '/order_tracking_page';
   static const couponsPage = '/coupons_page';
   static const profilePage = '/profile_page';
+  static const paymentPage = '/paymentPage';
 
   static final List<GetPage> pages = [
     GetPage(
@@ -68,6 +68,13 @@ class AppRoutes {
       page: () => const OrderTrackingPage(),
       binding: OrderTrackingBinding(),
       transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
+    ),
+    GetPage(
+      name: AppRoutes.paymentPage,
+      page: () => const PaymentMethodScreen(),
+      binding: PaymentBinding(),
+      transition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
     ),
   ];

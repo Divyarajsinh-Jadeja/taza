@@ -9,6 +9,8 @@ class DashboardPage extends GetView<DashboardController> {
 
     BottomNavigationBarDataModel bottomNavData = controller.tabs[2].bottomNavData;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      extendBody: true,
       body: PageView(
         controller: controller.pageController,
         physics: const NeverScrollableScrollPhysics(),
