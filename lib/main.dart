@@ -20,7 +20,13 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           enableLog: true,
           title: AppConst.appName,
-          theme: AppController.to.themeData.value,
+          theme: AppController.to.themeData.value.copyWith(
+            pageTransitionsTheme: const PageTransitionsTheme(
+              builders: <TargetPlatform, PageTransitionsBuilder>{
+                TargetPlatform.android: ZoomPageTransitionsBuilder(),
+              },
+            ),
+          ),
           builder: (context, widget) => getMainAppViewBuilder(context, widget),
           getPages: AppRoutes.pages,
           initialRoute: AppRoutes.initialRoute,
