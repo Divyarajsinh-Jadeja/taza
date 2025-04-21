@@ -1,6 +1,4 @@
 import 'package:taza/taza.dart';
-import 'package:taza/ui/category/binding/category_binding.dart';
-import 'package:taza/ui/category/view/category_screen.dart';
 
 /// All routes for app pages are defined here
 class AppRoutes {

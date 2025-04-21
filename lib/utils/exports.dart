@@ -199,3 +199,6 @@ export 'package:taza/ui/category/model/product_model.dart';
 export 'package:taza/ui/category/view/category_controller.dart';
 export 'package:taza/ui/category/view/category_left_panel.dart';
 export 'package:taza/ui/category/view/category_right_panel.dart';
+export 'package:taza/ui/category/binding/category_binding.dart';
+export 'package:taza/ui/category/view/category_screen.dart';
+
