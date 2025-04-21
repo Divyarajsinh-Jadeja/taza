@@ -10,46 +10,46 @@ class LoginPage extends GetView<LoginController> {
       backgroundColor: style.continueButtonBgColor,
       resizeToAvoidBottomInset: false,
       body: SafeArea(
-        bottom: false,
-        child: SmartColumn(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SmartImage(
-              width: 80.w,
-              path: AppImages.icSplashLogo,
-            ),
-            10.verticalSpace,
-            SmartText(
-              optionalPadding: EdgeInsetsDirectional.symmetric(horizontal: 36.w),
-              LocaleKeys.groceryDeliverTag.tr,
-              style: style.tagTextStyle,
-              maxLines: 2,
-              textAlign: TextAlign.center,
-            ),
-            12.verticalSpace,
-            SmartImage(fit: BoxFit.fill, height: 130.h, width: 280.w, path: AppImages.icFood,),
-            SmartColumn(
-              expanded: true,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12.r),
-                color: style.loginPageBgColor,
+          bottom: false,
+          child: SmartColumn(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SmartImage(
+                width: 80.w,
+                path: AppImages.icSplashLogo,
               ),
-              padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                16.verticalSpace,
-                SmartText(
-                  LocaleKeys.enterYourNumber.tr,
-                  style: style.accountTextStyle,
-                  textAlign: TextAlign.start,
+              10.verticalSpace,
+              SmartText(
+                optionalPadding: EdgeInsetsDirectional.symmetric(horizontal: 36.w),
+                LocaleKeys.groceryDeliverTag.tr,
+                style: style.tagTextStyle,
+                maxLines: 2,
+                textAlign: TextAlign.center,
+              ),
+              12.verticalSpace,
+              SmartImage(fit: BoxFit.fill, height: 130.h, width: 280.w, path: AppImages.icFood,),
+              SmartColumn(
+                expanded: true,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12.r),
+                  color: style.loginPageBgColor,
                 ),
-                16.verticalSpace,
-                _buildTextFieldWidget(style),
-                Spacer(),
-                _buildBottomWidgets(style, context),
-              ],)
-          ],
-        )
+                padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  16.verticalSpace,
+                  SmartText(
+                    LocaleKeys.enterYourNumber.tr,
+                    style: style.accountTextStyle,
+                    textAlign: TextAlign.start,
+                  ),
+                  16.verticalSpace,
+                  _buildTextFieldWidget(style),
+                  Spacer(),
+                  _buildBottomWidgets(style, context),
+                ],)
+            ],
+          )
       ),
     );
   }
@@ -82,7 +82,7 @@ class LoginPage extends GetView<LoginController> {
       customFocusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.r),
           borderSide: BorderSide(
-            color: style.continueButtonBgColor)),
+              color: style.continueButtonBgColor)),
       contentPadding: EdgeInsetsDirectional.symmetric(
         horizontal: 10.w,
         vertical: 14.h,

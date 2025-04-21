@@ -49,6 +49,8 @@ class ProfilePage extends GetView<ProfileController> {
             subTitle: LocaleKeys.preferenceSubtitle.tr,
             onTap: () => _showLanguageSheet(context),
           ),
+
+
         ],
       ),
     );
