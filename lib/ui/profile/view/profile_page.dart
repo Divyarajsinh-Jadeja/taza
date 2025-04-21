@@ -113,12 +113,12 @@ class ProfilePage extends GetView<ProfileController> {
       },
       width: Get.width,
       padding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 16.w),
-      decoration: /*isSelected ? style.selectedLanguageDecoration:*/style.unSelectedLanguageDecoration,
+      decoration: style.unSelectedLanguageDecoration,
       children: [
         SmartText(
           isExpanded: true,
           deviceName,
-          style:/*isSelected?style.languageSelectedStyle:*/style.languageUnSelectedStyle,
+          style:style.languageUnSelectedStyle,
         ),
         SmartText(
           onTap: (){
@@ -126,7 +126,7 @@ class ProfilePage extends GetView<ProfileController> {
             Get.offAllNamed(AppRoutes.loginPage);
           },
           option,
-          style: style.nameTitleStyle.copyWith(fontSize: 14.sp, color: Colors.red),
+          style: style.logoutTextStyle,
         )
       ],
     );

@@ -46,7 +46,7 @@ class LoginPage extends GetView<LoginController> {
         flagWidth: 26.w,
         margin: EdgeInsetsDirectional.zero,
       ),
-      prefixIconSize: 14,
+      prefixIconSize: 14.w,
       keyboardType: TextInputType.number,
       enabledBorderColor: style.continueButtonBgColor,
       inputDecorationLabelText: LocaleKeys.mobileNumber.tr,
@@ -154,9 +154,9 @@ class LoginPage extends GetView<LoginController> {
           color: style.continueButtonBgColor,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 40.h,),
+            40.verticalSpace,
             SmartImage(width: 80.w, path: AppImages.icSplashLogo),
-            SizedBox(height: 10.h),
+            10.verticalSpace,
             SmartText(
               optionalPadding: EdgeInsetsDirectional.symmetric(horizontal: 36.w),
               LocaleKeys.groceryDeliverTag.tr,
@@ -164,7 +164,7 @@ class LoginPage extends GetView<LoginController> {
               maxLines: 2,
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 12.h),
+            12.verticalSpace,
             SmartImage(fit: BoxFit.fill, height: 130.h, width: 280.w, path: AppImages.icFood,)
           ],
         ),
@@ -172,7 +172,7 @@ class LoginPage extends GetView<LoginController> {
           crossAxisAlignment: CrossAxisAlignment.start,
           padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
           children: [
-            SizedBox(height: 20.h),
+            20.verticalSpace,
             SmartText(
               LocaleKeys.account.tr.toUpperCase(),
               style: style.accountTextStyle,
@@ -182,7 +182,7 @@ class LoginPage extends GetView<LoginController> {
               style: style.bottomTextStyle,
               textAlign: TextAlign.start,
             ),
-            SizedBox(height: 16.h),
+            16.verticalSpace,
             SmartButton(
               title: LocaleKeys.login.tr.toUpperCase(),
               onTap: () {
@@ -193,9 +193,9 @@ class LoginPage extends GetView<LoginController> {
               activeBackgroundColor: style.continueButtonBgColor,
               titleStyle: style.continueButtonTextStyle,
             ),
-            SizedBox(height: 16.h),
+            16.verticalSpace,
             TermsPrivacyWidget(),
-            SizedBox(height: 20.h),
+            20.verticalSpace,
             Divider(height: 2.0.h, color: style.dividerColor),
           ],
         ),

@@ -761,6 +761,7 @@ class LoginPageStyle {
 class ProfilePageStyle {
   final TextStyle nameTitleStyle;
   final TextStyle titleStyle;
+  final TextStyle logoutTextStyle;
   final TextStyle subTitleStyle;
   final Color primaryColor;
   final Color whiteColor;
@@ -773,6 +774,7 @@ class ProfilePageStyle {
   ProfilePageStyle({
     required this.nameTitleStyle,
     required this.titleStyle,
+    required this.logoutTextStyle,
     required this.subTitleStyle,
     required this.primaryColor,
     required this.whiteColor,
