@@ -12,10 +12,6 @@ class OrderTrackingController extends GetxController {
     super.onInit();
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-  }
 
   void toggleInstructionIndex(int index) {
     if (selectedInstructionIndexes.contains(index)) {

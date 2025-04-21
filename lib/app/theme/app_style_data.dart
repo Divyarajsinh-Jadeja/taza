@@ -674,47 +674,33 @@ class LightModeTheme extends AppTheme {
 
   @override
   LoginPageStyle get loginPageStyle => LoginPageStyle(
-    skipButtonTextStyle: interSemiBoldW600TextStyle.copyWith(
-      fontSize: 16.sp,
-      color: colors.white,
+    skipButtonTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 16.sp, color: colors.white,
     ),
     tagTextStyle: interBoldW700TextStyle.copyWith(
       fontSize: 18.sp,
-      color: colors.white,
-    ),
+      color: colors.white,),
     dividerColor: colors.color1D1D1F,
-    continueButtonTextStyle: interBoldW700TextStyle.copyWith(
-      fontSize: 16.sp,
-      color: colors.white,
-    ),
+    continueButtonTextStyle: interBoldW700TextStyle.copyWith(fontSize: 16.sp, color: colors.white,),
     continueButtonBgColor: colors.primary,
     continueButtonDisableBgColor: colors.primary.withValues(alpha: 0.4),
     loginPageBgColor: colors.white,
     inputFieldBgColor: colors.white,
-    errorTextStyle: interSemiBoldW600TextStyle.copyWith(
-      fontSize: 14.sp,
-      color: colors.colorFF0000,
+    errorTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.colorFF0000,
     ),
     bottomTextStyle: interSemiBoldW600TextStyle.copyWith(
       fontSize: 11.sp,
-      color: colors.color9c9cA3,
-    ),
-    termsAndPrivacyTextStyle: interBoldW700TextStyle.copyWith(
-      fontSize: 12.sp,
-      color: colors.color1D1D1F,
+      color: colors.color9c9cA3,),
+    termsAndPrivacyTextStyle: interBoldW700TextStyle.copyWith(fontSize: 12.sp, color: colors.color1D1D1F,
     ),
     countryCodeTextStyle: interMediumBoldW500TextStyle.copyWith(
       fontSize: 16.sp,
-      color: colors.color1D1D1F,
-    ),
-    accountTextStyle: interBoldW700TextStyle.copyWith(
-      fontSize: 20.sp,
-      color: colors.color1D1D1F,
+      color: colors.color1D1D1F,),
+    accountTextStyle: interBoldW700TextStyle.copyWith(fontSize: 20.sp, color: colors.color1D1D1F,
     ),
     lebelTextStyle: interBoldW700TextStyle.copyWith(
       fontSize: 14.sp,
       color: colors.primary,
-    ),
+  ),
   );
 
   @override
@@ -905,83 +891,55 @@ class LightModeTheme extends AppTheme {
     flashColors: colors.color9c9cA3,
     greenColor: colors.color30D158,
     highlightBgColor: colors.colorF5F5F7,
-    rattingTextStyle: interSemiBoldW600TextStyle.copyWith(
-      fontSize: 14.sp,
-      color: colors.color9c9cA3,
-    ),
-    timeTextStyle: interSemiBoldW600TextStyle.copyWith(
-      fontSize: 14.sp,
-      color: colors.color9c9cA3,
-    ),
-    titleTextStyle: interBoldW700TextStyle.copyWith(
-      fontSize: 19.sp,
-      color: colors.color1D1D1F,
-    ),
-    descriptionTextStyle: interRegularW400TextStyle.copyWith(
-      fontSize: 17.sp,
-      color: colors.color9c9cA3,
-    ),
-    maxSaverPriceTextStyle: interBoldW700TextStyle.copyWith(
-      fontSize: 17.sp,
-      color: colors.black,
-    ),
-    maxSaverTitleStyle: interSemiBoldW600TextStyle.copyWith(
-      fontSize: 12.sp,
-      color: colors.color30D158,
-    ),
-    addButtonStyle: interSemiBoldW600TextStyle.copyWith(
-      fontSize: 16.sp,
-      color: colors.color30D158,
-    ),
-    highlightTitleStyle: interMediumBoldW500TextStyle.copyWith(
+    whiteColor: colors.white,
+    percentageBgColor: colors.colorF65D3C,
+    bottomSheetBestValueBgColor: colors.colorFFF3EC,
+    rattingTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.color9c9cA3),
+    timeTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.color9c9cA3),
+    titleTextStyle: interBoldW700TextStyle.copyWith(fontSize: 19.sp, color: colors.color1D1D1F),
+    descriptionTextStyle: interRegularW400TextStyle.copyWith(fontSize: 17.sp, color: colors.color9c9cA3),
+    maxSaverPriceTextStyle: interBoldW700TextStyle.copyWith(fontSize: 17.sp, color: colors.black),
+    maxSaverTitleStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 12.sp, color: colors.primary),
+    addButtonStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 16.sp, color: colors.primary),
+    highlightTitleStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 15.sp, color: colors.color1D1D1F),
+    highlightDescriptionStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 15.sp, color: colors.black),
+      showMoreLessTextStyle : interSemiBoldW600TextStyle.copyWith(fontSize: 15.sp, color: colors.primary),
+    percentageTextStyle: interBoldW700TextStyle.copyWith(fontSize: 14.sp, color: colors.white),
+    bestValueTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 12.sp, color: colors.primary),
+    bottomSheetTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 17.sp, color: colors.color1D1D1F),
+    bottomSheetKgStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 15.sp, color: colors.black),
+    bottomSheetPerKgPriceStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 12.sp, color: colors.color9c9cA3),
+    bottomSheetCurrentPriceStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 15.sp, color: colors.black),
+    bottomSheetOldPriceStyle: interMediumBoldW500TextStyle.copyWith(
       fontSize: 15.sp,
-      color: colors.color1D1D1F,
+      color: colors.color9c9cA3,
+      decoration: TextDecoration.lineThrough,
+      decorationColor: colors.color9c9cA3,
     ),
-    highlightDescriptionStyle: interSemiBoldW600TextStyle.copyWith(
-      fontSize: 15.sp,
-      color: colors.black,
-    ),
+    bottomSheetPercentageStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 9.sp, color: colors.white),
+    bottomSheetAddButtonStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.white),
+    grayColor: colors.colorF5F5F7
   );
 
   @override
   OtpPageStyle get otpPageStyle => OtpPageStyle(
-    enterOtpButtonTextStyle: interBoldW700TextStyle.copyWith(
-      fontSize: 16.sp,
-      color: colors.white,
-    ),
+    enterOtpButtonTextStyle: interBoldW700TextStyle.copyWith(fontSize: 16.sp, color: colors.white),
     enterOtpButtonBgColor: colors.primary,
     enterOtpButtonDisableBgColor: colors.primary.withValues(alpha: 0.4),
     otpPageBgColor: colors.white,
-    errorTextStyle: interSemiBoldW600TextStyle.copyWith(
-      fontSize: 12.sp,
-      color: colors.colorFF0000,
-    ),
-    subTitlesTextStyle: interSemiBoldW600TextStyle.copyWith(
-      fontSize: 13.sp,
-      color: colors.color9c9cA3,
-    ),
-    verifyTextStyle: interBoldW700TextStyle.copyWith(
-      fontSize: 19.sp,
-      color: colors.color1D1D1F,
-    ),
+    errorTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 12.sp, color: colors.colorFF0000),
+    subTitlesTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 13.sp, color: colors.color9c9cA3),
+    verifyTextStyle: interBoldW700TextStyle.copyWith(fontSize: 19.sp, color: colors.color1D1D1F),
     headerCardColor: colors.colorF1F5FD,
-    otpInputTextStyle: interBoldW700TextStyle.copyWith(
-      fontSize: 18.sp,
-      color: colors.primary,
-    ),
+    otpInputTextStyle: interBoldW700TextStyle.copyWith(fontSize: 18.sp, color: colors.primary),
     activeColor: colors.primary,
     inactiveColor: colors.colorD2D2D7,
     selectedColor: colors.primary,
     errorBorderColor: colors.colorFF0000,
-    callBoxDecoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(8.r),
-      border: Border.all(color: colors.primary, width: 2.w),
-    ),
-    callBoxTitleStyle: interSemiBoldW600TextStyle.copyWith(
-      fontSize: 14.sp,
-      color: colors.primary,
-    ),
+    callBoxDecoration: BoxDecoration(borderRadius: BorderRadius.circular(8.r), border: Border.all(color: colors.primary, width: 2.w)),
+    callBoxTitleStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.primary),
   );
+
 
   @override
   ProductListViewStyle get productListViewStyle => ProductListViewStyle(

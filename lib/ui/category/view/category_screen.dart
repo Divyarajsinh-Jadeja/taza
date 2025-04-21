@@ -89,6 +89,7 @@ class ProductListView extends GetView<CategoryController> {
                 children: [
                   Expanded(
                     child: ProductCard(
+                      onProductTap: () => Get.toNamed(AppRoutes.foodDetailsPage),
                       product: controller.currentCategory.products![itemIndex],
                       index: itemIndex,
                       hasDiscount: itemIndex % 3 == 0,
@@ -104,6 +105,7 @@ class ProductListView extends GetView<CategoryController> {
                                 (controller.currentCategory.products?.length ??
                                     0))
                             ? ProductCard(
+                          onProductTap: () => Get.toNamed(AppRoutes.foodDetailsPage),
                               product:
                                   controller
                                       .currentCategory
@@ -188,6 +190,7 @@ class ProductCard extends StatelessWidget {
   final bool hasDiscount;
   final String discountPercent;
   final VoidCallback onAddTap;
+  final VoidCallback onProductTap;
 
   const ProductCard({
     super.key,
@@ -196,6 +199,7 @@ class ProductCard extends StatelessWidget {
     this.hasDiscount = false,
     this.discountPercent = "0%",
     required this.onAddTap,
+    required this.onProductTap,
   });
 
   @override
@@ -204,126 +208,129 @@ class ProductCard extends StatelessWidget {
 
     return Container(
       margin: EdgeInsetsDirectional.only(bottom: 24.h),
-      child: Stack(
-        children: [
-          SmartColumn(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Product Image
-              Hero(
-                tag: 'product_${product.id}',
-                child: Container(
-                  height: 150.h,
-                  decoration: BoxDecoration(
-                    color: style.imageBackgroundColor,
-                    borderRadius: BorderRadius.circular(8.r),
-                  ),
-                  child: Center(
-                    child: product.imageUrl.isNotEmpty
-                        ? SmartImage(
-                      path: product.imageUrl,
-                      fit: BoxFit.cover,
-                      imageBorderRadius: BorderRadius.circular(8.r),
-                    )
-                        : Icon(Icons.image,
-                        size: 40.r, color: style.imageIconColor),
-                  ),
-                ),
-              ),
-
-              // Delivery Time
-              SmartRow(
-                spacing: 4.w,
-                padding: EdgeInsetsDirectional.only(top: 8.h),
-                children: [
-                  Icon(Icons.bolt,
-                      size: 14.r, color: style.deliveryIconColor),
-                  SmartText("6 MINS", style: style.deliveryTimeTextStyle),
-                ],
-              ),
-
-              // Product Name
-              Padding(
-                padding: EdgeInsetsDirectional.only(top: 4.h),
-                child: SmartText(
-                  "${product.name}\n",
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: style.nameTextStyle,
-                ),
-              ),
-
-              // Product Size
-              Padding(
-                padding: EdgeInsetsDirectional.only(top: 4.h),
-                child: SmartText("250 ml", style: style.sizeTextStyle),
-              ),
-
-              // Price
-              Padding(
-                padding: EdgeInsetsDirectional.only(top: 4.h),
-                child: SmartRow(
-                  spacing: 6.w,
-                  children: [
-                    SmartText(
-                      hasDiscount ? (product.price * 0.8).toCurrencyCodeFormat() : product.price.toCurrencyCodeFormat(),
-                      style: style.discountedPriceTextStyle,
-                    ),
-                    if (hasDiscount)
-                      SmartText(
-                        product.price.toCurrencyCodeFormat(),
-                        style: style.originalPriceTextStyle,
-                      ),
-                  ],
-                ),
-              ),
-
-              // Add Button
-              Padding(
-                padding: EdgeInsetsDirectional.only(top: 8.h),
-                child: Bounceable(
-                  onTap: onAddTap,
+      child: Bounceable(
+        onTap: onProductTap,
+        child: Stack(
+          children: [
+            SmartColumn(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Product Image
+                Hero(
+                  tag: 'product_${product.id}',
                   child: Container(
-                    width: Get.width,
-                    padding: EdgeInsetsDirectional.symmetric(vertical: 10.h),
+                    height: 150.h,
                     decoration: BoxDecoration(
-                      color: style.addButtonBackgroundColor,
-                      border: Border.all(color: style.addButtonBorderColor),
+                      color: style.imageBackgroundColor,
                       borderRadius: BorderRadius.circular(8.r),
                     ),
-                    child: SmartText(
-                      "ADD",
-                      textAlign: TextAlign.center,
-                      style: style.addButtonTextStyle,
+                    child: Center(
+                      child: product.imageUrl.isNotEmpty
+                          ? SmartImage(
+                        path: product.imageUrl,
+                        fit: BoxFit.cover,
+                        imageBorderRadius: BorderRadius.circular(8.r),
+                      )
+                          : Icon(Icons.image,
+                          size: 40.r, color: style.imageIconColor),
                     ),
                   ),
                 ),
-              ),
-            ],
-          ),
 
-          // Discount Badge
-          if (hasDiscount)
-            Positioned.directional(
-              top: 8.h,
-              start: 8.w,
-              textDirection: TextDirection.ltr,
-              child: Container(
-                padding: EdgeInsetsDirectional.symmetric(
-                  horizontal: 8.w,
-                  vertical: 4.h,
+                // Delivery Time
+                SmartRow(
+                  spacing: 4.w,
+                  padding: EdgeInsetsDirectional.only(top: 8.h),
+                  children: [
+                    Icon(Icons.bolt,
+                        size: 14.r, color: style.deliveryIconColor),
+                    SmartText("6 MINS", style: style.deliveryTimeTextStyle),
+                  ],
                 ),
-                decoration: BoxDecoration(
-                  color: style.discountBadgeColor,
-                  borderRadius: BorderRadius.circular(4.r),
+
+                // Product Name
+                Padding(
+                  padding: EdgeInsetsDirectional.only(top: 4.h),
+                  child: SmartText(
+                    "${product.name}\n",
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: style.nameTextStyle,
+                  ),
                 ),
-                child: SmartText(
-                  "$discountPercent OFF",
-                  style: style.discountBadgeTextStyle,
+
+                // Product Size
+                Padding(
+                  padding: EdgeInsetsDirectional.only(top: 4.h),
+                  child: SmartText("250 ml", style: style.sizeTextStyle),
+                ),
+
+                // Price
+                Padding(
+                  padding: EdgeInsetsDirectional.only(top: 4.h),
+                  child: SmartRow(
+                    spacing: 6.w,
+                    children: [
+                      SmartText(
+                        hasDiscount ? (product.price * 0.8).toCurrencyCodeFormat() : product.price.toCurrencyCodeFormat(),
+                        style: style.discountedPriceTextStyle,
+                      ),
+                      if (hasDiscount)
+                        SmartText(
+                          product.price.toCurrencyCodeFormat(),
+                          style: style.originalPriceTextStyle,
+                        ),
+                    ],
+                  ),
+                ),
+
+                // Add Button
+                Padding(
+                  padding: EdgeInsetsDirectional.only(top: 8.h),
+                  child: Bounceable(
+                    onTap: onAddTap,
+                    child: Container(
+                      width: Get.width,
+                      padding: EdgeInsetsDirectional.symmetric(vertical: 10.h),
+                      decoration: BoxDecoration(
+                        color: style.addButtonBackgroundColor,
+                        border: Border.all(color: style.addButtonBorderColor),
+                        borderRadius: BorderRadius.circular(8.r),
+                      ),
+                      child: SmartText(
+                        "ADD",
+                        textAlign: TextAlign.center,
+                        style: style.addButtonTextStyle,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+
+            // Discount Badge
+            if (hasDiscount)
+              Positioned.directional(
+                top: 8.h,
+                start: 8.w,
+                textDirection: TextDirection.ltr,
+                child: Container(
+                  padding: EdgeInsetsDirectional.symmetric(
+                    horizontal: 8.w,
+                    vertical: 4.h,
+                  ),
+                  decoration: BoxDecoration(
+                    color: style.discountBadgeColor,
+                    borderRadius: BorderRadius.circular(4.r),
+                  ),
+                  child: SmartText(
+                    "$discountPercent OFF",
+                    style: style.discountBadgeTextStyle,
+                  ),
                 ),
               ),
-            ),
-        ],
+          ],
+        ),
       ),
     );
   }

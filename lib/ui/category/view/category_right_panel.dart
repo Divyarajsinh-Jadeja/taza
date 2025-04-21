@@ -1,5 +1,4 @@
 import 'package:taza/taza.dart';
-import 'package:taza/ui/category/view/category_screen.dart';
 
 class CategoryProductGrid extends GetView<CategoryController> {
   const CategoryProductGrid({super.key});

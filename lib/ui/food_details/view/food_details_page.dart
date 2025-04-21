@@ -1,62 +1,77 @@
 import 'package:taza/taza.dart';
 
+// This widget represents the food details page, displaying information about a specific food item.
 class FoodDetailsPage extends GetView<FoodDetailsController> {
   const FoodDetailsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Get the style for this page from the app's theme.
     final style = AppTheme.of(context).foodDetailsPageStyle;
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: style.grayColor,
       appBar: SmartAppBar(title: "DAAWAT Basmati Rice - Rozana Super"),
       body: SmartColumn(
         children: [
+          // Expanded widget to take up the available space.
           Expanded(
             child: SmartSingleChildScrollView(
               child: SmartColumn(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 12.h),
+                  // Card for displaying the product image and basic information.
                   Card(
                     margin: EdgeInsetsDirectional.symmetric(horizontal: 10.w),
                     clipBehavior: Clip.antiAlias,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14.r)),
                     child: SmartColumn(
-                      color: Colors.white,
+                      color: style.whiteColor,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        // Container for the product image with a border.
                         Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(14.r),
-                            border: Border.all(color: Colors.grey.shade500, width: 0.7.w),
+                            border: Border.all(color: style.grayColor, width: 0.7.w),
                           ),
-                          margin: EdgeInsets.all(10.w),
+                          margin: EdgeInsetsDirectional.all(10.w),
                           child: Stack(
                             children: [
-                              Container(
-                                padding: EdgeInsetsDirectional.all(15.w),
-                                width: Get.width,
-                                child: SmartImage(
-                                  path: 'https://i.ibb.co/wZDz4H7c/daawat-basmati-rice-rozana-gold-1-kg-quick-pantry.jpg',
-                                  height: 350.h,
-                                  fit: BoxFit.contain,
+                              // PageView for displaying multiple product images.
+                              SizedBox(
+                                height: 380.h, // Adjust height as needed
+                                child: PageView.builder(
+                                  controller: controller.pageController,
+                                  itemCount: controller.productImages.length,
+                                  onPageChanged: controller.onPageChanged,
+                                  itemBuilder: (context, index) {
+                                    return SmartImage(
+                                      padding: EdgeInsetsDirectional.all(15.w),
+                                      width: Get.width,
+                                      path: controller.productImages[index],
+                                      height: 350.h,
+                                      fit: BoxFit.contain,
+                                    );
+                                  },
                                 ),
                               ),
-                              PositionedDirectional(
-                                top: 10.h,
-                                start: 10.w,
-                                child: SmartColumn(
-                                  padding: EdgeInsetsDirectional.symmetric(horizontal: 10.w, vertical: 5.h),
-                                  decoration: BoxDecoration(color: Colors.deepOrange, borderRadius: BorderRadius.circular(4)),
-                                  children: [
-                                    Text("27%", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14.sp)),
-                                    Text("OFF", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14.sp)),
-                                  ],
+                              // Discount badge on the top-left corner.
+                              SmartColumn(
+                                padding: EdgeInsetsDirectional.symmetric(horizontal: 10.w, vertical: 5.h),
+                                decoration: BoxDecoration(
+                                  color: style.iconColors,
+                                  borderRadius: BorderRadius.only(topLeft: Radius.circular(14.r), bottomRight: Radius.circular(4.r)),
                                 ),
+                                children: [
+                                  SmartText("27%", style: style.percentageTextStyle),
+                                  SmartText("OFF", style: style.percentageTextStyle),
+                                ],
                               ),
                             ],
                           ),
                         ),
+                        // Center the image indicators.
                         Center(
                           child: SmartRow(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -67,11 +82,11 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                                     onTap: () => controller.changeImage(i),
                                     child: Container(
                                       margin: EdgeInsets.symmetric(horizontal: 5.w),
-                                      width: 10,
-                                      height: 10,
+                                      width: 10.w,
+                                      height: 10.w,
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
-                                        color: controller.currentImageIndex.value == i ? Colors.deepOrange : Colors.grey[300],
+                                        color: controller.currentImageIndex.value == i ? style.iconColors : style.flashColors,
                                       ),
                                     ),
                                   ),
@@ -80,21 +95,22 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                           ),
                         ),
                         SizedBox(height: 20.h),
+                        // Divider to separate sections.
                         Padding(padding: EdgeInsets.symmetric(horizontal: 15.w), child: Divider(height: 0.7.h)),
                         SizedBox(height: 20.h),
-                        Padding(
+                        // Row for delivery time.
+                        SmartRow(
                           padding: EdgeInsetsDirectional.only(start: 12.w, end: 12.w),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Icon(Icons.flash_on, color: style.flashColors, size: 18.w),
-                              SizedBox(width: 2.w),
-                              Text("8 MINS", style: style.rattingTextStyle),
-                            ],
-                          ),
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          spacing: 2.w,
+                          children: [
+                            Icon(Icons.flash_on, color: style.flashColors, size: 18.w),
+                            Text("8 MINS", style: style.rattingTextStyle),
+                          ],
                         ),
                         SizedBox(height: 6.h),
+                        // Product title.
                         Padding(
                           padding: EdgeInsetsDirectional.symmetric(horizontal: 15.w),
                           child: SmartText(
@@ -110,10 +126,12 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                           ),
                         ),
                         SizedBox(height: 12.h),
+                        // Row for product details and add to cart button.
                         SmartRow(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            // Column for product size, price, and max saver price.
                             SmartColumn(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               expanded: true,
@@ -133,62 +151,59 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                                   ),
                                 ),
                                 SizedBox(height: 6.h),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 15),
-                                  child: Row(
-                                    children: [
-                                      SmartText(
-                                        "₹359",
-                                        style: style.descriptionTextStyle,
-                                        animator: SmartAnimator(
-                                          animateFade: true,
-                                          animateSlideX: true,
-                                          animationDuration: 300.ms,
-                                          animationDelay: 600.ms,
-                                          animationCurve: Curves.decelerate,
-                                        ),
+                                SmartRow(
+                                  padding:  EdgeInsetsDirectional.symmetric(horizontal: 15.w),
+                                  children: [
+                                    SmartText(
+                                      359.toCurrencyCodeFormat(),
+                                      style: style.descriptionTextStyle,
+                                      animator: SmartAnimator(
+                                        animateFade: true,
+                                        animateSlideX: true,
+                                        animationDuration: 300.ms,
+                                        animationDelay: 600.ms,
+                                        animationCurve: Curves.decelerate,
                                       ),
-                                      SizedBox(width: 10.w),
-                                      SmartText(
-                                        "₹495",
-                                        style: style.descriptionTextStyle.copyWith(decoration: TextDecoration.lineThrough),
-                                        animator: SmartAnimator(
-                                          animateFade: true,
-                                          animateSlideX: true,
-                                          animationDuration: 300.ms,
-                                          animationDelay: 600.ms,
-                                          animationCurve: Curves.decelerate,
-                                        ),
+                                    ),
+                                    SizedBox(width: 10.w),
+                                    SmartText(
+                                      497.toCurrencyCodeFormat(),
+                                      style: style.descriptionTextStyle.copyWith(decoration: TextDecoration.lineThrough),
+                                      animator: SmartAnimator(
+                                        animateFade: true,
+                                        animateSlideX: true,
+                                        animationDuration: 300.ms,
+                                        animationDelay: 600.ms,
+                                        animationCurve: Curves.decelerate,
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
                                 SizedBox(height: 10.h),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 15.w),
-                                  child: SmartRow(
-                                    padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
-                                    decoration: BoxDecoration(color: Colors.yellow[100], borderRadius: BorderRadius.circular(4)),
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      SmartText("₹354", style: style.maxSaverPriceTextStyle),
-                                      SizedBox(width: 5.w),
-                                      SmartText("MAXXSAVER PRICE", style: style.maxSaverTitleStyle),
-                                    ],
-                                  ),
+                                SmartRow(
+                                  margin: EdgeInsets.symmetric(horizontal: 15.w),
+                                  padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
+                                  decoration: BoxDecoration(color: Colors.yellow[100], borderRadius: BorderRadius.circular(4.r)),
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    SmartText(350.toCurrencyCodeFormat(), style: style.maxSaverPriceTextStyle),
+                                    SizedBox(width: 5.w),
+                                    SmartText("MAXXSAVER PRICE", style: style.maxSaverTitleStyle),
+                                  ],
                                 ),
                               ],
                             ),
+                            // Add to cart button.
                             Container(
                               height: 40.h,
                               padding: EdgeInsetsDirectional.symmetric(horizontal: 15.w),
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.white,
-                                  side: BorderSide(color: style.greenColor),
+                                  backgroundColor: style.whiteColor,
+                                  side: BorderSide(color: style.iconColors),
                                   elevation: 2,
                                 ),
-                                onPressed: () => controller.addToCart(),
+                                onPressed: () => controller.addToCart(context),
                                 child: SmartText(
                                   "ADD",
                                   style: style.addButtonStyle,
@@ -207,14 +222,14 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                   Card(
                     margin: EdgeInsetsDirectional.symmetric(horizontal: 10.w),
                     clipBehavior: Clip.antiAlias,
-                    color: Colors.white,
+                    color: style.whiteColor,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14.r)),
                     child: SmartColumn(
                       children: [
                         SmartColumn(
                           width: Get.width,
                           padding: EdgeInsets.all(20.w),
-                          color: Colors.white,
+                          color: style.whiteColor,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SmartText(
@@ -252,14 +267,14 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                   Card(
                     margin: EdgeInsetsDirectional.symmetric(horizontal: 10.w),
                     clipBehavior: Clip.antiAlias,
-                    color: Colors.white,
+                    color: style.whiteColor,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14.r)),
                     child: SmartColumn(
                       children: [
                         SmartColumn(
                           width: Get.width,
                           padding: EdgeInsets.all(20.w),
-                          color: Colors.white,
+                          color: style.whiteColor,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SmartText(
@@ -309,9 +324,9 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                               child: Row(
                                 children: [
                                   Obx(() {
-                                    return Text(
+                                    return SmartText(
                                       controller.showFullDescription.value ? "- Show Less" : "+ Show More",
-                                      style: TextStyle(color: Colors.deepOrange, fontWeight: FontWeight.bold, fontSize: 16),
+                                      style: style.showMoreLessTextStyle,
                                     );
                                   }),
                                 ],
@@ -323,7 +338,6 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                     ),
                   ),
                   SizedBox(height: 10.h),
-                  // const SizedBox(height: 100), // Space for bottom cart bar
                 ],
               ),
             ),
@@ -333,6 +347,7 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
     );
   }
 
+  // Helper method to build a row for highlights.
   Widget _buildHighlightRow(String label, String value, FoodDetailsPageStyle style) {
     return SmartRow(
       padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 10.w),
@@ -369,10 +384,12 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
     );
   }
 
+  // Helper method to build a divider.
   Widget _buildDivider() {
-    return Divider(height: 1, thickness: 1, color: Colors.grey[300]);
+    return Divider(height: 1, thickness: 1,);
   }
 
+  // Helper method to build a bullet point for description.
   Widget _buildBulletPoint(String text) {
     return SmartRow(
       crossAxisAlignment: CrossAxisAlignment.start,

@@ -899,6 +899,9 @@ class FoodDetailsPageStyle {
   final Color flashColors;
   final Color greenColor;
   final Color highlightBgColor;
+  final Color whiteColor;
+  final Color percentageBgColor;
+  final Color bottomSheetBestValueBgColor;
   final TextStyle rattingTextStyle;
   final TextStyle titleTextStyle;
   final TextStyle timeTextStyle;
@@ -908,12 +911,26 @@ class FoodDetailsPageStyle {
   final TextStyle addButtonStyle;
   final TextStyle highlightTitleStyle;
   final TextStyle highlightDescriptionStyle;
+  final TextStyle showMoreLessTextStyle;
+  final TextStyle percentageTextStyle;
+  final TextStyle bottomSheetTitleStyle;
+  final TextStyle bestValueTitleStyle;
+  final TextStyle bottomSheetKgStyle;
+  final TextStyle bottomSheetPerKgPriceStyle;
+  final TextStyle bottomSheetCurrentPriceStyle;
+  final TextStyle bottomSheetOldPriceStyle;
+  final TextStyle bottomSheetPercentageStyle;
+  final TextStyle bottomSheetAddButtonStyle;
+  final Color grayColor;
 
   FoodDetailsPageStyle({
     required this.iconColors,
     required this.flashColors,
     required this.greenColor,
     required this.highlightBgColor,
+    required this.whiteColor,
+    required this.percentageBgColor,
+    required this.bottomSheetBestValueBgColor,
     required this.rattingTextStyle,
     required this.titleTextStyle,
     required this.timeTextStyle,
@@ -922,7 +939,18 @@ class FoodDetailsPageStyle {
     required this.maxSaverTitleStyle,
     required this.addButtonStyle,
     required this.highlightTitleStyle,
+    required this.showMoreLessTextStyle,
     required this.highlightDescriptionStyle,
+    required this.percentageTextStyle,
+    required this.bottomSheetTitleStyle,
+    required this.bestValueTitleStyle,
+    required this.bottomSheetKgStyle,
+    required this.bottomSheetPerKgPriceStyle,
+    required this.bottomSheetCurrentPriceStyle,
+    required this.bottomSheetOldPriceStyle,
+    required this.bottomSheetPercentageStyle,
+    required this.bottomSheetAddButtonStyle,
+    required this.grayColor
   });
 }
 
