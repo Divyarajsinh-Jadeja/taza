@@ -16,6 +16,9 @@ class HomePage extends GetView<HomeController> {
               onAddressTap: () {
                 showAddressBottomSheet(context, controller.addresses);
               },
+              onUserImageTap: (){
+                controller.navigateToProfilePage();
+              },
               addressTypeTag: LocaleKeys.home.tr,
               address: "Al Tadamun Al Arabi St., Mishfirah, Jeddah KSA",
             ),
