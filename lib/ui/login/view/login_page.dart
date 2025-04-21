@@ -10,9 +10,9 @@ class LoginPage extends GetView<LoginController> {
       backgroundColor: style.continueButtonBgColor,
       resizeToAvoidBottomInset: false,
       body: SafeArea(
-        bottom: false,
-        child: !controller.isInitialLogin ? _buildInitialLoginWidget(context, style)
-            :  _buildLoginWidget(context, style)
+          bottom: false,
+          child: !controller.isInitialLogin ? _buildInitialLoginWidget(context, style)
+              :  _buildLoginWidget(context, style)
       ),
     );
   }
@@ -61,7 +61,7 @@ class LoginPage extends GetView<LoginController> {
       customFocusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.r),
           borderSide: BorderSide(
-            color: style.continueButtonBgColor)),
+              color: style.continueButtonBgColor)),
       contentPadding: EdgeInsetsDirectional.symmetric(
         horizontal: 10.w,
         vertical: 14.h,

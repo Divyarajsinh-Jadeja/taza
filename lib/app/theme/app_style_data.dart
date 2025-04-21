@@ -255,7 +255,7 @@ class LightModeTheme extends AppTheme {
 
   @override
   OfferPopupStyle get offerPopupStyle => OfferPopupStyle(
-    titleStyle: interBoldW700TextStyle.copyWith(color: colors.white, fontSize: 28.sp),
+    titleStyle: interBoldW700TextStyle.copyWith(color: colors.white, fontSize: 38.sp),
     subTitleStyle: interBoldW700TextStyle.copyWith(color: colors.white, fontSize: 17.sp),
   );
 
@@ -323,7 +323,7 @@ class LightModeTheme extends AppTheme {
     appliedTextStyle: interBoldW700TextStyle.copyWith(fontSize: 12.sp, color: colors.color038153),
     tabSelectedTextStyle: interBoldW700TextStyle.copyWith(fontSize: 13.sp, color: colors.white),
     tabDisableTextStyle: interBoldW700TextStyle.copyWith(fontSize: 13.sp, color: colors.color58585C),
-    cardDecoration: BoxDecoration(color: colors.white, borderRadius: BorderRadius.all(Radius.circular(16.r))),
+    cardDecoration: BoxDecoration(color: colors.white, borderRadius: BorderRadius.all(Radius.circular(16.r)),),
     payUsingTextStyle: interRegularW400TextStyle.copyWith(fontSize: 13.sp, color: colors.color9c9cA3),
     paymentTextStyle: interBoldW700TextStyle.copyWith(fontSize: 15.sp, color: colors.color1D1D1F),
     tipSelectedStyle: interBoldW700TextStyle.copyWith(fontSize: 11.sp, color: colors.black),
@@ -354,8 +354,14 @@ class LightModeTheme extends AppTheme {
       border: Border.all(color: colors.color9c9cA3),
     ),
     redColor: colors.colorFF0000,
-    couponWhiteStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.white),
+    couponWhiteStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp,color: colors.white),
     couponColor: colors.color8C8C8C,
+    billingTitleStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 12.sp,color: colors.color8C8C8C),
+    billingSubTitleStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 12.sp,color: colors.color1D1D1F),
+    billingSubTitleGreenStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 12.sp,color: colors.color34C759),
+    deliveryHeaderStyle: interBoldW700TextStyle.copyWith(fontSize: 14.sp,color: colors.color1D1D1F),
+    productTitle: interMediumBoldW500TextStyle.copyWith(fontSize: 12.sp),
+    productSubtitle: interMediumBoldW500TextStyle.copyWith(fontSize: 10.sp,color: colors.color9c9cA3),
   );
 
   @override
@@ -472,6 +478,7 @@ class LightModeTheme extends AppTheme {
     primaryColor: colors.primary,
     whiteColor: colors.white,
     titleStyle: interBoldW700TextStyle.copyWith(fontSize: 16.sp),
+    primaryTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 14.sp, color: colors.primary),
     subTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 14.sp, color: colors.color58585C),
     greyColor: colors.colorD3DAE0,
   );
@@ -481,6 +488,56 @@ class LightModeTheme extends AppTheme {
     notchedBgColor: colors.colorE8FFF0,
     notchedTextStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 12.sp, color: colors.color34A853)
   );
+
+  @override
+  BottomCartStyle get bottomCartStyle => BottomCartStyle(
+      reviewTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 16.sp),
+      titleStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 12.sp),
+      itemNameStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 12.sp),
+      itemAmountStyle: interRegularW400TextStyle.copyWith(fontSize: 10.sp),
+      reviewDecoration: BoxDecoration(
+
+          color: colors.colorF5F5F7,borderRadius: BorderRadius.only(topRight: Radius.circular(24.r),topLeft: Radius.circular(24.r),),boxShadow: [
+        BoxShadow(
+          color: colors.colorBlack12,
+          blurRadius: 8,
+          offset: Offset(0, -2),
+        ),
+      ],),
+      defaultDecoration: BoxDecoration(color: colors.white,borderRadius: BorderRadius.only(topRight: Radius.circular(24.r),topLeft: Radius.circular(24.r),),
+        boxShadow: [
+          BoxShadow(
+            color: colors.colorBlack12,
+            blurRadius: 8,
+            offset: Offset(0, -2),
+          ),
+        ],
+      ),
+      fullDefaultDecoration: BoxDecoration(color: colors.white,borderRadius: BorderRadius.circular(24.r),
+        boxShadow: [
+          BoxShadow(
+            color: colors.colorBlack12,
+            blurRadius: 8,
+            offset: Offset(0, -2),
+          ),
+        ],
+      ),
+    whiteColor: colors.white,
+    primaryColor: colors.primary
+  );
+
+  @override
+  @override
+  RewardDialogStyle get rewardDialogStyle => RewardDialogStyle(
+    backgroundColor: colors.white,
+    titleTextStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 16.sp),
+    highlightTextStyle: interBoldW700TextStyle.copyWith(fontSize: 20.sp),
+    subtitleTextStyle: interRegularW400TextStyle.copyWith(fontSize: 14.sp, color: colors.color8C8C8C),
+    celebrateTextStyle: interBoldW700TextStyle.copyWith(fontSize: 16.sp, color: colors.orangeColor),
+    closeIconColor: colors.color8C8C8C,
+  );
+
+
 
   @override
   FoodDetailsPageStyle get foodDetailsPageStyle => FoodDetailsPageStyle(

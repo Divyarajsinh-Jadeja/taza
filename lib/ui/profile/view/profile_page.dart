@@ -55,6 +55,8 @@ class ProfilePage extends GetView<ProfileController> {
             subTitle: LocaleKeys.manageLogoutDevice.tr,
             onTap: () => _showLogoutBottomSheet(context, style),
           ),
+
+
         ],
       ),
     );

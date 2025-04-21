@@ -147,6 +147,22 @@ class LocaleKeys {
   static const enterYourNumber = 'enterYourNumber';
   static const haveAShoppingList = 'haveAShoppingList';
   static const haveAShoppingListDesc = 'haveAShoppingListDesc';
+  static const freeDeliveryMessage = 'freeDeliveryMessage';
+  static const reviewItems = 'reviewItems';
+  static const itemName1 = 'itemName1';
+  static const outOfStock = 'outOfStock';
+  static const youSave = 'youSave';
+  static const itemsCount = 'itemsCount';
+  static const freeDeliveryApplied = 'freeDeliveryApplied';
+  static const savedOnTotal = 'savedOnTotal';
+  static const itemTotal = 'itemTotal';
+  static const extraDiscount = 'extraDiscount';
+  static const deliveryFee = 'deliveryFee';
+  static const platformFee = 'platformFee';
+  static const toPayFinal = 'toPayFinal';
+  static const deliveryIn = 'deliveryIn';
+  static const deliveryTime = 'deliveryTime';
+  static const itemCount = 'itemCount';
   static const getViaSms = 'getViaSms';
   static const getViaCall = 'getViaCall';
   static const logOutOptions = 'logOutOptions';
@@ -304,6 +320,22 @@ class Locales {
     'haveAShoppingList': 'Have a shopping list?',
     'haveAShoppingListDesc':
         'Find all items in one go & build your cart 10x faster!',
+    'freeDeliveryMessage': 'Hooray! FREE DELIVERY unlocked!',
+    'reviewItems': 'Review Items',
+    'itemName1': 'Burger loaded with cheese',
+    'outOfStock': 'Out of stock',
+    'youSave': 'You save {#}',
+    'itemsCount': '{#} Items',
+    'freeDeliveryApplied': '{#} free delivery applied on this order',
+    'savedOnTotal': '{#} SAR saved on the total!',
+    'itemTotal': 'Item Total',
+    'extraDiscount': 'Extra discount for you',
+    'deliveryFee': 'Delivery Fee',
+    'platformFee': 'Platform fee',
+    'toPayFinal': 'To Pay',
+    'deliveryIn': 'Delivery in',
+    'deliveryTime': '{#} Mins',
+    'itemCount': '{#} Items',
     'getViaSms': 'Get via SMS',
     'getViaCall': 'Get via Call',
     'logOutOptions': 'Logout Options',
@@ -441,6 +473,22 @@ class Locales {
     'writeIt': 'اكتبها',
     'haveAShoppingList': 'لديك قائمة التسوق',
     'haveAShoppingListDesc': 'لا يمكنك استخدام القسائم المتوفرة على نطاق واسع',
+    'freeDeliveryMessage': 'يا هلا! تم تفعيل التوصيل المجاني!',
+    'reviewItems': 'مراجعة العناصر',
+    'itemName1': 'برجر محشو بالجبن',
+    'outOfStock': 'غير متوفر',
+    'youSave': 'لقد وفرت {#}',
+    'itemsCount': '{#} عناصر',
+    'freeDeliveryApplied': 'تم تطبيق توصيل مجاني لعدد {#} على هذا الطلب',
+    'savedOnTotal': 'تم توفير {#} ريال سعودي على الإجمالي!',
+    'itemTotal': 'إجمالي العناصر',
+    'extraDiscount': 'خصم إضافي لك',
+    'deliveryFee': 'رسوم التوصيل',
+    'platformFee': 'رسوم المنصة',
+    'toPayFinal': 'المبلغ المستحق',
+    'deliveryIn': 'التوصيل خلال',
+    'deliveryTime': '{#} دقيقة',
+    'itemCount': '{#} عناصر',
     'verifyDetails': 'تحقق من التفاصيل',
     'otpSentTo': 'تم إرسال رمز التحقق إلى {#}',
     'enterOtp': 'أدخل رمز التحقق',

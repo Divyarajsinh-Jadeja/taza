@@ -98,6 +98,10 @@ abstract class AppTheme {
 
   NotchedMsgStyle get notchedMsgStyle;
 
+  BottomCartStyle get bottomCartStyle;
+
+  RewardDialogStyle get rewardDialogStyle;
+
   OtpPageStyle get otpPageStyle;
 
   FoodDetailsPageStyle get foodDetailsPageStyle;
@@ -504,7 +508,6 @@ class FoodCardStyle {
 class OfferPopupStyle {
   final TextStyle titleStyle;
   final TextStyle subTitleStyle;
-
   OfferPopupStyle({required this.titleStyle, required this.subTitleStyle});
 }
 
@@ -608,6 +611,12 @@ class CheckoutStyle {
 final TextStyle couponWhiteStyle;
   final Color redColor;
   final Color couponColor;
+  final TextStyle billingTitleStyle;
+  final TextStyle billingSubTitleStyle;
+  final TextStyle billingSubTitleGreenStyle;
+  final TextStyle deliveryHeaderStyle;
+  final TextStyle productTitle;
+  final TextStyle productSubtitle;
   CheckoutStyle({
     required this.backgroundColor,
     required this.primaryColor,
@@ -638,6 +647,13 @@ final TextStyle couponWhiteStyle;
     required this.redColor,
     required this.couponWhiteStyle,
     required this.couponColor,
+    required this.billingTitleStyle,
+    required this.billingSubTitleGreenStyle,
+    required this.billingSubTitleStyle,
+    required this.deliveryHeaderStyle,
+    required this.productTitle,
+    required this.productSubtitle,
+
   });
 }
 
@@ -822,12 +838,14 @@ class PaymentOptionCardStyle {
   final Color greyColor;
   final TextStyle titleStyle;
   final TextStyle subTitleStyle;
+  final TextStyle primaryTitleStyle;
   PaymentOptionCardStyle({
     required this.primaryColor,
     required this.whiteColor,
     required this.titleStyle,
     required this.subTitleStyle,
     required this.greyColor,
+    required this.primaryTitleStyle
   });
 }
 
@@ -897,5 +915,38 @@ class FoodDetailsPageStyle {
     required this.addButtonStyle,
     required this.highlightTitleStyle,
     required this.highlightDescriptionStyle,
+  });
+}
+
+class BottomCartStyle{
+  final TextStyle reviewTitleStyle;
+  final TextStyle itemNameStyle;
+  final TextStyle itemAmountStyle;
+  final TextStyle titleStyle;
+  final BoxDecoration defaultDecoration;
+  final BoxDecoration fullDefaultDecoration;
+  final BoxDecoration reviewDecoration;
+  final Color whiteColor;
+  final Color primaryColor;
+  BottomCartStyle({required this.reviewTitleStyle,required this.itemNameStyle, required this.itemAmountStyle, required this.titleStyle, required this.defaultDecoration,required this.reviewDecoration,required this.whiteColor,required this.fullDefaultDecoration,required this.primaryColor});
+
+
+}
+
+class RewardDialogStyle {
+  final Color? backgroundColor;
+  final TextStyle? titleTextStyle;
+  final TextStyle? highlightTextStyle;
+  final TextStyle? subtitleTextStyle;
+  final TextStyle? celebrateTextStyle;
+  final Color? closeIconColor;
+
+  const RewardDialogStyle({
+    this.backgroundColor,
+    this.titleTextStyle,
+    this.highlightTextStyle,
+    this.subtitleTextStyle,
+    this.celebrateTextStyle,
+    this.closeIconColor,
   });
 }

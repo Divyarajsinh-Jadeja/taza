@@ -115,6 +115,7 @@ export 'package:taza/ui/dashboard/components/custom_bottom_bar.dart';
 export 'package:taza/ui/dashboard/components/tabdata.dart';
 export 'package:taza/ui/dashboard/components/food_card.dart';
 export 'package:taza/ui/dashboard/components/offer_popup.dart';
+export 'package:taza/ui/dashboard/components/reward_dialog.dart';
 
 export 'package:taza/ui/smart_quantity/view/smart_quantity.dart';
 export 'package:taza/ui/smart_quantity/view/smart_quantity_controller.dart';
@@ -140,6 +141,8 @@ export 'package:taza/ui/dashboard/dashboard_modules/rewards/view/rewards_page.da
 export 'package:taza/ui/checkout/view/checkout_controller.dart';
 export 'package:taza/ui/checkout/binding/checkout_binding.dart';
 export 'package:taza/ui/checkout/view/checkout_screen.dart';
+export 'package:taza/ui/checkout/component/product_checkout_card.dart';
+export 'package:taza/ui/checkout/component/bottom_cart.dart';
 
 export 'package:taza/ui/coupons/view/coupons_controller.dart';
 export 'package:taza/ui/coupons/binding/coupons_binding.dart';
