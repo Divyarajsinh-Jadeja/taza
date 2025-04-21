@@ -84,7 +84,7 @@ class ProductCard extends StatelessWidget {
   final VoidCallback onAdd;
 
   const ProductCard({
-    Key? key,
+    super.key,
     required this.style,
     required this.imageUrl,
     required this.quantityText,
@@ -94,11 +94,12 @@ class ProductCard extends StatelessWidget {
     required this.discountText,
     this.isBestValue = false,
     required this.onAdd,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     final content = Card(
+
       elevation: isBestValue ? 0 : 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
       child: Stack(

@@ -921,6 +921,7 @@ class FoodDetailsPageStyle {
   final TextStyle bottomSheetOldPriceStyle;
   final TextStyle bottomSheetPercentageStyle;
   final TextStyle bottomSheetAddButtonStyle;
+  final Color grayColor;
 
   FoodDetailsPageStyle({
     required this.iconColors,
@@ -949,6 +950,7 @@ class FoodDetailsPageStyle {
     required this.bottomSheetOldPriceStyle,
     required this.bottomSheetPercentageStyle,
     required this.bottomSheetAddButtonStyle,
+    required this.grayColor
   });
 }
 
