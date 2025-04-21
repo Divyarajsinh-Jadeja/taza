@@ -186,8 +186,7 @@ class SmartTextField extends StatelessWidget {
           color:
               isFocused
                   ? textFieldStyle.focusedTextFieldBorderColor
-                  : (enabledBorderColor) ??
-                      (isSearch ? textFieldStyle.focusedTextFieldBorderColor : textFieldStyle.enabledTextFieldBorderColor),
+                  : (enabledBorderColor) ?? (textFieldStyle.enabledTextFieldBorderColor),
         ),
       );
     }
@@ -210,7 +209,6 @@ class SmartTextField extends StatelessWidget {
           valueListenable: _passwordVisible,
           builder: (context, value, child) {
             return SizedBox(
-              height: isSearch ? 40.h : null,
               child: TextFormField(
                 onTap: onTap,
                 autofocus: autofocus,
@@ -231,7 +229,7 @@ class SmartTextField extends StatelessWidget {
                 enabled: isEnabled ?? true,
                 cursorColor: textFieldStyle.blackColor,
                 controller: controller,
-                cursorHeight: cursorHeight ?? (isSearch ? 16.h : null),
+                cursorHeight: cursorHeight,
                 decoration: InputDecoration(
                   suffixText: suffixText,
                   prefixText: prefixText,
@@ -244,8 +242,7 @@ class SmartTextField extends StatelessWidget {
                   filled: true,
                   errorStyle: textFieldStyle.errorStyle.merge(errorStyle),
                   fillColor: color ?? textFieldStyle.textFillColor,
-                  contentPadding:
-                      contentPadding ?? (isSearch ? EdgeInsets.all(10.w) : EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h)),
+                  contentPadding: contentPadding??EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
                   disabledBorder: customDisabledBorder ?? disabledBorder,
                   enabledBorder: customEnabledBorder ?? enabledBorder(),
                   focusedBorder: customFocusedBorder ?? enabledBorder(isFocused: true),
@@ -256,7 +253,7 @@ class SmartTextField extends StatelessWidget {
                   hintStyle: textFieldStyle.hintStyle.merge(hintStyle),
                   prefixIcon:
                       prefixIcon ??
-                      (isSearch ? isSearchWithPrefix ? SmartImage(path: AppImages.icHome, fit: BoxFit.contain, margin: EdgeInsets.all(8.w)) : null : null),
+                      (isSearch ? isSearchWithPrefix ? SmartImage(path: AppImages.icSearch, fit: BoxFit.contain, margin: EdgeInsets.all(8.w),) : null : null),
                   suffixIcon:
                       suffixIcon ??
                       (obscured

@@ -75,10 +75,10 @@ class LightModeTheme extends AppTheme {
       fontWeight: FontWeight.w400,
       color: colors.colorF65D3C,
     ),
-    textFillColor: colors.colorEEEAE5,
+    textFillColor: colors.white,
     disabledTextFieldBorderColor: colors.colorEEEAE5,
-    enabledTextFieldBorderColor: colors.colorEEEAE5,
-    focusedTextFieldBorderColor: colors.colorEEEAE5,
+    enabledTextFieldBorderColor: colors.colorD2D2D7,
+    focusedTextFieldBorderColor: colors.primary,
     errorBorderColor: colors.colorEEEAE5,
     hintStyle: interRegularW400TextStyle.copyWith(
       fontSize: 16.sp,
@@ -656,10 +656,15 @@ class LightModeTheme extends AppTheme {
         ),
         addressBottomSheetTitleStyle: interRegularW400TextStyle.copyWith(
           fontSize: 13.sp,
-          color: colors.color9c9cA3,
+          color: colors.color58585C,
         ),
         textFieldBgColor: colors.white,
         submitButtonBgColor: colors.primary,
+        primaryColor: colors.primary,
+        iconColor: colors.color8C8C8C,
+        primaryColorStyle: interBoldW700TextStyle.copyWith(fontSize: 14.sp,color: colors.primary),
+        blackColorStyle: interBoldW700TextStyle.copyWith(fontSize: 14.sp),
+        currentlySelectedStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 10.sp,color: colors.primary)
       );
 
   @override

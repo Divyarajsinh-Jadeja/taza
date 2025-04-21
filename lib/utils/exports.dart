@@ -202,3 +202,8 @@ export 'package:taza/ui/category/view/category_right_panel.dart';
 export 'package:taza/ui/category/binding/category_binding.dart';
 export 'package:taza/ui/category/view/category_screen.dart';
 
+export 'package:taza/ui/address/view/address_controller.dart';
+export 'package:taza/ui/address/view/address_page.dart';
+export 'package:taza/ui/address/binding/address_binding.dart';
+
+

@@ -714,12 +714,21 @@ class AddressBottomSheetStyle {
   final Color submitButtonBgColor;
   final TextStyle addressBottomSheetTagTitleStyle;
   final TextStyle addressBottomSheetTitleStyle;
-
+  final Color primaryColor;
+  final Color iconColor;
+  final TextStyle primaryColorStyle;
+  final TextStyle blackColorStyle;
+  final TextStyle currentlySelectedStyle;
   AddressBottomSheetStyle({
     required this.textFieldBgColor,
     required this.submitButtonBgColor,
     required this.addressBottomSheetTagTitleStyle,
     required this.addressBottomSheetTitleStyle,
+    required this.primaryColor,
+    required this.iconColor,
+    required this.blackColorStyle,
+    required this.primaryColorStyle,
+    required this.currentlySelectedStyle,
   });
 }
 
