@@ -364,8 +364,6 @@ class LightModeTheme extends AppTheme {
     deliveryHeaderStyle: interBoldW700TextStyle.copyWith(fontSize: 14.sp,color: colors.color1D1D1F),
     productTitle: interMediumBoldW500TextStyle.copyWith(fontSize: 12.sp),
     productSubtitle: interMediumBoldW500TextStyle.copyWith(fontSize: 10.sp,color: colors.color9c9cA3),
-    couponWhiteStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.white),
-    couponColor: colors.color8C8C8C,
   );
 
   @override
@@ -482,6 +480,7 @@ class LightModeTheme extends AppTheme {
     primaryColor: colors.primary,
     whiteColor: colors.white,
     titleStyle: interBoldW700TextStyle.copyWith(fontSize: 16.sp),
+    primaryTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 14.sp, color: colors.primary),
     subTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 14.sp, color: colors.color58585C),
     greyColor: colors.colorD3DAE0,
   );

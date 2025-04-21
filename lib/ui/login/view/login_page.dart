@@ -10,117 +10,46 @@ class LoginPage extends GetView<LoginController> {
       backgroundColor: style.continueButtonBgColor,
       resizeToAvoidBottomInset: false,
       body: SafeArea(
-        bottom: false,
-        child: SmartAnimator(
-          animateSlideX: true,
-          slideXBegin: const Offset(-1.0, 0.0),
-          slideEnd: Offset.zero,
-          animateFadeIn: true,
-          animationDuration: const Duration(milliseconds: 300),
-          animationDelay: const Duration(milliseconds: 10),
-          animationCurve: Curves.easeOut,
+          bottom: false,
           child: SmartColumn(
-            color: style.loginPageBgColor,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SmartColumn(
-                color: style.continueButtonBgColor,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SmartRow(
-                    onTap: () => Get.toNamed(AppRoutes.dashboardPage),
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    padding: EdgeInsetsDirectional.symmetric(horizontal: 20.w),
-                    children: [
-                      SmartText(LocaleKeys.skip,style: style.skipButtonTextStyle,),
-                    ],
-                  ),
-                  SizedBox(height: 40.h,),
-                  SmartImage(width: 80.w, path: AppImages.icSplashLogo),
-                  SizedBox(height: 10.h),
-                  SmartText(
-                    optionalPadding: EdgeInsetsDirectional.symmetric(horizontal: 36.w),
-                    LocaleKeys.groceryDeliverTag.tr,
-                    style: style.tagTextStyle,
-                    maxLines: 2,
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(height: 12.h),
-                  SmartImage(fit: BoxFit.fill, height: 130.h, width: 280.w, path: AppImages.icFood,)
-                ],
+              SmartImage(
+                width: 80.w,
+                path: AppImages.icSplashLogo,
               ),
+              10.verticalSpace,
+              SmartText(
+                optionalPadding: EdgeInsetsDirectional.symmetric(horizontal: 36.w),
+                LocaleKeys.groceryDeliverTag.tr,
+                style: style.tagTextStyle,
+                maxLines: 2,
+                textAlign: TextAlign.center,
+              ),
+              12.verticalSpace,
+              SmartImage(fit: BoxFit.fill, height: 130.h, width: 280.w, path: AppImages.icFood,),
               SmartColumn(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                expanded: true,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12.r),
+                  color: style.loginPageBgColor,
+                ),
                 padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 20.h),
+                  16.verticalSpace,
                   SmartText(
-                    LocaleKeys.account.tr.toUpperCase(),
+                    LocaleKeys.enterYourNumber.tr,
                     style: style.accountTextStyle,
-                  ),
-                  SmartText(
-                    LocaleKeys.loginCreateAccount.tr,
-                    style: style.bottomTextStyle,
                     textAlign: TextAlign.start,
                   ),
-                  SizedBox(height: 16.h),
-                  SmartButton(
-                    title: LocaleKeys.login.tr.toUpperCase(),
-                    onTap: () {
-                      _showLoginBottomSheet(context, style);
-                    },
-                    width: Get.width,
-                    borderRadius: BorderRadius.zero,
-                    activeBackgroundColor: style.continueButtonBgColor,
-                    titleStyle: style.continueButtonTextStyle,
-                  ),
-                  SizedBox(height: 16.h),
-                  TermsPrivacyWidget(),
-                  SizedBox(height: 20.h),
-                  Divider(height: 2.0.h, color: style.dividerColor),
-                ],
-              ),
+                  16.verticalSpace,
+                  _buildTextFieldWidget(style),
+                  Spacer(),
+                  _buildBottomWidgets(style, context),
+                ],)
             ],
-          ),
-        ),
-        child: SmartColumn(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SmartImage(
-              width: 80.w,
-              path: AppImages.icSplashLogo,
-            ),
-            10.verticalSpace,
-            SmartText(
-              optionalPadding: EdgeInsetsDirectional.symmetric(horizontal: 36.w),
-              LocaleKeys.groceryDeliverTag.tr,
-              style: style.tagTextStyle,
-              maxLines: 2,
-              textAlign: TextAlign.center,
-            ),
-            12.verticalSpace,
-            SmartImage(fit: BoxFit.fill, height: 130.h, width: 280.w, path: AppImages.icFood,),
-            SmartColumn(
-              expanded: true,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12.r),
-                color: style.loginPageBgColor,
-              ),
-              padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                16.verticalSpace,
-                SmartText(
-                  LocaleKeys.enterYourNumber.tr,
-                  style: style.accountTextStyle,
-                  textAlign: TextAlign.start,
-                ),
-                16.verticalSpace,
-                _buildTextFieldWidget(style),
-                Spacer(),
-                _buildBottomWidgets(style, context),
-              ],)
-          ],
-        )
+          )
       ),
     );
   }
@@ -153,7 +82,7 @@ class LoginPage extends GetView<LoginController> {
       customFocusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.r),
           borderSide: BorderSide(
-            color: style.continueButtonBgColor)),
+              color: style.continueButtonBgColor)),
       contentPadding: EdgeInsetsDirectional.symmetric(
         horizontal: 10.w,
         vertical: 14.h,

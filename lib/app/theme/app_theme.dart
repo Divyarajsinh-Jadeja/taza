@@ -654,7 +654,6 @@ final TextStyle couponWhiteStyle;
     required this.productTitle,
     required this.productSubtitle,
 
-    required this.couponColor,
   });
 }
 
@@ -839,12 +838,14 @@ class PaymentOptionCardStyle {
   final Color greyColor;
   final TextStyle titleStyle;
   final TextStyle subTitleStyle;
+  final TextStyle primaryTitleStyle;
   PaymentOptionCardStyle({
     required this.primaryColor,
     required this.whiteColor,
     required this.titleStyle,
     required this.subTitleStyle,
     required this.greyColor,
+    required this.primaryTitleStyle
   });
 }
 
