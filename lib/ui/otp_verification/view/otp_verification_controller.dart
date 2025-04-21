@@ -1,16 +1,18 @@
 import 'package:taza/taza.dart';
 
 class OtpVerificationController extends GetxController {
-  final otpController = TextEditingController();
-  final errorText = RxnString();
-  final isOtpValid = false.obs;
-  final secondsRemaining = 20.obs;
-  final isTimerCompleted = false.obs;
+  final TextEditingController otpController = TextEditingController();
+  final RxnString errorText = RxnString();
+  final RxBool isOtpValid = false.obs;
+  final RxInt secondsRemaining = 20.obs;
+  final RxBool isTimerCompleted = false.obs;
+  bool isInitialLogin = false;
   Timer? _timer;
 
   @override
   void onInit() {
     super.onInit();
+    isInitialLogin = StorageManager.instance.isInitialLoginDone();
     otpController.addListener(() {
       isOtpValid.value = otpController.text.trim().length == 6;
     });
@@ -50,6 +52,8 @@ class OtpVerificationController extends GetxController {
     if (isOtpValid.value) {
       if (otpController.text.trim() == "123456") {
         errorText.value = null;
+        StorageManager.instance.setInitialLoginDone(true);
+        StorageManager.instance.setLoginDone(true);
         Get.offNamed(AppRoutes.dashboardPage);
       } else {
         errorText.value = LocaleKeys.otpInvalid.tr;

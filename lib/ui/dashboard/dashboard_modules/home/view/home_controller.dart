@@ -6,9 +6,11 @@ class HomeController extends GetxController {
   final RxList<String> hints = ['Tenders', 'Burgers', 'Grocery', 'Deals'].obs;
   final RxInt currentHintIndex = 0.obs;
   TextEditingController searchController = TextEditingController();
+  bool isInitialLogin = false;
   @override
   void onInit() {
     debugPrint("HomeController onInit");
+    isInitialLogin = StorageManager.instance.isLoginDone();
     loadOptions();
     loadAddresses();
     Timer.periodic(Duration(seconds: 2), (timer) {
@@ -18,6 +20,11 @@ class HomeController extends GetxController {
   }
 
   void onTabSelected(){}
+
+  void navigateToProfilePage(){
+    isInitialLogin == true ? Get.toNamed(AppRoutes.profilePage)
+        : Get.toNamed(AppRoutes.loginPage);
+  }
 
   void loadOptions() {
     options.assignAll([

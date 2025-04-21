@@ -152,5 +152,9 @@
   "enterOtpBtn": "أدخل رمز التحقق",
   "enterYourNumber": "أدخل رقم هاتفك",
   "getViaSms": "احصل عليه عبر الرسائل القصيرة",
-  "getViaCall": "احصل عليه عبر الاتصال"
+  "getViaCall": "احصل عليه عبر الاتصال",
+  "logOutOptions": "خيارات تسجيل الخروج",
+  "manageLogoutDevice": "يمكنك إدارة حسابك من هذا الجهاز",
+  "currentDevice": "الجهاز الحالي",
+  "logout": "تسجيل الخروج"
 }

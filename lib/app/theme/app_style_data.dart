@@ -453,6 +453,7 @@ class LightModeTheme extends AppTheme {
     nameTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 18.sp),
     titleStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 16.sp),
     subTitleStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 12.sp, color: colors.color8C8C8C),
+    logoutTextStyle: interBoldW700TextStyle.copyWith(fontSize: 14.sp, color: colors.colorFF0000),
     primaryColor: colors.primary,
     primaryStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 12.sp, color: colors.primary),
     whiteColor: colors.white,

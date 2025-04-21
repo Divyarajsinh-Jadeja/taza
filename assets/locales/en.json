@@ -153,5 +153,10 @@
   "itemCount": "{#} Items"
   "haveAShoppingListDesc": "Find all items in one go & build your cart 10x faster!",
   "getViaSms": "Get via SMS",
-  "getViaCall": "Get via Call"
+  "getViaCall": "Get via Call",
+  "logOutOptions": "Logout Options",
+  "manageLogoutDevice": "You can manage your account with device",
+  "currentDevice": "Current Device",
+  "logout": "Logout"
+
 }
