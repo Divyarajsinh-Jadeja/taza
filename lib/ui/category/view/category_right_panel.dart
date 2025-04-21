@@ -26,34 +26,28 @@ class PromotionalBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    var style = AppTheme.of(context).promotionBannerStyle;
+
+    return SmartColumn(
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(colors: [Color(0xFF3E1F16), Color(0xFF7B3F29)], begin: Alignment.topLeft, end: Alignment.bottomRight),
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 10, offset: Offset(0, 4))],
-      ),
-      child: SmartColumn(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SmartText(
-            "Up to 40% OFF",
-            style: TextStyle(color: Colors.amber.shade200, fontSize: 22, fontWeight: FontWeight.bold, letterSpacing: 1.2),
-          ),
-          SizedBox(height: 6),
-          SmartText("Try crispy wafers for a sweet break!", style: TextStyle(color: Colors.white70, fontSize: 14)),
-          SizedBox(height: 14),
-          SmartButton(
-            onTap: () {},
-            title: "Order Now ",
-            height: 32,
-            width: context.width / 3,
-            activeBackgroundColor: Colors.white,
-            titleStyle: AppTheme.of(context).interMediumBoldW500TextStyle,
-          ),
-        ],
-      ),
+      decoration: style.boxDecoration,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SmartText("Up to 40% OFF", style: style.headline),
+        SizedBox(height: 6.h),
+        SmartText("Try crispy wafers for a sweet break!", style: style.subtitle),
+        SizedBox(height: 14.h),
+        SmartButton(
+          onTap: () {},
+          title: "Order Now",
+          height: 32,
+          width: context.width / 3,
+          activeBackgroundColor: style.whiteColor,
+          titleStyle: style.buttonTextStyle,
+        ),
+      ],
     );
   }
 }
+

@@ -13,18 +13,26 @@ class CategoryScreen extends GetView<CategoryController> {
           return SmartAppBar(
             leadingImage: controller.currentCategory.image,
             titleWidget: SmartColumn(
-              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SmartText(controller.currentCategory.name, style: style.titleStyle),
-                SmartText(controller.currentCategory.name, style: style.subTitleStyle),
+                SmartText(
+                  controller.currentCategory.name,
+                  style: style.titleStyle,
+                ),
+                SmartText(
+                  controller.currentCategory.name,
+                  style: style.subTitleStyle,
+                ),
               ],
             ),
             actions: [IconButton(icon: Icon(Icons.search), onPressed: () {})],
           );
         }),
       ),
-      body: Row(children: [CategorySidebar(), Expanded(child: CategoryProductGrid())]),
+      body: SmartRow(
+        children: [CategorySidebar(), Expanded(child: CategoryProductGrid())],
+      ),
     );
   }
 }
@@ -40,36 +48,43 @@ class ProductListView extends GetView<CategoryController> {
       slivers: [
         _buildProductCountSection(style),
         // Featured Ad Banner - Part of scrollable content
-        AnimatedSliverBox(
-          child:
-              controller.isShowBanner
-                  ? Padding(padding: const EdgeInsets.symmetric(horizontal: 16.0), child: PromotionalBanner())
-                  : SizedBox(),
-        ),
+        if (controller.isShowBanner)
+          AnimatedSliverBox(
+            child: Padding(
+              padding: EdgeInsetsDirectional.symmetric(horizontal: 16.0.w),
+              child: PromotionalBanner(),
+            ),
+          ),
 
         // Items count text
         SliverToBoxAdapter(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-            child: Text(
+            padding: EdgeInsetsDirectional.only(
+              start: 16.w,
+              bottom: 8.h,
+              top: 16.h,
+              end: 16.w,
+            ),
+            child: SmartText(
               "${controller.currentCategory.products?.length ?? 0} items in ${controller.currentCategory.name}",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+              style: style.itemsStyle,
             ),
           ),
         ),
 
         // Products Grid converted to SliverList
         SliverPadding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsetsDirectional.all(16.0.w),
           sliver: SliverList(
             delegate: SliverChildBuilderDelegate((context, index) {
               final int itemIndex = index * 2;
 
-              if (itemIndex >= (controller.currentCategory.products?.length ?? 0)) {
+              if (itemIndex >=
+                  (controller.currentCategory.products?.length ?? 0)) {
                 return null; // End of list
               }
 
-              return Row(
+              return SmartRow(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
@@ -81,19 +96,26 @@ class ProductListView extends GetView<CategoryController> {
                       onAddTap: () {},
                     ),
                   ),
-                  SizedBox(width: 16),
-                  if (itemIndex + 1 < (controller.currentCategory.products?.length ?? 0))
-                    Expanded(
-                      child: ProductCard(
-                        product: controller.currentCategory.products![itemIndex + 1],
-                        index: itemIndex + 1,
-                        hasDiscount: (itemIndex + 1) % 4 == 0,
-                        discountPercent: "${(5 + ((itemIndex + 1) % 4) * 3)}%",
-                        onAddTap: () {},
-                      ),
-                    )
-                  else
-                    Expanded(child: SizedBox()),
+                  SizedBox(width: 16.w),
+
+                  Expanded(
+                    child:
+                        (itemIndex + 1 <
+                                (controller.currentCategory.products?.length ??
+                                    0))
+                            ? ProductCard(
+                              product:
+                                  controller
+                                      .currentCategory
+                                      .products![itemIndex + 1],
+                              index: itemIndex + 1,
+                              hasDiscount: (itemIndex + 1) % 4 == 0,
+                              discountPercent:
+                                  "${(5 + ((itemIndex + 1) % 4) * 3)}%",
+                              onAddTap: () {},
+                            )
+                            : SizedBox(),
+                  ),
                 ],
               );
             }),
@@ -106,15 +128,21 @@ class ProductListView extends GetView<CategoryController> {
   Widget _buildProductCountSection(ProductListViewStyle style) {
     return AnimatedSliverBox(
       child: SmartRow(
-        padding: EdgeInsets.all(16.w),
+        padding: EdgeInsetsDirectional.all(16.w),
         children: [
           SmartColumn(
             expanded: true,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SmartText(controller.currentCategory.name ?? "", style: style.categoryHeaderStyle),
+              SmartText(
+                controller.currentCategory.name ?? "",
+                style: style.categoryHeaderStyle,
+              ),
               SizedBox(height: 2.h),
-              SmartText("${controller.currentCategory.products?.length ?? 0} items", style: style.categorysubHeaderStyle),
+              SmartText(
+                "${controller.currentCategory.products?.length ?? 0} items",
+                style: style.categorysubHeaderStyle,
+              ),
             ],
           ),
           FilterButton(onTap: () {}),
@@ -133,17 +161,28 @@ class FilterButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: BorderRadius.circular(20.r),
       child: SmartRow(
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.r), border: Border.all(color: Colors.grey[300]!)),
-        children: [Icon(Icons.tune, size: 18), SizedBox(width: 4), Text("Filters", style: TextStyle(fontWeight: FontWeight.w500))],
+        padding: EdgeInsetsDirectional.symmetric(
+          horizontal: 16.w,
+          vertical: 8.h,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.r),
+          border: Border.all(color: Colors.grey[300]!),
+        ),
+        children: [
+          Icon(Icons.tune, size: 18),
+          SizedBox(width: 4),
+          Text("Filters", style: TextStyle(fontWeight: FontWeight.w500)),
+        ],
       ),
     );
   }
 }
 
-class ProductCard extends StatefulWidget {
+
+class ProductCard extends StatelessWidget {
   final ProductModel product;
   final int index;
   final bool hasDiscount;
@@ -160,161 +199,148 @@ class ProductCard extends StatefulWidget {
   });
 
   @override
-  State<ProductCard> createState() => _ProductCardState();
-}
-
-class _ProductCardState extends State<ProductCard> with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _scaleAnimation;
-  bool _isHovering = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(vsync: this, duration: Duration(milliseconds: 150));
-
-    _scaleAnimation = Tween<double>(begin: 1.0, end: 0.95).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  void _onAddButtonPressed() async {
-    setState(() {
-      _isHovering = true;
-    });
-    _controller.forward();
-    await Future.delayed(Duration(milliseconds: 150));
-    _controller.reverse();
-    widget.onAddTap();
-    await Future.delayed(Duration(milliseconds: 150));
-    setState(() {
-      _isHovering = false;
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: _scaleAnimation,
-      builder: (context, child) {
-        return Transform.scale(scale: _scaleAnimation.value, child: child);
-      },
-      child: Container(
-        margin: EdgeInsets.only(bottom: 24),
-        child: Stack(
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Product Image with Hero animation
-                Hero(
-                  tag: 'product_${widget.product.id}',
-                  child: Container(
-                    height: 150,
-                    decoration: BoxDecoration(color: Colors.grey[200], borderRadius: BorderRadius.circular(8)),
-                    child: Center(
-                      child:
-                          widget.product.imageUrl.isNotEmpty
-                              ? SmartImage(path: widget.product.imageUrl, fit: BoxFit.cover)
-                              : Icon(Icons.image, size: 40, color: Colors.grey),
-                    ),
-                  ),
-                ),
+    final style = AppTheme.of(context).productCardStyle;
 
-                // Delivery Time
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
-                  child: Row(
-                    children: [
-                      Icon(Icons.bolt, size: 14, color: Colors.grey),
-                      SizedBox(width: 4),
-                      Text("6 MINS", style: TextStyle(fontSize: 12, color: Colors.grey)),
-                    ],
+    return Container(
+      margin: EdgeInsetsDirectional.only(bottom: 24.h),
+      child: Stack(
+        children: [
+          SmartColumn(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Product Image
+              Hero(
+                tag: 'product_${product.id}',
+                child: Container(
+                  height: 150.h,
+                  decoration: BoxDecoration(
+                    color: style.imageBackgroundColor,
+                    borderRadius: BorderRadius.circular(8.r),
                   ),
-                ),
-
-                // Product Name
-                Padding(
-                  padding: const EdgeInsets.only(top: 4.0),
-                  child: Text(
-                    "${widget.product.name}\n",
-                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
+                  child: Center(
+                    child: product.imageUrl.isNotEmpty
+                        ? SmartImage(
+                      path: product.imageUrl,
+                      fit: BoxFit.cover,
+                      imageBorderRadius: BorderRadius.circular(8.r),
+                    )
+                        : Icon(Icons.image,
+                        size: 40.r, color: style.imageIconColor),
                   ),
-                ),
-
-                // Size
-                Padding(
-                  padding: const EdgeInsets.only(top: 4.0),
-                  child: Text("250 ml", style: TextStyle(fontSize: 14, color: Colors.grey[700])),
-                ),
-
-                // Price with discount
-                Padding(
-                  padding: const EdgeInsets.only(top: 4.0),
-                  child: Row(
-                    children: [
-                      Text(
-                        "₹${widget.hasDiscount ? (widget.product.price * 0.8).toStringAsFixed(0) : widget.product.price.toStringAsFixed(0)}",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                      ),
-                      SizedBox(width: 6),
-                      if (widget.hasDiscount)
-                        Text(
-                          "₹${widget.product.price.toStringAsFixed(0)}",
-                          style: TextStyle(decoration: TextDecoration.lineThrough, color: Colors.grey, fontSize: 14),
-                        ),
-                    ],
-                  ),
-                ),
-
-                // Add Button with animation
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
-                  child: GestureDetector(
-                    onTap: _onAddButtonPressed,
-                    child: Container(
-                      width: double.infinity,
-                      padding: EdgeInsets.symmetric(vertical: 10),
-                      decoration: BoxDecoration(
-                        color: _isHovering ? Colors.green.withOpacity(0.1) : Colors.transparent,
-                        border: Border.all(color: Colors.green),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Text("ADD", textAlign: TextAlign.center, style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold)),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            if (widget.hasDiscount)
-              Container(
-                margin: EdgeInsets.only(bottom: 8),
-                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                decoration: BoxDecoration(color: Colors.deepOrange, borderRadius: BorderRadius.circular(4)),
-                child: Text(
-                  "${widget.discountPercent} OFF",
-                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12),
                 ),
               ),
-          ],
-        ),
+
+              // Delivery Time
+              SmartRow(
+                spacing: 4.w,
+                padding: EdgeInsetsDirectional.only(top: 8.h),
+                children: [
+                  Icon(Icons.bolt,
+                      size: 14.r, color: style.deliveryIconColor),
+                  SmartText("6 MINS", style: style.deliveryTimeTextStyle),
+                ],
+              ),
+
+              // Product Name
+              Padding(
+                padding: EdgeInsetsDirectional.only(top: 4.h),
+                child: SmartText(
+                  "${product.name}\n",
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: style.nameTextStyle,
+                ),
+              ),
+
+              // Product Size
+              Padding(
+                padding: EdgeInsetsDirectional.only(top: 4.h),
+                child: SmartText("250 ml", style: style.sizeTextStyle),
+              ),
+
+              // Price
+              Padding(
+                padding: EdgeInsetsDirectional.only(top: 4.h),
+                child: SmartRow(
+                  spacing: 6.w,
+                  children: [
+                    SmartText(
+                      hasDiscount ? (product.price * 0.8).toCurrencyCodeFormat() : product.price.toCurrencyCodeFormat(),
+                      style: style.discountedPriceTextStyle,
+                    ),
+                    if (hasDiscount)
+                      SmartText(
+                        product.price.toCurrencyCodeFormat(),
+                        style: style.originalPriceTextStyle,
+                      ),
+                  ],
+                ),
+              ),
+
+              // Add Button
+              Padding(
+                padding: EdgeInsetsDirectional.only(top: 8.h),
+                child: Bounceable(
+                  onTap: onAddTap,
+                  child: Container(
+                    width: Get.width,
+                    padding: EdgeInsetsDirectional.symmetric(vertical: 10.h),
+                    decoration: BoxDecoration(
+                      color: style.addButtonBackgroundColor,
+                      border: Border.all(color: style.addButtonBorderColor),
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
+                    child: SmartText(
+                      "ADD",
+                      textAlign: TextAlign.center,
+                      style: style.addButtonTextStyle,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+
+          // Discount Badge
+          if (hasDiscount)
+            Positioned.directional(
+              top: 8.h,
+              start: 8.w,
+              textDirection: TextDirection.ltr,
+              child: Container(
+                padding: EdgeInsetsDirectional.symmetric(
+                  horizontal: 8.w,
+                  vertical: 4.h,
+                ),
+                decoration: BoxDecoration(
+                  color: style.discountBadgeColor,
+                  borderRadius: BorderRadius.circular(4.r),
+                ),
+                child: SmartText(
+                  "$discountPercent OFF",
+                  style: style.discountBadgeTextStyle,
+                ),
+              ),
+            ),
+        ],
       ),
     );
   }
 }
+
 
 class AnimatedSliverBox extends StatelessWidget {
   final Widget child;
   final Duration duration;
   final double verticalOffset;
 
-  const AnimatedSliverBox({super.key, required this.child, this.duration = const Duration(milliseconds: 375), this.verticalOffset = 20.0});
+  const AnimatedSliverBox({
+    super.key,
+    required this.child,
+    this.duration = const Duration(milliseconds: 375),
+    this.verticalOffset = 20.0,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -322,7 +348,10 @@ class AnimatedSliverBox extends StatelessWidget {
       child: AnimationLimiter(
         child: AnimationConfiguration.synchronized(
           duration: duration,
-          child: SlideAnimation(verticalOffset: verticalOffset, child: FadeInAnimation(child: child)),
+          child: SlideAnimation(
+            verticalOffset: verticalOffset,
+            child: FadeInAnimation(child: child),
+          ),
         ),
       ),
     );

@@ -51,6 +51,9 @@ class AppThemes {
     colorA5CDFE: Color(0xFFA5CDFE),
     colorFFE6B8: Color(0xFFFFE6B8),
     colorFFF86D: Color(0xFFFFF86D),
+    color3E1F16: Color(0xFF3E1F16),
+    color7B3F29: Color(0xFF7B3F29),
+    colorFF3B30: Color(0xFFFF3B30),
   );
 
   ThemeData light({MaterialColor? theme}) {
@@ -131,6 +134,9 @@ class AppColor {
   final Color colorA5CDFE;
   final Color colorFFE6B8;
   final Color colorFFF86D;
+  final Color color7B3F29;
+  final Color color3E1F16;
+  final Color colorFF3B30;
 
   const AppColor({
     required this.primary,
@@ -178,6 +184,9 @@ class AppColor {
     required this.colorA5CDFE,
     required this.colorFFE6B8,
     required this.colorFFF86D,
+    required this.color3E1F16,
+    required this.color7B3F29,
+    required this.colorFF3B30,
   });
 }
 

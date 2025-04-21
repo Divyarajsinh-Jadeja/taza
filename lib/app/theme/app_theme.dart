@@ -107,6 +107,10 @@ abstract class AppTheme {
   CategorySidebarStyle get categorySidebarStyle;
 
   ProductListViewStyle get productListViewStyle;
+
+  PromotionalBannerStyle get promotionBannerStyle;
+
+  ProductCardStyle get productCardStyle;
 }
 
 class PrimaryButtonStyle {
@@ -907,6 +911,7 @@ class CategorySidebarStyle {
   final Color primaryColor;
   final Color transparentColor;
   final Color whiteColor;
+  final Color shadowColor;
   final TextStyle selectedTitleTextStyle;
   final TextStyle unSelectedTitleTextStyle;
   CategorySidebarStyle({
@@ -914,6 +919,7 @@ class CategorySidebarStyle {
     required this.primaryColor,
     required this.transparentColor,
     required this.whiteColor,
+    required this.shadowColor,
     required this.selectedTitleTextStyle,
     required this.unSelectedTitleTextStyle,
   });
@@ -922,6 +928,40 @@ class CategorySidebarStyle {
 class ProductListViewStyle {
   final TextStyle categoryHeaderStyle;
   final TextStyle categorysubHeaderStyle;
+  final TextStyle itemsStyle;
 
-  ProductListViewStyle({required this.categoryHeaderStyle, required this.categorysubHeaderStyle});
+  ProductListViewStyle({required this.categoryHeaderStyle, required this.categorysubHeaderStyle,required this.itemsStyle});
+}
+class PromotionalBannerStyle {
+  final TextStyle headline;
+  final TextStyle subtitle;
+  final TextStyle buttonTextStyle;
+  final BoxDecoration boxDecoration;
+  final Color whiteColor;
+
+  const PromotionalBannerStyle({
+    required this.headline,
+    required this.subtitle,
+    required this.buttonTextStyle,
+    required this.whiteColor,
+    required this.boxDecoration,
+  });
+}
+class ProductCardStyle {
+  final Color imageBackgroundColor;
+  final Color deliveryIconColor;
+  final TextStyle deliveryTimeTextStyle;
+  final TextStyle nameTextStyle;
+  final TextStyle sizeTextStyle;
+  final TextStyle discountedPriceTextStyle;
+  final TextStyle originalPriceTextStyle;
+  final Color addButtonBackgroundColor;
+  final Color addButtonBorderColor;
+  final TextStyle addButtonTextStyle;
+  final Color discountBadgeColor;
+  final Color imageIconColor;
+  final TextStyle discountBadgeTextStyle;
+
+  ProductCardStyle({required this.imageBackgroundColor, required this.deliveryIconColor, required this.deliveryTimeTextStyle, required this.nameTextStyle, required this.sizeTextStyle, required this.discountedPriceTextStyle, required this.originalPriceTextStyle, required this.addButtonBackgroundColor, required this.addButtonBorderColor, required this.addButtonTextStyle, required this.discountBadgeColor, required this.discountBadgeTextStyle, required this.imageIconColor});
+
 }

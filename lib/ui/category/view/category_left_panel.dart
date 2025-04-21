@@ -5,7 +5,7 @@ class CategorySidebar extends GetView<CategoryController> {
 
   @override
   Widget build(BuildContext context) {
-    final categoryWidth = MediaQuery.of(context).size.width * 0.22;
+    final categoryWidth = Get.width * 0.22;
     final style = AppTheme.of(context).categorySidebarStyle;
     return Container(
       width: categoryWidth,
@@ -25,7 +25,7 @@ class CategorySidebar extends GetView<CategoryController> {
                 border: Border(left: BorderSide(width: 3.5.w, color: isSelected ? style.primaryColor : style.transparentColor)),
               ),
               child: SmartColumn(
-                padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 6.w),
+                padding: EdgeInsetsDirectional.symmetric(vertical: 8.h, horizontal: 6.w),
                 onTap: () => controller.selectCategory(index),
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -42,7 +42,7 @@ class CategorySidebar extends GetView<CategoryController> {
                             isSelected
                                 ? [
                                   BoxShadow(
-                                    color: Colors.grey.withValues(alpha: 0.2),
+                                    color: style.shadowColor.withValues(alpha: 0.2),
                                     spreadRadius: 1,
                                     blurRadius: 2,
                                     offset: const Offset(0, 1),
@@ -51,7 +51,7 @@ class CategorySidebar extends GetView<CategoryController> {
                                 : null,
                       ),
                       child: Padding(
-                        padding: EdgeInsets.all(8.0.w),
+                        padding: EdgeInsetsDirectional.all(8.0.w),
                         child: AnimatedSwitcher(
                           duration: const Duration(milliseconds: 300),
                           transitionBuilder: (child, animation) => FadeTransition(opacity: animation, child: child),
