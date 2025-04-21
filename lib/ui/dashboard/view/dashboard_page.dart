@@ -7,14 +7,24 @@ class DashboardPage extends GetView<DashboardController> {
   Widget build(BuildContext context) {
     final style = AppTheme.of(context).tabBarStyle;
 
-    BottomNavigationBarDataModel bottomNavData = controller.tabs[2].bottomNavData;
+    BottomNavigationBarDataModel bottomNavData =
+        controller.tabs[2].bottomNavData;
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      extendBody: true,
-      body: PageView(
-        controller: controller.pageController,
-        physics: const NeverScrollableScrollPhysics(),
-        children: controller.tabs.map((tab) => Builder(builder: tab.pageBuilder)).toList(),
+
+      body: Stack(
+        children: [
+          PageView(
+            controller: controller.pageController,
+            physics: const NeverScrollableScrollPhysics(),
+            children:
+                controller.tabs
+                    .map((tab) => Builder(builder: tab.pageBuilder))
+                    .toList(),
+          ),
+          Positioned.directional(
+              textDirection: TextDirection.ltr,
+              bottom: 0.h, end: 0.w, start: 0.w, child: BottomCartWidget()),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         elevation: 4,

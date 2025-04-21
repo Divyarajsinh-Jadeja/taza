@@ -98,13 +98,24 @@ abstract class AppTheme {
 
   NotchedMsgStyle get notchedMsgStyle;
 
+  BottomCartStyle get bottomCartStyle;
+
+  RewardDialogStyle get rewardDialogStyle;
+
   OtpPageStyle get otpPageStyle;
 
   FoodDetailsPageStyle get foodDetailsPageStyle;
 
   PaymentOptionCardStyle get paymentOptionCardStyle;
-}
 
+  CategorySidebarStyle get categorySidebarStyle;
+
+  ProductListViewStyle get productListViewStyle;
+
+  PromotionalBannerStyle get promotionBannerStyle;
+
+  ProductCardStyle get productCardStyle;
+}
 
 class PrimaryButtonStyle {
   final Color activeBackgroundColor;
@@ -504,7 +515,6 @@ class FoodCardStyle {
 class OfferPopupStyle {
   final TextStyle titleStyle;
   final TextStyle subTitleStyle;
-
   OfferPopupStyle({required this.titleStyle, required this.subTitleStyle});
 }
 
@@ -605,9 +615,15 @@ class CheckoutStyle {
   final BoxDecoration tipUnSelectedDecoration;
   final BoxDecoration couponsSelectedDecoration;
   final BoxDecoration couponsUnSelectedDecoration;
-final TextStyle couponWhiteStyle;
+  final TextStyle couponWhiteStyle;
   final Color redColor;
   final Color couponColor;
+  final TextStyle billingTitleStyle;
+  final TextStyle billingSubTitleStyle;
+  final TextStyle billingSubTitleGreenStyle;
+  final TextStyle deliveryHeaderStyle;
+  final TextStyle productTitle;
+  final TextStyle productSubtitle;
   CheckoutStyle({
     required this.backgroundColor,
     required this.primaryColor,
@@ -638,6 +654,13 @@ final TextStyle couponWhiteStyle;
     required this.redColor,
     required this.couponWhiteStyle,
     required this.couponColor,
+    required this.billingTitleStyle,
+    required this.billingSubTitleGreenStyle,
+    required this.billingSubTitleStyle,
+    required this.deliveryHeaderStyle,
+    required this.productTitle,
+    required this.productSubtitle,
+
   });
 }
 
@@ -738,13 +761,14 @@ class LoginPageStyle {
     required this.bottomTextStyle,
     required this.termsAndPrivacyTextStyle,
     required this.countryCodeTextStyle,
-    required this.lebelTextStyle
+    required this.lebelTextStyle,
   });
 }
 
 class ProfilePageStyle {
   final TextStyle nameTitleStyle;
   final TextStyle titleStyle;
+  final TextStyle logoutTextStyle;
   final TextStyle subTitleStyle;
   final Color primaryColor;
   final Color whiteColor;
@@ -757,6 +781,7 @@ class ProfilePageStyle {
   ProfilePageStyle({
     required this.nameTitleStyle,
     required this.titleStyle,
+    required this.logoutTextStyle,
     required this.subTitleStyle,
     required this.primaryColor,
     required this.whiteColor,
@@ -822,15 +847,16 @@ class PaymentOptionCardStyle {
   final Color greyColor;
   final TextStyle titleStyle;
   final TextStyle subTitleStyle;
+  final TextStyle primaryTitleStyle;
   PaymentOptionCardStyle({
     required this.primaryColor,
     required this.whiteColor,
     required this.titleStyle,
     required this.subTitleStyle,
     required this.greyColor,
+    required this.primaryTitleStyle
   });
 }
-
 
 class OtpPageStyle {
   final Color otpPageBgColor;
@@ -923,5 +949,98 @@ class FoodDetailsPageStyle {
     required this.bottomSheetOldPriceStyle,
     required this.bottomSheetPercentageStyle,
     required this.bottomSheetAddButtonStyle,
+  });
+}
+
+class CategorySidebarStyle {
+  final Color borderColor;
+  final Color primaryColor;
+  final Color transparentColor;
+  final Color whiteColor;
+  final Color shadowColor;
+  final TextStyle selectedTitleTextStyle;
+  final TextStyle unSelectedTitleTextStyle;
+  CategorySidebarStyle({
+    required this.borderColor,
+    required this.primaryColor,
+    required this.transparentColor,
+    required this.whiteColor,
+    required this.shadowColor,
+    required this.selectedTitleTextStyle,
+    required this.unSelectedTitleTextStyle,
+  });
+}
+
+class ProductListViewStyle {
+  final TextStyle categoryHeaderStyle;
+  final TextStyle categorysubHeaderStyle;
+  final TextStyle itemsStyle;
+
+  ProductListViewStyle({required this.categoryHeaderStyle, required this.categorysubHeaderStyle,required this.itemsStyle});
+}
+class PromotionalBannerStyle {
+  final TextStyle headline;
+  final TextStyle subtitle;
+  final TextStyle buttonTextStyle;
+  final BoxDecoration boxDecoration;
+  final Color whiteColor;
+
+  const PromotionalBannerStyle({
+    required this.headline,
+    required this.subtitle,
+    required this.buttonTextStyle,
+    required this.whiteColor,
+    required this.boxDecoration,
+  });
+}
+class ProductCardStyle {
+  final Color imageBackgroundColor;
+  final Color deliveryIconColor;
+  final TextStyle deliveryTimeTextStyle;
+  final TextStyle nameTextStyle;
+  final TextStyle sizeTextStyle;
+  final TextStyle discountedPriceTextStyle;
+  final TextStyle originalPriceTextStyle;
+  final Color addButtonBackgroundColor;
+  final Color addButtonBorderColor;
+  final TextStyle addButtonTextStyle;
+  final Color discountBadgeColor;
+  final Color imageIconColor;
+  final TextStyle discountBadgeTextStyle;
+
+  ProductCardStyle({required this.imageBackgroundColor, required this.deliveryIconColor, required this.deliveryTimeTextStyle, required this.nameTextStyle, required this.sizeTextStyle, required this.discountedPriceTextStyle, required this.originalPriceTextStyle, required this.addButtonBackgroundColor, required this.addButtonBorderColor, required this.addButtonTextStyle, required this.discountBadgeColor, required this.discountBadgeTextStyle, required this.imageIconColor});
+
+}
+
+class BottomCartStyle{
+  final TextStyle reviewTitleStyle;
+  final TextStyle itemNameStyle;
+  final TextStyle itemAmountStyle;
+  final TextStyle titleStyle;
+  final BoxDecoration defaultDecoration;
+  final BoxDecoration fullDefaultDecoration;
+  final BoxDecoration reviewDecoration;
+  final Color whiteColor;
+  final Color primaryColor;
+  BottomCartStyle({required this.reviewTitleStyle,required this.itemNameStyle, required this.itemAmountStyle, required this.titleStyle, required this.defaultDecoration,required this.reviewDecoration,required this.whiteColor,required this.fullDefaultDecoration,required this.primaryColor});
+
+
+}
+
+class RewardDialogStyle {
+  final Color? backgroundColor;
+  final TextStyle? titleTextStyle;
+  final TextStyle? highlightTextStyle;
+  final TextStyle? subtitleTextStyle;
+  final TextStyle? celebrateTextStyle;
+  final Color? closeIconColor;
+
+  const RewardDialogStyle({
+    this.backgroundColor,
+    this.titleTextStyle,
+    this.highlightTextStyle,
+    this.subtitleTextStyle,
+    this.celebrateTextStyle,
+    this.closeIconColor,
   });
 }

@@ -1,6 +1,5 @@
 import 'package:taza/taza.dart';
 
-
 /// All routes for app pages are defined here
 class AppRoutes {
   static const initialRoute = '/';
@@ -13,6 +12,7 @@ class AppRoutes {
   static const profilePage = '/profile_page';
   static const paymentPage = '/paymentPage';
   static const foodDetailsPage = '/food_details_page';
+  static const categoryPage = '/category_page';
 
   static final List<GetPage> pages = [
     GetPage(
@@ -74,7 +74,6 @@ class AppRoutes {
     GetPage(
       name: AppRoutes.paymentPage,
       page: () => const PaymentMethodScreen(),
-      binding: PaymentBinding(),
       transition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
     ),
@@ -82,6 +81,14 @@ class AppRoutes {
       name: AppRoutes.foodDetailsPage,
       page: () => const FoodDetailsPage(),
       binding: FoodDetailsBinding(),
+      transition: Transition.cupertino,
+      transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
+    ),
+
+    GetPage(
+      name: AppRoutes.categoryPage,
+      page: () => const CategoryScreen(),
+      binding: CategoryBinding(),
       transition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
     ),

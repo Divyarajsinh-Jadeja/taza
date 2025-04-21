@@ -14,8 +14,8 @@ class PaymentOptionCard extends StatelessWidget {
       onTap: onTap,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
-        margin: EdgeInsets.only(bottom: 16.h),
-        padding: EdgeInsets.all(16.w),
+        margin: EdgeInsetsDirectional.only(bottom: 16.h),
+        padding: EdgeInsetsDirectional.all(16.w),
         decoration: BoxDecoration(
           color: isSelected ? style.primaryColor.withValues(alpha: 0.2) : style.whiteColor,
           borderRadius: BorderRadius.circular(12.r),
@@ -33,10 +33,10 @@ class PaymentOptionCard extends StatelessWidget {
                         children: [
                           SmartText(paymentMethod.number ?? '', style: style.titleStyle),
                           SizedBox(height: 4.h),
-                          SmartText(paymentMethod.expiry ?? '', style: style.subTitleStyle.copyWith(color: style.primaryColor)),
+                          SmartText(paymentMethod.expiry ?? '', style: style.primaryTitleStyle),
                         ],
                       )
-                      : SmartText(paymentMethod.type.name, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.sp)),
+                      : SmartText(paymentMethod.type.name, style: style.titleStyle),
             ),
             AnimatedOpacity(
               opacity: isSelected ? 1.0 : 0.0,
