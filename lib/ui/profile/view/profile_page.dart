@@ -197,8 +197,7 @@ class ProfilePage extends GetView<ProfileController> {
   void _showLogoutBottomSheet(BuildContext context, ProfilePageStyle style) {
     Utils.showSmartModalBottomSheet(
       context: context,
-      builder:
-          (context) => SmartColumn(
+      builder: (context) => SmartColumn(
         padding: EdgeInsetsDirectional.all(20.r),
         decoration: BoxDecoration(
           color: style.whiteColor,
