@@ -176,7 +176,6 @@ class OtpVerificationPage extends GetView<OtpVerificationController> {
       curve: Curves.easeOut,
       padding: EdgeInsetsDirectional.only(bottom: bottomInset),
       child: SmartColumn(
-        expanded: true,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SmartText(
