@@ -15,8 +15,26 @@ class StorageManager {
   static const String _userData = 'userData';
   static const String _userIds = 'userIds';
   static const String _userLanguage = 'userLanguage';
+  static const String _isInitialLogin = 'initialLogin';
+  static const String _isLogin = 'login';
 
   GetStorage localStorage = GetStorage();
+
+  void setInitialLoginDone(bool value) {
+    localStorage.write(_isInitialLogin, value);
+  }
+
+  bool isInitialLoginDone() {
+    return localStorage.read(_isInitialLogin) ?? false;
+  }
+
+  void setLoginDone(bool value) {
+    localStorage.write(_isLogin, value);
+  }
+
+  bool isLoginDone() {
+    return localStorage.read(_isLogin) ?? false;
+  }
 
   /// Set auth token after login-signup
   void setAuthToken(String token) {

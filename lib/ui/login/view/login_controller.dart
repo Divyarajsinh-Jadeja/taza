@@ -1,17 +1,20 @@
 import 'package:taza/taza.dart';
 
 class LoginController extends GetxController {
-  final phoneController = TextEditingController();
-  final errorText = RxnString();
-  final focusNode = FocusNode();
-  final isFocused = false.obs;
-  final isExpanded = false.obs;
-  final isPhoneValid = false.obs;
-  final isInitialLoginPhoneValid = false.obs;
+  final TextEditingController phoneController = TextEditingController();
+  final RxnString errorText = RxnString();
+  final FocusNode focusNode = FocusNode();
+  final RxBool isFocused = false.obs;
+  final RxBool isExpanded = false.obs;
+  final RxBool isPhoneValid = false.obs;
+  bool isInitialLogin = false;
 
 
   @override
   void onInit() {
+
+    isInitialLogin = StorageManager.instance.isInitialLoginDone();
+
     focusNode.addListener(() {
       isFocused.value = focusNode.hasFocus;
 

@@ -149,6 +149,10 @@ class LocaleKeys {
   static const haveAShoppingListDesc = 'haveAShoppingListDesc';
   static const getViaSms = 'getViaSms';
   static const getViaCall = 'getViaCall';
+  static const logOutOptions = 'logOutOptions';
+  static const manageLogoutDevice = 'manageLogoutDevice';
+  static const currentDevice = 'currentDevice';
+  static const logout = 'logout';
 }
 
 class Locales {
@@ -302,6 +306,10 @@ class Locales {
         'Find all items in one go & build your cart 10x faster!',
     'getViaSms': 'Get via SMS',
     'getViaCall': 'Get via Call',
+    'logOutOptions': 'Logout Options',
+    'manageLogoutDevice': 'You can manage your account with device',
+    'currentDevice': 'Current Device',
+    'logout': 'Logout',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -446,5 +454,9 @@ class Locales {
     'enterYourNumber': 'أدخل رقم هاتفك',
     'getViaSms': 'احصل عليه عبر الرسائل القصيرة',
     'getViaCall': 'احصل عليه عبر الاتصال',
+    'logOutOptions': 'خيارات تسجيل الخروج',
+    'manageLogoutDevice': 'يمكنك إدارة حسابك من هذا الجهاز',
+    'currentDevice': 'الجهاز الحالي',
+    'logout': 'تسجيل الخروج',
   };
 }

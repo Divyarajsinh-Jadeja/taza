@@ -47,7 +47,13 @@ class ProfilePage extends GetView<ProfileController> {
             style: style,
             title: LocaleKeys.preferenceTitle.tr,
             subTitle: LocaleKeys.preferenceSubtitle.tr,
-            onTap: () => _showLanguageSheet(context),
+            onTap: () => _showLanguageSheet(context, style),
+          ),
+          _buildTile(
+            style: style,
+            title: LocaleKeys.logOutOptions.tr,
+            subTitle: LocaleKeys.manageLogoutDevice.tr,
+            onTap: () => _showLogoutBottomSheet(context, style),
           ),
         ],
       ),
@@ -57,7 +63,7 @@ class ProfilePage extends GetView<ProfileController> {
   _buildTile({
     required ProfilePageStyle style,
     required String title,
-    required String subTitle,
+    String? subTitle,
     bool showDivider = true,
     Function()? onTap,
   }) {
@@ -94,6 +100,36 @@ class ProfilePage extends GetView<ProfileController> {
     );
   }
 
+  Widget _logOutOption({
+    required String deviceName,
+    required String option,
+    required ProfilePageStyle style,
+  }) {
+    return SmartRow(
+      onTap: () {
+        HapticFeedback.lightImpact();
+      },
+      width: Get.width,
+      padding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 16.w),
+      decoration: /*isSelected ? style.selectedLanguageDecoration:*/style.unSelectedLanguageDecoration,
+      children: [
+        SmartText(
+          isExpanded: true,
+          deviceName,
+          style:/*isSelected?style.languageSelectedStyle:*/style.languageUnSelectedStyle,
+        ),
+        SmartText(
+          onTap: (){
+            StorageManager.instance.setLoginDone(false);
+            Get.offAllNamed(AppRoutes.loginPage);
+          },
+          option,
+          style: style.nameTitleStyle.copyWith(fontSize: 14.sp, color: Colors.red),
+        )
+      ],
+    );
+  }
+
   Widget _languageOption({
     required String title,
     required Locale locale,
@@ -103,7 +139,7 @@ class ProfilePage extends GetView<ProfileController> {
 
     final bool isSelected = currentLocale.languageCode == locale.languageCode;
 
-    return GestureDetector(
+    return SmartRow(
       onTap: () {
         HapticFeedback.lightImpact();
         Get.back();
@@ -111,59 +147,73 @@ class ProfilePage extends GetView<ProfileController> {
           AppController.to.changeLocale(locale);
         });
       },
-      child: Container(
-        width: double.infinity,
-        padding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 16.w),
-        decoration: isSelected ? style.selectedLanguageDecoration:style.unSelectedLanguageDecoration,
-        child: Row(
-          children: [
-            Expanded(
-              child: SmartText(
-                title,
-                style:isSelected?style.languageSelectedStyle:style.languageUnSelectedStyle,
-              ),
-            ),
-            if (isSelected)
-              Icon(Icons.check_circle, color: style.primaryColor, size: 20.w),
-          ],
+      width: Get.width,
+      padding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 16.w),
+      decoration: isSelected ? style.selectedLanguageDecoration:style.unSelectedLanguageDecoration,
+      children: [
+        SmartText(
+          isExpanded: true,
+          title,
+          style:isSelected?style.languageSelectedStyle:style.languageUnSelectedStyle,
         ),
-      ),
+        if (isSelected)
+          Icon(Icons.check_circle, color: style.primaryColor, size: 20.w),
+      ],
     );
   }
 
-  void _showLanguageSheet(BuildContext context) {
-    final style = AppTheme.of(context).profilePageStyle;
-
+  void _showLanguageSheet(BuildContext context, ProfilePageStyle style) {
     Utils.showSmartModalBottomSheet(
       context: context,
       builder:
-          (context) => Container(
+          (context) => SmartColumn(
             padding: EdgeInsetsDirectional.all(20.r),
             decoration: BoxDecoration(
               color: style.whiteColor,
               borderRadius: BorderRadius.vertical(top: Radius.circular(24.r)),
             ),
-            child: SmartColumn(
-              spacing: 16.h,
-              padding: EdgeInsetsDirectional.only(bottom: 20.h),
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SmartText(LocaleKeys.chooseLanguage.tr, style: style.nameTitleStyle),
-
-                _languageOption(
-                  title: "English",
-                  locale: const Locale('en', 'US'),
-                  style: style,
-                ),
-                _languageOption(
-                  title: "العربية",
-                  locale: const Locale('ar', 'SA'),
-                  style: style,
-                ),
-              ],
-            ),
+            spacing: 16.h,
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SmartText(LocaleKeys.chooseLanguage.tr, style: style.nameTitleStyle),
+              _languageOption(
+                title: "English",
+                locale: const Locale('en', 'US'),
+                style: style,
+              ),
+              _languageOption(
+                title: "العربية",
+                locale: const Locale('ar', 'SA'),
+                style: style,
+              ),
+            ],
           ),
+    );
+  }
+
+  void _showLogoutBottomSheet(BuildContext context, ProfilePageStyle style) {
+    Utils.showSmartModalBottomSheet(
+      context: context,
+      builder:
+          (context) => SmartColumn(
+        padding: EdgeInsetsDirectional.all(20.r),
+        decoration: BoxDecoration(
+          color: style.whiteColor,
+          borderRadius: BorderRadius.vertical(top: Radius.circular(24.r)),
+        ),
+        height: Get.height/3,
+        spacing: 16.h,
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SmartText(LocaleKeys.currentDevice.tr, style: style.nameTitleStyle),
+          _logOutOption(
+              deviceName: "VIVO V50",
+              option: LocaleKeys.logout.tr,
+              style: style)
+        ],
+      ),
     );
   }
 }
