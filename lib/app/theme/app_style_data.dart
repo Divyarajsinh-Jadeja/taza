@@ -323,9 +323,7 @@ class LightModeTheme extends AppTheme {
     appliedTextStyle: interBoldW700TextStyle.copyWith(fontSize: 12.sp, color: colors.color038153),
     tabSelectedTextStyle: interBoldW700TextStyle.copyWith(fontSize: 13.sp, color: colors.white),
     tabDisableTextStyle: interBoldW700TextStyle.copyWith(fontSize: 13.sp, color: colors.color58585C),
-    cardDecoration: BoxDecoration(color: colors.white, borderRadius: BorderRadius.all(Radius.circular(16.r)),boxShadow: [
-
-    ]),
+    cardDecoration: BoxDecoration(color: colors.white, borderRadius: BorderRadius.all(Radius.circular(16.r)),),
     payUsingTextStyle: interRegularW400TextStyle.copyWith(fontSize: 13.sp, color: colors.color9c9cA3),
     paymentTextStyle: interBoldW700TextStyle.copyWith(fontSize: 15.sp, color: colors.color1D1D1F),
     tipSelectedStyle: interBoldW700TextStyle.copyWith(fontSize: 11.sp, color: colors.black),

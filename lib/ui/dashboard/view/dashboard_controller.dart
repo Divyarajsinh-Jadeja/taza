@@ -8,35 +8,48 @@ class DashboardController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    Future.delayed(Duration(seconds: 1),() => Utils.showSmartModalBottomSheet(
-      context: Get.context!,
-      backgroundColor: Colors.transparent,
-      builder: (context) => OfferPopup(
-        title: "Free Delivery",
-        buttonText: "Got it! Thanks",
-        subTitle: "on all order above 199",
-        image: AppImages.deliveryLottie,
-        bgImage: AppImages.icBgYellow,
-
-      ),
-    ),);
-
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      if(Get.context!=null){
+        Utils.showSmartModalBottomSheet(
+          context: Get.context!,
+          backgroundColor: Colors.transparent,
+          builder:
+              (context) => OfferPopup(
+            title: "Free Delivery",
+            buttonText: "Got it! Thanks",
+            subTitle: "on all order above 199",
+            image: AppImages.deliveryLottie,
+            bgImage: AppImages.icBgYellow,
+          ),
+        );
+      }
+    });
   }
+
   final tabs = <TabData>[
     TabData(
       pageBuilder: (_) => HomePage(),
-      bottomNavData: BottomNavigationBarDataModel(icon: AppImages.icHome, label: LocaleKeys.home),
+      bottomNavData: BottomNavigationBarDataModel(
+        icon: AppImages.icHome,
+        label: LocaleKeys.home,
+      ),
       onInit: () => Get.find<HomeController>().onTabSelected(),
       shouldAlwaysInitialize: true,
     ),
     TabData(
       pageBuilder: (_) => FoodPage(),
-      bottomNavData: BottomNavigationBarDataModel(icon: AppImages.icFoodIcon, label: LocaleKeys.food),
+      bottomNavData: BottomNavigationBarDataModel(
+        icon: AppImages.icFoodIcon,
+        label: LocaleKeys.food,
+      ),
       onInit: () => Get.find<FoodController>().onTabSelected(),
     ),
     TabData(
       pageBuilder: (_) => CartPage(),
-      bottomNavData: BottomNavigationBarDataModel(icon: AppImages.icShoppingBag, label: LocaleKeys.cart),
+      bottomNavData: BottomNavigationBarDataModel(
+        icon: AppImages.icShoppingBag,
+        label: LocaleKeys.cart,
+      ),
       onInit: () => Get.find<CartController>().onTabSelected(),
     ),
     /*TabData(
@@ -47,13 +60,19 @@ class DashboardController extends GetxController {
     ),*/
     TabData(
       pageBuilder: (_) => GroceryPage(),
-      bottomNavData: BottomNavigationBarDataModel(icon: AppImages.icRewards, label: LocaleKeys.rewards),
+      bottomNavData: BottomNavigationBarDataModel(
+        icon: AppImages.icRewards,
+        label: LocaleKeys.rewards,
+      ),
       onInit: () => Get.find<GroceryController>().onTabSelected(),
       shouldAlwaysInitialize: true,
     ),
     TabData(
       pageBuilder: (_) => ReorderPage(),
-      bottomNavData: BottomNavigationBarDataModel(icon: AppImages.icReorder, label: LocaleKeys.reorder),
+      bottomNavData: BottomNavigationBarDataModel(
+        icon: AppImages.icReorder,
+        label: LocaleKeys.reorder,
+      ),
       onInit: () => Get.find<ReorderController>().onTabSelected(),
     ),
   ];
@@ -69,7 +88,11 @@ class DashboardController extends GetxController {
       if (!tab.shouldAlwaysInitialize || !isFirstInit) return;
     }
     currentIndex.value = index;
-    pageController.animateToPage(index, duration: Duration(milliseconds: AppConst.transitionDuration), curve: Curves.easeInOut);
+    pageController.animateToPage(
+      index,
+      duration: Duration(milliseconds: AppConst.transitionDuration),
+      curve: Curves.easeInOut,
+    );
 
     /// Only initialize if it hasn't been initialized before or we always want to
     if (isFirstInit || tab.shouldAlwaysInitialize) {
