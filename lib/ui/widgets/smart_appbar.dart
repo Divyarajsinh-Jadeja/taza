@@ -44,13 +44,11 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.showHomeWithAddress,
     this.showTitleAndSubtitle,
     this.flexibleSpace,
-    this.backIconColor
+    this.backIconColor,
   }) {
     if (isSkip) {
       if (!isBack) {
-        throw Exception(
-          'if isSkip is set to true then isBack must be set to true',
-        );
+        throw Exception('if isSkip is set to true then isBack must be set to true');
       }
       if (onBack == null) {
         throw Exception('if isSkip is set to true then onBack must be set');
@@ -72,14 +70,9 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       titleSpacing: 0,
       title: _buildTitle(style, context),
+
       actions: _buildActions(),
-      bottom:
-          isBorder
-              ? PreferredSize(
-                preferredSize: Size.fromHeight(2.h),
-                child: SmartGradientContainer(),
-              )
-              : null,
+      bottom: isBorder ? PreferredSize(preferredSize: Size.fromHeight(2.h), child: SmartGradientContainer()) : null,
       flexibleSpace: flexibleSpace,
     );
   }
@@ -94,12 +87,8 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
         color: style.transparentColor,
         children: [
           SizedBox(width: 6.w),
-          if (isSkip)
-            SmartText(
-              isSkip ? LocaleKeys.skip.tr : LocaleKeys.back.tr,
-              style: style.backTextStyle,
-            ),
-          Icon(Icons.arrow_back_rounded, color: backIconColor ??  style.primaryColor),
+          if (isSkip) SmartText(isSkip ? LocaleKeys.skip.tr : LocaleKeys.back.tr, style: style.backTextStyle),
+          Icon(Icons.arrow_back_rounded, color: backIconColor ?? style.primaryColor),
         ],
       );
     } else {
@@ -109,13 +98,13 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   Widget _buildTitle(CustomAppBarStyle style, BuildContext context) {
     return SmartRow(
-      mainAxisAlignment:
-          isCenter ? MainAxisAlignment.center : MainAxisAlignment.start,
+      mainAxisAlignment: isCenter ? MainAxisAlignment.center : MainAxisAlignment.start,
       children: [
         if (!isBack) SizedBox(width: 20.w),
         leadingIcon(context, style),
-        if ((isBack || leadingImage?.isNotEmpty == true) && title != null)
-          SizedBox(width: 6.w),
+        if (leadingImage.isNotNullNorEmpty) SmartImage(path: leadingImage!, height: 36.h, width: 36.w),
+        if (titleWidget != null) SizedBox(child: titleWidget),
+        if ((isBack || leadingImage?.isNotEmpty == true) && title != null) SizedBox(width: 6.w),
         if (title != null)
           Expanded(
             child: SmartText(
@@ -133,16 +122,8 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   SmartImage(path: AppImages.icHome, height: 22.h, width: 17.w),
-                  SmartText(
-                    LocaleKeys.home.tr,
-                    style: style.homeTitleStyle,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-
-                  ),
-                  SizedBox(
-                      height: 18.h,
-                      child: VerticalDivider(color: style.dividerColor,)),
+                  SmartText(LocaleKeys.home.tr, style: style.homeTitleStyle, maxLines: 1, overflow: TextOverflow.ellipsis),
+                  SizedBox(height: 18.h, child: VerticalDivider(color: style.dividerColor)),
                   SmartText(
                     "Al Tadamun Al Arabi St., Mishfirah, Jeddah KSA",
                     style: style.subTitleStyle,
@@ -150,13 +131,8 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
                     overflow: TextOverflow.ellipsis,
                     isFlexible: true,
                   ),
-                  SmartImage(
-                    path: AppImages.icArrowDown,
-                    height: 16.w,
-                    width: 16.w,
-                  ),
-                  IconButton(onPressed: () {
-                  }, icon: Icon(Icons.more_vert_rounded))
+                  SmartImage(path: AppImages.icArrowDown, height: 16.w, width: 16.w),
+                  IconButton(onPressed: () {}, icon: Icon(Icons.more_vert_rounded)),
                 ],
               ),
             ),
@@ -166,14 +142,8 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
             expanded: true,
             padding: EdgeInsetsDirectional.only(end: 26.w),
             children: [
-              SmartText(
-                LocaleKeys.packingYourOrder.tr,
-                style: style.groupTitleStyle,
-              ),
-              SmartText(
-                LocaleKeys.arrivingInMinutes.tr,
-                style: style.groupSubTitleStyle,
-              ),
+              SmartText(LocaleKeys.packingYourOrder.tr, style: style.groupTitleStyle),
+              SmartText(LocaleKeys.arrivingInMinutes.tr, style: style.groupSubTitleStyle),
             ],
           ),
       ],
@@ -186,9 +156,7 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
       actionsList.add(_buildIconButton(onSearch!, AppImages.icHome, size: 24.w));
     }
     if (onFavorite != null) {
-      actionsList.add(
-        _buildIconButton(onFavorite!, AppImages.icHome, size: 24.w),
-      );
+      actionsList.add(_buildIconButton(onFavorite!, AppImages.icHome, size: 24.w));
     }
     if (actions != null) actionsList.add(SizedBox(width: 17.w));
     actionsList.addAll(actions ?? []);
@@ -198,11 +166,7 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
     return actionsList;
   }
 
-  Widget _buildIconButton(
-    VoidCallback onTap,
-    String assetPath, {
-    double? size,
-  }) {
+  Widget _buildIconButton(VoidCallback onTap, String assetPath, {double? size}) {
     return Padding(
       padding: EdgeInsets.only(left: 20.w),
       child: InkWell(
@@ -210,9 +174,7 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: SizedBox(
           height: size?.w,
           width: size?.w,
-          child: Center(
-            child: SmartImage(path: assetPath, height: size?.w, width: size?.w),
-          ),
+          child: Center(child: SmartImage(path: assetPath, height: size?.w, width: size?.w)),
         ),
       ),
     );

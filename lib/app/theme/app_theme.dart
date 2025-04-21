@@ -103,8 +103,11 @@ abstract class AppTheme {
   FoodDetailsPageStyle get foodDetailsPageStyle;
 
   PaymentOptionCardStyle get paymentOptionCardStyle;
-}
 
+  CategorySidebarStyle get categorySidebarStyle;
+
+  ProductListViewStyle get productListViewStyle;
+}
 
 class PrimaryButtonStyle {
   final Color activeBackgroundColor;
@@ -605,7 +608,7 @@ class CheckoutStyle {
   final BoxDecoration tipUnSelectedDecoration;
   final BoxDecoration couponsSelectedDecoration;
   final BoxDecoration couponsUnSelectedDecoration;
-final TextStyle couponWhiteStyle;
+  final TextStyle couponWhiteStyle;
   final Color redColor;
   final Color couponColor;
   CheckoutStyle({
@@ -738,7 +741,7 @@ class LoginPageStyle {
     required this.bottomTextStyle,
     required this.termsAndPrivacyTextStyle,
     required this.countryCodeTextStyle,
-    required this.lebelTextStyle
+    required this.lebelTextStyle,
   });
 }
 
@@ -831,7 +834,6 @@ class PaymentOptionCardStyle {
   });
 }
 
-
 class OtpPageStyle {
   final Color otpPageBgColor;
   final TextStyle verifyTextStyle;
@@ -898,4 +900,28 @@ class FoodDetailsPageStyle {
     required this.highlightTitleStyle,
     required this.highlightDescriptionStyle,
   });
+}
+
+class CategorySidebarStyle {
+  final Color borderColor;
+  final Color primaryColor;
+  final Color transparentColor;
+  final Color whiteColor;
+  final TextStyle selectedTitleTextStyle;
+  final TextStyle unSelectedTitleTextStyle;
+  CategorySidebarStyle({
+    required this.borderColor,
+    required this.primaryColor,
+    required this.transparentColor,
+    required this.whiteColor,
+    required this.selectedTitleTextStyle,
+    required this.unSelectedTitleTextStyle,
+  });
+}
+
+class ProductListViewStyle {
+  final TextStyle categoryHeaderStyle;
+  final TextStyle categorysubHeaderStyle;
+
+  ProductListViewStyle({required this.categoryHeaderStyle, required this.categorysubHeaderStyle});
 }
