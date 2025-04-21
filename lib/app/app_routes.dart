@@ -5,11 +5,14 @@ import 'package:taza/taza.dart';
 class AppRoutes {
   static const initialRoute = '/';
   static const loginPage = '/login_page';
+  static const otpVerificationPage = '/otp_verification_page';
   static const dashboardPage = '/dashboard_page';
   static const checkoutPage = '/checkout_page';
   static const orderTrackingPage = '/order_tracking_page';
   static const couponsPage = '/coupons_page';
   static const profilePage = '/profile_page';
+  static const paymentPage = '/paymentPage';
+  static const foodDetailsPage = '/food_details_page';
 
   static final List<GetPage> pages = [
     GetPage(
@@ -23,6 +26,13 @@ class AppRoutes {
       name: AppRoutes.loginPage,
       page: () => const LoginPage(),
       binding: LoginBinding(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
+    ),
+    GetPage(
+      name: AppRoutes.otpVerificationPage,
+      page: () => const OtpVerificationPage(),
+      binding: OtpVerificationBinding(),
       transition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
     ),
@@ -59,6 +69,20 @@ class AppRoutes {
       page: () => const OrderTrackingPage(),
       binding: OrderTrackingBinding(),
       transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
+    ),
+    GetPage(
+      name: AppRoutes.paymentPage,
+      page: () => const PaymentMethodScreen(),
+      binding: PaymentBinding(),
+      transition: Transition.cupertino,
+      transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
+    ),
+    GetPage(
+      name: AppRoutes.foodDetailsPage,
+      page: () => const FoodDetailsPage(),
+      binding: FoodDetailsBinding(),
+      transition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
     ),
   ];

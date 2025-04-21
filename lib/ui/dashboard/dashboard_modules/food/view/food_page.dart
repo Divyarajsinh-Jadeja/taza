@@ -190,26 +190,27 @@ class FoodPage extends GetView<FoodController> {
   }
 
   Widget _buildCategoryCard(BuildContext context, FoodCardStyle style, Map<String, String> category, FoodPageStyle foodPageStyle) {
-    return Container(
+    return SmartColumn(
+      onTap: () {
+        Get.toNamed(AppRoutes.foodDetailsPage);
+      },
       width: 88.w,
       decoration: BoxDecoration(border: Border.all(color: foodPageStyle.borderColor), borderRadius: BorderRadius.circular(12.r)),
       clipBehavior: Clip.antiAlias,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          SmartText(
-            category['title'],
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.center,
-            optionalPadding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 12.h),
-            style: foodPageStyle.categoryTitleTextStyle,
-          ),
-          const Spacer(),
-          SmartImage(path: category['image'] ?? "", height: 50.h, width: double.infinity, fit: BoxFit.cover),
-        ],
-      ),
+      mainAxisAlignment: MainAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        SmartText(
+          category['title'],
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+          textAlign: TextAlign.center,
+          optionalPadding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 12.h),
+          style: foodPageStyle.categoryTitleTextStyle,
+        ),
+        const Spacer(),
+        SmartImage(path: category['image'] ?? "", height: 50.h, width: double.infinity, fit: BoxFit.cover),
+      ],
     );
   }
 

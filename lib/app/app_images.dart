@@ -109,4 +109,6 @@ class AppImages {
   static const String icEmoji = 'assets/images/ic_emoji.json';
 
   static const String reward = 'assets/images/reward.png';
+  static const String imgOtp = 'assets/images/img_otp.json';
+  static const String icMessage = 'assets/images/ic_message.png';
 }

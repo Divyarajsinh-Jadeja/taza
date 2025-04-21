@@ -101,6 +101,12 @@ abstract class AppTheme {
   BottomCartStyle get bottomCartStyle;
 
   RewardDialogStyle get rewardDialogStyle;
+
+  OtpPageStyle get otpPageStyle;
+
+  FoodDetailsPageStyle get foodDetailsPageStyle;
+
+  PaymentOptionCardStyle get paymentOptionCardStyle;
 }
 
 
@@ -214,7 +220,6 @@ class CustomAppBarStyle {
     required this.subTitleStyle,
     required this.groupTitleStyle,
     required this.groupSubTitleStyle,
-
   });
 }
 
@@ -489,6 +494,7 @@ class FoodCardStyle {
   final BoxDecoration cardDecoration;
   final BorderRadiusGeometry imageDecoration;
   final Color iconColor;
+
   FoodCardStyle({
     required this.titleStyle,
     required this.subTitleStyle,
@@ -540,6 +546,7 @@ class FoodPageStyle {
   final TextStyle unselectedCategoryTextStyle;
   final TextStyle categoryTitleTextStyle;
   final Color whiteColor;
+
   FoodPageStyle({
     required this.headerTextStyle,
     required this.blackColor,
@@ -601,7 +608,7 @@ class CheckoutStyle {
   final BoxDecoration tipUnSelectedDecoration;
   final BoxDecoration couponsSelectedDecoration;
   final BoxDecoration couponsUnSelectedDecoration;
-  final TextStyle couponWhiteStyle;
+final TextStyle couponWhiteStyle;
   final Color redColor;
   final Color couponColor;
   final TextStyle billingTitleStyle;
@@ -647,9 +654,8 @@ class CheckoutStyle {
     required this.productTitle,
     required this.productSubtitle,
 
+    required this.couponColor,
   });
-
-
 }
 
 class SearchBarStyle {
@@ -715,6 +721,7 @@ class GroceryStyle {
   final TextStyle titleStyle;
   final TextStyle subTitleStyle;
   final BoxDecoration groceryCardDecoration;
+
   GroceryStyle({required this.titleStyle, required this.subTitleStyle, required this.groceryCardDecoration});
 }
 
@@ -732,6 +739,7 @@ class LoginPageStyle {
   final TextStyle bottomTextStyle;
   final TextStyle termsAndPrivacyTextStyle;
   final TextStyle countryCodeTextStyle;
+  final TextStyle lebelTextStyle;
 
   LoginPageStyle({
     required this.dividerColor,
@@ -747,10 +755,11 @@ class LoginPageStyle {
     required this.bottomTextStyle,
     required this.termsAndPrivacyTextStyle,
     required this.countryCodeTextStyle,
+    required this.lebelTextStyle
   });
 }
 
-class ProfilePageStyle{
+class ProfilePageStyle {
   final TextStyle nameTitleStyle;
   final TextStyle titleStyle;
   final TextStyle subTitleStyle;
@@ -762,16 +771,24 @@ class ProfilePageStyle{
   final BoxDecoration selectedLanguageDecoration;
   final BoxDecoration unSelectedLanguageDecoration;
 
-  ProfilePageStyle({required this.nameTitleStyle, required this.titleStyle, required this.subTitleStyle, required this.primaryColor, required this.whiteColor, required this.primaryStyle, required this.languageSelectedStyle, required this.languageUnSelectedStyle,required this.selectedLanguageDecoration,required this.unSelectedLanguageDecoration});
-
-
-
+  ProfilePageStyle({
+    required this.nameTitleStyle,
+    required this.titleStyle,
+    required this.subTitleStyle,
+    required this.primaryColor,
+    required this.whiteColor,
+    required this.primaryStyle,
+    required this.languageSelectedStyle,
+    required this.languageUnSelectedStyle,
+    required this.selectedLanguageDecoration,
+    required this.unSelectedLanguageDecoration,
+  });
 }
+
 class AnimatedTabBarStyle {
   final Color transparentColor;
   AnimatedTabBarStyle({required this.transparentColor});
 }
-
 
 class OrderTrackingPageStyle {
   final Color headerBgColor;
@@ -813,9 +830,90 @@ class NotchedMsgStyle {
   final Color notchedBgColor;
   final TextStyle notchedTextStyle;
 
-  NotchedMsgStyle({
-    required this.notchedBgColor,
-    required this.notchedTextStyle,
+  NotchedMsgStyle({required this.notchedBgColor, required this.notchedTextStyle});
+}
+
+class PaymentOptionCardStyle {
+  final Color primaryColor;
+  final Color whiteColor;
+  final Color greyColor;
+  final TextStyle titleStyle;
+  final TextStyle subTitleStyle;
+  PaymentOptionCardStyle({
+    required this.primaryColor,
+    required this.whiteColor,
+    required this.titleStyle,
+    required this.subTitleStyle,
+    required this.greyColor,
+  });
+}
+
+
+class OtpPageStyle {
+  final Color otpPageBgColor;
+  final TextStyle verifyTextStyle;
+  final Color enterOtpButtonBgColor;
+  final Color headerCardColor;
+  final Color enterOtpButtonDisableBgColor;
+  final TextStyle errorTextStyle;
+  final TextStyle enterOtpButtonTextStyle;
+  final TextStyle subTitlesTextStyle;
+  final TextStyle otpInputTextStyle;
+  final Color activeColor;
+  final Color inactiveColor;
+  final Color selectedColor;
+  final Color errorBorderColor;
+  final BoxDecoration callBoxDecoration;
+  final TextStyle callBoxTitleStyle;
+
+  OtpPageStyle({
+    required this.otpPageBgColor,
+    required this.verifyTextStyle,
+    required this.headerCardColor,
+    required this.enterOtpButtonBgColor,
+    required this.enterOtpButtonDisableBgColor,
+    required this.errorTextStyle,
+    required this.enterOtpButtonTextStyle,
+    required this.subTitlesTextStyle,
+    required this.otpInputTextStyle,
+    required this.activeColor,
+    required this.inactiveColor,
+    required this.selectedColor,
+    required this.errorBorderColor,
+    required this.callBoxDecoration,
+    required this.callBoxTitleStyle,
+  });
+}
+
+class FoodDetailsPageStyle {
+  final Color iconColors;
+  final Color flashColors;
+  final Color greenColor;
+  final Color highlightBgColor;
+  final TextStyle rattingTextStyle;
+  final TextStyle titleTextStyle;
+  final TextStyle timeTextStyle;
+  final TextStyle descriptionTextStyle;
+  final TextStyle maxSaverPriceTextStyle;
+  final TextStyle maxSaverTitleStyle;
+  final TextStyle addButtonStyle;
+  final TextStyle highlightTitleStyle;
+  final TextStyle highlightDescriptionStyle;
+
+  FoodDetailsPageStyle({
+    required this.iconColors,
+    required this.flashColors,
+    required this.greenColor,
+    required this.highlightBgColor,
+    required this.rattingTextStyle,
+    required this.titleTextStyle,
+    required this.timeTextStyle,
+    required this.descriptionTextStyle,
+    required this.maxSaverPriceTextStyle,
+    required this.maxSaverTitleStyle,
+    required this.addButtonStyle,
+    required this.highlightTitleStyle,
+    required this.highlightDescriptionStyle,
   });
 }
 
