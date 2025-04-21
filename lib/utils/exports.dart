@@ -194,4 +194,11 @@ export 'package:taza/ui/dashboard/dashboard_modules/food/view/search_button_bott
 export 'package:taza/ui/otp_verification/view/otp_verification_controller.dart';
 export 'package:taza/ui/otp_verification/binding/otp_verification_binding.dart';
 export 'package:taza/ui/otp_verification/view/otp_verification_page.dart';
+export 'package:taza/ui/category/model/category_model.dart';
+export 'package:taza/ui/category/model/product_model.dart';
+export 'package:taza/ui/category/view/category_controller.dart';
+export 'package:taza/ui/category/view/category_left_panel.dart';
+export 'package:taza/ui/category/view/category_right_panel.dart';
+export 'package:taza/ui/category/binding/category_binding.dart';
+export 'package:taza/ui/category/view/category_screen.dart';
 
