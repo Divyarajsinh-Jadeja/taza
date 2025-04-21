@@ -3,24 +3,17 @@ class BottomCartWidget extends StatelessWidget {
   BottomCartWidget({super.key});
 
   final ValueNotifier<bool> showMenu = ValueNotifier(false);
-  final list = [
-    "https://i.ibb.co/whRS5nY7/b.jpg",
-    'https://i.ibb.co/XfpHPXFP/cake.jpg',
-    'https://i.ibb.co/HLmQQsjy/chinease.jpg',
-  ];
-
   @override
   Widget build(BuildContext context) {
     final style = AppTheme.of(context).bottomCartStyle;
-    return ValueListenableBuilder<bool>(
+    return ValueListenableBuilder(
       valueListenable: showMenu,
       builder: (context, value, child) {
         return SmartColumn(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (!value) _buildHeader(style),
-            if (value) _buildReviewItems(style),
-            _buildItemWidget(style),
+            value ? _buildReviewItems(style):_buildHeader(style),
+            _buildItemWidget(style)
           ],
         );
       },
@@ -33,23 +26,22 @@ class BottomCartWidget extends StatelessWidget {
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
-          Container(
+          SmartColumn(
             height: 50.h,
             width: Get.width,
             padding: EdgeInsetsDirectional.symmetric(horizontal: 20.w),
             decoration: style.defaultDecoration,
-            child: SmartColumn(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SmartText(
-                  LocaleKeys.freeDeliveryMessage.tr,
-                  style: style.titleStyle,
-                ),
-                SizedBox(height: 10.h),
-                Divider(),
-              ],
-            ),
+
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SmartText(
+                LocaleKeys.freeDeliveryMessage.tr,
+                style: style.titleStyle,
+              ),
+              SizedBox(height: 10.h),
+              Divider(),
+            ],
           ),
           Positioned.directional(
             textDirection: TextDirection.ltr,
@@ -70,7 +62,7 @@ class BottomCartWidget extends StatelessWidget {
       animationDelay: 10.ms,
       animationDuration: 200.ms,
       animationCurve: Curves.easeInOutCubic,
-      child: Container(
+      child: SmartColumn(
         height: 350.h,
         width: Get.width,
         padding: EdgeInsetsDirectional.symmetric(
@@ -78,92 +70,40 @@ class BottomCartWidget extends StatelessWidget {
           vertical: 10.h,
         ),
         decoration: style.reviewDecoration,
-        child: SmartColumn(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          spacing: 10.h,
-          children: [
-            SmartRow(
-              children: [
-                SmartText(LocaleKeys.reviewItems.tr, isExpanded: true,style: style.reviewTitleStyle,),
-                SmartImage(path: AppImages.icClose,onTap: () => showMenu.value = !showMenu.value,),
 
-              ],
-            ),
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        spacing: 10.h,
+        children: [
+          SmartRow(
+            children: [
+              SmartText(LocaleKeys.reviewItems.tr, isExpanded: true,style: style.reviewTitleStyle,),
+              SmartImage(path: AppImages.icClose,onTap: () => showMenu.value = !showMenu.value,),
 
-            Expanded(
-              child: Container(
-                padding: EdgeInsetsDirectional.all(12.w),
-                decoration: style.fullDefaultDecoration,
-                child: ListView.separated(
-                  padding: EdgeInsets.zero,
-                  itemCount: 4,
-                  separatorBuilder: (context, index) => Divider(),
-                  itemBuilder:
-                      (context, index) => Stack(
-                    children: [
-                      SmartRow(
-                        spacing: 10.w,
-                        padding: EdgeInsetsDirectional.only(bottom: 10.h,top: 10.h),
-                        children: [
-                          SmartImage(
-                            path: list.first,
-                            size: 40.w,
-                            imageBorderRadius: BorderRadius.circular(6.r),
-                            clipBehavior: Clip.antiAlias,
-                          ),
-                          SmartColumn(
-                            expanded: true,
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              SmartText("Burger loaded with cheese",style: style.itemNameStyle,),
-                              SmartText(180.toCurrencyCodeFormat(),style: style.itemAmountStyle,),
-                            ],
-                          ),
-                          if(index==1) SmartRow(
-                            spacing: 4.w,
-                            children: [
-                              SmartText(LocaleKeys.outOfStock.tr,style: style.itemNameStyle,),
-                              Icon(Icons.delete_forever,size: 20.w,)
-                            ],
-                          ),
-                          if(index!=1)SmartAnimatedQuantity(
-                            index: 19,
-                            onIncrease:
-                                () => Get.find<QuantityController>().increment(19),
-                            onDecrease:
-                                () => Get.find<QuantityController>().decrement(19),
-                            model: FoodModel(
-                              name: 'Family Bucket',
-                              imageUrl: 'https://i.ibb.co/whRS5nY7/b.jpg',
-                              rating: 4.2,
-                              reviewsCount: 1200,
-                              deliveryTime: '30-35 min',
-                              price: 89.0,
-                              quantity: 1,
-                            ),
-                          ),
-                        ],
-                      ),
+            ],
+          ),
 
-                      if (index == 1)
-                        Positioned.fill(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: style.whiteColor.withValues(alpha: 0.6),
-                              borderRadius: BorderRadius.circular(10.r),
-                            ),
-                          ),
-                        ),
-                    ],
-                  ),
-                ),
+          Expanded(
+            child: Container(
+              padding: EdgeInsetsDirectional.all(12.w),
+              decoration: style.fullDefaultDecoration,
+              child: ListView.separated(
+                padding: EdgeInsets.zero,
+                itemCount: 4,
+                separatorBuilder: (context, index) => Divider(),
+                itemBuilder:
+                    (context, index) => ProductCheckoutCard(model: FoodModel(
+                      name: 'Chocolate Cake',
+                      imageUrl: 'https://i.ibb.co/XfpHPXFP/cake.jpg',
+                      rating: 4.6,
+                      reviewsCount: 1100,
+                      deliveryTime: '20-25 min',
+                      price: 45.0,
+                    ),),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -197,7 +137,8 @@ class BottomCartWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(6.r),
                   ),
                   child: SmartImage(
-                    path: list[index],
+                    /// TODO: below image will change once we integrate api
+                    path: "https://i.ibb.co/MkqsDTsx/salad.jpg",
                     imageBorderRadius: BorderRadius.circular(6.r),
                     clipBehavior: Clip.antiAlias,
                   ),

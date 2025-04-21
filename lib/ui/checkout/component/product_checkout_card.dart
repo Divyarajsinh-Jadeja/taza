@@ -13,7 +13,6 @@ class ProductCheckoutCard extends StatelessWidget {
         children: [
           SmartRow(
             spacing: 10.w,
-
             children: [
               SmartImage(
                 path: model.imageUrl,
@@ -40,6 +39,7 @@ class ProductCheckoutCard extends StatelessWidget {
                   ),
                 ],
               ),
+
               if(isOutOfStock!=true)...[SmartAnimatedQuantity(
                 index: 19,
                 onIncrease:
