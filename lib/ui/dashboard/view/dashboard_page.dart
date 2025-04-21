@@ -10,7 +10,7 @@ class DashboardPage extends GetView<DashboardController> {
     BottomNavigationBarDataModel bottomNavData =
         controller.tabs[2].bottomNavData;
     return Scaffold(
-      //extendBody: true,
+
       body: Stack(
         children: [
           PageView(

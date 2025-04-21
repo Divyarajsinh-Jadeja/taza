@@ -27,17 +27,13 @@ class OfferPopup extends StatelessWidget {
 
             // Background image
             Positioned.fill(
-              child: ClipRRect(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20.r),
-                  topRight: Radius.circular(20.r),
-                ),
-                child: SmartImage(path: bgImage?? AppImages.icBgRed, ),
-              ),
+              child: SmartImage(path: bgImage?? AppImages.icBgRed,
+                clipBehavior: Clip.antiAlias,
+                imageBorderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20.r),
+                topRight: Radius.circular(20.r),
+              ),),
             ),
-
-
-
 
             // Content
             SmartColumn(
