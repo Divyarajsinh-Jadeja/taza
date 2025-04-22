@@ -10,35 +10,35 @@ class RewardDialog extends StatelessWidget {
 
     return Center(
       child: Dialog(
-        child: Container(
+        child: SmartColumn(
           width: 300.w,
-          padding: EdgeInsets.all(20.w),
           decoration: BoxDecoration(
             color: style.backgroundColor,
             borderRadius: BorderRadius.circular(20.r),
           ),
-          child: SmartColumn(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SmartImage(
-                path: AppImages.icClose,
-                onTap: () => Get.back(),
-                alignment: AlignmentDirectional.topEnd,
-              ),
-              SmartImage(path: AppImages.reward, size: 100.w),
-              SizedBox(height: 16.h),
-              /// TODO : below string will chane and come from api
-              SmartText("Congratulations!", style: style.titleTextStyle),
-              SizedBox(height: 12.h),
-              SmartText(
-                "100 free cash added",
-                style: style.highlightTextStyle,
-              ),
-              SmartText("on this order!", style: style.subtitleTextStyle),
-              SizedBox(height: 20.h),
-              SmartText("YAY!", style: style.celebrateTextStyle),
-            ],
-          ),
+          padding: EdgeInsetsDirectional.symmetric(horizontal: 10.w,),
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox(height: 10.h,),
+            SmartImage(
+              path: AppImages.icClose,
+              onTap: () => Get.back(),
+              alignment: AlignmentDirectional.topEnd,
+            ),
+            SmartImage(path: AppImages.reward, size: 100.w),
+            SizedBox(height: 16.h),
+            /// TODO : below string will chane and come from api
+            SmartText("Congratulations!", style: style.titleTextStyle),
+            SizedBox(height: 12.h),
+            SmartText(
+              "100 free cash added",
+              style: style.highlightTextStyle,
+            ),
+            SmartText("on this order!", style: style.subtitleTextStyle),
+            SizedBox(height: 20.h),
+            SmartText("YAY!", style: style.celebrateTextStyle),
+            SizedBox(height: 20.h),
+          ],
         ),
       ),
     );

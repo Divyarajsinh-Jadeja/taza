@@ -1,9 +1,15 @@
 import 'package:taza/taza.dart';
 
 class ProductCheckoutCard extends StatelessWidget {
-  const ProductCheckoutCard({super.key, required this.model, this.isOutOfStock});
+  const ProductCheckoutCard({
+    super.key,
+    required this.model,
+    this.isOutOfStock,
+  });
+
   final FoodModel model;
   final bool? isOutOfStock;
+
   @override
   Widget build(BuildContext context) {
     var style = AppTheme.of(context).checkoutStyle;
@@ -40,30 +46,46 @@ class ProductCheckoutCard extends StatelessWidget {
                 ],
               ),
 
-              if(isOutOfStock!=true)...[SmartAnimatedQuantity(
-                index: 19,
-                onIncrease:
-                    () => Get.find<QuantityController>().increment(19),
-                onDecrease:
-                    () => Get.find<QuantityController>().decrement(19),
-                model: model,
-              ),SmartText(model.price.toCurrencyCodeFormat(), style: style.productTitle),],
-              if(isOutOfStock==true) SmartRow(
-                spacing: 4.w,
-                children: [
-                  SmartText(LocaleKeys.outOfStock.tr,style: style.productTitle,),
-                  Icon(Icons.delete_forever,size: 20.w,)
-                ],
-              ),
+              if (isOutOfStock != true) ...[
+                SmartAnimatedQuantity(model: model),
+                SmartColumn(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SmartText(
+                      10.toCurrencyCodeFormat(),
+                      style: style.productSubtitle,
+                      decoration: TextDecoration.lineThrough,
+                    ),
+                    SmartText(
+                      model.price.toCurrencyCodeFormat(),
+                      style: style.productTitle,
+                    ),
+                  ],
+                ),
+              ],
+              if (isOutOfStock == true)
+                SmartRow(
+                  spacing: 4.w,
+                  children: [
+                    SmartText(
+                      LocaleKeys.outOfStock.tr,
+                      style: style.productTitle,
+                    ),
+                    Icon(Icons.delete_forever, size: 20.w),
+                  ],
+                ),
             ],
           ),
-          if(isOutOfStock==true)Positioned.fill(
-            child: Container(
-              decoration: BoxDecoration(
-                color: style.whiteColor.withValues(alpha: 0.6),
+          if (isOutOfStock == true)
+            Positioned.fill(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: style.whiteColor.withValues(alpha: 0.6),
+                ),
               ),
             ),
-          ),
         ],
       ),
     );

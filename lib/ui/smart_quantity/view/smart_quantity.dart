@@ -1,46 +1,33 @@
 import 'package:taza/taza.dart';
 
 class SmartAnimatedQuantity extends GetView<QuantityController> {
-  final int index;
   final FoodModel model;
-  final VoidCallback? onDecrease;
-  final VoidCallback? onIncrease;
 
   const SmartAnimatedQuantity({
     super.key,
-    required this.index,
     required this.model,
-    this.onDecrease,
-    this.onIncrease,
   });
 
   @override
   Widget build(BuildContext context) {
     var style = AppTheme.of(context).foodCardStyle;
     return SmartRow(
-      height: 32.h,
       padding: EdgeInsets.all(8.w),
       spacing: 10.w,
       decoration: BoxDecoration(
         border: Border.all(color: style.iconColor),
         borderRadius: BorderRadius.circular(32.r),
       ),
-      animator: SmartAnimator(
-        animationCurve: Curves.decelerate,
-        animationDelay: 600.ms,
-        animationDuration: 300.ms,
-        animateFade: true,
-        animateSlideX: true,
-      ),
+
       children: [
         if (model.quantity > 0) ...[
           InkWell(
-            onTap: onDecrease,
+            onTap: () => Get.find<QuantityController>().decrement(model.id.toInt!),
             child: Icon(Icons.remove, color: style.iconColor, size: 16.w),
           ),
           Obx(() {
-            final int current = controller.quantities[index].value;
-            final bool isIncreasing = current > controller.quantities[index].value.obs.value;
+            final int current = controller.quantities[model.id.toInt!].value;
+            final bool isIncreasing = current > controller.quantities[model.id.toInt!].value.obs.value;
             final Offset slideOffset =
                 isIncreasing ? const Offset(0, 0.4) : const Offset(0, -0.4);
 
@@ -59,13 +46,13 @@ class SmartAnimatedQuantity extends GetView<QuantityController> {
               ),
             );
 
-            controller.quantities[index].value = current;
+            controller.quantities[model.id.toInt!].value = current;
 
             return animated;
           }),
         ],
         InkWell(
-          onTap: onIncrease,
+          onTap: () => Get.find<QuantityController>().increment(model.id.toInt!),
           child: Icon(Icons.add, color: style.iconColor, size: 16.w),
         ),
       ],

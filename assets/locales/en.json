@@ -134,7 +134,6 @@
   "writeIt": "Write it",
   "enterYourNumber": "Enter your number",
   "haveAShoppingList": "Have a shopping list?",
-  "haveAShoppingListDesc": "Find all items in one go & build your cart 10x faster!",
   "freeDeliveryMessage": "Hooray! FREE DELIVERY unlocked!",
   "reviewItems": "Review Items",
   "itemName1": "Burger loaded with cheese",
@@ -150,13 +149,28 @@
   "toPayFinal": "To Pay",
   "deliveryIn": "Delivery in",
   "deliveryTime": "{#} Mins",
-  "itemCount": "{#} Items"
+  "itemCount": "{#} Items",
   "haveAShoppingListDesc": "Find all items in one go & build your cart 10x faster!",
   "getViaSms": "Get via SMS",
   "getViaCall": "Get via Call",
   "logOutOptions": "Logout Options",
   "manageLogoutDevice": "You can manage your account with device",
   "currentDevice": "Current Device",
-  "logout": "Logout"
+  "logout": "Logout",
 
+  "clearCart": "Clear Cart",
+  "missingSomething": "Missing Something?",
+  "addMoreItems": "Add more items",
+  "reviewYourOrder": "Review your Order",
+  "minsWithTime": "{#} Mins",
+  "mostTipped": "Most Tipped",
+  "confirmLocation": "Confirm Location",
+  "selectDeliveryLocation": "Select delivery location",
+  "change": "CHANGE",
+  "enterAreaOrApartment": "Enter your area or apartment name",
+  "useCurrentLocation": "Use my current location",
+  "addNewAddress": "Add new address",
+  "savedAddresses": "SAVED ADDRESSES",
+  "addressLabel": "Address",
+  "currentlySelected": "CURRENTLY SELECTED"
 }

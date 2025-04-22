@@ -146,7 +146,6 @@ class LocaleKeys {
   static const writeIt = 'writeIt';
   static const enterYourNumber = 'enterYourNumber';
   static const haveAShoppingList = 'haveAShoppingList';
-  static const haveAShoppingListDesc = 'haveAShoppingListDesc';
   static const freeDeliveryMessage = 'freeDeliveryMessage';
   static const reviewItems = 'reviewItems';
   static const itemName1 = 'itemName1';
@@ -163,12 +162,28 @@ class LocaleKeys {
   static const deliveryIn = 'deliveryIn';
   static const deliveryTime = 'deliveryTime';
   static const itemCount = 'itemCount';
+  static const haveAShoppingListDesc = 'haveAShoppingListDesc';
   static const getViaSms = 'getViaSms';
   static const getViaCall = 'getViaCall';
   static const logOutOptions = 'logOutOptions';
   static const manageLogoutDevice = 'manageLogoutDevice';
   static const currentDevice = 'currentDevice';
   static const logout = 'logout';
+  static const clearCart = 'clearCart';
+  static const missingSomething = 'missingSomething';
+  static const addMoreItems = 'addMoreItems';
+  static const reviewYourOrder = 'reviewYourOrder';
+  static const minsWithTime = 'minsWithTime';
+  static const mostTipped = 'mostTipped';
+  static const confirmLocation = 'confirmLocation';
+  static const selectDeliveryLocation = 'selectDeliveryLocation';
+  static const change = 'change';
+  static const enterAreaOrApartment = 'enterAreaOrApartment';
+  static const useCurrentLocation = 'useCurrentLocation';
+  static const addNewAddress = 'addNewAddress';
+  static const savedAddresses = 'savedAddresses';
+  static const addressLabel = 'addressLabel';
+  static const currentlySelected = 'currentlySelected';
 }
 
 class Locales {
@@ -318,8 +333,6 @@ class Locales {
     'writeIt': 'Write it',
     'enterYourNumber': 'Enter your number',
     'haveAShoppingList': 'Have a shopping list?',
-    'haveAShoppingListDesc':
-        'Find all items in one go & build your cart 10x faster!',
     'freeDeliveryMessage': 'Hooray! FREE DELIVERY unlocked!',
     'reviewItems': 'Review Items',
     'itemName1': 'Burger loaded with cheese',
@@ -327,7 +340,7 @@ class Locales {
     'youSave': 'You save {#}',
     'itemsCount': '{#} Items',
     'freeDeliveryApplied': '{#} free delivery applied on this order',
-    'savedOnTotal': '{#} SAR saved on the total!',
+    'savedOnTotal': '{#} saved on the total!',
     'itemTotal': 'Item Total',
     'extraDiscount': 'Extra discount for you',
     'deliveryFee': 'Delivery Fee',
@@ -336,12 +349,29 @@ class Locales {
     'deliveryIn': 'Delivery in',
     'deliveryTime': '{#} Mins',
     'itemCount': '{#} Items',
+    'haveAShoppingListDesc':
+        'Find all items in one go & build your cart 10x faster!',
     'getViaSms': 'Get via SMS',
     'getViaCall': 'Get via Call',
     'logOutOptions': 'Logout Options',
     'manageLogoutDevice': 'You can manage your account with device',
     'currentDevice': 'Current Device',
     'logout': 'Logout',
+    'clearCart': 'Clear Cart',
+    'missingSomething': 'Missing Something?',
+    'addMoreItems': 'Add more items',
+    'reviewYourOrder': 'Review your Order',
+    'minsWithTime': '{#} Mins',
+    'mostTipped': 'Most Tipped',
+    'confirmLocation': 'Confirm Location',
+    'selectDeliveryLocation': 'Select delivery location',
+    'change': 'CHANGE',
+    'enterAreaOrApartment': 'Enter your area or apartment name',
+    'useCurrentLocation': 'Use my current location',
+    'addNewAddress': 'Add new address',
+    'savedAddresses': 'SAVED ADDRESSES',
+    'addressLabel': 'Address',
+    'currentlySelected': 'CURRENTLY SELECTED',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -472,7 +502,6 @@ class Locales {
     'sayIt': 'قُلها',
     'writeIt': 'اكتبها',
     'haveAShoppingList': 'لديك قائمة التسوق',
-    'haveAShoppingListDesc': 'لا يمكنك استخدام القسائم المتوفرة على نطاق واسع',
     'freeDeliveryMessage': 'يا هلا! تم تفعيل التوصيل المجاني!',
     'reviewItems': 'مراجعة العناصر',
     'itemName1': 'برجر محشو بالجبن',
@@ -480,7 +509,7 @@ class Locales {
     'youSave': 'لقد وفرت {#}',
     'itemsCount': '{#} عناصر',
     'freeDeliveryApplied': 'تم تطبيق توصيل مجاني لعدد {#} على هذا الطلب',
-    'savedOnTotal': 'تم توفير {#} ريال سعودي على الإجمالي!',
+    'savedOnTotal': 'تم توفير {#} على الإجمالي!',
     'itemTotal': 'إجمالي العناصر',
     'extraDiscount': 'خصم إضافي لك',
     'deliveryFee': 'رسوم التوصيل',
@@ -489,6 +518,7 @@ class Locales {
     'deliveryIn': 'التوصيل خلال',
     'deliveryTime': '{#} دقيقة',
     'itemCount': '{#} عناصر',
+    'haveAShoppingListDesc': 'لا يمكنك استخدام القسائم المتوفرة على نطاق واسع',
     'verifyDetails': 'تحقق من التفاصيل',
     'otpSentTo': 'تم إرسال رمز التحقق إلى {#}',
     'enterOtp': 'أدخل رمز التحقق',
@@ -506,5 +536,20 @@ class Locales {
     'manageLogoutDevice': 'يمكنك إدارة حسابك من هذا الجهاز',
     'currentDevice': 'الجهاز الحالي',
     'logout': 'تسجيل الخروج',
+    'clearCart': 'مسح السلة',
+    'missingSomething': 'هل نسيت شيئًا؟',
+    'addMoreItems': 'أضف المزيد من العناصر',
+    'reviewYourOrder': 'مراجعة طلبك',
+    'minsWithTime': '{#} دقيقة',
+    'mostTipped': 'الأكثر إكرامًا',
+    'confirmLocation': 'تأكيد الموقع',
+    'selectDeliveryLocation': 'اختر موقع التوصيل',
+    'change': 'تغيير',
+    'enterAreaOrApartment': 'أدخل منطقتك أو اسم الشقة',
+    'useCurrentLocation': 'استخدم موقعي الحالي',
+    'addNewAddress': 'أضف عنوانًا جديدًا',
+    'savedAddresses': 'العناوين المحفوظة',
+    'addressLabel': 'العنوان',
+    'currentlySelected': 'المحدد حاليًا',
   };
 }

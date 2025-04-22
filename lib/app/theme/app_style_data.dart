@@ -513,6 +513,11 @@ class LightModeTheme extends AppTheme {
       fontSize: 12.sp,
       color: colors.color038153,
     ),
+    appliedTextStyleThin: interMediumBoldW500TextStyle.copyWith(
+      fontSize: 12.sp,
+      color: colors.color038153,
+    ),
+
     tabSelectedTextStyle: interBoldW700TextStyle.copyWith(
       fontSize: 13.sp,
       color: colors.white,
@@ -595,6 +600,51 @@ class LightModeTheme extends AppTheme {
     deliveryHeaderStyle: interBoldW700TextStyle.copyWith(fontSize: 14.sp,color: colors.color1D1D1F),
     productTitle: interMediumBoldW500TextStyle.copyWith(fontSize: 12.sp),
     productSubtitle: interMediumBoldW500TextStyle.copyWith(fontSize: 10.sp,color: colors.color9c9cA3),
+    topAppliedDecoration: BoxDecoration(
+      color: colors.white,
+      boxShadow: [
+        BoxShadow(
+          color: colors.boxShadowColor.withValues(alpha: 0.2),
+          blurRadius: 8,
+          spreadRadius: 6,
+          offset: Offset(0, 2),
+        )
+      ]
+    ),
+    deliveryInStyle: interBoldW700TextStyle.copyWith(fontSize: 10.sp, color: colors.color58585C,),
+    missingStyle: interBoldW700TextStyle.copyWith(fontSize: 12.sp),
+    missingStylePrimary: interBoldW700TextStyle.copyWith(fontSize: 12.sp,color: colors.primary),
+    reviewTitleStyle: interBoldW700TextStyle.copyWith(fontSize: 16.sp),
+
+    itemNameStyle: interMediumBoldW500TextStyle.copyWith(fontSize: 12.sp),
+    itemAmountStyle: interRegularW400TextStyle.copyWith(fontSize: 10.sp),
+    reviewDecoration: BoxDecoration(
+
+      color: colors.colorF5F5F7,borderRadius: BorderRadius.only(topRight: Radius.circular(24.r),topLeft: Radius.circular(24.r),),boxShadow: [
+      BoxShadow(
+        color: colors.colorBlack12,
+        blurRadius: 8,
+        offset: Offset(0, -2),
+      ),
+    ],),
+    defaultDecoration: BoxDecoration(color: colors.white,borderRadius: BorderRadius.only(topRight: Radius.circular(24.r),topLeft: Radius.circular(24.r),),
+      boxShadow: [
+        BoxShadow(
+          color: colors.colorBlack12,
+          blurRadius: 8,
+          offset: Offset(0, -2),
+        ),
+      ],
+    ),
+    fullDefaultDecoration: BoxDecoration(color: colors.white,borderRadius: BorderRadius.circular(24.r),
+      boxShadow: [
+        BoxShadow(
+          color: colors.colorBlack12,
+          blurRadius: 8,
+          offset: Offset(0, -2),
+        ),
+      ],
+    ),
   );
 
   @override
@@ -649,8 +699,8 @@ class LightModeTheme extends AppTheme {
   );
 
   @override
-  AddressBottomSheetStyle get addressBottomSheetStyle =>
-      AddressBottomSheetStyle(
+  AddressStyle get addressBottomSheetStyle =>
+      AddressStyle(
         addressBottomSheetTagTitleStyle: interBoldW700TextStyle.copyWith(
           fontSize: 15.sp,
         ),
@@ -664,7 +714,35 @@ class LightModeTheme extends AppTheme {
         iconColor: colors.color8C8C8C,
         primaryColorStyle: interBoldW700TextStyle.copyWith(fontSize: 14.sp,color: colors.primary),
         blackColorStyle: interBoldW700TextStyle.copyWith(fontSize: 14.sp),
-        currentlySelectedStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 10.sp,color: colors.primary)
+        currentlySelectedStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 10.sp,color: colors.primary),
+        addressBottomDecoration: BoxDecoration(
+          color: colors.white,
+          borderRadius: BorderRadius.only(topRight: Radius.circular(22.r),topLeft: Radius.circular(22.r)),
+          boxShadow:
+            [
+              BoxShadow(
+                color: colors.colorBlack12,
+                blurRadius: 8,
+
+            )
+            ]
+        ),
+        backBackgroundColor: colors.colorF7F9FA,
+        selectedChipDecoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.r),
+          border: Border.all(color: colors.primary),
+        ),
+        unSelectedChipDecoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.r),
+          border: Border.all(color: colors.color9c9cA3),
+        ),
+        selectedStyle: interSemiBoldW600TextStyle.copyWith(
+          fontSize: 14.sp,color: colors.primary
+        ),
+          unSelectedStyle: interSemiBoldW600TextStyle.copyWith(
+              fontSize: 14.sp,color: colors.color9c9cA3
+          )
+
       );
 
   @override
@@ -721,8 +799,8 @@ class LightModeTheme extends AppTheme {
       boxShadow: [
         BoxShadow(
           color: colors.boxShadowColor,
-          blurRadius: 5.r,
-          spreadRadius: 5.r,
+          blurRadius: 5,
+          spreadRadius: 5,
         ),
       ],
     ),

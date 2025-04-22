@@ -51,7 +51,18 @@ class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
             ],
           ),
         ),
-        SizedBox(
+        Obx(() {
+          final index = controller.currentTabIndex;
+          final views = tabBarViewWidgets ?? [
+            _buildDeliveryOptions(style),
+            _buildTipOptions(style),
+            _buildInstruction(style),
+          ];
+
+          return views[index.value];
+        }),
+
+        /*SizedBox(
           height: 180.h,
           child: TabBarView(
             controller: controller.tabController,
@@ -62,7 +73,7 @@ class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
                   _buildInstruction(style)
                 ],
           ),
-        ),
+        ),*/
       ],
     );
   }
@@ -96,6 +107,7 @@ class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
 
     return SmartColumn(
       mainAxisSize: MainAxisSize.min,
+      spacing: 20.h,
       children: [
         SmartRow(
           children: [
@@ -112,7 +124,6 @@ class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
             ),
           ],
         ),
-        Spacer(),
         Obx(() => Wrap(
           spacing: 8.w,
           crossAxisAlignment: WrapCrossAlignment.start,
@@ -140,8 +151,9 @@ class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
                       height: 15.h,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8.r),bottomRight: Radius.circular(12.r)),
-                        color: style.redColor
+                        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(11.r),bottomRight: Radius.circular(11.r)),
+                        color: style.redColor,
+
                       ),
                       child: Center(child: SmartText("Most Tipped",style: style.mostTippedStyle,)),
                     )
@@ -158,6 +170,7 @@ class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
   Widget _buildInstruction(CheckoutStyle style) {
 
     return SmartColumn(
+      spacing: 20.h,
       mainAxisSize: MainAxisSize.min,
       children: [
         SmartRow(
@@ -176,7 +189,7 @@ class SmartDeliveryTabBar extends GetView<SmartDeliveryTabController> {
             ),
           ],
         ),
-        Spacer(),
+
         SmartTextField(
           hintText: LocaleKeys.instructionExample.tr,
           hintStyle: style.subCardTitleStyle,

@@ -13,13 +13,16 @@ class DashboardPage extends GetView<DashboardController> {
 
       body: Stack(
         children: [
-          PageView(
-            controller: controller.pageController,
-            physics: const NeverScrollableScrollPhysics(),
-            children:
-                controller.tabs
-                    .map((tab) => Builder(builder: tab.pageBuilder))
-                    .toList(),
+          Padding(
+            padding:  EdgeInsets.only(bottom: 100.h),
+            child: PageView(
+              controller: controller.pageController,
+              physics: const NeverScrollableScrollPhysics(),
+              children:
+                  controller.tabs
+                      .map((tab) => Builder(builder: tab.pageBuilder))
+                      .toList(),
+            ),
           ),
           Positioned.directional(
               textDirection: TextDirection.ltr,

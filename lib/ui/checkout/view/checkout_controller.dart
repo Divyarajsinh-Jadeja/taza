@@ -5,11 +5,11 @@ class CheckoutController extends GetxController {
   void onInit() {
     super.onInit();
     printWrapped("CheckoutController initialized");
-    Future.delayed(Duration(milliseconds: 500),() => Get.dialog(RewardDialog()),);
   }
 
   RxList<FoodModel> foodList = [
     FoodModel(
+        id: "1",
         name: 'Family Bucket',
         imageUrl: 'https://i.ibb.co/whRS5nY7/b.jpg',
         rating: 4.2,
@@ -19,6 +19,7 @@ class CheckoutController extends GetxController {
         quantity: 4
     ),
     FoodModel(
+      id: "2",
       name: 'Cheese Burger',
       imageUrl: 'https://i.ibb.co/FLj0XVLX/burger.webp',
       rating: 4.5,
@@ -27,6 +28,7 @@ class CheckoutController extends GetxController {
       price: 59.0,
     ),
     FoodModel(
+      id: "3",
       name: 'Chocolate Cake',
       imageUrl: 'https://i.ibb.co/XfpHPXFP/cake.jpg',
       rating: 4.6,
@@ -35,6 +37,7 @@ class CheckoutController extends GetxController {
       price: 45.0,
     ),
     FoodModel(
+      id: "4",
       name: 'Chinese Combo',
       imageUrl: 'https://i.ibb.co/HLmQQsjy/chinease.jpg',
       rating: 4.4,
@@ -42,7 +45,7 @@ class CheckoutController extends GetxController {
       deliveryTime: '35-40 min',
       price: 65.0,
     ),
-    FoodModel(
+    /*FoodModel(
       name: 'Crispy Fries',
       imageUrl: 'https://i.ibb.co/Wp59vWJz/fries.jpg',
       rating: 4.1,
@@ -81,6 +84,6 @@ class CheckoutController extends GetxController {
       reviewsCount: 350,
       deliveryTime: '10-15 min',
       price: 22.0,
-    ),
+    ),*/
   ].obs;
 }

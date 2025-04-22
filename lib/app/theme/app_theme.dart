@@ -84,7 +84,7 @@ abstract class AppTheme {
 
   FoodOptionCardStyle get foodOptionCardStyle;
 
-  AddressBottomSheetStyle get addressBottomSheetStyle;
+  AddressStyle get addressBottomSheetStyle;
 
   GroceryStyle get groceryStyle;
 
@@ -603,6 +603,7 @@ class CheckoutStyle {
   final TextStyle toPayTitleStyle;
   final TextStyle toPayTitleDiscountedStyle;
   final TextStyle appliedTextStyle;
+  final TextStyle appliedTextStyleThin;
   final TextStyle tabSelectedTextStyle;
   final TextStyle tabDisableTextStyle;
   final BoxDecoration cardDecoration;
@@ -624,6 +625,17 @@ class CheckoutStyle {
   final TextStyle deliveryHeaderStyle;
   final TextStyle productTitle;
   final TextStyle productSubtitle;
+  final BoxDecoration topAppliedDecoration;
+  final TextStyle deliveryInStyle;
+  final TextStyle missingStyle;
+  final TextStyle missingStylePrimary;
+  final TextStyle reviewTitleStyle;
+  final TextStyle itemNameStyle;
+  final TextStyle itemAmountStyle;
+  final BoxDecoration defaultDecoration;
+  final BoxDecoration fullDefaultDecoration;
+  final BoxDecoration reviewDecoration;
+
   CheckoutStyle({
     required this.backgroundColor,
     required this.primaryColor,
@@ -639,6 +651,7 @@ class CheckoutStyle {
     required this.toPayTitleStyle,
     required this.toPayTitleDiscountedStyle,
     required this.appliedTextStyle,
+    required this.appliedTextStyleThin,
     required this.tabSelectedTextStyle,
     required this.tabDisableTextStyle,
     required this.cardDecoration,
@@ -660,7 +673,11 @@ class CheckoutStyle {
     required this.deliveryHeaderStyle,
     required this.productTitle,
     required this.productSubtitle,
-
+    required this.topAppliedDecoration,
+    required this.deliveryInStyle,
+    required this.missingStyle,
+    required this.missingStylePrimary,
+    required this.reviewTitleStyle,required this.itemNameStyle, required this.itemAmountStyle, required this.defaultDecoration,required this.reviewDecoration,required this.fullDefaultDecoration
   });
 }
 
@@ -709,7 +726,7 @@ class FoodOptionCardStyle {
   });
 }
 
-class AddressBottomSheetStyle {
+class AddressStyle {
   final Color textFieldBgColor;
   final Color submitButtonBgColor;
   final TextStyle addressBottomSheetTagTitleStyle;
@@ -719,7 +736,13 @@ class AddressBottomSheetStyle {
   final TextStyle primaryColorStyle;
   final TextStyle blackColorStyle;
   final TextStyle currentlySelectedStyle;
-  AddressBottomSheetStyle({
+  final BoxDecoration addressBottomDecoration;
+  final Color backBackgroundColor;
+  final BoxDecoration selectedChipDecoration;
+  final BoxDecoration unSelectedChipDecoration;
+  final TextStyle selectedStyle;
+  final TextStyle unSelectedStyle;
+  AddressStyle({
     required this.textFieldBgColor,
     required this.submitButtonBgColor,
     required this.addressBottomSheetTagTitleStyle,
@@ -729,6 +752,12 @@ class AddressBottomSheetStyle {
     required this.blackColorStyle,
     required this.primaryColorStyle,
     required this.currentlySelectedStyle,
+    required this.addressBottomDecoration,
+    required this.backBackgroundColor,
+    required this.selectedChipDecoration,
+    required this.unSelectedChipDecoration,
+    required this.selectedStyle,
+    required this.unSelectedStyle,
   });
 }
 

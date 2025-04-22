@@ -3,12 +3,34 @@ import 'package:taza/taza.dart';
 class CheckoutPage extends GetView<CheckoutController> {
   const CheckoutPage({super.key});
 
+
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Future.delayed(Duration(milliseconds: 500), () {
+        Get.dialog(RewardDialog());
+      });
+    });
+
     final style = AppTheme.of(context).checkoutStyle;
     return Scaffold(
       backgroundColor: style.backgroundColor,
-      appBar: SmartAppBar(showHomeWithAddress: true),
+      appBar: SmartAppBar(
+        showHomeWithAddress: true,
+        popupMenuItemBuilder: (p0) {
+          return [PopupMenuItem(
+            padding: EdgeInsets.zero,
+            child: SmartRow(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            spacing: 10.w,
+            padding: EdgeInsetsDirectional.symmetric(horizontal: 8.w),
+            children: [
+              SmartText("Clear Cart",style: style.missingStyle,),
+            ],
+          ), onTap: () {},)];
+        },
+      ),
       body: Stack(
         children: [
           SmartSingleChildScrollView(
@@ -18,7 +40,8 @@ class CheckoutPage extends GetView<CheckoutController> {
               mainAxisSize: MainAxisSize.min,
               spacing: 20.h,
               children: [
-                _buildProducts(style),
+                _buildReviewYourOrder(style),
+                _buildMissingSomething(style),
                 _buildSavingCorner(style),
                 SmartDeliveryTabBar(),
                 _buildToPaySar(style),
@@ -73,26 +96,57 @@ class CheckoutPage extends GetView<CheckoutController> {
     );
   }
 
-  Container _buildTopAppliedOrder(CheckoutStyle style) {
+  Container _buildMissingSomething(CheckoutStyle style) {
     return Container(
-      height: 30.h,
-      width: Get.width,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            style.primaryColor.withValues(alpha: 0.1),
-            style.primaryColor.withValues(alpha: 0.4),
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
+      decoration: style.cardDecoration,
+      padding: EdgeInsetsDirectional.all(15.w),
+      child: SmartRow(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SmartText("Missing Something? ", style: style.missingStyle),
+          SmartText("Add more items ", style: style.missingStylePrimary),
+        ],
       ),
-      child: Center(
-        child: SmartText(
-          LocaleKeys.freeDeliveryApplied.tr.interpolate([120.toCurrencyCodeFormat()]),
-          style: style.appliedTextStyle,
+    );
+  }
+
+  Widget _buildTopAppliedOrder(CheckoutStyle style) {
+    return Stack(
+      children: [
+        Container(
+          height: 30.h,
+          width: Get.width,
+          decoration: style.topAppliedDecoration,
         ),
-      ),
+        Container(
+          height: 30.h,
+          width: Get.width,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                style.primaryColor.withValues(alpha: 0.1),
+                style.primaryColor.withValues(alpha: 0.4),
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+          child: Center(
+            child: SmartRichText(
+              spans: [
+                SmartTextSpan(
+                  text: "${58.toCurrencyCodeFormat()} saved! FREE DELIVERY",
+                  style: style.appliedTextStyle,
+                ),
+                SmartTextSpan(
+                  text: " applied on this order",
+                  style: style.appliedTextStyleThin,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 
@@ -130,8 +184,8 @@ class CheckoutPage extends GetView<CheckoutController> {
           optionalPadding: EdgeInsetsDirectional.only(start: 28.w),
         ),
         Padding(
-          padding:  EdgeInsetsDirectional.symmetric(vertical: 4.0.h),
-          child: Divider(),
+          padding: EdgeInsetsDirectional.symmetric(vertical: 4.0.h),
+          child: SmartDashedDivider(),
         ),
         _buildBillingRow(
           style: style,
@@ -155,8 +209,8 @@ class CheckoutPage extends GetView<CheckoutController> {
           price: 50.toCurrencyCodeFormat(),
         ),
         Padding(
-          padding:  EdgeInsetsDirectional.symmetric(vertical: 4.0.h),
-          child: Divider(),
+          padding: EdgeInsetsDirectional.symmetric(vertical: 4.0.h),
+          child: SmartDashedDivider(),
         ),
         SmartRow(
           padding: EdgeInsetsDirectional.only(bottom: 4.h),
@@ -173,82 +227,118 @@ class CheckoutPage extends GetView<CheckoutController> {
     );
   }
 
-  SmartColumn _buildSavingCorner(CheckoutStyle style) {
+  Widget _buildSavingCorner(CheckoutStyle style) {
     return SmartColumn(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      width: Get.width,
-      padding: EdgeInsetsDirectional.all(16.w),
-      decoration: style.cardDecoration,
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SmartRow(
-          children: [
-            SmartText(
-              LocaleKeys.savingCorner.tr,
-              style: style.subCardTitleStyle,
-            ),
-          ],
-        ),
-        SizedBox(height: 16.h),
-        SmartRow(
-          children: [
-            SmartImage(path: AppImages.icSaveTag, width: 16.w, height: 16.w),
-            SizedBox(width: 8.w),
-            SmartText(
-              "10 SAR saved with ‘Save 10’",
-              style: style.savingTitleStyle,
-            ),
-            Spacer(),
-            Icon(Icons.check, color: style.greenColor, size: 16.w),
-            SizedBox(width: 4.w),
-            SmartText(LocaleKeys.applied.tr, style: style.appliedTextStyle),
-          ],
-        ),
-        SizedBox(height: 10.h),
-        Divider(),
         SmartText(
-          LocaleKeys.viewMoreCoupons.tr,
-          style: style.subCardTitleStyle,
-          textAlign: TextAlign.center,
-          optionalPadding: EdgeInsetsDirectional.only(top: 10.h),
-          onTap: () {
-            Get.toNamed(AppRoutes.couponsPage);
-          },
+          LocaleKeys.savingCorner.tr,
+          style: style.deliveryHeaderStyle,
+          optionalPadding: EdgeInsetsDirectional.only(bottom: 10.h),
+        ),
+        SmartColumn(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          width: Get.width,
+          padding: EdgeInsetsDirectional.all(16.w),
+          decoration: style.cardDecoration,
+          children: [
+            SmartRow(
+              children: [
+                SmartImage(
+                  path: AppImages.icSaveTag,
+                  width: 16.w,
+                  height: 16.w,
+                ),
+                SizedBox(width: 8.w),
+                SmartText(
+                  "10 SAR saved with ‘Save 10’",
+                  style: style.savingTitleStyle,
+                ),
+                Spacer(),
+                Icon(Icons.check, color: style.greenColor, size: 16.w),
+                SizedBox(width: 4.w),
+                SmartText(LocaleKeys.applied.tr, style: style.appliedTextStyle),
+              ],
+            ),
+            SizedBox(height: 10.h),
+            SmartDashedDivider(),
+            10.height,
+            SmartRow(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SmartText(
+                  LocaleKeys.viewMoreCoupons.tr,
+                  style: style.subCardTitleStyle,
+                  textAlign: TextAlign.center,
+                  onTap: () {
+                    Get.toNamed(AppRoutes.couponsPage);
+                  },
+                ),
+                Icon(
+                  Icons.chevron_right_rounded,
+                  color: style.subCardTitleStyle.color,
+                ),
+              ],
+            ),
+          ],
         ),
       ],
     );
   }
 
-  Widget _buildProducts(CheckoutStyle style) {
+  Widget _buildReviewYourOrder(CheckoutStyle style) {
     return SmartColumn(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
-      width: Get.width,
-      padding: EdgeInsetsDirectional.all(16.w),
-      decoration: style.cardDecoration,
-      spacing: 10.h,
       children: [
-        SmartRow(
+        SmartText(
+          "Review your Order",
+          style: style.deliveryHeaderStyle,
+          optionalPadding: EdgeInsetsDirectional.only(bottom: 10.h),
+        ),
+        SmartColumn(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          width: Get.width,
+          padding: EdgeInsetsDirectional.all(16.w),
+          decoration: style.cardDecoration,
+          spacing: 10.h,
           children: [
             SmartColumn(
-              expanded: true,
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                SmartText(LocaleKeys.deliveryIn.tr, style: style.tabDisableTextStyle),
+                SmartRow(
+                  children: [
+                    SmartText(
+                      LocaleKeys.deliveryIn.tr,
+                      style: style.deliveryInStyle,
+                      isExpanded: true,
+                    ),
+                    SmartText(
+                      LocaleKeys.itemsCount.tr.interpolate(["2"]),
+                      style: style.deliveryInStyle,
+                    ),
+                  ],
+                ),
                 SmartText("35 Mins", style: style.deliveryHeaderStyle),
               ],
             ),
-            SmartText(LocaleKeys.itemsCount.tr.interpolate(["2"]), style: style.tabDisableTextStyle),
+            SmartDashedDivider(),
+            ListView.builder(
+              padding: EdgeInsetsDirectional.only(top: 8.h),
+              itemCount: controller.foodList.length,
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemBuilder:
+                  (context, index) =>
+                      ProductCheckoutCard(model: controller.foodList[index]),
+            ),
           ],
-        ),
-        Divider(),
-        ListView.builder(
-          itemCount: controller.foodList.length,
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) => ProductCheckoutCard(model: controller.foodList[index],isOutOfStock: index==2,),
         ),
       ],
     );

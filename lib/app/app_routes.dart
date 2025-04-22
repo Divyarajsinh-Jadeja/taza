@@ -14,6 +14,8 @@ class AppRoutes {
   static const foodDetailsPage = '/food_details_page';
   static const categoryPage = '/category_page';
   static const addressPage = '/address_page';
+  static const selectDeliveryLocationPage = '/select_delivery_location_page';
+  static const saveAddressDetailsPage = '/save_address_details_page';
 
   static final List<GetPage> pages = [
     GetPage(
@@ -85,7 +87,6 @@ class AppRoutes {
       transition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
     ),
-
     GetPage(
       name: AppRoutes.categoryPage,
       page: () => const CategoryScreen(),
@@ -93,10 +94,23 @@ class AppRoutes {
       transition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
     ),
-
     GetPage(
       name: AppRoutes.addressPage,
       page: () => const AddressPage(),
+      binding: AddressBinding(),
+      transition: Transition.cupertino,
+      transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
+    ),
+    GetPage(
+      name: AppRoutes.selectDeliveryLocationPage,
+      page: () => const SelectDeliveryLocationPage(),
+      binding: AddressBinding(),
+      transition: Transition.cupertino,
+      transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
+    ),
+    GetPage(
+      name: AppRoutes.saveAddressDetailsPage,
+      page: () => const SaveAddressDetailsPage(),
       binding: AddressBinding(),
       transition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:taza/taza.dart';
 
 class AddressPage extends GetView<AddressController> {
@@ -31,6 +30,7 @@ class AddressPage extends GetView<AddressController> {
           /// Use my current location row
           SmartRow(
             spacing: 8.w,
+            onTap: () => Get.toNamed(AppRoutes.selectDeliveryLocationPage),
             children: [
               Icon(CupertinoIcons.location_fill, color: style.primaryColor),
               SmartText(
@@ -51,6 +51,7 @@ class AddressPage extends GetView<AddressController> {
           /// Add new address row
           SmartRow(
             spacing: 8.w,
+            onTap: () => Get.toNamed(AppRoutes.selectDeliveryLocationPage),
             children: [
               Icon(CupertinoIcons.add, color: style.primaryColor),
               SmartText(
@@ -85,7 +86,7 @@ class AddressPage extends GetView<AddressController> {
     );
   }
 
-  Widget _buildAddressTile(AddressBottomSheetStyle style,bool isSelected){
+  Widget _buildAddressTile(AddressStyle style,bool isSelected){
     return SmartColumn(
       mainAxisSize: MainAxisSize.min,
       spacing: 4.h,
@@ -112,7 +113,7 @@ class AddressPage extends GetView<AddressController> {
                   borderRadius: BorderRadius.circular(6.r)
               ),
               padding: EdgeInsetsDirectional.symmetric(horizontal: 8.w,vertical: 4.h),
-              child: Text("CURRENTLY SELECTED",style: style.currentlySelectedStyle,),
+              child: SmartText("CURRENTLY SELECTED",style: style.currentlySelectedStyle,),
             ),
             Spacer(),
             Icon(
