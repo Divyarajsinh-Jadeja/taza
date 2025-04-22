@@ -1,18 +1,18 @@
 import 'package:taza/taza.dart';
-class BottomCartWidget extends StatelessWidget {
+class BottomCartWidget extends GetView<CheckoutController> {
   BottomCartWidget({super.key});
 
   final ValueNotifier<bool> showMenu = ValueNotifier(false);
   @override
   Widget build(BuildContext context) {
-    final style = AppTheme.of(context).bottomCartStyle;
+    final style = AppTheme.of(context).checkoutStyle;
     return ValueListenableBuilder(
       valueListenable: showMenu,
       builder: (context, value, child) {
         return SmartColumn(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            value ? _buildReviewItems(style):_buildHeader(style),
+            value ? _buildReviewYourOrder(style):_buildHeader(style),
             _buildItemWidget(style)
           ],
         );
@@ -20,7 +20,7 @@ class BottomCartWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader(BottomCartStyle style) {
+  Widget _buildHeader(CheckoutStyle style) {
     return SizedBox(
       height: 90.h,
       child: Stack(
@@ -54,7 +54,7 @@ class BottomCartWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildReviewItems(BottomCartStyle style) {
+  Widget _buildReviewItems(CheckoutStyle style) {
     return SmartAnimator(
       animateSlideY: true,
       slideYBegin: const Offset(0, 2),
@@ -70,7 +70,6 @@ class BottomCartWidget extends StatelessWidget {
           vertical: 10.h,
         ),
         decoration: style.reviewDecoration,
-
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         spacing: 10.h,
@@ -89,17 +88,10 @@ class BottomCartWidget extends StatelessWidget {
               decoration: style.fullDefaultDecoration,
               child: ListView.separated(
                 padding: EdgeInsets.zero,
-                itemCount: 4,
+                itemCount: controller.foodList.length,
                 separatorBuilder: (context, index) => Divider(),
                 itemBuilder:
-                    (context, index) => ProductCheckoutCard(model: FoodModel(
-                      name: 'Chocolate Cake',
-                      imageUrl: 'https://i.ibb.co/XfpHPXFP/cake.jpg',
-                      rating: 4.6,
-                      reviewsCount: 1100,
-                      deliveryTime: '20-25 min',
-                      price: 45.0,
-                    ),),
+                    (context, index) => ProductCheckoutCard(model: controller.foodList[index],),
               ),
             ),
           ),
@@ -108,7 +100,7 @@ class BottomCartWidget extends StatelessWidget {
     );
   }
 
-  _buildItemWidget(BottomCartStyle style) {
+  _buildItemWidget(CheckoutStyle style) {
     return SmartRow(
       color: style.whiteColor,
       padding: EdgeInsetsDirectional.only(bottom: 10.h, top: 10.h,start: 20.w,end: 20.w),
@@ -161,7 +153,7 @@ class BottomCartWidget extends StatelessWidget {
                       effects: [RotateEffect(duration: 300.ms)],
                       key: ValueKey(expanded),
                       child: Icon(
-                        expanded
+                        !expanded
                             ? Icons.keyboard_arrow_up
                             : Icons.keyboard_arrow_down,
                         color: style.primaryColor,
@@ -179,6 +171,68 @@ class BottomCartWidget extends StatelessWidget {
     );
   }
 
+  Widget _buildReviewYourOrder(CheckoutStyle style) {
+    return SmartColumn(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      decoration: style.reviewDecoration,
+      padding: EdgeInsetsDirectional.symmetric(
+        horizontal: 20.w,
+        vertical: 10.h,
+      ),
+      children: [
+        SmartRow(
+          padding: EdgeInsetsDirectional.symmetric(vertical: 10.h),
+          children: [
+            SmartText(LocaleKeys.reviewYourOrder.tr,style: style.deliveryHeaderStyle,optionalPadding: EdgeInsetsDirectional.only(bottom: 10.h),isExpanded: true,),
+            SmartImage(path: AppImages.icClose,onTap: () => showMenu.value=!showMenu.value,)
+          ],
+        ),
+        SmartColumn(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          width: Get.width,
+          padding: EdgeInsetsDirectional.all(16.w),
+          decoration: style.cardDecoration,
+          spacing: 10.h,
+          children: [
+            SmartColumn(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SmartRow(
+                  children: [
+                    SmartText(
+                      LocaleKeys.deliveryIn.tr,
+                      style: style.deliveryInStyle,
+                      isExpanded: true,
+                    ),
+                    SmartText(
+                      LocaleKeys.itemsCount.tr.interpolate(["2"]),
+                      style: style.deliveryInStyle,
+                    ),
+                  ],
+                ),
+                SmartText(LocaleKeys.minsWithTime.tr.interpolate(["12"]), style: style.deliveryHeaderStyle),
+              ],
+            ),
+            SmartDashedDivider(),
+            ListView.builder(
+              padding: EdgeInsetsDirectional.only(top: 8.h),
+              itemCount: controller.foodList.length,
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemBuilder:
+                  (context, index) => ProductCheckoutCard(
+                model: controller.foodList[index],
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
 
 
 }

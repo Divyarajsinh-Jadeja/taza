@@ -111,4 +111,5 @@ class AppImages {
   static const String reward = 'assets/images/reward.png';
   static const String imgOtp = 'assets/images/img_otp.json';
   static const String icMessage = 'assets/images/ic_message.png';
+  static const String mapLocation = 'assets/images/map_location.jpeg';
 }

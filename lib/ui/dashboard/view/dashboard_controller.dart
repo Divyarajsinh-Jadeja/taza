@@ -17,7 +17,7 @@ class DashboardController extends GetxController {
               (context) => OfferPopup(
             title: "Free Delivery",
             buttonText: "Got it! Thanks",
-            subTitle: "on all order above 199",
+            subTitle: "on all order above ${199.toCurrencyCodeFormat()}",
             image: AppImages.deliveryLottie,
             bgImage: AppImages.icBgYellow,
           ),
