@@ -55,21 +55,21 @@ class SaveAddressDetailsPage extends GetView<AddressController> {
                   ),
                   SizedBox(height: 10.h,),
                   SmartTextField(
-                    inputDecorationLabelText: "HOUSE / FLAT / FLOOR NO.",
+                    inputDecorationLabelText: LocaleKeys.houseFlatFloor.tr,
                     controller: controller.houseController,),
                   SizedBox(height: 10.h,),
                   SmartTextField(
-                      inputDecorationLabelText: "APARTMENT / ROAD / AREA",
+                      inputDecorationLabelText: LocaleKeys.enterAreaOrApartment.tr,
                       controller: controller.apartmentController),
                   SizedBox(height: 10.h,),
                   SmartTextField(
-                      inputDecorationLabelText: "DIRECTION TO REACH(OPTIONAL)",
+                      inputDecorationLabelText: LocaleKeys.directionToReach.tr,
                       maxLines: 3,
-                      hintText: "e.g Ring the bell",
+                      hintText: LocaleKeys.instructionDontRingBell.tr,
                       controller: controller.directionController),
                   SizedBox(height: 10.h,),
                   SmartText(
-                    "SAVE AS",
+                    LocaleKeys.saveAs.tr,
                     style: style.addressBottomSheetTitleStyle,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
@@ -80,13 +80,13 @@ class SaveAddressDetailsPage extends GetView<AddressController> {
                       runSpacing: 12.h,
                       children: [
                         _buildSaveAsChip(style, icon: Icons.home,
-                            label: "Home"),
+                            label: LocaleKeys.home.tr),
                         _buildSaveAsChip(style, icon: Icons.business_center,
-                            label: "Office"),
+                            label: LocaleKeys.office.tr),
                         _buildSaveAsChip(style, icon: Icons.work,
-                            label: "Work"),
+                            label: LocaleKeys.work.tr),
                         _buildSaveAsChip(style, icon: Icons.group,
-                            label: "Friends and Family"),
+                            label:LocaleKeys.friendsAndFamily.tr),
                       ],
                     );
                   }),
@@ -120,24 +120,21 @@ class SaveAddressDetailsPage extends GetView<AddressController> {
   Widget _buildSaveAsChip(AddressStyle style,
       {required IconData icon, required String label}) {
     bool isSelected = label==controller.selectedLabel.value;
-    return InkWell(
+    return SmartRow(
       onTap: () {
         controller.onSaveAsChanged(label);
       },
-      borderRadius: BorderRadius.circular(20.r),
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
-        decoration: isSelected ? style
-            .selectedChipDecoration : style.unSelectedChipDecoration,
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(icon, color: isSelected? style.primaryColor:style.iconColor, size: 16.w),
-            SizedBox(width: 6.w),
-            SmartText(label, style: isSelected?style.selectedStyle:style.unSelectedStyle),
-          ],
-        ),
-      ),
+
+      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
+      decoration: isSelected ? style
+          .selectedChipDecoration : style.unSelectedChipDecoration,
+
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(icon, color: isSelected? style.primaryColor:style.iconColor, size: 16.w),
+        SizedBox(width: 6.w),
+        SmartText(label, style: isSelected?style.selectedStyle:style.unSelectedStyle),
+      ],
     );
   }
 

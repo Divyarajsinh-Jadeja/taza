@@ -172,5 +172,14 @@
   "addNewAddress": "Add new address",
   "savedAddresses": "SAVED ADDRESSES",
   "addressLabel": "Address",
-  "currentlySelected": "CURRENTLY SELECTED"
+  "currentlySelected": "CURRENTLY SELECTED",
+
+  "directionToReach": "DIRECTION TO REACH (OPTIONAL)",
+  "directionExample": "e.g., Ring the bell",
+  "saveAs": "SAVE AS",
+  "saveAsHint": "APARTMENT / ROAD / AREA",
+  "houseFlatFloor": "HOUSE / FLAT / FLOOR NO.",
+  "office": "Office",
+  "work": "Work",
+  "friendsAndFamily": "Friends and Family"
 }

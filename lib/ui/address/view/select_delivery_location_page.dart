@@ -61,13 +61,13 @@ class SelectDeliveryLocationPage extends GetView<AddressController> {
                           color: style.primaryColor.withValues(alpha: 0.2),
                           borderRadius: BorderRadius.circular(6.r),
                         ),
-                        padding: EdgeInsetsDirectional.symmetric(
-                          horizontal: 8.w,
-                          vertical: 4.h,
-                        ),
                         child: SmartText(
                           LocaleKeys.change.tr,
                           style: style.currentlySelectedStyle,
+                          optionalPadding: EdgeInsetsDirectional.symmetric(
+                            horizontal: 8.w,
+                            vertical: 4.h,
+                          ),
                         ),
                       ),
                     ],

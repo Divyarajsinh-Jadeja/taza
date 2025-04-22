@@ -171,5 +171,14 @@
   "addNewAddress": "أضف عنوانًا جديدًا",
   "savedAddresses": "العناوين المحفوظة",
   "addressLabel": "العنوان",
-  "currentlySelected": "المحدد حاليًا"
+  "currentlySelected": "المحدد حاليًا",
+
+  "directionToReach": "الاتجاهات للوصول (اختياري)",
+  "directionExample": "مثال: اقرع الجرس",
+  "saveAs": "احفظ كـ",
+  "saveAsHint": "شقة / شارع / منطقة",
+  "houseFlatFloor": "رقم المنزل / الشقة / الطابق",
+  "office": "مكتب",
+  "work": "العمل",
+  "friendsAndFamily": "الأصدقاء والعائلة"
 }

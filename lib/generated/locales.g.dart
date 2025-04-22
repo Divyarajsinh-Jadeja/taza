@@ -184,6 +184,14 @@ class LocaleKeys {
   static const savedAddresses = 'savedAddresses';
   static const addressLabel = 'addressLabel';
   static const currentlySelected = 'currentlySelected';
+  static const directionToReach = 'directionToReach';
+  static const directionExample = 'directionExample';
+  static const saveAs = 'saveAs';
+  static const saveAsHint = 'saveAsHint';
+  static const houseFlatFloor = 'houseFlatFloor';
+  static const office = 'office';
+  static const work = 'work';
+  static const friendsAndFamily = 'friendsAndFamily';
 }
 
 class Locales {
@@ -372,6 +380,14 @@ class Locales {
     'savedAddresses': 'SAVED ADDRESSES',
     'addressLabel': 'Address',
     'currentlySelected': 'CURRENTLY SELECTED',
+    'directionToReach': 'DIRECTION TO REACH (OPTIONAL)',
+    'directionExample': 'e.g., Ring the bell',
+    'saveAs': 'SAVE AS',
+    'saveAsHint': 'APARTMENT / ROAD / AREA',
+    'houseFlatFloor': 'HOUSE / FLAT / FLOOR NO.',
+    'office': 'Office',
+    'work': 'Work',
+    'friendsAndFamily': 'Friends and Family',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -551,5 +567,13 @@ class Locales {
     'savedAddresses': 'العناوين المحفوظة',
     'addressLabel': 'العنوان',
     'currentlySelected': 'المحدد حاليًا',
+    'directionToReach': 'الاتجاهات للوصول (اختياري)',
+    'directionExample': 'مثال: اقرع الجرس',
+    'saveAs': 'احفظ كـ',
+    'saveAsHint': 'شقة / شارع / منطقة',
+    'houseFlatFloor': 'رقم المنزل / الشقة / الطابق',
+    'office': 'مكتب',
+    'work': 'العمل',
+    'friendsAndFamily': 'الأصدقاء والعائلة',
   };
 }
