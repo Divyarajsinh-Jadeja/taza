@@ -13,13 +13,6 @@ class HomePage extends GetView<HomeController> {
           children: [
             HomeAddressHeader(
               padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w, vertical: 10.h),
-              onAddressTap: () {
-                Get.toNamed(AppRoutes.addressPage);
-                //showAddressBottomSheet(context, controller.addresses);
-              },
-              onUserImageTap: (){
-                controller.navigateToProfilePage();
-              },
               userImagePath: "https://i.ibb.co/HLgDnFFQ/Group.png",
               addressTypeTag: LocaleKeys.home.tr,
               address: "Al Tadamun Al Arabi St., Mishfirah, Jeddah KSA",
@@ -67,7 +60,11 @@ class HomePage extends GetView<HomeController> {
                     child: Padding(
                       padding: EdgeInsetsDirectional.only(top: 8.0.h, end: 4.w),
                       child: FoodOptionCard(
-                        onTap: () {},
+                        onTap: () {
+                          if(item["title"]=="Instamart"){
+                            Get.find<DashboardController>().changeTab(1);
+                          }
+                        },
                         title: item['title'],
                         subtitle: item['subtitle'],
                         tag: item['tag'],

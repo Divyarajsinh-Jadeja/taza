@@ -7,7 +7,7 @@ class CheckoutPage extends GetView<CheckoutController> {
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Future.delayed(Duration(milliseconds: 500), () {
-        //Get.dialog(RewardDialog());
+        Get.dialog(RewardDialog());
       });
     });
 
@@ -91,7 +91,7 @@ class CheckoutPage extends GetView<CheckoutController> {
           Expanded(
             child: SmartButton(
               onTap: () {
-                Get.offNamed(AppRoutes.orderTrackingPage);
+                Get.offNamed(AppRoutes.paymentPage);
               },
               title: LocaleKeys.payAmount.tr.interpolate(["120"]),
             ),
@@ -159,78 +159,89 @@ class CheckoutPage extends GetView<CheckoutController> {
 
   SmartColumn _buildToPaySar(CheckoutStyle style) {
     return SmartColumn(
-      decoration: style.cardDecoration,
-      padding: EdgeInsetsDirectional.all(16.w),
+      mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
-      spacing: 6.h,
       children: [
-        SmartRow(
-          spacing: 8.w,
-          children: [
-            SmartImage(path: AppImages.icDoc, height: 20.w, width: 20.w),
-            Expanded(
-              child: SmartRichText(
-                spans: [
-                  SmartTextSpan(
-                    text: "${LocaleKeys.toPayPrefix.tr} ",
-                    style: style.toPayTitleStyle,
-                  ),
-                  SmartTextSpan(
-                    text: 89.toCurrencyCodeFormat(),
-                    style: style.toPayTitleDiscountedStyle,
-                  ),
-                  SmartTextSpan(
-                    text: " ${79.toCurrencyCodeFormat()}",
-                    style: style.toPayTitleStyle,
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
         SmartText(
-          LocaleKeys.savedOnTotal.tr.interpolate([10.toCurrencyCodeFormat()]),
-          style: style.appliedTextStyle,
-          optionalPadding: EdgeInsetsDirectional.only(start: 28.w),
+          LocaleKeys.billingDetails.tr,
+          style: style.deliveryHeaderStyle,
+          optionalPadding: EdgeInsetsDirectional.only(bottom: 10.h),
         ),
-        Padding(
-          padding: EdgeInsetsDirectional.symmetric(vertical: 4.0.h),
-          child: SmartDashedDivider(),
-        ),
-        _buildBillingRow(
-          style: style,
-          title: LocaleKeys.itemTotal.tr,
-          originalPrice: 258.toCurrencyCodeFormat(),
-          price: 150.toCurrencyCodeFormat(),
-        ),
-        _buildBillingRow(
-          style: style,
-          title: LocaleKeys.extraDiscount.tr,
-          price: "- ${20.toCurrencyCodeFormat()}",
-        ),
-        _buildBillingRow(
-          style: style,
-          title: LocaleKeys.deliveryFee.tr,
-          price: 50.toCurrencyCodeFormat(),
-        ),
-        _buildBillingRow(
-          style: style,
-          title: LocaleKeys.platformFee.tr,
-          price: 50.toCurrencyCodeFormat(),
-        ),
-        Padding(
-          padding: EdgeInsetsDirectional.symmetric(vertical: 4.0.h),
-          child: SmartDashedDivider(),
-        ),
-        SmartRow(
-          padding: EdgeInsetsDirectional.only(bottom: 4.h),
+        SmartColumn(
+          decoration: style.cardDecoration,
+          padding: EdgeInsetsDirectional.all(16.w),
+          crossAxisAlignment: CrossAxisAlignment.start,
+          spacing: 6.h,
           children: [
-            SmartText(
-              LocaleKeys.toPayPrefix.tr,
-              style: style.titleStyle,
-              isExpanded: true,
+            SmartRow(
+              spacing: 8.w,
+              children: [
+                SmartImage(path: AppImages.icDoc, height: 20.w, width: 20.w),
+                Expanded(
+                  child: SmartRichText(
+                    spans: [
+                      SmartTextSpan(
+                        text: "${LocaleKeys.toPayPrefix.tr} ",
+                        style: style.toPayTitleStyle,
+                      ),
+                      SmartTextSpan(
+                        text: 89.toCurrencyCodeFormat(),
+                        style: style.toPayTitleDiscountedStyle,
+                      ),
+                      SmartTextSpan(
+                        text: " ${79.toCurrencyCodeFormat()}",
+                        style: style.toPayTitleStyle,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-            SmartText(300.toCurrencyCodeFormat(), style: style.titleStyle),
+            SmartText(
+              LocaleKeys.savedOnTotal.tr.interpolate([10.toCurrencyCodeFormat()]),
+              style: style.appliedTextStyle,
+              optionalPadding: EdgeInsetsDirectional.only(start: 28.w),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.symmetric(vertical: 4.0.h),
+              child: SmartDashedDivider(),
+            ),
+            _buildBillingRow(
+              style: style,
+              title: LocaleKeys.itemTotal.tr,
+              originalPrice: 258.toCurrencyCodeFormat(),
+              price: 150.toCurrencyCodeFormat(),
+            ),
+            _buildBillingRow(
+              style: style,
+              title: LocaleKeys.extraDiscount.tr,
+              price: "- ${20.toCurrencyCodeFormat()}",
+            ),
+            _buildBillingRow(
+              style: style,
+              title: LocaleKeys.deliveryFee.tr,
+              price: 50.toCurrencyCodeFormat(),
+            ),
+            _buildBillingRow(
+              style: style,
+              title: LocaleKeys.platformFee.tr,
+              price: 50.toCurrencyCodeFormat(),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.symmetric(vertical: 4.0.h),
+              child: SmartDashedDivider(),
+            ),
+            SmartRow(
+              padding: EdgeInsetsDirectional.only(bottom: 4.h),
+              children: [
+                SmartText(
+                  LocaleKeys.toPayPrefix.tr,
+                  style: style.titleStyle,
+                  isExpanded: true,
+                ),
+                SmartText(300.toCurrencyCodeFormat(), style: style.titleStyle),
+              ],
+            ),
           ],
         ),
       ],

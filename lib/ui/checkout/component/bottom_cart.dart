@@ -54,51 +54,6 @@ class BottomCartWidget extends GetView<CheckoutController> {
     );
   }
 
-  Widget _buildReviewItems(CheckoutStyle style) {
-    return SmartAnimator(
-      animateSlideY: true,
-      slideYBegin: const Offset(0, 2),
-      slideEnd: Offset.zero,
-      animationDelay: 10.ms,
-      animationDuration: 200.ms,
-      animationCurve: Curves.easeInOutCubic,
-      child: SmartColumn(
-        height: 350.h,
-        width: Get.width,
-        padding: EdgeInsetsDirectional.symmetric(
-          horizontal: 20.w,
-          vertical: 10.h,
-        ),
-        decoration: style.reviewDecoration,
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: 10.h,
-        children: [
-          SmartRow(
-            children: [
-              SmartText(LocaleKeys.reviewItems.tr, isExpanded: true,style: style.reviewTitleStyle,),
-              SmartImage(path: AppImages.icClose,onTap: () => showMenu.value = !showMenu.value,),
-
-            ],
-          ),
-
-          Expanded(
-            child: Container(
-              padding: EdgeInsetsDirectional.all(12.w),
-              decoration: style.fullDefaultDecoration,
-              child: ListView.separated(
-                padding: EdgeInsets.zero,
-                itemCount: controller.foodList.length,
-                separatorBuilder: (context, index) => Divider(),
-                itemBuilder:
-                    (context, index) => ProductCheckoutCard(model: controller.foodList[index],),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 
   _buildItemWidget(CheckoutStyle style) {
     return SmartRow(

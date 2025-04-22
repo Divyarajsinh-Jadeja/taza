@@ -15,7 +15,6 @@ class GroceryPage extends GetView<GroceryController> {
             padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
             children: [
               HomeAddressHeader(
-                onAddressTap: () {},
                 addressTypeTag: LocaleKeys.home.tr,
                 address: "Al Tadamun Al Arabi St., Mishfirah, Jeddah KSA",
               ),

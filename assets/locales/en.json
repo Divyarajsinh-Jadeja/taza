@@ -188,5 +188,6 @@
   "freeDeliveryBannerLine1": "{#} saved! FREE DELIVERY",
   "freeDeliveryBannerLine2": "applied on this order",
   "unavailableItems": "Unavailable items",
-  "removeAll": "Remove All"
+  "removeAll": "Remove All",
+  "billingDetails": "Billing Details"
 }

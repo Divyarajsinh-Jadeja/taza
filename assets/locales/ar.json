@@ -187,5 +187,7 @@
   "freeDeliveryBannerLine2": "تم تطبيقه على هذا الطلب",
 
   "unavailableItems": "العناصر غير المتوفرة",
-  "removeAll": "إزالة الكل"
+  "removeAll": "إزالة الكل",
+  "billingDetails": "تفاصيل الفاتورة"
+
 }

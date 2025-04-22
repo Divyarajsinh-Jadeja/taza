@@ -1,8 +1,6 @@
 import 'package:taza/taza.dart';
 
 class HomeAddressHeader extends StatelessWidget {
-  final VoidCallback onAddressTap;
-  final VoidCallback? onUserImageTap;
   final String address;
   final String addressTypeTag;
   final String? homeIcon;
@@ -17,8 +15,6 @@ class HomeAddressHeader extends StatelessWidget {
 
   const HomeAddressHeader({
     super.key,
-    required this.onAddressTap,
-    this.onUserImageTap,
     required this.address,
     required this.addressTypeTag,
     this.homeIcon,
@@ -42,6 +38,7 @@ class HomeAddressHeader extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SmartColumn(
+          onTap: () => Get.toNamed(AppRoutes.addressPage),
           expanded: true,
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -52,7 +49,7 @@ class HomeAddressHeader extends StatelessWidget {
                 SizedBox(width: 8.h),
                 SmartText(addressTypeTag, style: style.addressTagTitleStyle.copyWith(color: textColor)),
                 SizedBox(width: 6.h),
-                SmartImage(path: dropDownIcon ?? AppImages.icArrowDropDown, onTap: onAddressTap, color: textColor),
+                SmartImage(path: dropDownIcon ?? AppImages.icArrowDropDown,  color: textColor),
               ],
             ),
             SizedBox(height: 3.h),
@@ -60,8 +57,8 @@ class HomeAddressHeader extends StatelessWidget {
           ],
         ),
         userImagePath != null
-            ? SmartImage(path: userImagePath ?? "", width: userImageWidth ?? 40.w, fit: BoxFit.cover,onTap: onUserImageTap,)
-            : SmartImage(path: AppImages.icUser, width: 40.w, onTap: onUserImageTap),
+            ? SmartImage(path: userImagePath ?? "", width: userImageWidth ?? 40.w, fit: BoxFit.cover,onTap: () => Get.toNamed(AppRoutes.profilePage))
+            : SmartImage(path: AppImages.icUser, width: 40.w, onTap: () => Get.toNamed(AppRoutes.profilePage)),
       ],
     );
   }

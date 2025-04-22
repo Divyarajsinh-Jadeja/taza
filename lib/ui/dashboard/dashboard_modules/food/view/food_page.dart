@@ -60,7 +60,6 @@ class FoodPage extends GetView<FoodController> {
           color: controller.currentFoodTabData.themeColor.withValues(alpha: 0.4),
           padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w, vertical: 6),
           child: HomeAddressHeader(
-            onAddressTap: () {},
             addressTypeTag: LocaleKeys.home.tr,
             address: "Al Tadamun Al Arabi St., Mishfirah, Jeddah KSA",
             userImagePath: "https://i.ibb.co/HLgDnFFQ/Group.png",

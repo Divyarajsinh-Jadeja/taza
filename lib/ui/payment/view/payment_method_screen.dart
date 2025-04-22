@@ -21,6 +21,8 @@ class PaymentMethodScreen extends GetView<PaymentController> {
                   'Proceeding with ${controller.selectedPayment.value.name}',
                   backgroundColor: style.primaryColor.withValues(alpha: 0.2),
                 );
+
+                Future.delayed(Duration(milliseconds: 500),() => Get.offAllNamed(AppRoutes.orderTrackingPage),);
               },
               title: 'Confirm · ${selectedMethod.capitalize}',
             ),
@@ -35,6 +37,7 @@ class PaymentMethodScreen extends GetView<PaymentController> {
           TextButton(
             onPressed: () {
               Get.snackbar('Add Payment', 'Add new payment method clicked');
+
             },
             child: SmartRow(
               children: [

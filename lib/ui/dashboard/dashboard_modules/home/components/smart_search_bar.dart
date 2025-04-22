@@ -50,7 +50,6 @@ class SmartSearchBar extends StatelessWidget {
         Expanded(
           child: SmartTextField.search(
             controller: controller,
-            padding: EdgeInsets.symmetric(vertical: 4.h),
             suffixIcon: suffixIcon ?? SizedBox(),
             hintText: "",
             hintStyle: hintStyle ?? style.searchBarHintStyle,

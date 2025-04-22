@@ -46,10 +46,10 @@ class FoodOptionCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(12.r),
           boxShadow: [
             BoxShadow(
-              color: shadowColor ?? const Color.fromRGBO(178, 189, 194, 0.25),
-              offset: const Offset(0, 0),
-              blurRadius: 5.0.r,
-              spreadRadius: 5.r,
+              color: (shadowColor ?? const Color.fromRGBO(178, 189, 194, 0.25)).withValues(alpha: 0.4),
+              offset: const Offset(0, 4),
+              blurRadius: 8,
+              spreadRadius: 5,
             ),
           ],
         ),
