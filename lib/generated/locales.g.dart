@@ -196,6 +196,8 @@ class LocaleKeys {
   static const payAmount = 'payAmount';
   static const freeDeliveryBannerLine1 = 'freeDeliveryBannerLine1';
   static const freeDeliveryBannerLine2 = 'freeDeliveryBannerLine2';
+  static const unavailableItems = 'unavailableItems';
+  static const removeAll = 'removeAll';
 }
 
 class Locales {
@@ -396,6 +398,8 @@ class Locales {
     'payAmount': 'Pay {#}',
     'freeDeliveryBannerLine1': '{#} saved! FREE DELIVERY',
     'freeDeliveryBannerLine2': 'applied on this order',
+    'unavailableItems': 'Unavailable items',
+    'removeAll': 'Remove All',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -587,5 +591,7 @@ class Locales {
     'payAmount': 'ادفع {#}',
     'freeDeliveryBannerLine1': 'تم توفير {#}! توصيل مجاني',
     'freeDeliveryBannerLine2': 'تم تطبيقه على هذا الطلب',
+    'unavailableItems': 'العناصر غير المتوفرة',
+    'removeAll': 'إزالة الكل',
   };
 }

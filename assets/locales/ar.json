@@ -184,4 +184,8 @@
   "savedWithCoupon": "تم توفير {#} باستخدام ‘{#}’",
   "payAmount": "ادفع {#}",
   "freeDeliveryBannerLine1": "تم توفير {#}! توصيل مجاني",
-  "freeDeliveryBannerLine2": "تم تطبيقه على هذا الطلب"}
+  "freeDeliveryBannerLine2": "تم تطبيقه على هذا الطلب",
+
+  "unavailableItems": "العناصر غير المتوفرة",
+  "removeAll": "إزالة الكل"
+}

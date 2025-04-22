@@ -3,12 +3,11 @@ import 'package:taza/taza.dart';
 class CheckoutPage extends GetView<CheckoutController> {
   const CheckoutPage({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Future.delayed(Duration(milliseconds: 500), () {
-        Get.dialog(RewardDialog());
+        //Get.dialog(RewardDialog());
       });
     });
 
@@ -18,17 +17,21 @@ class CheckoutPage extends GetView<CheckoutController> {
       appBar: SmartAppBar(
         showHomeWithAddress: true,
         popupMenuItemBuilder: (p0) {
-          return [PopupMenuItem(
-            padding: EdgeInsets.zero,
-            child: SmartRow(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            spacing: 10.w,
-            padding: EdgeInsetsDirectional.symmetric(horizontal: 8.w),
-            children: [
-              SmartText(LocaleKeys.clearCart.tr,style: style.missingStyle,),
-            ],
-          ), onTap: () {},)];
+          return [
+            PopupMenuItem(
+              padding: EdgeInsets.zero,
+              child: SmartRow(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                spacing: 10.w,
+                padding: EdgeInsetsDirectional.symmetric(horizontal: 8.w),
+                children: [
+                  SmartText(LocaleKeys.clearCart.tr, style: style.missingStyle),
+                ],
+              ),
+              onTap: () {},
+            ),
+          ];
         },
       ),
       body: Stack(
@@ -40,6 +43,8 @@ class CheckoutPage extends GetView<CheckoutController> {
               mainAxisSize: MainAxisSize.min,
               spacing: 20.h,
               children: [
+                SizedBox(height: 5.h,),
+                _buildUnavailable(style),
                 _buildReviewYourOrder(style),
                 _buildMissingSomething(style),
                 _buildSavingCorner(style),
@@ -134,7 +139,10 @@ class CheckoutPage extends GetView<CheckoutController> {
             child: SmartRichText(
               spans: [
                 SmartTextSpan(
-                  text: LocaleKeys.savedWithCoupon.tr.interpolate([120.toCurrencyCodeFormat(),100.toCurrencyCodeFormat()]),
+                  text: LocaleKeys.savedWithCoupon.tr.interpolate([
+                    120.toCurrencyCodeFormat(),
+                    100.toCurrencyCodeFormat(),
+                  ]),
                   style: style.appliedTextStyle,
                 ),
                 SmartTextSpan(
@@ -171,7 +179,10 @@ class CheckoutPage extends GetView<CheckoutController> {
                     text: 89.toCurrencyCodeFormat(),
                     style: style.toPayTitleDiscountedStyle,
                   ),
-                  SmartTextSpan(text: " ${79.toCurrencyCodeFormat()}", style: style.toPayTitleStyle),
+                  SmartTextSpan(
+                    text: " ${79.toCurrencyCodeFormat()}",
+                    style: style.toPayTitleStyle,
+                  ),
                 ],
               ),
             ),
@@ -252,7 +263,10 @@ class CheckoutPage extends GetView<CheckoutController> {
                 ),
                 SizedBox(width: 8.w),
                 SmartText(
-                  LocaleKeys.savedWithCoupon.tr.interpolate([120.toCurrencyCodeFormat(),100.toCurrencyCodeFormat()]),
+                  LocaleKeys.savedWithCoupon.tr.interpolate([
+                    120.toCurrencyCodeFormat(),
+                    100.toCurrencyCodeFormat(),
+                  ]),
                   style: style.savingTitleStyle,
                 ),
                 Spacer(),
@@ -263,7 +277,7 @@ class CheckoutPage extends GetView<CheckoutController> {
             ),
             SizedBox(height: 10.h),
             SmartDashedDivider(),
-            SizedBox(height: 10.h,),
+            SizedBox(height: 10.h),
             SmartRow(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -324,7 +338,10 @@ class CheckoutPage extends GetView<CheckoutController> {
                     ),
                   ],
                 ),
-                SmartText(LocaleKeys.minsWithTime.tr.interpolate(["12"]), style: style.deliveryHeaderStyle),
+                SmartText(
+                  LocaleKeys.minsWithTime.tr.interpolate(["12"]),
+                  style: style.deliveryHeaderStyle,
+                ),
               ],
             ),
             SmartDashedDivider(),
@@ -338,6 +355,57 @@ class CheckoutPage extends GetView<CheckoutController> {
                       ProductCheckoutCard(model: controller.foodList[index]),
             ),
           ],
+        ),
+      ],
+    );
+  }
+
+  Widget _buildUnavailable(CheckoutStyle style) {
+    return SmartColumn(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      width: Get.width,
+      padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w,vertical: 10.h),
+      decoration: style.cardDecoration.copyWith(
+        border: Border.all(color: style.redColor)
+      ),
+      spacing: 10.h,
+      children: [
+        SmartRow(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SmartText(
+              LocaleKeys.unavailableItems.tr,
+              style: style.deliveryHeaderStyle,
+              isExpanded: true,
+            ),
+            SmartRow(
+              spacing: 5.w,
+              children: [
+                SmartText(LocaleKeys.removeAll.tr, style: style.deliveryInStyle),
+                SmartImage(path: AppImages.icClose),
+              ],
+            ),
+          ],
+        ),
+        SmartDashedDivider(),
+        ListView.builder(
+          padding: EdgeInsetsDirectional.only(top: 8.h),
+          itemCount: 1,
+          shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
+          itemBuilder:
+              (context, index) =>
+                  ProductCheckoutCard(model: FoodModel(
+                    id: "8",
+                    name: 'Crispy Fries',
+                    imageUrl: 'https://i.ibb.co/Wp59vWJz/fries.jpg',
+                    rating: 4.1,
+                    reviewsCount: 620,
+                    deliveryTime: '10-15 min',
+                    price: 19.0,
+                  ),isOutOfStock: true,),
         ),
       ],
     );

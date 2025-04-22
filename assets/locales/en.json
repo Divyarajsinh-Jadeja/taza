@@ -186,5 +186,7 @@
   "savedWithCoupon": "{#} saved with ‘{#}’",
   "payAmount": "Pay {#}",
   "freeDeliveryBannerLine1": "{#} saved! FREE DELIVERY",
-  "freeDeliveryBannerLine2": "applied on this order"
+  "freeDeliveryBannerLine2": "applied on this order",
+  "unavailableItems": "Unavailable items",
+  "removeAll": "Remove All"
 }
