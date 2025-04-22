@@ -57,7 +57,8 @@ class ProductListView extends GetView<CategoryController> {
           ),
 
         // Items count text
-        SliverToBoxAdapter(
+        ///Code commented - Don't Remove
+        /*SliverToBoxAdapter(
           child: Padding(
             padding: EdgeInsetsDirectional.only(
               start: 16.w,
@@ -70,7 +71,7 @@ class ProductListView extends GetView<CategoryController> {
               style: style.itemsStyle,
             ),
           ),
-        ),
+        ),*/
 
         // Products Grid converted to SliverList
         SliverPadding(
@@ -136,10 +137,11 @@ class ProductListView extends GetView<CategoryController> {
             expanded: true,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SmartText(
+              /// Code commented - Don't remove
+              /*SmartText(
                 controller.currentCategory.name ?? "",
                 style: style.categoryHeaderStyle,
-              ),
+              ),*/
               SizedBox(height: 2.h),
               SmartText(
                 "${controller.currentCategory.products?.length ?? 0} items",

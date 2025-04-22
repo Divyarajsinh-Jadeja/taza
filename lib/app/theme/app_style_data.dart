@@ -623,11 +623,11 @@ class LightModeTheme extends AppTheme {
   @override
   FoodOptionCardStyle get foodOptionCardStyle => FoodOptionCardStyle(
     foodCardTitleStyle: interBoldW700TextStyle.copyWith(
-      fontSize: 22.sp,
+      fontSize: 18.sp,
       color: colors.color1D1D1F,
     ),
     foodCardSubTitleStyle: interRegularW400TextStyle.copyWith(
-      fontSize: 16.sp,
+      fontSize: 13.sp,
       color: colors.color58585C,
     ),
     foodCardTagStyle: interBoldW700TextStyle.copyWith(
@@ -896,7 +896,7 @@ class LightModeTheme extends AppTheme {
     bottomSheetBestValueBgColor: colors.colorFFF3EC,
     rattingTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.color9c9cA3),
     timeTextStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp, color: colors.color9c9cA3),
-    titleTextStyle: interBoldW700TextStyle.copyWith(fontSize: 19.sp, color: colors.color1D1D1F),
+    titleTextStyle: interBoldW700TextStyle.copyWith(fontSize: 16.sp, color: colors.color1D1D1F),
     descriptionTextStyle: interRegularW400TextStyle.copyWith(fontSize: 17.sp, color: colors.color9c9cA3),
     maxSaverPriceTextStyle: interBoldW700TextStyle.copyWith(fontSize: 17.sp, color: colors.black),
     maxSaverTitleStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 12.sp, color: colors.primary),
