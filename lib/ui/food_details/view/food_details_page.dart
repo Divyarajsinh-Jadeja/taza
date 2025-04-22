@@ -110,7 +110,7 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                         spacing: 2.w,
                         children: [
                           SmartImage(path: AppImages.icFlash),
-                          Text("8 MINS", style: style.rattingTextStyle),
+                          SmartText("8 MINS", style: style.rattingTextStyle),
                         ],
                       ),
                       SizedBox(height: 6.h),

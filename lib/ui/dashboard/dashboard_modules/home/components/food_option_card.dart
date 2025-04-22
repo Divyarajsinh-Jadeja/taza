@@ -56,7 +56,7 @@ class FoodOptionCard extends StatelessWidget {
         child: Stack(
           children: [
             SmartColumn(
-              height: 120,
+              height: 120.h,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SmartText(
@@ -156,8 +156,7 @@ class FoodOptionCard extends StatelessWidget {
                   bottomRight: Radius.circular(12.r), // match container radius
                 ),
                 child: SmartImage(
-                  width: 100.w,
-                  height: 100.h,
+                  size: 100.w,
                   path: image,
                   fit: BoxFit.contain,
                 ),

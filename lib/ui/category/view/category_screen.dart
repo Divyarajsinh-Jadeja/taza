@@ -144,7 +144,7 @@ class ProductListView extends GetView<CategoryController> {
               ),*/
               SizedBox(height: 2.h),
               SmartText(
-                "${controller.currentCategory.products?.length ?? 0} items",
+                LocaleKeys.itemCount.tr.interpolate([controller.currentCategory.products?.length ?? 0]),
                 style: style.categorysubHeaderStyle,
               ),
             ],
