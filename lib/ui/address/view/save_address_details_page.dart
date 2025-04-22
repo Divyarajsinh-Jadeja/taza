@@ -92,7 +92,9 @@ class SaveAddressDetailsPage extends GetView<AddressController> {
                   }),
 
                   Spacer(),
-                  SmartButton(onTap: () {}, title: "Confirm Location"),
+                  SmartButton(onTap: () {
+                    Get.offAllNamed(AppRoutes.dashboardPage);
+                  }, title: LocaleKeys.confirmLocation.tr),
 
                 ],
               ),

@@ -8,7 +8,7 @@ class AddressPage extends GetView<AddressController> {
     var style = AppTheme.of(context).addressBottomSheetStyle;
     return Scaffold(
       appBar: SmartAppBar(
-        title: "Enter your area or apartment name",
+        title: LocaleKeys.enterAreaOrApartment.tr,
         titleStyle: style.addressBottomSheetTagTitleStyle,
       ),
       body: SmartColumn(
@@ -34,7 +34,7 @@ class AddressPage extends GetView<AddressController> {
             children: [
               Icon(CupertinoIcons.location_fill, color: style.primaryColor),
               SmartText(
-                "Use my current location",
+                LocaleKeys.useMyLocation.tr,
                 style: style.primaryColorStyle,
                 isExpanded: true,
                 maxLines: 1,
@@ -55,7 +55,7 @@ class AddressPage extends GetView<AddressController> {
             children: [
               Icon(CupertinoIcons.add, color: style.primaryColor),
               SmartText(
-                "Add new address",
+                LocaleKeys.addNewAddress.tr,
                 style: style.primaryColorStyle,
                 isExpanded: true,
                 maxLines: 2,
@@ -70,7 +70,7 @@ class AddressPage extends GetView<AddressController> {
           Divider(),
 
           SmartText(
-            "SAVED ADDRESSES",
+            LocaleKeys.savedAddresses.tr,
             style: style.addressBottomSheetTitleStyle,
           ),
 
@@ -113,7 +113,7 @@ class AddressPage extends GetView<AddressController> {
                   borderRadius: BorderRadius.circular(6.r)
               ),
               padding: EdgeInsetsDirectional.symmetric(horizontal: 8.w,vertical: 4.h),
-              child: SmartText("CURRENTLY SELECTED",style: style.currentlySelectedStyle,),
+              child: SmartText(LocaleKeys.currentlySelected.tr,style: style.currentlySelectedStyle,),
             ),
             Spacer(),
             Icon(
