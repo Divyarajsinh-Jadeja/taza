@@ -79,8 +79,7 @@ class OtpVerificationPage extends GetView<OtpVerificationController> {
         }),
         SizedBox(height: 20.h),
         Obx(() {
-          return SmartText(
-            !controller.isTimerCompleted.value
+          return SmartText(!controller.isTimerCompleted.value
                 ? LocaleKeys.otpRetryIn.tr.interpolate([
               controller.secondsRemaining,
             ])
