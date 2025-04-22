@@ -301,7 +301,7 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
         SmartText(LocaleKeys.thankThemByTip.tr, style: style.subtitleTextStyle),
         SizedBox(height: 10.h),
         SizedBox(
-          height: 40.h,
+          height: 45.h,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemCount: 4,
@@ -309,6 +309,7 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
             itemBuilder: (builder, index) {
               final tipItems = controller.tips[index];
               return SmartRow(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 padding: EdgeInsetsDirectional.all(10.w),
                 decoration: style.tipCardDecoration,
                 children: [

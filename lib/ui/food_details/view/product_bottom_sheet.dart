@@ -24,9 +24,9 @@ class ProductBottomSheet extends StatelessWidget {
           style: style,
           imageUrl: 'https://i.ibb.co/wZDz4H7c/daawat-basmati-rice-rozana-gold-1-kg-quick-pantry.jpg',
           quantityText: '1 kg x 2',
-          currentPrice: '₹290',
-          oldPrice: '₹400',
-          perKgPrice: '₹145/kg',
+          currentPrice: 290.toCurrencyCodeFormat(),
+          oldPrice: 400.toCurrencyCodeFormat(),
+          perKgPrice: '${145.toCurrencyCodeFormat()}/kg',
           discountText: '27% OFF',
           isBestValue: true,
           onAdd: () {
@@ -38,8 +38,8 @@ class ProductBottomSheet extends StatelessWidget {
           style: style,
           imageUrl: 'https://i.ibb.co/wZDz4H7c/daawat-basmati-rice-rozana-gold-1-kg-quick-pantry.jpg',
           quantityText: '1 kg x 2',
-          currentPrice: '₹149',
-          oldPrice: '₹200',
+          currentPrice: 149.toCurrencyCodeFormat(),
+          oldPrice: 200.toCurrencyCodeFormat(),
           perKgPrice: null,
           discountText: '25% OFF',
           onAdd: () {
@@ -54,7 +54,7 @@ class ProductBottomSheet extends StatelessWidget {
 
   Widget _buildBottomBar(FoodDetailsPageStyle style) {
     // TODO: Replace with dynamic total from state management (e.g., Provider, Riverpod)
-    final total = '₹0'; // Placeholder for dynamic total
+    final total = 0.toCurrencyCodeFormat(); // Placeholder for dynamic total
     return SmartRow(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       decoration: BoxDecoration(color: style.iconColors, borderRadius: BorderRadius.circular(8.r)),

@@ -31,10 +31,10 @@ class OrderTrackingController extends GetxController {
     ]);
 
     tips.assignAll([
-      {'icon': AppImages.icBellWithSplash, 'rupees': "₹10"},
-      {'icon': AppImages.icDog, 'rupees': "₹20"},
-      {'icon': AppImages.icDoor, 'rupees': "₹50"},
-      {'icon': AppImages.icSecurityGuard, 'rupees': "₹100"},
+      {'icon': AppImages.icBellWithSplash, 'rupees': 10.toCurrencyCodeFormat()},
+      {'icon': AppImages.icDog, 'rupees': 20.toCurrencyCodeFormat()},
+      {'icon': AppImages.icDoor, 'rupees': 50.toCurrencyCodeFormat()},
+      {'icon': AppImages.icSecurityGuard, 'rupees': 100.toCurrencyCodeFormat()},
     ]);
   }
 }

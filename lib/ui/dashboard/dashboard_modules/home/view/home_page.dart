@@ -12,7 +12,7 @@ class HomePage extends GetView<HomeController> {
         child: SmartColumn(
           children: [
             HomeAddressHeader(
-              padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
+              padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w, vertical: 10.h),
               onAddressTap: () {
                 Get.toNamed(AppRoutes.addressPage);
                 //showAddressBottomSheet(context, controller.addresses);
@@ -20,10 +20,11 @@ class HomePage extends GetView<HomeController> {
               onUserImageTap: (){
                 controller.navigateToProfilePage();
               },
+              userImagePath: "https://i.ibb.co/HLgDnFFQ/Group.png",
               addressTypeTag: LocaleKeys.home.tr,
               address: "Al Tadamun Al Arabi St., Mishfirah, Jeddah KSA",
             ),
-            SizedBox(height: 16.h),
+            SizedBox(height: 10.h),
             GestureDetector(
               onTap: () => FocusScope.of(context).unfocus(),
               child: Obx(() {
@@ -48,9 +49,10 @@ class HomePage extends GetView<HomeController> {
                 );
               }),
             ),
-            SizedBox(height: 10.h),
+            SizedBox(height: 16.h),
             Expanded(
-              child: ListView.builder(
+              child: GridView.builder(
+                padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
                 itemCount: controller.options.length,
                 itemBuilder: (context, index) {
                   final item = controller.options[index];
@@ -63,7 +65,7 @@ class HomePage extends GetView<HomeController> {
                     animationDelay: Duration(milliseconds: index * 100),
                     animationCurve: Curves.easeOut,
                     child: Padding(
-                      padding: EdgeInsetsDirectional.symmetric(vertical: 8.0.h, horizontal: 16.0.w),
+                      padding: EdgeInsetsDirectional.only(top: 8.0.h, end: 4.w),
                       child: FoodOptionCard(
                         onTap: () {},
                         title: item['title'],
@@ -75,7 +77,12 @@ class HomePage extends GetView<HomeController> {
                       ),
                     ),
                   );
-                },
+                }, gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 16.w,
+                mainAxisSpacing: 10.h,
+                childAspectRatio: 0.95,
+              ),
               ),
             ),
           ],

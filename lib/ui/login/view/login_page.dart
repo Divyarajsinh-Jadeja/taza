@@ -123,6 +123,7 @@ class LoginPage extends GetView<LoginController> {
         12.verticalSpace,
         SmartImage(fit: BoxFit.fill, height: 130.h, width: 280.w, path: AppImages.icFood,),
         SmartColumn(
+          height: Get.height/2,
           expanded: true,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12.r),

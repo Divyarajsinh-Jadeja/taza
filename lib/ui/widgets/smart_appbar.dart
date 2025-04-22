@@ -147,8 +147,7 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
         if (showTitleAndSubtitle == true)
           SmartColumn(
-            expanded: true,
-            padding: EdgeInsetsDirectional.only(end: 26.w),
+            padding: EdgeInsetsDirectional.only(start: 20.w),
             children: [
               SmartText(LocaleKeys.packingYourOrder.tr, style: style.groupTitleStyle),
               SmartText(LocaleKeys.arrivingInMinutes.tr, style: style.groupSubTitleStyle),

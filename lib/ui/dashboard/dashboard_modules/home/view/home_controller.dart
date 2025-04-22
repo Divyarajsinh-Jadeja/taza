@@ -31,22 +31,28 @@ class HomeController extends GetxController {
       {
         'title': 'Food Delivery',
         'subtitle': 'Christmas Offer',
-        'tag': 'Free Delivery',
-        'time': '6',
-        'duration': 'Min',
+        'tag': 'Up to 60% OFF',
         'image': 'https://i.ibb.co/4wfmxWh0/food-delivery-image.png',
       },
       {
+        'title': 'Instamart',
+        'subtitle': 'Get anything instantly',
+        'tag': 'Free Del at ${49.toCurrencyCodeFormat()}',
+        'time': '8',
+        'duration': 'Min',
+        'image': 'https://i.ibb.co/ZRDYBYTc/image-dine-in.png',
+      },
+      {
         'title': 'Dine In',
-        'subtitle': 'Savor the moment',
-        'tag': 'Buy 1 Get 1 Free',
+        'subtitle': 'Sip & Savour Fest',
+        'tag': 'Min 30% OFF',
         'image': 'https://i.ibb.co/ZRDYBYTc/image-dine-in.png',
       },
       {
         'title': 'Take Away',
         'subtitle': 'Grab and go',
         'tag': 'Buy 1 Get 1 Free',
-        'image': 'https://i.ibb.co/ZRDYBYTc/image-dine-in.png',
+        'image': 'https://i.ibb.co/4wfmxWh0/food-delivery-image.png',
       },
     ]);
   }
