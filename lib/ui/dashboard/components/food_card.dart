@@ -23,7 +23,7 @@ class FoodCard extends StatelessWidget {
             backgroundColor: Colors.transparent,
             builder: (context) => OfferPopup(),
           ),
-      height: 96.h,
+      height: 110.h,
       margin: EdgeInsetsDirectional.only(bottom: 16.h),
       decoration: style.cardDecoration,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,7 +31,7 @@ class FoodCard extends StatelessWidget {
       children: [
         SmartImage(
           width: 90.w,
-          height: 96.h,
+          height: 110.h,
           path: model.imageUrl,
           clipBehavior: Clip.antiAlias,
           animator: SmartAnimator(
@@ -124,7 +124,7 @@ class FoodCard extends StatelessWidget {
                   ),
                 ),
 
-                SmartAnimatedQuantity(index: index, model: model,onDecrease: onDecrease,onIncrease: onIncrease,)
+                SmartAnimatedQuantity( model: model,)
               ],
             ),
           ],

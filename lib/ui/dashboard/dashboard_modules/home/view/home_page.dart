@@ -14,7 +14,8 @@ class HomePage extends GetView<HomeController> {
             HomeAddressHeader(
               padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w, vertical: 10.h),
               onAddressTap: () {
-                showAddressBottomSheet(context, controller.addresses);
+                Get.toNamed(AppRoutes.addressPage);
+                //showAddressBottomSheet(context, controller.addresses);
               },
               onUserImageTap: (){
                 controller.navigateToProfilePage();

@@ -109,7 +109,10 @@ class SmartTextField extends StatelessWidget {
     this.inputDecorationLabelText,
     this.inputDecorationLabelStyle,
     this.isSearchWithPrefix = false,
-  }) : labelText = labelText != null ? '$labelText${isRequired == true ? ' *' : ''}' : null,
+  }) : labelText =
+           labelText != null
+               ? '$labelText${isRequired == true ? ' *' : ''}'
+               : null,
        isSearch = false;
 
   SmartTextField.search({
@@ -165,8 +168,11 @@ class SmartTextField extends StatelessWidget {
     this.textAlign,
     this.inputDecorationLabelText,
     this.isSearchWithPrefix = false,
-    this.inputDecorationLabelStyle
-  }) : labelText = labelText != null ? '$labelText${isRequired == true ? ' *' : ''}' : null,
+    this.inputDecorationLabelStyle,
+  }) : labelText =
+           labelText != null
+               ? '$labelText${isRequired == true ? ' *' : ''}'
+               : null,
        isSearch = true;
 
   final ValueNotifier<bool> _passwordVisible = ValueNotifier(false);
@@ -181,43 +187,57 @@ class SmartTextField extends StatelessWidget {
 
     OutlineInputBorder enabledBorder({bool isFocused = false}) {
       return OutlineInputBorder(
-        borderRadius: borderRadius ?? BorderRadius.all(Radius.circular(enabledBorderRadius ?? 12.r)),
+        borderRadius:
+            borderRadius ??
+            BorderRadius.all(Radius.circular(enabledBorderRadius ?? 12.r)),
         borderSide: BorderSide(
           color:
               isFocused
                   ? textFieldStyle.focusedTextFieldBorderColor
                   : (enabledBorderColor) ??
-                      (isSearch ? textFieldStyle.focusedTextFieldBorderColor : textFieldStyle.enabledTextFieldBorderColor),
+                      (textFieldStyle.enabledTextFieldBorderColor),
         ),
       );
     }
 
     OutlineInputBorder disabledBorder = OutlineInputBorder(
-      borderRadius: borderRadius ?? BorderRadius.all(Radius.circular(isSearch ? 8.r : 12.r)),
-      borderSide: BorderSide(color: disabledBorderColor ?? textFieldStyle.disabledTextFieldBorderColor),
+      borderRadius:
+          borderRadius ??
+          BorderRadius.all(Radius.circular(isSearch ? 8.r : 12.r)),
+      borderSide: BorderSide(
+        color:
+            disabledBorderColor ?? textFieldStyle.disabledTextFieldBorderColor,
+      ),
     );
     OutlineInputBorder errorBorder = OutlineInputBorder(
       borderSide: BorderSide(color: textFieldStyle.errorBorderColor),
-      borderRadius: borderRadius ?? BorderRadius.all(Radius.circular(isSearch ? 8.r : 12.r)),
+      borderRadius:
+          borderRadius ??
+          BorderRadius.all(Radius.circular(isSearch ? 8.r : 12.r)),
     );
     return SmartColumn(
       mainAxisSize: MainAxisSize.min,
       padding: padding ?? EdgeInsets.zero,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (labelText != null) ...[SmartText(labelText!, style: textFieldStyle.labelStyle.merge(labelStyle)), SizedBox(height: 4.h)],
+        if (labelText != null) ...[
+          SmartText(
+            labelText!,
+            style: textFieldStyle.labelStyle.merge(labelStyle),
+          ),
+          SizedBox(height: 4.h),
+        ],
         ValueListenableBuilder<bool>(
           valueListenable: _passwordVisible,
           builder: (context, value, child) {
             return SizedBox(
-              height: isSearch ? 40.h : null,
               child: TextFormField(
                 onTap: onTap,
                 autofocus: autofocus,
                 style: textFieldStyle.textStyle.merge(style),
                 onTapOutside: (p) {
-                  if (onTapOutside != null) {
                     FocusScope.of(context).unfocus();
+                  if (onTapOutside != null) {
                     onTapOutside!(p);
                   }
                 },
@@ -231,7 +251,7 @@ class SmartTextField extends StatelessWidget {
                 enabled: isEnabled ?? true,
                 cursorColor: textFieldStyle.blackColor,
                 controller: controller,
-                cursorHeight: cursorHeight ?? (isSearch ? 16.h : null),
+                cursorHeight: cursorHeight,
                 decoration: InputDecoration(
                   suffixText: suffixText,
                   prefixText: prefixText,
@@ -245,10 +265,12 @@ class SmartTextField extends StatelessWidget {
                   errorStyle: textFieldStyle.errorStyle.merge(errorStyle),
                   fillColor: color ?? textFieldStyle.textFillColor,
                   contentPadding:
-                      contentPadding ?? (isSearch ? EdgeInsets.all(10.w) : EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h)),
+                      contentPadding ??
+                      EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
                   disabledBorder: customDisabledBorder ?? disabledBorder,
                   enabledBorder: customEnabledBorder ?? enabledBorder(),
-                  focusedBorder: customFocusedBorder ?? enabledBorder(isFocused: true),
+                  focusedBorder:
+                      customFocusedBorder ?? enabledBorder(isFocused: true),
                   errorBorder: customErrorBorder ?? errorBorder,
                   focusedErrorBorder: customFocusedErrorBorder ?? errorBorder,
                   hintText: hintText ?? (isSearch ? LocaleKeys.search.tr : ''),
@@ -256,7 +278,14 @@ class SmartTextField extends StatelessWidget {
                   hintStyle: textFieldStyle.hintStyle.merge(hintStyle),
                   prefixIcon:
                       prefixIcon ??
-                      (isSearch ? isSearchWithPrefix ? SmartImage(path: AppImages.icHome, fit: BoxFit.contain, margin: EdgeInsets.all(8.w)) : null : null),
+                      (isSearch
+                          ? isSearchWithPrefix
+                              ? SmartImage(
+                                path: AppImages.icSearch,
+                                margin: EdgeInsets.all(12.w),
+                              )
+                              : null
+                          : null),
                   suffixIcon:
                       suffixIcon ??
                       (obscured
@@ -264,12 +293,15 @@ class SmartTextField extends StatelessWidget {
                             onPressed: _toggle,
                             child: SmartText(
                               value ? LocaleKeys.hide.tr : LocaleKeys.show.tr,
-                              style: textFieldStyle.labelStyle.copyWith(fontSize: 16.sp),
+                              style: textFieldStyle.labelStyle.copyWith(
+                                fontSize: 16.sp,
+                              ),
                             ),
                           )
                           : null),
                 ),
-                obscureText: obscured && _passwordVisible.value ? false : obscured,
+                obscureText:
+                    obscured && _passwordVisible.value ? false : obscured,
                 obscuringCharacter: '●',
                 keyboardType: keyboardType,
                 textInputAction: textInputAction,

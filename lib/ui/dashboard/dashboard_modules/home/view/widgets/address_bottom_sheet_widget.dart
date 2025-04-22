@@ -107,7 +107,7 @@ class AddressBottomSheet extends StatelessWidget {
     required String tag,
     required String fullAddress,
     required VoidCallback onTap,
-    required AddressBottomSheetStyle style,
+    required AddressStyle style,
   }) {
     return SmartRow(
       onTap: onTap,

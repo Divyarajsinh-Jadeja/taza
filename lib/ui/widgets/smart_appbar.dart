@@ -22,6 +22,7 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool? showTitleAndSubtitle;
   final Color? backIconColor;
   final Widget? flexibleSpace;
+  final List<PopupMenuEntry> Function(BuildContext)?  popupMenuItemBuilder;
   SmartAppBar({
     super.key,
     this.title,
@@ -45,6 +46,7 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.showTitleAndSubtitle,
     this.flexibleSpace,
     this.backIconColor,
+    this.popupMenuItemBuilder
   }) {
     if (isSkip) {
       if (!isBack) {
@@ -132,7 +134,13 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
                     isFlexible: true,
                   ),
                   SmartImage(path: AppImages.icArrowDown, height: 16.w, width: 16.w),
-                  IconButton(onPressed: () {}, icon: Icon(Icons.more_vert_rounded)),
+                  PopupMenuButton(
+                    offset: Offset(0, 40.h),
+                    itemBuilder: popupMenuItemBuilder??(context) => [],shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16.r),
+                    side: BorderSide(color: style.dividerColor)
+
+                  ),color: style.backgroundColor,)
                 ],
               ),
             ),
