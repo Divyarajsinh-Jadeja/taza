@@ -79,8 +79,7 @@ class OtpVerificationPage extends GetView<OtpVerificationController> {
         }),
         SizedBox(height: 20.h),
         Obx(() {
-          return SmartText(
-            !controller.isTimerCompleted.value
+          return SmartText(!controller.isTimerCompleted.value
                 ? LocaleKeys.otpRetryIn.tr.interpolate([
               controller.secondsRemaining,
             ])
@@ -215,7 +214,7 @@ class OtpVerificationPage extends GetView<OtpVerificationController> {
       height: 48.h,
       width: 170.w,
       mainAxisAlignment: MainAxisAlignment.center,
-      padding: EdgeInsetsDirectional.symmetric(vertical: 6.h, horizontal: 10.w),
+      crossAxisAlignment: CrossAxisAlignment.center,
       decoration: BoxDecoration(
         color:
             controller.isTimerCompleted.value
@@ -226,6 +225,7 @@ class OtpVerificationPage extends GetView<OtpVerificationController> {
       children: [
         SizedBox(width: 6.w),
         SmartText(
+          textAlign: TextAlign.center,
           label,
           isExpanded: true,
           overflow: TextOverflow.ellipsis,
@@ -298,7 +298,7 @@ class OtpVerificationPage extends GetView<OtpVerificationController> {
         SmartColumn(
           expanded: true,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12.r),
+            borderRadius: BorderRadius.only(topLeft: Radius.circular(12.r), topRight: Radius.circular(12.r)),
             color: loginStyle.loginPageBgColor,
           ),
           padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),

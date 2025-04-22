@@ -1,3 +1,4 @@
+import 'package:shimmer/shimmer.dart';
 import 'package:taza/taza.dart';
 
 class SmartImage extends StatelessWidget {
@@ -8,6 +9,8 @@ class SmartImage extends StatelessWidget {
   final BoxFit? fit;
   final BorderRadiusGeometry? imageBorderRadius;
   final Color? color;
+  final Color? shimmerBaseColor;
+  final Color? shimmerHighlightedColor;
   final GestureTapCallback? onTap;
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
@@ -27,6 +30,8 @@ class SmartImage extends StatelessWidget {
     this.fit = BoxFit.cover,
     this.imageBorderRadius,
     this.color,
+    this.shimmerBaseColor,
+    this.shimmerHighlightedColor,
     this.onTap,
     this.padding,
     this.margin,
@@ -118,14 +123,15 @@ class SmartImage extends StatelessWidget {
                 width: finalWidth,
                 fit: fit,
               ),
-              placeholder: (context, url) => SizedBox(
-                height: finalHeight ?? 50.w,
-                width: finalWidth ?? 50.w,
-                child: Center(
-                  child: SizedBox(
-                    height: 20.w,
-                    width: 20.w,
-                    child: SmartCircularProgressIndicator(padding: EdgeInsets.zero),
+              placeholder: (context, url) => Shimmer.fromColors(
+                baseColor: Colors.grey.shade300,
+                highlightColor: Colors.grey.shade100,
+                child: Container(
+                  height: finalHeight ?? 50.w,
+                  width: finalWidth ?? 50.w,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: imageBorderRadius ?? BorderRadius.circular(8.r),
                   ),
                 ),
               ),

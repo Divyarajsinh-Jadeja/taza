@@ -37,13 +37,14 @@ class HomeAddressHeader extends StatelessWidget {
     final style = AppTheme.of(context).homeHeaderStyle;
 
     return SmartRow(
-      padding: padding   ,
+      padding: padding,
       decoration: BoxDecoration(color: backGroundColor),
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SmartColumn(
           expanded: true,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SmartRow(
               children: [
@@ -55,12 +56,12 @@ class HomeAddressHeader extends StatelessWidget {
               ],
             ),
             SizedBox(height: 3.h),
-            SmartText(address, style: textColor != null ? style.addressTitleStyle.copyWith(color: textColor) : style.addressTitleStyle),
+            SmartText(address, style: textColor != null ? style.addressTitleStyle.copyWith(color: textColor) : style.addressTitleStyle, overflow: TextOverflow.ellipsis,),
           ],
         ),
         userImagePath != null
-            ? SmartImage(path: userImagePath ?? "", width: userImageWidth ?? 40.w, height: userImageHeight ?? 40.h, fit: BoxFit.cover,onTap: onUserImageTap,)
-            : SmartImage(path: AppImages.icUser, width: 32.w, height: 32.h, onTap: onUserImageTap),
+            ? SmartImage(path: userImagePath ?? "", width: userImageWidth ?? 40.w, fit: BoxFit.cover,onTap: onUserImageTap,)
+            : SmartImage(path: AppImages.icUser, width: 40.w, onTap: onUserImageTap),
       ],
     );
   }

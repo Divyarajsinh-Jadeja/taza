@@ -314,9 +314,9 @@ class Locales {
     'deliveryPartnerName': 'I\'m Laxmikant, your delivery partner',
     'yourBlinkitStoreDistance':
         'Your Blinkit store is only 1.5 km away. Learn about delivery partner safety',
-    'payAmountBeforeDelivery': 'Pay ₹{#} before or on delivery',
+    'payAmountBeforeDelivery': 'Pay {#} before or on delivery',
     'keepChangeOrPayOnline':
-        'Please keep a change of ₹{#} handy or avoid the hassle by paying online',
+        'Please keep a change of {#} handy or avoid the hassle by paying online',
     'payOnline': 'Pay Online',
     'addDeliveryInstructions': 'Add delivery instructions',
     'helpDeliveryPartner': 'Help your delivery partner reach you faster',
@@ -508,9 +508,9 @@ class Locales {
     'deliveryPartnerName': 'أنا لاكشميكانت، شريك التوصيل الخاص بك',
     'yourBlinkitStoreDistance':
         'متجر Blinkit يبعد فقط 1.5 كم. تعرف على سلامة شريك التوصيل',
-    'payAmountBeforeDelivery': 'ادفع ₹{#} قبل أو عند التسليم',
+    'payAmountBeforeDelivery': 'ادفع {#} قبل أو عند التسليم',
     'keepChangeOrPayOnline':
-        'يرجى الاحتفاظ بفكة ₹{#} معك أو تجنب المتاعب بالدفع عبر الإنترنت',
+        'يرجى الاحتفاظ بفكة {#} معك أو تجنب المتاعب بالدفع عبر الإنترنت',
     'payOnline': 'ادفع عبر الإنترنت',
     'addDeliveryInstructions': 'أضف تعليمات التوصيل',
     'helpDeliveryPartner': 'ساعد شريك التوصيل في الوصول إليك بشكل أسرع',

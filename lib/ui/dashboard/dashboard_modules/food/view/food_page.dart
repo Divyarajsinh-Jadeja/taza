@@ -63,6 +63,7 @@ class FoodPage extends GetView<FoodController> {
             onAddressTap: () {},
             addressTypeTag: LocaleKeys.home.tr,
             address: "Al Tadamun Al Arabi St., Mishfirah, Jeddah KSA",
+            userImagePath: "https://i.ibb.co/HLgDnFFQ/Group.png",
             textColor: Utils.getContrastColor(controller.currentFoodTabData.themeColor),
             homeIconColor: controller.currentFoodTabData.themeColor,
           ),

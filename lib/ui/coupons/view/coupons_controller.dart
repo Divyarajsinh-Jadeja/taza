@@ -6,7 +6,7 @@ class CouponsController extends GetxController {
     '20% OFF',
     'Buy 1 Get 1 Free',
     'Free Delivery',
-    '₹100 OFF on orders above ₹500',
+    '${100.toCurrencyCodeFormat()} OFF on orders above ${500.toCurrencyCodeFormat()}',
   ];
 
   final selected = ''.obs;
