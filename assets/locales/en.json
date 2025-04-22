@@ -181,5 +181,10 @@
   "houseFlatFloor": "HOUSE / FLAT / FLOOR NO.",
   "office": "Office",
   "work": "Work",
-  "friendsAndFamily": "Friends and Family"
+  "friendsAndFamily": "Friends and Family",
+
+  "savedWithCoupon": "{#} saved with ‘{#}’",
+  "payAmount": "Pay {#}",
+  "freeDeliveryBannerLine1": "{#} saved! FREE DELIVERY",
+  "freeDeliveryBannerLine2": "applied on this order"
 }

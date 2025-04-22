@@ -184,7 +184,7 @@ class BottomCartWidget extends GetView<CheckoutController> {
         SmartRow(
           padding: EdgeInsetsDirectional.symmetric(vertical: 10.h),
           children: [
-            SmartText("Review your Order",style: style.deliveryHeaderStyle,optionalPadding: EdgeInsetsDirectional.only(bottom: 10.h),isExpanded: true,),
+            SmartText(LocaleKeys.reviewYourOrder.tr,style: style.deliveryHeaderStyle,optionalPadding: EdgeInsetsDirectional.only(bottom: 10.h),isExpanded: true,),
             SmartImage(path: AppImages.icClose,onTap: () => showMenu.value=!showMenu.value,)
           ],
         ),
@@ -214,7 +214,7 @@ class BottomCartWidget extends GetView<CheckoutController> {
                     ),
                   ],
                 ),
-                SmartText("35 Mins", style: style.deliveryHeaderStyle),
+                SmartText(LocaleKeys.minsWithTime.tr.interpolate(["12"]), style: style.deliveryHeaderStyle),
               ],
             ),
             SmartDashedDivider(),

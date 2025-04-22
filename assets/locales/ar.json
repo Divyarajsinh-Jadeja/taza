@@ -180,5 +180,8 @@
   "houseFlatFloor": "رقم المنزل / الشقة / الطابق",
   "office": "مكتب",
   "work": "العمل",
-  "friendsAndFamily": "الأصدقاء والعائلة"
-}
+  "friendsAndFamily": "الأصدقاء والعائلة",
+  "savedWithCoupon": "تم توفير {#} باستخدام ‘{#}’",
+  "payAmount": "ادفع {#}",
+  "freeDeliveryBannerLine1": "تم توفير {#}! توصيل مجاني",
+  "freeDeliveryBannerLine2": "تم تطبيقه على هذا الطلب"}

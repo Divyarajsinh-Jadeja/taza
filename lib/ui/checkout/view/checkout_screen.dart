@@ -26,7 +26,7 @@ class CheckoutPage extends GetView<CheckoutController> {
             spacing: 10.w,
             padding: EdgeInsetsDirectional.symmetric(horizontal: 8.w),
             children: [
-              SmartText("Clear Cart",style: style.missingStyle,),
+              SmartText(LocaleKeys.clearCart.tr,style: style.missingStyle,),
             ],
           ), onTap: () {},)];
         },
@@ -88,7 +88,7 @@ class CheckoutPage extends GetView<CheckoutController> {
               onTap: () {
                 Get.offNamed(AppRoutes.orderTrackingPage);
               },
-              title: "Pay 79 SAR",
+              title: LocaleKeys.payAmount.tr.interpolate(["120"]),
             ),
           ),
         ],
@@ -96,17 +96,16 @@ class CheckoutPage extends GetView<CheckoutController> {
     );
   }
 
-  Container _buildMissingSomething(CheckoutStyle style) {
-    return Container(
+  Widget _buildMissingSomething(CheckoutStyle style) {
+    return SmartRow(
       decoration: style.cardDecoration,
       padding: EdgeInsetsDirectional.all(15.w),
-      child: SmartRow(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SmartText("Missing Something? ", style: style.missingStyle),
-          SmartText("Add more items ", style: style.missingStylePrimary),
-        ],
-      ),
+      spacing: 5.w,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SmartText(LocaleKeys.missingSomething.tr, style: style.missingStyle),
+        SmartText(LocaleKeys.addMoreItems.tr, style: style.missingStylePrimary),
+      ],
     );
   }
 
@@ -135,11 +134,11 @@ class CheckoutPage extends GetView<CheckoutController> {
             child: SmartRichText(
               spans: [
                 SmartTextSpan(
-                  text: "${58.toCurrencyCodeFormat()} saved! FREE DELIVERY",
+                  text: LocaleKeys.savedWithCoupon.tr.interpolate([120.toCurrencyCodeFormat(),100.toCurrencyCodeFormat()]),
                   style: style.appliedTextStyle,
                 ),
                 SmartTextSpan(
-                  text: " applied on this order",
+                  text: " ${LocaleKeys.freeDeliveryBannerLine2.tr}",
                   style: style.appliedTextStyleThin,
                 ),
               ],
@@ -172,7 +171,7 @@ class CheckoutPage extends GetView<CheckoutController> {
                     text: 89.toCurrencyCodeFormat(),
                     style: style.toPayTitleDiscountedStyle,
                   ),
-                  SmartTextSpan(text: " 79 SAR", style: style.toPayTitleStyle),
+                  SmartTextSpan(text: " ${79.toCurrencyCodeFormat()}", style: style.toPayTitleStyle),
                 ],
               ),
             ),
@@ -253,7 +252,7 @@ class CheckoutPage extends GetView<CheckoutController> {
                 ),
                 SizedBox(width: 8.w),
                 SmartText(
-                  "10 SAR saved with ‘Save 10’",
+                  LocaleKeys.savedWithCoupon.tr.interpolate([120.toCurrencyCodeFormat(),100.toCurrencyCodeFormat()]),
                   style: style.savingTitleStyle,
                 ),
                 Spacer(),
@@ -264,7 +263,7 @@ class CheckoutPage extends GetView<CheckoutController> {
             ),
             SizedBox(height: 10.h),
             SmartDashedDivider(),
-            10.height,
+            SizedBox(height: 10.h,),
             SmartRow(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -295,7 +294,7 @@ class CheckoutPage extends GetView<CheckoutController> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SmartText(
-          "Review your Order",
+          LocaleKeys.reviewYourOrder.tr,
           style: style.deliveryHeaderStyle,
           optionalPadding: EdgeInsetsDirectional.only(bottom: 10.h),
         ),
@@ -325,7 +324,7 @@ class CheckoutPage extends GetView<CheckoutController> {
                     ),
                   ],
                 ),
-                SmartText("35 Mins", style: style.deliveryHeaderStyle),
+                SmartText(LocaleKeys.minsWithTime.tr.interpolate(["12"]), style: style.deliveryHeaderStyle),
               ],
             ),
             SmartDashedDivider(),

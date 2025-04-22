@@ -192,6 +192,10 @@ class LocaleKeys {
   static const office = 'office';
   static const work = 'work';
   static const friendsAndFamily = 'friendsAndFamily';
+  static const savedWithCoupon = 'savedWithCoupon';
+  static const payAmount = 'payAmount';
+  static const freeDeliveryBannerLine1 = 'freeDeliveryBannerLine1';
+  static const freeDeliveryBannerLine2 = 'freeDeliveryBannerLine2';
 }
 
 class Locales {
@@ -388,6 +392,10 @@ class Locales {
     'office': 'Office',
     'work': 'Work',
     'friendsAndFamily': 'Friends and Family',
+    'savedWithCoupon': '{#} saved with ‘{#}’',
+    'payAmount': 'Pay {#}',
+    'freeDeliveryBannerLine1': '{#} saved! FREE DELIVERY',
+    'freeDeliveryBannerLine2': 'applied on this order',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -575,5 +583,9 @@ class Locales {
     'office': 'مكتب',
     'work': 'العمل',
     'friendsAndFamily': 'الأصدقاء والعائلة',
+    'savedWithCoupon': 'تم توفير {#} باستخدام ‘{#}’',
+    'payAmount': 'ادفع {#}',
+    'freeDeliveryBannerLine1': 'تم توفير {#}! توصيل مجاني',
+    'freeDeliveryBannerLine2': 'تم تطبيقه على هذا الطلب',
   };
 }
