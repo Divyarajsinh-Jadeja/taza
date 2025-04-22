@@ -255,7 +255,7 @@ class ProductCard extends StatelessWidget {
                   padding: EdgeInsetsDirectional.only(top: 4.h),
                   child: SmartText(
                     "${product.name}\n",
-                    maxLines: 2,
+                    maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: style.nameTextStyle,
                   ),
