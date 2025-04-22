@@ -83,10 +83,12 @@ class FoodCard extends StatelessWidget {
                 ),
               ],
             ),
-            4.verticalSpace,
+            6.verticalSpace,
             SmartRow(
               isExpanded: true,
               spacing: 4.w,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SmartImage(
                   path: AppImages.icStar,

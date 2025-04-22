@@ -37,6 +37,9 @@ class OrderTrackingPage extends GetView<OrderTrackingController> {
       leadingImage: AppImages.icArrowLeft,
       backIconColor: style.circleBgColor,
       showTitleAndSubtitle: true,
+      onBack: () {
+        Get.offAllNamed(AppRoutes.dashboardPage);
+      },
     );
   }
 
