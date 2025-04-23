@@ -77,6 +77,7 @@ class AppRoutes {
     GetPage(
       name: AppRoutes.paymentPage,
       page: () => const PaymentMethodScreen(),
+      binding: PaymentBinding(),
       transition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
     ),

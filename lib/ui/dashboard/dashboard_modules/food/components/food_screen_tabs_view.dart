@@ -31,7 +31,7 @@ class AnimatedTabBar extends GetView<FoodController> {
           final isSelected = index == controller.selectedFoodTab.value;
           return AnimatedSwitcher(
             duration: Duration(milliseconds: 400),
-            switchInCurve: Curves.easeOutBack,
+            switchInCurve: Curves.easeOut,
             switchOutCurve: Curves.easeIn,
             transitionBuilder: (child, animation) {
               return ScaleTransition(scale: animation, child: FadeTransition(opacity: animation, child: child));
@@ -64,7 +64,7 @@ class AnimatedTabBar extends GetView<FoodController> {
                     SizedBox(height: 16.h),
                     Container(
                       alignment: Alignment.center,
-                      margin: EdgeInsets.only(left: 1.w, right: 1.w, top: 2),
+                      margin: EdgeInsets.only(top: 2),
                       color: isSelected ? style.transparentColor : controller.currentFoodTabData.themeColor.withValues(alpha: 0.5),
                       child: SmartText(
                         data.tabText,

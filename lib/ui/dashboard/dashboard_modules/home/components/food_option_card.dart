@@ -8,7 +8,6 @@ class FoodOptionCard extends StatelessWidget {
   final String image;
   final String? time;
   final String? duration;
-
   final Color? cardColor;
   final Color? shadowColor;
   final Color? tagGradientStart;
@@ -56,7 +55,7 @@ class FoodOptionCard extends StatelessWidget {
         child: Stack(
           children: [
             SmartColumn(
-              height: 120.h,
+              height: 125.h,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SmartText(
@@ -149,8 +148,8 @@ class FoodOptionCard extends StatelessWidget {
               ],
             ),
             Positioned(
-              bottom: -20,
-              right: 0,
+              bottom: -15,
+              right: Get.locale!.languageCode == "ar" ? 60 : 0,
               child: ClipRRect(
                 borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(12.r), // match container radius

@@ -29,10 +29,6 @@ class GroceryPage extends GetView<GroceryController> {
                     suffixIcon: SmartRow(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        SmartImage(
-                          path: AppImages.icSearch,
-                          size: 24.w,
-                        ),
                         Container(
                           height: 21.h,
                           width: 1.w,

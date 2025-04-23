@@ -1,4 +1,5 @@
 import 'package:taza/taza.dart';
+import 'package:taza/ui/payment/components/payment_success_dialog.dart';
 
 class PaymentMethodScreen extends GetView<PaymentController> {
   const PaymentMethodScreen({super.key});
@@ -16,13 +17,7 @@ class PaymentMethodScreen extends GetView<PaymentController> {
             child: SmartButton(
               margin: EdgeInsets.symmetric(horizontal: 16.w),
               onTap: () {
-                Get.snackbar(
-                  'Payment Confirmed',
-                  'Proceeding with ${controller.selectedPayment.value.name}',
-                  backgroundColor: style.primaryColor.withValues(alpha: 0.2),
-                );
-
-                Future.delayed(Duration(milliseconds: 500),() => Get.offAllNamed(AppRoutes.orderTrackingPage),);
+                Future.delayed(Duration(milliseconds: 500),() => Get.dialog(PaymentSuccessDialog(), barrierDismissible: false),);
               },
               title: 'Confirm · ${selectedMethod.capitalize}',
             ),
@@ -37,7 +32,6 @@ class PaymentMethodScreen extends GetView<PaymentController> {
           TextButton(
             onPressed: () {
               Get.snackbar('Add Payment', 'Add new payment method clicked');
-
             },
             child: SmartRow(
               children: [

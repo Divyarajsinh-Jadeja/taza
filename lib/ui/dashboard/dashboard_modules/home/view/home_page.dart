@@ -29,7 +29,6 @@ class HomePage extends GetView<HomeController> {
                   suffixIcon: SmartRow(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      SmartImage(path: AppImages.icSearch, height: 24.h, width: 24.w),
                       Container(
                         height: 21.h,
                         width: 1.w,
@@ -61,7 +60,10 @@ class HomePage extends GetView<HomeController> {
                       padding: EdgeInsetsDirectional.only(top: 8.0.h, end: 4.w),
                       child: FoodOptionCard(
                         onTap: () {
-                          if(item["title"]=="Instamart"){
+                          if(index == 0){
+                            Get.toNamed(AppRoutes.orderTrackingPage);
+                          }
+                          if(index == 1){
                             Get.find<DashboardController>().changeTab(1);
                           }
                         },

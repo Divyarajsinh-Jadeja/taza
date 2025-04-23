@@ -112,4 +112,20 @@ class AppImages {
   static const String imgOtp = 'assets/images/img_otp.json';
   static const String icMessage = 'assets/images/ic_message.png';
   static const String mapLocation = 'assets/images/map_location.jpeg';
+  static const String imgLogo = 'assets/images/img_logo.png';
+  static const String catOnePng = 'assets/images/cat_one.png';
+  static const String categoryOne = 'assets/images/category_one.png';
+  static const String categoryAlmonds = 'assets/images/category_almonds.png';
+  static const String categoryAtta = 'assets/images/category_atta.png';
+  static const String categoryBakery = 'assets/images/category_bakery.png';
+  static const String categoryBiscuits = 'assets/images/category_biscuits.png';
+  static const String categoryCorn = 'assets/images/category_corn.png';
+  static const String categoryDairy = 'assets/images/category_dairy.png';
+  static const String categoryGrocery = 'assets/images/category_grocery.png';
+  static const String categoryMasala = 'assets/images/category_masala.png';
+  static const String categoryMeat = 'assets/images/category_meat.png';
+  static const String categoryOils = 'assets/images/category_oils.png';
+  static const String categoryTea = 'assets/images/category_tea.png';
+  static const String catOne = 'assets/images/cat_one.jpg';
+  static const String imgPaymentSuccess = 'assets/images/img_payment_success.json';
 }
