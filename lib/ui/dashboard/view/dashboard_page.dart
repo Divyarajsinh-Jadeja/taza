@@ -10,11 +10,11 @@ class DashboardPage extends GetView<DashboardController> {
     BottomNavigationBarDataModel bottomNavData =
         controller.tabs[2].bottomNavData;
     return Scaffold(
-
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           Padding(
-            padding:  EdgeInsets.only(bottom: 100.h),
+            padding: EdgeInsets.only(bottom: 100.h),
             child: PageView(
               controller: controller.pageController,
               physics: const NeverScrollableScrollPhysics(),
@@ -25,8 +25,12 @@ class DashboardPage extends GetView<DashboardController> {
             ),
           ),
           Positioned.directional(
-              textDirection: TextDirection.ltr,
-              bottom: 0.h, end: 0.w, start: 0.w, child: BottomCartWidget()),
+            textDirection: TextDirection.ltr,
+            bottom: 0.h,
+            end: 0.w,
+            start: 0.w,
+            child: BottomCartWidget(),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
