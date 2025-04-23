@@ -4,12 +4,15 @@ class DashboardController extends GetxController {
   RxInt currentIndex = 0.obs;
   final PageController pageController = PageController(initialPage: 0);
   final tabInitialized = <int, bool>{};
+  bool showOfferPopup = false;
 
   @override
   void onInit() {
     super.onInit();
+    showOfferPopup = StorageManager.instance.isShowOfferPopup();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      if(Get.context!=null){
+      if(!showOfferPopup && Get.context!=null){
+        StorageManager.instance.showOfferPopup(true);
         Utils.showSmartModalBottomSheet(
           context: Get.context!,
           backgroundColor: Colors.transparent,

@@ -168,44 +168,43 @@ class OtpVerificationPage extends GetView<OtpVerificationController> {
     );
   }
 
-  Widget _otpPageBody(OtpPageStyle style) {
-    final bottomInset = MediaQuery.of(Get.context!).viewInsets.bottom;
-    return AnimatedPadding(
-      duration: const Duration(milliseconds: 250),
-      curve: Curves.easeOut,
-      padding: EdgeInsetsDirectional.only(bottom: bottomInset),
-      child: SmartColumn(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SmartText(
-            LocaleKeys.otpSentTo.tr.interpolate(["+91 6261212334"]),
+  Widget _otpPageBody(OtpPageStyle style, BuildContext context) {
+    return SmartColumn(
+      expanded: true,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SmartText(
+          LocaleKeys.otpSentTo.tr.interpolate(["+91 6261212334"]),
+          style: style.subTitlesTextStyle,
+        ),
+        SizedBox(height: 12.h),
+        _buildOtpFields(style),
+        Obx(() {
+          return controller.errorText.value != null
+              ? SmartText(
+            controller.errorText.value!,
+            style: style.errorTextStyle,
+          )
+              : SizedBox();
+        }),
+        SizedBox(height: 20.h),
+        Obx(() {
+          return SmartText(
+            !controller.isTimerCompleted.value
+                ? LocaleKeys.otpRetryIn.tr.interpolate([
+              controller.secondsRemaining,
+            ])
+                : LocaleKeys.otpRetryNow.tr,
             style: style.subTitlesTextStyle,
-          ),
-          SizedBox(height: 12.h),
-          _buildOtpFields(style),
-          Obx(() {
-            return controller.errorText.value != null
-                ? SmartText(
-              controller.errorText.value!,
-              style: style.errorTextStyle,
-            )
-                : SizedBox();
-          }),
-          SizedBox(height: 20.h),
-          Obx(() {
-            return SmartText(
-              !controller.isTimerCompleted.value
-                  ? LocaleKeys.otpRetryIn.tr.interpolate([
-                controller.secondsRemaining,
-              ])
-                  : LocaleKeys.otpRetryNow.tr,
-              style: style.subTitlesTextStyle,
-            );
-          }),
-          SizedBox(height: 16.h),
-          _buildBottomWidget(style),
-        ],
-      ),
+          );
+        }),
+        SizedBox(height: 16.h),
+        Spacer(),
+        _buildBottomWidget(style, context),
+        SizedBox(height: 26.h),
+
+
+      ],
     );
   }
 
@@ -261,14 +260,20 @@ class OtpVerificationPage extends GetView<OtpVerificationController> {
     );
   }
 
-  Widget _buildBottomWidget(OtpPageStyle style) {
+  Widget _buildBottomWidget(OtpPageStyle style, BuildContext context) {
+    final bottomInset = MediaQuery.of(context).viewInsets.bottom;
     return Obx(() {
-      return SmartRow(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          _resendOption(style, AppImages.icMessage, LocaleKeys.getViaSms.tr),
-          _resendOption(style, AppImages.icCall, LocaleKeys.getViaCall.tr),
-        ],
+      return AnimatedPadding(
+        duration: Duration(milliseconds: 250),
+        curve: Curves.easeOut,
+        padding: EdgeInsetsDirectional.only(bottom: bottomInset),
+        child: SmartRow(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            _resendOption(style, AppImages.icMessage, LocaleKeys.getViaSms.tr),
+            _resendOption(style, AppImages.icCall, LocaleKeys.getViaCall.tr),
+          ],
+        ),
       );
     });
   }
@@ -291,8 +296,8 @@ class OtpVerificationPage extends GetView<OtpVerificationController> {
         12.verticalSpace,
         SmartImage(
           fit: BoxFit.fill,
-          height: 130.h,
-          width: 280.w,
+          height: 100.h,
+          width: 270.w,
           path: AppImages.icFood,
         ),
         SmartColumn(
@@ -311,7 +316,7 @@ class OtpVerificationPage extends GetView<OtpVerificationController> {
               textAlign: TextAlign.start,
             ),
             4.verticalSpace,
-            _otpPageBody(style),
+            _otpPageBody(style, context),
           ],
         ),
       ],

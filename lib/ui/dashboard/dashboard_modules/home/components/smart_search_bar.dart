@@ -14,8 +14,7 @@ class SmartSearchBar extends StatelessWidget {
   final Widget? suffixIcon;
   final ValueChanged<String>? onChanged;
   final EdgeInsetsGeometry? margin;
-
-
+  
   const SmartSearchBar({
     super.key,
     this.items,
@@ -50,6 +49,7 @@ class SmartSearchBar extends StatelessWidget {
         Expanded(
           child: SmartTextField.search(
             controller: controller,
+            isSearchWithPrefix: true,
             suffixIcon: suffixIcon ?? SizedBox(),
             hintText: "",
             hintStyle: hintStyle ?? style.searchBarHintStyle,
@@ -91,7 +91,7 @@ extension on SmartTextField {
               if(!hasText)
                 SmartRow(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  padding: EdgeInsetsDirectional.only(start: 14.w),
+                  padding: EdgeInsetsDirectional.only(start: 52.w),
                   children: [
                     SmartText(
                       LocaleKeys.searchFor.tr,

@@ -37,46 +37,76 @@ class FoodController extends GetxController with GetSingleTickerProviderStateMix
 
   final List<FoodTabData> tabs = [
     FoodTabData(
-      imagePath: "https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg",
+      imagePath: AppImages.categoryGrocery,
       themeColor: Color(0xFFfcd44b),
       bannerWidget: Image.asset(AppImages.icBannerGif, fit: BoxFit.cover),
+      tabText: "Vegetables",
+    ),
+    FoodTabData(
+      imagePath: AppImages.categoryOne,
+      themeColor: Color(0xFF0c3271),
+      bannerWidget: SmartImage(path: "assets/images/banner-2.jpg", fit: BoxFit.cover),
+      tabText: "Fruits",
+    ),
+    FoodTabData(
+      imagePath: AppImages.categoryDairy,
+      themeColor: Color(0xFF3f6800),
+      bannerWidget: SmartImage(path: "assets/images/banner-3.jpg", fit: BoxFit.cover),
+      tabText: "Dairy & Eggs",
+    ),
+    FoodTabData(
+      imagePath: AppImages.categoryOils,
+      themeColor: Color(0xFFfd235d),
+      bannerWidget: SmartImage(path: "assets/images/banner-4.jpg", fit: BoxFit.cover),
+      tabText: "Edible Fats",
+    ),
+    FoodTabData(
+      imagePath: AppImages.categoryMasala,
+      themeColor: Color(0xFF633174),
+      bannerWidget: SmartImage(path: "assets/images/banner-5.jpg", fit: BoxFit.cover),
+      tabText: "Masalas",
+    ),
+    FoodTabData(
+      imagePath: AppImages.categoryCorn,
+      themeColor: Color(0xFFE91E63),
+      bannerWidget: SizedBox(),
       tabText: "Breakfast",
     ),
     FoodTabData(
-      imagePath: "https://images.pexels.com/photos/704569/pexels-photo-704569.jpeg",
-      themeColor: Color(0xFF0c3271),
-      bannerWidget: SmartImage(path: "assets/images/banner-2.jpg", fit: BoxFit.cover),
-      tabText: "Fast Food",
-    ),
-    FoodTabData(
-      imagePath: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg",
-      themeColor: Color(0xFF3f6800),
-      bannerWidget: SmartImage(path: "assets/images/banner-3.jpg", fit: BoxFit.cover),
-      tabText: "Healthy",
-    ),
-    FoodTabData(
-      imagePath: "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg",
-      themeColor: Color(0xFFfd235d),
-      bannerWidget: SmartImage(path: "assets/images/banner-4.jpg", fit: BoxFit.cover),
-      tabText: "Italian",
-    ),
-    FoodTabData(
-      imagePath: "https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg",
-      themeColor: Color(0xFF633174),
-      bannerWidget: SmartImage(path: "assets/images/banner-5.jpg", fit: BoxFit.cover),
-      tabText: "Asian",
-    ),
-    FoodTabData(
-      imagePath: "https://images.pexels.com/photos/3026808/pexels-photo-3026808.jpeg",
-      themeColor: Color(0xFFE91E63),
-      bannerWidget: SizedBox(),
-      tabText: "Desserts",
-    ),
-    FoodTabData(
-      imagePath: "https://images.pexels.com/photos/616401/pexels-photo-616401.jpeg",
+      imagePath: AppImages.categoryAtta,
       themeColor: Color(0xFF3F51B5),
       bannerWidget: SizedBox(),
-      tabText: "Drinks",
+      tabText: "Staples",
+    ),
+    FoodTabData(
+      imagePath: AppImages.categoryBakery,
+      themeColor: Color(0xFF3F51B5),
+      bannerWidget: SizedBox(),
+      tabText: "Bakery",
+    ),
+    FoodTabData(
+      imagePath: AppImages.categoryBiscuits,
+      themeColor: Color(0xFF3F51B5),
+      bannerWidget: SizedBox(),
+      tabText: "Biscuits",
+    ),
+    FoodTabData(
+      imagePath: AppImages.categoryTea,
+      themeColor: Color(0xFF3F51B5),
+      bannerWidget: SizedBox(),
+      tabText: "Caffique",
+    ),
+    FoodTabData(
+      imagePath: AppImages.categoryAlmonds,
+      themeColor: Color(0xFF3F51B5),
+      bannerWidget: SizedBox(),
+      tabText: "Dry-Fruits",
+    ),
+    FoodTabData(
+      imagePath: AppImages.categoryMeat,
+      themeColor: Color(0xFF3F51B5),
+      bannerWidget: SizedBox(),
+      tabText: "Meat",
     ),
   ];
 

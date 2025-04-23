@@ -5,8 +5,8 @@ class PaymentController extends GetxController {
 
   final paymentMethods =
       <PaymentMethod>[
-        PaymentMethod(type: PaymentType.visa, number: '**** **** **** 4221', expiry: 'Expires 3/25'),
-        PaymentMethod(type: PaymentType.mastercard, number: '**** **** **** 5748', expiry: 'Expires 8/24'),
+        PaymentMethod(type: PaymentType.visa, number: '**** **** **** 4221', expiry: 'Expires 3/28'),
+        PaymentMethod(type: PaymentType.mastercard, number: '**** **** **** 5748', expiry: 'Expires 8/29'),
         PaymentMethod(type: PaymentType.googlePay),
         PaymentMethod(type: PaymentType.paypal),
       ].obs;

@@ -23,7 +23,6 @@ class FoodHeaderSliver extends GetView<FoodController> {
                   suffixIcon: SmartRow(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      SmartImage(path: AppImages.icSearch, size: 24.w),
                       IconButton(
                         padding: EdgeInsets.zero,
                         icon: Icon(Icons.edit_note_sharp),
@@ -40,7 +39,7 @@ class FoodHeaderSliver extends GetView<FoodController> {
               ),
             ),
             AnimatedTabBar(tabController: controller.foodTabController, tabs: controller.tabs),
-            Container(color: controller.currentFoodTabData.themeColor, height: 8.h),
+            // Container(color: controller.currentFoodTabData.themeColor, height: 8.h),
           ],
         ),
       ),

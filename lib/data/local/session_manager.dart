@@ -17,8 +17,18 @@ class StorageManager {
   static const String _userLanguage = 'userLanguage';
   static const String _isInitialLogin = 'initialLogin';
   static const String _isLogin = 'login';
+  static const String _showOfferPopup = 'showOfferPopup';
 
   GetStorage localStorage = GetStorage();
+
+  void showOfferPopup(bool value) {
+    localStorage.write(_showOfferPopup, value);
+  }
+
+  bool isShowOfferPopup() {
+    return localStorage.read(_showOfferPopup) ?? false;
+  }
+
 
   void setInitialLoginDone(bool value) {
     localStorage.write(_isInitialLogin, value);

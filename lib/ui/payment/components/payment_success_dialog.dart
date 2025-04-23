@@ -1,7 +1,7 @@
 import 'package:taza/taza.dart';
 
-class RewardDialog extends StatelessWidget {
-  const RewardDialog({super.key});
+class PaymentSuccessDialog extends StatelessWidget {
+  const PaymentSuccessDialog({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,23 +20,29 @@ class RewardDialog extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(height: 10.h,),
-            SmartImage(
+            /*SmartImage(
               path: AppImages.icClose,
               onTap: () => Get.back(),
               alignment: AlignmentDirectional.topEnd,
-            ),
-            SmartImage(path: AppImages.reward, size: 100.w),
-            SizedBox(height: 16.h),
+            ),*/
+            SmartImage(path: AppImages.imgPaymentSuccess, size: 150.w),
             /// TODO : below string will chane and come from api
-            SmartText("Congratulations!", style: style.titleTextStyle),
+            SmartText("Payment Successful", style: style.highlightTextStyle),
             SizedBox(height: 12.h),
             SmartText(
-              "100 SAR free cash added",
+              "You've earned 100 SAR in rewards!",
               style: style.highlightTextStyle,
+              textAlign: TextAlign.center,
             ),
-            SmartText("on this order!", style: style.subtitleTextStyle),
-            SizedBox(height: 20.h),
-            SmartText("YAY!", style: style.celebrateTextStyle),
+            SizedBox(height: 12.h),
+            SmartRow(
+              mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+              SmartText("Your order is on the way!", style: style.subtitleTextStyle,),
+              SmartImage(path: AppImages.deliveryLottie , size: 30,)
+            ]),
+            SizedBox(height: 16.h),
+            SmartText("Order More", style: style.celebrateTextStyle, onTap: (){Get.offAllNamed(AppRoutes.dashboardPage);},),
             SizedBox(height: 20.h),
           ],
         ),
