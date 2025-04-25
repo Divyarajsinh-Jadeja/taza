@@ -5,7 +5,7 @@ class FoodPage extends GetView<FoodController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(extendBodyBehindAppBar: true, body: _buildBody(context));
+    return Scaffold(resizeToAvoidBottomInset : false, extendBodyBehindAppBar: true, body: _buildBody(context));
   }
 
   Widget _buildBody(BuildContext context) {
@@ -13,7 +13,7 @@ class FoodPage extends GetView<FoodController> {
     final foodPageStyle = AppTheme.of(context).foodPageStyle;
 
     return Obx(
-      () => AnimatedContainer(
+          () => AnimatedContainer(
         duration: const Duration(milliseconds: 300),
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -42,7 +42,7 @@ class FoodPage extends GetView<FoodController> {
   Widget _buildAppBarSliver(FoodPageStyle foodPageStyle, BuildContext context) {
     return PinnedHeaderSliver(
       child: Obx(
-        () => ColoredBox(
+            () => ColoredBox(
           color: foodPageStyle.whiteColor,
           child: Container(
             color: controller.currentFoodTabData.themeColor.withValues(alpha: 0.8),
@@ -56,7 +56,7 @@ class FoodPage extends GetView<FoodController> {
   Widget _buildAddressHeaderSliver() {
     return _animatedBoxAdapter(
       child: Obx(
-        () => Container(
+            () => Container(
           color: controller.currentFoodTabData.themeColor.withValues(alpha: 0.4),
           padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w, vertical: 6),
           child: HomeAddressHeader(
@@ -76,9 +76,9 @@ class FoodPage extends GetView<FoodController> {
       _animatedBoxAdapter(child: Obx(() => controller.currentFoodTabData.bannerWidget)),
       _animatedBoxAdapter(child: SizedBox(height: 16.h)),
       _buildCategoriesSliver(style, foodPageStyle),
-      _animatedBoxAdapter(child: SizedBox(height: 8.h)),
-      _animatedBoxAdapter(child: _buildCarousel()),
-      _animatedBoxAdapter(child: SizedBox(height: 8.h)),
+      _animatedBoxAdapter(child: SizedBox(height: 16.h)),
+      /*_animatedBoxAdapter(child: _buildCarousel()),
+      _animatedBoxAdapter(child: SizedBox(height: 8.h)),*/
       _buildPromoBannerSliver(),
       ..._buildReorderSection(foodPageStyle),
       ..._buildCravingSection(foodPageStyle),
@@ -215,7 +215,8 @@ class FoodPage extends GetView<FoodController> {
     );
   }
 
-  Widget _buildCarousel() {
+
+  /*Widget _buildCarousel() {
     return CarouselSlider.builder(
       itemCount: controller.foodBannerList.length,
       itemBuilder: (context, index, _) {
@@ -228,7 +229,7 @@ class FoodPage extends GetView<FoodController> {
         onPageChanged: (index, _) => controller.sliderController.animateToPage(index),
       ),
     );
-  }
+  }*/
 
   Widget _buildFoodList(List<FoodItemModel> items) {
     return SizedBox(
@@ -260,3 +261,4 @@ class FoodPage extends GetView<FoodController> {
     );
   }
 }
+

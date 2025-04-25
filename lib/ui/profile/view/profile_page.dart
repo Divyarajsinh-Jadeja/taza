@@ -34,12 +34,14 @@ class ProfilePage extends GetView<ProfileController> {
           SizedBox(height: 5.h),
           _buildTile(
             style: style,
+            onTap: (){Get.toNamed(AppRoutes.couponsPage);},
             title: LocaleKeys.couponCodeTitle.tr,
             subTitle: LocaleKeys.couponCodeSubtitle.tr,
             showDivider: false,
           ),
           _buildTile(
             style: style,
+            onTap: (){Get.toNamed(AppRoutes.addressPage);},
             title: LocaleKeys.addressesTitle.tr,
             subTitle: LocaleKeys.addressesSubtitle.tr,
           ),

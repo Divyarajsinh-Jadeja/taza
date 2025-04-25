@@ -1,5 +1,7 @@
 import 'package:taza/taza.dart';
 
+import '../dashboard_modules/grocery/view/grocery_page_dashboard.dart';
+
 class DashboardController extends GetxController {
   RxInt currentIndex = 0.obs;
   final PageController pageController = PageController(initialPage: 0);

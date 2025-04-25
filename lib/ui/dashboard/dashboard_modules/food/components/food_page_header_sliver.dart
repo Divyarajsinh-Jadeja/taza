@@ -18,11 +18,16 @@ class FoodHeaderSliver extends GetView<FoodController> {
                 padding: const EdgeInsets.all(16),
                 child: SmartSearchBar(
                   items: [Get.find<FoodController>().hints[controller.currentHintIndex.value]],
-                  controller: SearchController(),
+                  controller: controller.searchController,
                   onChanged: (val) {},
                   suffixIcon: SmartRow(
                     mainAxisSize: MainAxisSize.min,
                     children: [
+                      Container(
+                        height: 21.h,
+                        width: 1.w,
+                        color: foodPageStyle.borderColor,
+                      ),
                       IconButton(
                         padding: EdgeInsets.zero,
                         icon: Icon(Icons.edit_note_sharp),
