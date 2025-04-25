@@ -149,7 +149,7 @@ class FoodOptionCard extends StatelessWidget {
             ),
             Positioned(
               bottom: -15,
-              right: Get.locale!.languageCode == "ar" ? 60 : 0,
+              right: Get.locale!.languageCode == "ar" ? 60 : -5,
               child: ClipRRect(
                 borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(12.r), // match container radius

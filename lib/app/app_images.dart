@@ -127,5 +127,8 @@ class AppImages {
   static const String categoryOils = 'assets/images/category_oils.png';
   static const String categoryTea = 'assets/images/category_tea.png';
   static const String catOne = 'assets/images/cat_one.jpg';
+  static const String imgFoodGif = 'assets/images/imgFoodGif.gif';
+  static const String cardBannerGif = 'assets/images/cardBannerGif.gif';
+  static const String imgAnimatedMic = 'assets/images/imgAnimatedMic.json';
   static const String imgPaymentSuccess = 'assets/images/img_payment_success.json';
 }

@@ -37,48 +37,48 @@ class FoodController extends GetxController with GetSingleTickerProviderStateMix
 
   final List<FoodTabData> tabs = [
     FoodTabData(
-      imagePath: AppImages.categoryGrocery,
+      imagePath: "assets/images/thali_new.png",
       themeColor: Color(0xFFfcd44b),
       bannerWidget: Image.asset(AppImages.icBannerGif, fit: BoxFit.cover),
-      tabText: "Vegetables",
+      tabText: "North-Indian",
     ),
     FoodTabData(
-      imagePath: AppImages.categoryOne,
+      imagePath: "assets/images/burger.png",
       themeColor: Color(0xFF0c3271),
       bannerWidget: SmartImage(path: "assets/images/banner-2.jpg", fit: BoxFit.cover),
-      tabText: "Fruits",
+      tabText: "Burger King",
     ),
     FoodTabData(
-      imagePath: AppImages.categoryDairy,
+      imagePath: "assets/images/sanwich.png",
       themeColor: Color(0xFF3f6800),
       bannerWidget: SmartImage(path: "assets/images/banner-3.jpg", fit: BoxFit.cover),
-      tabText: "Dairy & Eggs",
+      tabText: "Sandwiches",
     ),
     FoodTabData(
-      imagePath: AppImages.categoryOils,
+      imagePath: "assets/images/chaumin.png",
       themeColor: Color(0xFFfd235d),
       bannerWidget: SmartImage(path: "assets/images/banner-4.jpg", fit: BoxFit.cover),
-      tabText: "Edible Fats",
+      tabText: "Noodles",
     ),
     FoodTabData(
-      imagePath: AppImages.categoryMasala,
+      imagePath: "assets/images/pizza.png",
       themeColor: Color(0xFF633174),
       bannerWidget: SmartImage(path: "assets/images/banner-5.jpg", fit: BoxFit.cover),
-      tabText: "Masalas",
+      tabText: "Pizza",
     ),
     FoodTabData(
-      imagePath: AppImages.categoryCorn,
+      imagePath: "assets/images/chines.png",
       themeColor: Color(0xFFE91E63),
       bannerWidget: SizedBox(),
-      tabText: "Breakfast",
+      tabText: "Chinease",
     ),
     FoodTabData(
-      imagePath: AppImages.categoryAtta,
+      imagePath: "assets/images/category_meat.png",
       themeColor: Color(0xFF3F51B5),
       bannerWidget: SizedBox(),
-      tabText: "Staples",
+      tabText: "Non-Veg",
     ),
-    FoodTabData(
+    /*FoodTabData(
       imagePath: AppImages.categoryBakery,
       themeColor: Color(0xFF3F51B5),
       bannerWidget: SizedBox(),
@@ -107,7 +107,7 @@ class FoodController extends GetxController with GetSingleTickerProviderStateMix
       themeColor: Color(0xFF3F51B5),
       bannerWidget: SizedBox(),
       tabText: "Meat",
-    ),
+    ),*/
   ];
 
   FoodTabData get currentFoodTabData => tabs[selectedFoodTab.value];
@@ -215,7 +215,8 @@ class FoodController extends GetxController with GetSingleTickerProviderStateMix
     ),
   ];
 
-  final List<String> foodBannerList = const ["https://i.ibb.co/DHZxXgkZ/Banner.jpg"];
+  ///Remove the promo banner
+  final List<String> foodBannerList = [];
 
   final List<Widget> cravingTabs = [
     Column(
@@ -480,3 +481,4 @@ class FoodController extends GetxController with GetSingleTickerProviderStateMix
     }
   }
 }
+

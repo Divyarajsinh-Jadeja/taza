@@ -13,24 +13,26 @@ class DashboardPage extends GetView<DashboardController> {
       resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
-          Padding(
-            padding: EdgeInsets.only(bottom: 100.h),
-            child: PageView(
-              controller: controller.pageController,
-              physics: const NeverScrollableScrollPhysics(),
-              children:
-                  controller.tabs
-                      .map((tab) => Builder(builder: tab.pageBuilder))
-                      .toList(),
-            ),
+          PageView(
+            controller: controller.pageController,
+            physics: const NeverScrollableScrollPhysics(),
+            children:
+                controller.tabs
+                    .map((tab) => Builder(builder: tab.pageBuilder))
+                    .toList(),
           ),
-          Positioned.directional(
-            textDirection: TextDirection.ltr,
-            bottom: 0.h,
-            end: 0.w,
-            start: 0.w,
-            child: BottomCartWidget(),
-          ),
+          Obx(() {
+            print("Index - ${controller.currentIndex.value}");
+            return controller.currentIndex.value == 4
+                ? Positioned.directional(
+              textDirection: TextDirection.ltr,
+              bottom: 0.h,
+              end: 0.w,
+              start: 0.w,
+              child: BottomCartWidget(),
+            )
+                : const SizedBox.shrink();
+          }),
         ],
       ),
       floatingActionButton: FloatingActionButton(

@@ -8,6 +8,7 @@ class AppRoutes {
   static const dashboardPage = '/dashboard_page';
   static const checkoutPage = '/checkout_page';
   static const orderTrackingPage = '/order_tracking_page';
+  static const groceryDashboardPage = '/grocery_page_dashboard';
   static const couponsPage = '/coupons_page';
   static const profilePage = '/profile_page';
   static const paymentPage = '/paymentPage';
@@ -43,6 +44,12 @@ class AppRoutes {
       name: AppRoutes.dashboardPage,
       page: () => const DashboardPage(),
       binding: DashboardBinding(),
+      transition: Transition.cupertino,
+      transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
+    ),GetPage(
+      name: AppRoutes.groceryDashboardPage,
+      page: () => const GroceryPageDashboard(),
+      binding: GroceryPageDashboardBinding(),
       transition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
     ),

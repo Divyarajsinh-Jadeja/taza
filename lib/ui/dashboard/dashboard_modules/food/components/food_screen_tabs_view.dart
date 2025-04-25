@@ -57,7 +57,7 @@ class AnimatedTabBar extends GetView<FoodController> {
                         child: AnimatedOpacity(
                           opacity: isSelected ? 1 : 0.6,
                           duration: Duration(milliseconds: 400),
-                          child: SizedBox(height: 32.w, width: 32.w, child: SmartImage(path: data.imagePath)),
+                          child: SizedBox(height: 32.h, width: 40.w, child: SmartImage(path: data.imagePath, size: 70.w,)),
                         ),
                       ),
                     ),
