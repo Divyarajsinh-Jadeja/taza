@@ -15,52 +15,29 @@ class FoodPage extends GetView<FoodController> {
     return Obx(
           () => AnimatedContainer(
         duration: const Duration(milliseconds: 300),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              controller.currentFoodTabData.themeColor.withValues(alpha: 0.001),
+              controller.currentFoodTabData.themeColor.withValues(alpha: 0.1),
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
         child: CustomScrollView(
           controller: controller.scrollController,
           physics: const ClampingScrollPhysics(),
           slivers: [
-            ..._buildTopHeaderSlivers(context, foodPageStyle),
-            //_buildAppBarSliver(foodPageStyle, context),
-            //_buildAddressHeaderSliver(),
-            //const PinnedHeaderSliver(child: FoodHeaderSliver()),
+            _buildAppBarSliver(foodPageStyle, context),
+            _buildAddressHeaderSliver(),
+            const PinnedHeaderSliver(child: FoodHeaderSliver()),
             ..._buildContentSlivers(style, foodPageStyle),
           ],
         ),
       ),
     );
   }
-
-  List<Widget> _buildTopHeaderSlivers(BuildContext context, FoodPageStyle foodPageStyle) {
-    return [
-      PinnedHeaderSliver(child: SizedBox(height: MediaQuery.of(context).padding.top),),
-      SliverToBoxAdapter(
-        child: Obx(() => SmartColumn(
-        color: controller.currentFoodTabData.themeColor,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
-              child: HomeAddressHeader(
-                addressTypeTag: LocaleKeys.home.tr,
-                address: "Al Tadamun Al Arabi St., Mishfirah, Jeddah KSA",
-                userImagePath: "https://i.ibb.co/HLgDnFFQ/Group.png",
-                textColor: Utils.getContrastColor(controller.currentFoodTabData.themeColor),
-                homeIconColor: Utils.getContrastColor(controller.currentFoodTabData.themeColor),
-              ),
-            ),
-          ],
-        )),
-      ),
-      // Now separate pinned header for FoodHeaderSliver
-      PinnedHeaderSliver(
-        child: Obx(() => ColoredBox(
-          color: controller.currentFoodTabData.themeColor,
-          child: const FoodHeaderSliver(),
-        )),
-      ),
-    ];
-  }
-
 
   Widget _buildAppBarSliver(FoodPageStyle foodPageStyle, BuildContext context) {
     return PinnedHeaderSliver(
@@ -79,15 +56,17 @@ class FoodPage extends GetView<FoodController> {
   Widget _buildAddressHeaderSliver() {
     return _animatedBoxAdapter(
       child: Obx(
-            () => HomeAddressHeader(
-              padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w, vertical: 6),
-              addressTypeTag: LocaleKeys.home.tr,
-              address: "Al Tadamun Al Arabi St., Mishfirah, Jeddah KSA",
-              userImagePath: "https://i.ibb.co/HLgDnFFQ/Group.png",
-              textColor: Utils.getContrastColor(controller.currentFoodTabData.themeColor),
-              homeIconColor: Utils.getContrastColor(controller.currentFoodTabData.themeColor),
-              //homeIconColor: controller.currentFoodTabData.themeColor,
-            ),
+            () => Container(
+          color: controller.currentFoodTabData.themeColor.withValues(alpha: 0.4),
+          padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w, vertical: 6),
+          child: HomeAddressHeader(
+            addressTypeTag: LocaleKeys.home.tr,
+            address: "Al Tadamun Al Arabi St., Mishfirah, Jeddah KSA",
+            userImagePath: "https://i.ibb.co/HLgDnFFQ/Group.png",
+            textColor: Utils.getContrastColor(controller.currentFoodTabData.themeColor),
+            homeIconColor: controller.currentFoodTabData.themeColor,
+          ),
+        ),
       ),
     );
   }

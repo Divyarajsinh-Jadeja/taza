@@ -17,8 +17,6 @@ class CustomBottomBar extends StatelessWidget {
       child: BottomAppBar(
         color: style.backgroundColor,
         clipBehavior: Clip.antiAliasWithSaveLayer,
-        shape: const CircularNotchedRectangle(),
-        notchMargin: 12.w,
         elevation: 10.w,
         child: SmartRow(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -29,10 +27,13 @@ class CustomBottomBar extends StatelessWidget {
             final textColor = selectedIndex == index ? style.selectedLabelColor : style.unselectedLabelColor;
             return SmartColumn(
               expanded: true,
-              onTap: () => onItemSelected(index),
+              onTap: () {
+                HapticFeedback.lightImpact();
+                onItemSelected(index);
+              },
               mainAxisSize: MainAxisSize.min,
               children: [
-                index == 2 ? SizedBox(height: 32.h) : SmartImage(path: item.icon, color: iconColor, height: 32.h, width: 32.w),
+                SmartImage(path: item.icon, color: iconColor, height: 32.h, width: 32.w),
                 SizedBox(height: 4.h),
                 Expanded(
                   child: SmartText(

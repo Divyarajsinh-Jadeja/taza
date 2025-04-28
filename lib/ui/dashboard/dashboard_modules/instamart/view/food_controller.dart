@@ -36,27 +36,26 @@ class FoodController extends GetxController with GetSingleTickerProviderStateMix
   final GlobalKey headerKey = GlobalKey();
 
   final List<FoodTabData> tabs = [
-
     FoodTabData(
-      imagePath: "assets/images/burger1.png",
-      themeColor: Color(0xFF0c3271),
-      bannerWidget: SmartImage(path: "assets/images/banner-2.jpg", fit: BoxFit.cover),
-      tabText: "Burger King",
-    ),
-    FoodTabData(
-      imagePath: "assets/images/dosa.png",
+      imagePath: "assets/images/thali_new.png",
       themeColor: Color(0xFFfcd44b),
       bannerWidget: Image.asset(AppImages.icBannerGif, fit: BoxFit.cover),
       tabText: "North-Indian",
     ),
     FoodTabData(
-      imagePath: "assets/images/sandwich.png",
-      themeColor: Color(0xFF3f6800),
-      bannerWidget: SmartImage(path: "assets/images/banner-3.jpg", fit: BoxFit.cover),
-      tabText: "Sandwich",
+      imagePath: "assets/images/burger.png",
+      themeColor: Color(0xFF0c3271),
+      bannerWidget: SmartImage(path: "assets/images/banner-2.jpg", fit: BoxFit.cover),
+      tabText: "Burger King",
     ),
     FoodTabData(
-      imagePath: "assets/images/noodles.png",
+      imagePath: "assets/images/sanwich.png",
+      themeColor: Color(0xFF3f6800),
+      bannerWidget: SmartImage(path: "assets/images/banner-3.jpg", fit: BoxFit.cover),
+      tabText: "Sandwiches",
+    ),
+    FoodTabData(
+      imagePath: "assets/images/chaumin.png",
       themeColor: Color(0xFFfd235d),
       bannerWidget: SmartImage(path: "assets/images/banner-4.jpg", fit: BoxFit.cover),
       tabText: "Noodles",
@@ -68,13 +67,13 @@ class FoodController extends GetxController with GetSingleTickerProviderStateMix
       tabText: "Pizza",
     ),
     FoodTabData(
-      imagePath: "assets/images/chinease.png",
+      imagePath: "assets/images/chines.png",
       themeColor: Color(0xFFE91E63),
       bannerWidget: SizedBox(),
-      tabText: "Chinese",
+      tabText: "Chinease",
     ),
     FoodTabData(
-      imagePath: "assets/images/meat.png",
+      imagePath: "assets/images/category_meat.png",
       themeColor: Color(0xFF3F51B5),
       bannerWidget: SizedBox(),
       tabText: "Non-Veg",

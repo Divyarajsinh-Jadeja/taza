@@ -108,6 +108,7 @@ class LoginPage extends GetView<LoginController> {
     return SmartColumn(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        Align(alignment: Alignment.centerRight,child: SmartText(LocaleKeys.skip.tr,style: style.tagTextStyle,optionalPadding: EdgeInsets.only(right: 20.w),onTap: () => Get.toNamed(AppRoutes.dashboardPage),)),
         SmartImage(
           width: 80.w,
           path: AppImages.icSplashLogo,
@@ -150,11 +151,13 @@ class LoginPage extends GetView<LoginController> {
     return SmartColumn(
       color: style.loginPageBgColor,
       children: [
+
         SmartColumn(
           color: style.continueButtonBgColor,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             40.verticalSpace,
+            Align(alignment: Alignment.centerRight,child: SmartText(LocaleKeys.skip.tr,style: style.tagTextStyle,optionalPadding: EdgeInsets.only(right: 20.w),onTap: () => Get.toNamed(AppRoutes.dashboardPage),)),
             SmartImage(width: 80.w, path: AppImages.icSplashLogo),
             10.verticalSpace,
             SmartText(

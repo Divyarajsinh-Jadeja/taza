@@ -13,7 +13,7 @@ class AppImages {
   static const String icShoppingBag = 'assets/images/ic_shopping_bag.svg';
   static const String icHomeActive = 'assets/images/ic_home_active.svg';
 
-  static const String icSplashLogo = 'assets/images/ic_splash_logo.png';
+  static const String icSplashLogo = 'assets/images/app_logo.png';
 
   // appbar icon assets
   static const String icBack = 'assets/images/ic_back.svg';
@@ -43,6 +43,8 @@ class AppImages {
   static const String icExploreActive = 'assets/images/ic_explore_active.svg';
   static const String icConnectionsInactive = 'assets/images/ic_connections_inactive.svg';
   static const String icConnectionsActive = 'assets/images/ic_connection_active.svg';
+  static const String icInstamart = 'assets/images/instamart.svg';
+  static const String icDine = 'assets/images/dine.svg';
 
   // Indi Paring assets
   static const String icPairingSuccessfulRing = 'assets/images/ic_pairing_successful_ring.png';
@@ -127,8 +129,16 @@ class AppImages {
   static const String categoryOils = 'assets/images/category_oils.png';
   static const String categoryTea = 'assets/images/category_tea.png';
   static const String catOne = 'assets/images/cat_one.jpg';
-  static const String imgFoodGif = 'assets/images/imgFoodGif.gif';
+  static const String imgFoodGif = 'assets/images/foodImage.gif';
   static const String cardBannerGif = 'assets/images/cardBannerGif.gif';
   static const String imgAnimatedMic = 'assets/images/imgAnimatedMic.json';
   static const String imgPaymentSuccess = 'assets/images/img_payment_success.json';
+
+  // Instamart icons
+  static const String grocery1 = 'assets/images/grocery1.png';
+  static const String cosmetics = 'assets/images/cosmetics.png';
+  static const String gadgets = 'assets/images/gadgets.png';
+  static const String playtime = 'assets/images/playtime.png';
+  static const String tableLamp = 'assets/images/table-lamp.png';
+  static const String vegetable = 'assets/images/vegetable.png';
 }

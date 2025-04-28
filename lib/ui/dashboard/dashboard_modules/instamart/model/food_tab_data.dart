@@ -7,7 +7,6 @@ class FoodTabData {
   final String? tabText;
 
   FoodTabData({required this.imagePath, required this.themeColor, required this.bannerWidget, this.tabText});
-  Color get lightThemeColor => themeColor.withValues(alpha: 0.8);
 }
 
 class ShoppingListOption {
@@ -24,6 +23,4 @@ class ShoppingListOption {
     required this.backgroundGradientEnd,
     this.onTap,
   });
-
-
 }
