@@ -214,6 +214,12 @@ export 'package:taza/ui/dashboard/dashboard_modules/grocery/view/grocery_dashboa
 export '../ui/dashboard/dashboard_modules/grocery/view/grocery_page_dashboard.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/category/model/categories_model.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/category/view/category_dashboard_controller_.dart';
+export 'package:taza/ui/explore_brands/view/explore_brand_controller.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/food/components/restaurant_item_card.dart';
+export 'package:taza/ui/explore_brands/components/explore_brand_item_card.dart';
+
+
+
 
 
 
