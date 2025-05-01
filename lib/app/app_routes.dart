@@ -17,6 +17,7 @@ class AppRoutes {
   static const addressPage = '/address_page';
   static const selectDeliveryLocationPage = '/select_delivery_location_page';
   static const saveAddressDetailsPage = '/save_address_details_page';
+  static const orderDetailsPage = '/order_details_page';
 
   static final List<GetPage> pages = [
     GetPage(
@@ -120,6 +121,12 @@ class AppRoutes {
       name: AppRoutes.saveAddressDetailsPage,
       page: () => const SaveAddressDetailsPage(),
       binding: AddressBinding(),
+      transition: Transition.cupertino,
+      transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
+    ),
+    GetPage(
+      name: AppRoutes.orderDetailsPage,
+      page: () => const OrderDetailPage(),
       transition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
     ),

@@ -57,7 +57,7 @@ class ReorderPage extends GetView<ReorderController> {
                 padding: EdgeInsetsDirectional.symmetric(horizontal: 20.w),
                 itemBuilder:
                     (context, index) =>
-                    FoodCard(
+                    ReorderCard(
                       index: index,
                       onIncrease: () => Get.find<QuantityController>().increment(index),
                       onDecrease: () => Get.find<QuantityController>().decrement(index),

@@ -401,11 +401,22 @@ class LightModeTheme extends AppTheme {
       border: Border.all(color: colors.colorD2D2D7),
       borderRadius: BorderRadius.circular(16.r),
     ),
-    imageDecoration: BorderRadiusDirectional.only(
-      topStart: Radius.circular(12.r),
-      bottomStart: Radius.circular(12.r),
+    halfCardDecoration: BoxDecoration(
+      color: colors.color9c9cA3.withValues(alpha: 0.1),
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(14.r),
+        topRight: Radius.circular(14.r),
+      )
     ),
+    imageDecoration: BorderRadiusDirectional.all(Radius.circular(12.r)),
     iconColor: colors.primary,
+    whiteColor: colors.white,
+    greenColor: colors.color30D158,
+    reorderTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 12.sp),
+    reorderAmountStyle: interRegularW400TextStyle.copyWith(fontSize: 12.sp),
+    grayStyle: interRegularW400TextStyle.copyWith(fontSize: 12.sp,color: colors.color6E6E73),
+    buttonGrayStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp,color: colors.color6E6E73),
+    buttonPrimaryStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp,color: colors.primary),
   );
 
   @override
@@ -874,6 +885,7 @@ class LightModeTheme extends AppTheme {
       borderRadius: BorderRadius.circular(12.r),
       color: colors.white,
     ),
+    blackColor: colors.black
   );
 
   @override

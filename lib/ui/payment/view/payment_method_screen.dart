@@ -9,20 +9,23 @@ class PaymentMethodScreen extends GetView<PaymentController> {
     final style = AppTheme.of(context).paymentOptionCardStyle;
     return Scaffold(
       backgroundColor: style.whiteColor,
-      bottomNavigationBar: SafeArea(
-        child: Obx(() {
-          final selectedMethod = controller.selectedPayment.value.name;
-          return AnimatedContainer(
-            duration: const Duration(milliseconds: 300),
-            child: SmartButton(
-              margin: EdgeInsets.symmetric(horizontal: 16.w),
-              onTap: () {
-                Future.delayed(Duration(milliseconds: 500),() => Get.dialog(PaymentSuccessDialog(), barrierDismissible: false),);
-              },
-              title: 'Confirm · ${selectedMethod.capitalize}',
-            ),
-          );
-        }),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(bottom: 10),
+        child: SafeArea(
+          child: Obx(() {
+            final selectedMethod = controller.selectedPayment.value.name;
+            return AnimatedContainer(
+              duration: const Duration(milliseconds: 300),
+              child: SmartButton(
+                margin: EdgeInsets.symmetric(horizontal: 16.w),
+                onTap: () {
+                  Future.delayed(Duration(milliseconds: 500),() => Get.dialog(PaymentSuccessDialog(), barrierDismissible: false),);
+                },
+                title: 'Confirm · ${selectedMethod.capitalize}',
+              ),
+            );
+          }),
+        ),
       ),
       appBar: SmartAppBar(
         isCenter: true,

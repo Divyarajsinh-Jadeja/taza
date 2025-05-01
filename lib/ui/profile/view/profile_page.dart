@@ -7,59 +7,95 @@ class ProfilePage extends GetView<ProfileController> {
   Widget build(BuildContext context) {
     var style = AppTheme.of(context).profilePageStyle;
     return Scaffold(
-      appBar: SmartAppBar(),
-      body: SmartColumn(
-        height: Get.height,
-        padding: EdgeInsetsDirectional.symmetric(horizontal: 20.w),
-        spacing: 4.h,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          SmartText("Alex Hemsworth", style: style.nameTitleStyle),
-          SmartText(
-            "+91 9898989898  .  hey@gmail.com",
-            style: style.subTitleStyle,
+      appBar: SmartAppBar(actions: [Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(100.r),
+            color: style.primaryColor.withValues(alpha: 0.2)
           ),
-          SmartRow(
-            children: [
-              SmartText(LocaleKeys.editProfile.tr, style: style.primaryStyle),
-              Icon(
-                Icons.keyboard_arrow_right_rounded,
-                color: style.primaryColor,
-              ),
-            ],
-          ),
-          SizedBox(height: 10.h),
-          Divider(),
-          SizedBox(height: 5.h),
-          _buildTile(
-            style: style,
-            onTap: (){Get.toNamed(AppRoutes.couponsPage);},
-            title: LocaleKeys.couponCodeTitle.tr,
-            subTitle: LocaleKeys.couponCodeSubtitle.tr,
-            showDivider: false,
-          ),
-          _buildTile(
-            style: style,
-            onTap: (){Get.toNamed(AppRoutes.addressPage);},
-            title: LocaleKeys.addressesTitle.tr,
-            subTitle: LocaleKeys.addressesSubtitle.tr,
-          ),
-          _buildTile(
-            style: style,
-            title: LocaleKeys.preferenceTitle.tr,
-            subTitle: LocaleKeys.preferenceSubtitle.tr,
-            onTap: () => _showLanguageSheet(context, style),
-          ),
-          _buildTile(
-            style: style,
-            title: LocaleKeys.logOutOptions.tr,
-            subTitle: LocaleKeys.manageLogoutDevice.tr,
-            onTap: () => _showLogoutBottomSheet(context, style),
-          ),
+          padding: EdgeInsetsDirectional.symmetric(horizontal: 10.w,vertical: 2.h),
+          child: SmartText(LocaleKeys.help.tr,style: style.primaryStyle,))],optionalEndSpacing: 20.w,),
+      body: SmartSingleChildScrollView(
+        child: SmartColumn(
+          spacing: 4.h,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SmartColumn(
+              padding: EdgeInsetsDirectional.symmetric(horizontal: 20.w),
+              spacing: 4.h,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+
+              children: [
+                SmartText("Alex Hemsworth", style: style.nameTitleStyle),
+                SmartText(
+                  "+91 9898989898  .  hey@gmail.com",
+                  style: style.subTitleStyle,
+                ),
+                SmartRow(
+                  children: [
+                    SmartText(LocaleKeys.editProfile.tr, style: style.primaryStyle),
+                    Icon(
+                      Icons.keyboard_arrow_right_rounded,
+                      color: style.primaryColor,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(height: 10.h),
+            Divider(),
+            SizedBox(height: 5.h),
+            SmartColumn(
+                padding: EdgeInsetsDirectional.symmetric(horizontal: 20.w),
+                spacing: 4.h,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+
+                  _buildTile(
+                    style: style,
+                    onTap: (){Get.toNamed(AppRoutes.couponsPage);},
+                    title: LocaleKeys.couponCodeTitle.tr,
+                    subTitle: LocaleKeys.couponCodeSubtitle.tr,
+                    showDivider: false,
+                  ),
+                  _buildTile(
+                    style: style,
+                    onTap: (){Get.toNamed(AppRoutes.addressPage);},
+                    title: LocaleKeys.addressesTitle.tr,
+                    subTitle: LocaleKeys.addressesSubtitle.tr,
+                  ),
+                  _buildTile(
+                    style: style,
+                    title: LocaleKeys.preferenceTitle.tr,
+                    subTitle: LocaleKeys.preferenceSubtitle.tr,
+                    onTap: () => _showLanguageSheet(context, style),
+                  ),
+                  _buildTile(
+                    style: style,
+                    title: LocaleKeys.logOutOptions.tr,
+                    subTitle: LocaleKeys.manageLogoutDevice.tr,
+                    onTap: () => _showLogoutBottomSheet(context, style),
+                  ),
+                  SmartText(LocaleKeys.myOrders.tr, style: style.titleStyle),
+                  SizedBox(height: 10.h,),
+                  ListView.separated(
+                    separatorBuilder: (context, index) => Padding(
+                      padding:  EdgeInsetsDirectional.only(bottom: 20.h),
+                      child: Divider(color: style.blackColor,),
+                    ),
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: controller.foodList.length,
+                    itemBuilder:
+                        (context, index) => MyOrderCard(model: controller.foodList[index], index: index),
+                  )
+                ]),
 
 
-        ],
+          ],
+        ),
       ),
     );
   }

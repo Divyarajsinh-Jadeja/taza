@@ -1,6 +1,5 @@
 import 'package:taza/taza.dart';
-
-class ProfileController extends GetxController{
+class MyOrdersController extends GetxController{
   RxList<FoodModel> foodList = [
     FoodModel(
         id: "11",
@@ -60,9 +59,4 @@ class ProfileController extends GetxController{
     ),
 
   ].obs;
-  @override
-  void onInit() {
-    super.onInit();
-    printWrapped("ProfileController initialized");
-  }
 }

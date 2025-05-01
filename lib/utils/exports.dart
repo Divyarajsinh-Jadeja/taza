@@ -215,6 +215,10 @@ export '../ui/dashboard/dashboard_modules/grocery/view/grocery_page_dashboard.da
 export 'package:taza/ui/dashboard/dashboard_modules/category/model/categories_model.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/category/view/category_dashboard_controller_.dart';
 
+export 'package:taza/ui/my_orders/binding/my_orders_binding.dart';
+export 'package:taza/ui/my_orders/view/my_orders_controller.dart';
+export 'package:taza/ui/my_orders/view/my_orders_page.dart';
+
 
 
 

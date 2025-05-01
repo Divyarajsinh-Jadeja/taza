@@ -191,5 +191,9 @@
   "removeAll": "Remove All",
   "billingDetails": "Billing Details",
   "categories": "Categories",
-  "offers": "Offers"
+  "offers": "Offers",
+
+  "rateOrder": "RATE ORDER",
+  "myOrders": "My Orders",
+  "help": "Help"
 }
