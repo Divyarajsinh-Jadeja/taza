@@ -201,6 +201,9 @@ class LocaleKeys {
   static const billingDetails = 'billingDetails';
   static const categories = 'categories';
   static const offers = 'offers';
+  static const rateOrder = 'rateOrder';
+  static const myOrders = 'myOrders';
+  static const help = 'help';
 }
 
 class Locales {
@@ -406,6 +409,9 @@ class Locales {
     'billingDetails': 'Billing Details',
     'categories': 'Categories',
     'offers': 'Offers',
+    'rateOrder': 'RATE ORDER',
+    'myOrders': 'My Orders',
+    'help': 'Help',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -602,5 +608,8 @@ class Locales {
     'billingDetails': 'تفاصيل الفاتورة',
     'categories': 'زمرے',
     'offers': 'پیشکش',
+    'rateOrder': 'قيّم الطلب',
+    'myOrders': 'طلباتي',
+    'help': 'مساعدة',
   };
 }

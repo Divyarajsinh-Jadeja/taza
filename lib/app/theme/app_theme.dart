@@ -496,19 +496,36 @@ class TaskDetailsStyle {
 
 class FoodCardStyle {
   final TextStyle titleStyle;
+  final TextStyle reorderTitleStyle;
   final TextStyle subTitleStyle;
   final TextStyle amountStyle;
+  final TextStyle reorderAmountStyle;
   final BoxDecoration cardDecoration;
+  final BoxDecoration halfCardDecoration;
   final BorderRadiusGeometry imageDecoration;
   final Color iconColor;
+  final Color greenColor;
+  final Color whiteColor;
+  final TextStyle grayStyle;
+  final TextStyle buttonGrayStyle;
+  final TextStyle buttonPrimaryStyle;
 
   FoodCardStyle({
     required this.titleStyle,
     required this.subTitleStyle,
     required this.amountStyle,
     required this.cardDecoration,
+    required this.halfCardDecoration,
     required this.imageDecoration,
     required this.iconColor,
+    required this.reorderTitleStyle,
+    required this.reorderAmountStyle,
+    required this.greenColor,
+    required this.whiteColor,
+    required this.grayStyle,
+    required this.buttonGrayStyle,
+    required this.buttonPrimaryStyle,
+
   });
 }
 
@@ -816,6 +833,7 @@ class ProfilePageStyle {
   final TextStyle languageUnSelectedStyle;
   final BoxDecoration selectedLanguageDecoration;
   final BoxDecoration unSelectedLanguageDecoration;
+  final Color blackColor;
 
   ProfilePageStyle({
     required this.nameTitleStyle,
@@ -829,6 +847,7 @@ class ProfilePageStyle {
     required this.languageUnSelectedStyle,
     required this.selectedLanguageDecoration,
     required this.unSelectedLanguageDecoration,
+    required this.blackColor,
   });
 }
 

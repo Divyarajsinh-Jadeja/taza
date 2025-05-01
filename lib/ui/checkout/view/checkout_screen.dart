@@ -107,6 +107,9 @@ class CheckoutPage extends GetView<CheckoutController> {
       padding: EdgeInsetsDirectional.all(15.w),
       spacing: 5.w,
       mainAxisAlignment: MainAxisAlignment.center,
+      onTap: () {
+        Get.offAllNamed(AppRoutes.dashboardPage);
+      },
       children: [
         SmartText(LocaleKeys.missingSomething.tr, style: style.missingStyle),
         SmartText(LocaleKeys.addMoreItems.tr, style: style.missingStylePrimary),
@@ -290,6 +293,10 @@ class CheckoutPage extends GetView<CheckoutController> {
             SmartDashedDivider(),
             SizedBox(height: 10.h),
             SmartRow(
+              color: style.whiteColor,
+              onTap: () {
+                Get.toNamed(AppRoutes.couponsPage);
+              },
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -297,9 +304,7 @@ class CheckoutPage extends GetView<CheckoutController> {
                   LocaleKeys.viewMoreCoupons.tr,
                   style: style.subCardTitleStyle,
                   textAlign: TextAlign.center,
-                  onTap: () {
-                    Get.toNamed(AppRoutes.couponsPage);
-                  },
+
                 ),
                 Icon(
                   Icons.chevron_right_rounded,
