@@ -223,7 +223,7 @@ export 'package:taza/ui/explore_brands/components/explore_brand_item_card.dart';
 
 export 'package:taza/ui/my_orders/binding/my_orders_binding.dart';
 export 'package:taza/ui/my_orders/view/my_orders_controller.dart';
-export 'package:taza/ui/my_orders/view/my_orders_page.dart';
+export 'package:taza/ui/my_orders/view/my_orders_details.dart';
 
 
 
