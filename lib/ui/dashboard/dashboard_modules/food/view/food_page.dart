@@ -1,4 +1,5 @@
 import 'package:taza/taza.dart';
+import 'package:taza/ui/dashboard/dashboard_modules/food/components/restaurant_item_card.dart';
 
 class FoodPage extends GetView<FoodController> {
   const FoodPage({super.key});
@@ -105,10 +106,13 @@ class FoodPage extends GetView<FoodController> {
       _animatedBoxAdapter(child: Obx(() => controller.currentFoodTabData.bannerWidget)),
       _animatedBoxAdapter(child: SizedBox(height: 16.h)),
       _buildCategoriesSliver(style, foodPageStyle),
+      _animatedBoxAdapter(child: SizedBox(height: 20.h)),
+      _buildPopularBrands(style, foodPageStyle),
       _animatedBoxAdapter(child: SizedBox(height: 16.h)),
       /*_animatedBoxAdapter(child: _buildCarousel()),
       _animatedBoxAdapter(child: SizedBox(height: 8.h)),*/
       _buildPromoBannerSliver(),
+      ..._buildExploreRestroSection(foodPageStyle),
       ..._buildReorderSection(foodPageStyle),
       ..._buildCravingSection(foodPageStyle),
       ..._buildFlavorSection(foodPageStyle),
@@ -122,7 +126,7 @@ class FoodPage extends GetView<FoodController> {
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
           itemCount: controller.categoriesOfferZone.length,
-          padding: EdgeInsets.symmetric(horizontal: 19.w),
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
           separatorBuilder: (_, __) => SizedBox(width: 8.w),
           itemBuilder: (context, index) => _buildCategoryCard(context, style, controller.categoriesOfferZone[index], foodPageStyle),
         ),
@@ -133,11 +137,12 @@ class FoodPage extends GetView<FoodController> {
   Widget _buildPromoBannerSliver() {
     return _animatedBoxAdapter(
       child: SmartImage(
+        onTap: ()=> Get.toNamed(AppRoutes.categoryPage),
         path: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3",
         width: 352.w,
         height: 200.h,
         fit: BoxFit.fill,
-        margin: EdgeInsets.symmetric(horizontal: 19.w),
+        margin: EdgeInsets.symmetric(horizontal: 16.w),
         imageBorderRadius: BorderRadius.circular(16.r),
         clipBehavior: Clip.antiAlias,
       ),
@@ -178,7 +183,20 @@ class FoodPage extends GetView<FoodController> {
     return _animatedBoxAdapter(
       child: SmartRow(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        padding: EdgeInsets.symmetric(horizontal: 19.w),
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        children: [
+          SmartText(title, style: foodPageStyle.headerTextStyle, isFlexible: true),
+          if (showArrow) SmartImage(path: AppImages.icArrowRight),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildExploreSectionHeader(String title, FoodPageStyle foodPageStyle, {bool showArrow = true}) {
+    return _animatedBoxAdapter(
+      child: SmartRow(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
         children: [
           SmartText(title, style: foodPageStyle.headerTextStyle, isFlexible: true),
           if (showArrow) SmartImage(path: AppImages.icArrowRight),
@@ -266,11 +284,28 @@ class FoodPage extends GetView<FoodController> {
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: items.length,
-        padding: EdgeInsets.symmetric(horizontal: 19.w),
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
         separatorBuilder: (_, __) => SizedBox(width: 16.w),
         itemBuilder: (_, index) {
           final item = items[index];
           return FoodItemCard(item: item, onTapAdd: () => debugPrint('Item added: ${item.title}'));
+        },
+      ),
+    );
+  }
+
+  Widget _buildRestaurantsList(List<RestaurantItemModel> items) {
+    return SizedBox(
+      child: ListView.separated(
+        scrollDirection: Axis.vertical,
+        shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
+        itemCount: items.length,
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        separatorBuilder: (_, __) => SizedBox(height: 16.w),
+        itemBuilder: (_, index) {
+          final item = items[index];
+          return RestaurantItemCard(item: item, onTap: () => Get.toNamed(AppRoutes.exploreBrandPage, arguments: item));
         },
       ),
     );
@@ -288,6 +323,49 @@ class FoodPage extends GetView<FoodController> {
         ),
       ),
     );
+  }
+
+  Widget _buildPopularBrands(FoodCardStyle style, FoodPageStyle foodPageStyle) {
+    return _animatedBoxAdapter(
+      child: SmartColumn(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SmartRow(
+            padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
+              children: [
+                SmartText("Popular Brands", style: style.titleStyle,),
+          ]),
+          SizedBox(height: 10.h,),
+          SizedBox(
+            height: 80.h,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              itemCount: controller.popularBrandsList.length,
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              separatorBuilder: (_, __) => SizedBox(width: 8.w),
+              itemBuilder: (context, index) => _buildPopularBrandsCard(context, style, controller.popularBrandsList[index], foodPageStyle),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildPopularBrandsCard(BuildContext context, FoodCardStyle style, Map<String, String> popularBrandsList, FoodPageStyle foodPageStyle) {
+    return SmartImage(
+        path: popularBrandsList['image'] ?? "",
+        size: 90,
+        fit: BoxFit.contain
+    );
+  }
+
+  List<Widget> _buildExploreRestroSection(FoodPageStyle foodPageStyle) {
+    return [
+      _animatedBoxAdapter(child: SizedBox(height: 32.h)),
+      _buildExploreSectionHeader("Top 7 Brands to explore", foodPageStyle, showArrow: false),
+      _animatedBoxAdapter(child: SizedBox(height: 16.h)),
+      _animatedBoxAdapter(child: _buildRestaurantsList(controller.restaurantItemList)),
+    ];
   }
 }
 

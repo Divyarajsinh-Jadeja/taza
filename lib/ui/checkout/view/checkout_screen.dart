@@ -5,11 +5,11 @@ class CheckoutPage extends GetView<CheckoutController> {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    /*WidgetsBinding.instance.addPostFrameCallback((_) {
       Future.delayed(Duration(milliseconds: 500), () {
         Get.dialog(RewardDialog());
       });
-    });
+    });*/
 
     final style = AppTheme.of(context).checkoutStyle;
     return Scaffold(

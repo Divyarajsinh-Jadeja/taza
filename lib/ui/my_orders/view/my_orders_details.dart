@@ -13,7 +13,6 @@ class OrderDetailPage extends StatelessWidget {
     final double gstAmount = itemTotal * gstPercent;
     final double deliveryFee = 30.0;
     final double grandTotal = itemTotal + gstAmount + deliveryFee;
-
     final String orderId = "ORD${DateTime.now().millisecondsSinceEpoch.toString().substring(6)}";
     final String deliveryAddress =  "123 Park Avenue, City Center, NY 10101";
 

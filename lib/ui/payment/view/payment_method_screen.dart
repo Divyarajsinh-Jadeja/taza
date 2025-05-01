@@ -17,7 +17,7 @@ class PaymentMethodScreen extends GetView<PaymentController> {
             return AnimatedContainer(
               duration: const Duration(milliseconds: 300),
               child: SmartButton(
-                margin: EdgeInsets.symmetric(horizontal: 16.w),
+                margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
                 onTap: () {
                   Future.delayed(Duration(milliseconds: 500),() => Get.dialog(PaymentSuccessDialog(), barrierDismissible: false),);
                 },

@@ -1,4 +1,5 @@
 import 'package:taza/taza.dart';
+import 'package:taza/ui/dashboard/dashboard_modules/food/components/restaurant_item_card.dart';
 
 class FoodController extends GetxController with GetSingleTickerProviderStateMixin {
   /// food tab controller
@@ -41,13 +42,7 @@ class FoodController extends GetxController with GetSingleTickerProviderStateMix
       imagePath: "assets/images/burger1.png",
       themeColor: Color(0xFF0c3271),
       bannerWidget: SmartImage(path: "assets/images/banner-2.jpg", fit: BoxFit.cover),
-      tabText: "Burger King",
-    ),
-    FoodTabData(
-      imagePath: "assets/images/dosa.png",
-      themeColor: Color(0xFFfcd44b),
-      bannerWidget: Image.asset(AppImages.icBannerGif, fit: BoxFit.cover),
-      tabText: "North-Indian",
+      tabText: "Burger",
     ),
     FoodTabData(
       imagePath: "assets/images/sandwich.png",
@@ -78,6 +73,12 @@ class FoodController extends GetxController with GetSingleTickerProviderStateMix
       themeColor: Color(0xFF3F51B5),
       bannerWidget: SizedBox(),
       tabText: "Non-Veg",
+    ),
+    FoodTabData(
+      imagePath: "assets/images/dosa.png",
+      themeColor: Color(0xFFfcd44b),
+      bannerWidget: Image.asset(AppImages.icBannerGif, fit: BoxFit.cover),
+      tabText: "North-Indian",
     ),
     /*FoodTabData(
       imagePath: AppImages.categoryBakery,
@@ -123,6 +124,124 @@ class FoodController extends GetxController with GetSingleTickerProviderStateMix
     {'title': 'Offer Zone', 'image': 'https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg'},
     {'title': 'Large Order', 'image': 'assets/images/food-3.png'},
     {'title': 'Gourmet Delights', 'image': 'assets/images/food-2.png'},
+  ];
+
+  final List<Map<String, String>> popularBrandsList = const [
+    {'image': 'https://i.ibb.co/r2pXXP4v/dac5f96ac4b110ec87b56edfcb9f59db-removebg-preview.png'},
+    {'image': 'https://i.ibb.co/F44gC4C8/Orange-and-Yellow-Simple-Street-Food-Logo-removebg-preview.png'},
+    {'image': 'https://i.ibb.co/mr4NJFYM/Red-and-White-Modern-Burger-Logo-removebg-preview.png'},
+    {'image': 'https://i.ibb.co/20RfCHVs/Yellow-and-Brown-Kitchen-Food-Logo-removebg-preview.png'},
+    {'image': 'https://i.ibb.co/gFJ9g2Lw/pngimg-com-mcdonalds-PNG9-removebg-preview.png'},
+
+  ];
+
+
+  final List<RestaurantItemModel> restaurantItemList = [
+    RestaurantItemModel(
+      id: 1,
+      imageUrl: 'https://i.ibb.co/99w2vpzL/Mc-Donalds-Retro.jpg',
+      title: 'McDonald\'s',
+      rating: 4.4,
+      reviews: '15k',
+      distance: '1.2 km',
+      cuisines: 'Burgers, Fast Food',
+      priceForTwo: 500,
+      startingPrice: 99,
+      deliveryTime: '20-25 min',
+      hasCarousel: true,
+      time: '20-25 min',
+      price: '15',
+    ),
+    RestaurantItemModel(
+      id: 2,
+      imageUrl: 'https://i.ibb.co/xt5DpLNT/subway-header.jpg',
+      title: 'Subway',
+      rating: 4.3,
+      reviews: '9.8k',
+      distance: '1.0 km',
+      cuisines: 'Sandwiches, Healthy',
+      priceForTwo: 450,
+      startingPrice: 129,
+      deliveryTime: '15-20 min',
+      hasCarousel: false,
+      time: '15-20 min',
+      price: '8',
+    ),
+    RestaurantItemModel(
+      id: 3,
+      imageUrl: 'https://i.ibb.co/23ZtTcjf/burger-king.jpg',
+      title: 'Burger King',
+      rating: 4.5,
+      reviews: '12k',
+      distance: '2.0 km',
+      cuisines: 'Burgers, American',
+      priceForTwo: 550,
+      startingPrice: 119,
+      deliveryTime: '20-30 min',
+      hasCarousel: false,
+      time: '20-30 min',
+      price: '12',
+    ),
+    RestaurantItemModel(
+      id: 4,
+      imageUrl: 'https://i.ibb.co/Pzc05HXZ/dominos.jpg',
+      title: 'Domino\'s Pizza',
+      rating: 4.6,
+      reviews: '18k',
+      distance: '2.5 km',
+      cuisines: 'Pizza, Fast Food',
+      priceForTwo: 600,
+      startingPrice: 99,
+      deliveryTime: '25-35 min',
+      hasCarousel: true,
+      time: '25-35 min',
+      price: '14',
+    ),
+    RestaurantItemModel(
+      id: 5,
+      imageUrl: 'https://i.ibb.co/HLrrqVV6/taco-bell.jpg',
+      title: 'Taco Bell',
+      rating: 4.3,
+      reviews: '8.4k',
+      distance: '1.7 km',
+      cuisines: 'Mexican, Tacos',
+      priceForTwo: 500,
+      startingPrice: 109,
+      deliveryTime: '20-25 min',
+      hasCarousel: false,
+      time: '20-25 min',
+      price: '13',
+    ),
+    RestaurantItemModel(
+      id: 6,
+      imageUrl: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg',
+      title: 'KFC',
+      rating: 4.5,
+      reviews: '14k',
+      distance: '2.3 km',
+      cuisines: 'Chicken, Fast Food',
+      priceForTwo: 650,
+      startingPrice: 129,
+      deliveryTime: '30-40 min',
+      hasCarousel: true,
+      time: '30-40 min',
+      price: '20',
+    ),
+    RestaurantItemModel(
+      id: 7,
+      imageUrl: 'https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg',
+      title: 'Pizza Hut',
+      rating: 4.4,
+      reviews: '10.2k',
+      distance: '2.1 km',
+      cuisines: 'Pizza, Italian',
+      priceForTwo: 700,
+      startingPrice: 149,
+      deliveryTime: '25-30 min',
+      hasCarousel: false,
+      time: '25-30 min',
+      price: '11',
+    ),
   ];
 
   final List<FoodItemModel> foodItemList = [

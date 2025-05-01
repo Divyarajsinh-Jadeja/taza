@@ -77,6 +77,9 @@ class HomePage extends GetView<HomeController> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(12.r),
                           child: SmartImage(
+                            onTap: (){
+                              Get.find<DashboardController>().changeTab(1);
+                            },
                             path: AppImages.imgFoodGif,
                             height: 180,
                             width: Get.width,
@@ -136,6 +139,9 @@ class HomePage extends GetView<HomeController> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(12.r),
                           child: SmartImage(
+                            onTap: (){
+                              Get.find<DashboardController>().changeTab(1);
+                            },
                             path: "https://i.ibb.co/XxX5QXtZ/Delicious-Food-Menu-Banner-Design.png",
                             height: 160,
                             width: Get.width,
