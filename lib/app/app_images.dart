@@ -133,6 +133,13 @@ class AppImages {
   static const String cardBannerGif = 'assets/images/cardBannerGif.gif';
   static const String imgAnimatedMic = 'assets/images/imgAnimatedMic.json';
   static const String imgPaymentSuccess = 'assets/images/img_payment_success.json';
+  static const String icOffers = 'assets/images/ic_offers.png';
+  static const String icOffersUnSelect = 'assets/images/ic_offers_unselected.png';
+  static const String icCategories = 'assets/images/ic_categories.svg';
+  static const String icBackCircle = 'assets/images/ic_back_circle.svg';
+  static const String imgRefer = 'assets/images/refer_animation.json';
+  static const String icWhatsApp = 'assets/images/ic_whatsapp.svg';
+  static const String icShare = 'assets/images/ic_share.svg';
 
   // Instamart icons
   static const String grocery1 = 'assets/images/grocery1.png';

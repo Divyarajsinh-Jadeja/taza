@@ -6,13 +6,13 @@ extension CurrencyCodeFormatter on num {
   /// If [compact] is true, formats like 10K, 1M.
   String toCurrencyCodeFormat() {
     // TODO: Get currency code from user model dynamically
-    String currencyCode = 'SAR';
+    String currencyCode = '\$';
 
     final format = NumberFormat.currency(
       name: currencyCode,
       symbol: '',
       decimalDigits: 0,
     );
-    return "${format.format(this)} $currencyCode";
+    return "$currencyCode${format.format(this)}";
   }
 }

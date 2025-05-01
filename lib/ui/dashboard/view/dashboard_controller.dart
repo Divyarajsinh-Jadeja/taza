@@ -1,6 +1,5 @@
 import 'package:taza/taza.dart';
-
-import '../dashboard_modules/grocery/view/grocery_page_dashboard.dart';
+import 'package:taza/ui/dashboard/dashboard_modules/category/view/category_page_dashboard.dart';
 
 class DashboardController extends GetxController {
   RxInt currentIndex = 0.obs;
@@ -37,7 +36,7 @@ class DashboardController extends GetxController {
     TabData(
       pageBuilder: (_) => HomePage(),
       bottomNavData: BottomNavigationBarDataModel(
-        icon: AppImages.icHome,
+        icon: AppImages.icSplashLogo,
         label: LocaleKeys.home,
       ),
       onInit: () => Get.find<HomeController>().onTabSelected(),
@@ -52,12 +51,20 @@ class DashboardController extends GetxController {
       onInit: () => Get.find<FoodController>().onTabSelected(),
     ),
     TabData(
-      pageBuilder: (_) => GroceryPage(),
+      pageBuilder: (_) => CheckoutPage(),
+      bottomNavData: BottomNavigationBarDataModel(
+        icon: AppImages.icShoppingBag,
+        label: LocaleKeys.cart,
+      ),
+      onInit: () => Get.find<CartController>().onTabSelected(),
+    ),
+    /*TabData(
+      pageBuilder: (_) => GroceryPageDashboard(),
       bottomNavData: BottomNavigationBarDataModel(
         icon: AppImages.icInstamart,
         label: "Instamart",
       ),
-      onInit: () => Get.find<GroceryController>().onTabSelected(),
+      onInit: () => Get.find<GroceryDashboardController>().onTabSelected(),
     ),
     TabData(
       pageBuilder: (_) => SizedBox(),
@@ -65,7 +72,7 @@ class DashboardController extends GetxController {
         icon: AppImages.icDine,
         label: "Dineout",
       ),
-    ),
+    ),*/
     TabData(
       pageBuilder: (_) => ReorderPage(),
       bottomNavData: BottomNavigationBarDataModel(
@@ -74,13 +81,21 @@ class DashboardController extends GetxController {
       ),
       onInit: () => Get.find<ReorderController>().onTabSelected(),
     ),
+    TabData(
+      pageBuilder: (_) => ReferAndEarnPage(),
+      bottomNavData: BottomNavigationBarDataModel(
+        icon: AppImages.icRewards,
+        label: LocaleKeys.offers,
+      ),
+      onInit: () => Get.find<RewardsController>().onTabSelected(),
+    ),
   ];
 
   final foodTabs = <TabData>[
     TabData(
       pageBuilder: (_) => HomePage(),
       bottomNavData: BottomNavigationBarDataModel(
-        icon: AppImages.icHome,
+        icon: AppImages.icBackCircle,
         label: LocaleKeys.home,
       ),
       onInit: () => Get.find<HomeController>().onTabSelected(),
@@ -95,13 +110,21 @@ class DashboardController extends GetxController {
       onInit: () => Get.find<FoodController>().onTabSelected(),
     ),
     TabData(
+      pageBuilder: (_) => CheckoutPage(),
+      bottomNavData: BottomNavigationBarDataModel(
+        icon: AppImages.icShoppingBag,
+        label: LocaleKeys.cart,
+      ),
+      onInit: () => Get.find<CartController>().onTabSelected(),
+    ),
+    /*TabData(
       pageBuilder: (_) => Placeholder(),
       bottomNavData: BottomNavigationBarDataModel(
         icon: AppImages.icFlash,
         label: "Bolt",
       ),
       onInit: () => Get.find<FoodController>().onTabSelected(),
-    ),
+    ),*/
     TabData(
       pageBuilder: (_) => ReorderPage(),
       bottomNavData: BottomNavigationBarDataModel(
@@ -109,6 +132,14 @@ class DashboardController extends GetxController {
         label: LocaleKeys.reorder,
       ),
       onInit: () => Get.find<ReorderController>().onTabSelected(),
+    ),
+    TabData(
+      pageBuilder: (_) => ReferAndEarnPage(),
+      bottomNavData: BottomNavigationBarDataModel(
+        icon: AppImages.icRewards,
+        label: LocaleKeys.rewards,
+      ),
+      onInit: () => Get.find<RewardsController>().onTabSelected(),
     ),
   ];
 
@@ -116,25 +147,25 @@ class DashboardController extends GetxController {
     TabData(
       pageBuilder: (_) => HomePage(),
       bottomNavData: BottomNavigationBarDataModel(
-        icon: AppImages.icHome,
-        label: LocaleKeys.home,
+        icon: AppImages.icBackCircle,
+        label: LocaleKeys.home.tr,
       ),
       onInit: () => Get.find<HomeController>().onTabSelected(),
       shouldAlwaysInitialize: true,
     ),
     TabData(
-      pageBuilder: (_) => GroceryPage(),
+      pageBuilder: (_) => GroceryPageDashboard(),
       bottomNavData: BottomNavigationBarDataModel(
         icon: AppImages.icInstamart,
         label: "Instamart",
       ),
-      onInit: () => Get.find<GroceryController>().onTabSelected(),
+      onInit: () => Get.find<GroceryDashboardController>().onTabSelected(),
     ),
     TabData(
-      pageBuilder: (_) => Placeholder(),
+      pageBuilder: (_) => CategoryPageDashboard(),
       bottomNavData: BottomNavigationBarDataModel(
-        icon: AppImages.icFlash,
-        label: "New & Hot",
+        icon: AppImages.icCategories,
+        label: LocaleKeys.categories.tr,
       ),
       onInit: () => Get.find<ReorderController>().onTabSelected(),
     ),
@@ -142,10 +173,19 @@ class DashboardController extends GetxController {
       pageBuilder: (_) => ReorderPage(),
       bottomNavData: BottomNavigationBarDataModel(
         icon: AppImages.icReorder,
-        label: LocaleKeys.reorder,
+        label: LocaleKeys.reorder.tr,
       ),
       onInit: () => Get.find<ReorderController>().onTabSelected(),
     ),
+    TabData(
+      pageBuilder: (_) => ReorderPage(),
+      bottomNavData: BottomNavigationBarDataModel(
+        icon: AppImages.icRewards,
+        label: LocaleKeys.rewards.tr,
+      ),
+      onInit: () => Get.find<ReorderController>().onTabSelected(),
+    ),
+
   ];
 
   List<TabData> get tabs {
@@ -193,13 +233,13 @@ class DashboardController extends GetxController {
       if (index == 1) {
         currentBottomType.value = BottomNavType.food;
         currentIndex.value = 1;
-      } else if (index == 2) {
+      } /*else if (index == 2) {
         currentBottomType.value = BottomNavType.instamart;
         currentIndex.value = 1;
       } else if (index == 3) {
         currentBottomType.value = BottomNavType.dineout;
         currentIndex.value = 1;
-      }else {
+      }*/else {
         currentIndex.value = index;
       }
 

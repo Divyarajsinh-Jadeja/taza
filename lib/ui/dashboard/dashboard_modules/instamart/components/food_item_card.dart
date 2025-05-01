@@ -55,7 +55,7 @@ class FoodItemCard extends StatelessWidget {
             SmartRow(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(child: SmartText('${item.price} SAR', style: style.titleStyle)),
+                Expanded(child: SmartText('\$${item.price}', style: style.titleStyle)),
                 GestureDetector(
                   onTap: onTapAdd,
                   child: Container(

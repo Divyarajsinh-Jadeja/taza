@@ -12,27 +12,35 @@ class FoodPage extends GetView<FoodController> {
     final style = AppTheme.of(context).foodCardStyle;
     final foodPageStyle = AppTheme.of(context).foodPageStyle;
 
-    return Obx(
-          () => AnimatedContainer(
-        duration: const Duration(milliseconds: 300),
-        child: CustomScrollView(
-          controller: controller.scrollController,
-          physics: const ClampingScrollPhysics(),
-          slivers: [
-            ..._buildTopHeaderSlivers(context, foodPageStyle),
-            //_buildAppBarSliver(foodPageStyle, context),
-            //_buildAddressHeaderSliver(),
-            //const PinnedHeaderSliver(child: FoodHeaderSliver()),
-            ..._buildContentSlivers(style, foodPageStyle),
-          ],
-        ),
+    return Obx(() => AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+            colors: [
+              controller.currentFoodTabData.themeColor.withValues(alpha: 0.001),
+              controller.currentFoodTabData.themeColor.withValues(alpha: 0.1),
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+        )),
+      child: CustomScrollView(
+        controller: controller.scrollController,
+        physics: const ClampingScrollPhysics(),
+        slivers: [
+          _buildAppBarSliver(foodPageStyle, context),
+          ..._buildTopHeaderSlivers(context, foodPageStyle),
+          //_buildAppBarSliver(foodPageStyle, context),
+          //_buildAddressHeaderSliver(),
+          //const PinnedHeaderSliver(child: FoodHeaderSliver()),
+          ..._buildContentSlivers(style, foodPageStyle),
+        ],
       ),
-    );
+    ));
+    /*);*/
   }
 
   List<Widget> _buildTopHeaderSlivers(BuildContext context, FoodPageStyle foodPageStyle) {
     return [
-      PinnedHeaderSliver(child: SizedBox(height: MediaQuery.of(context).padding.top),),
       SliverToBoxAdapter(
         child: Obx(() => SmartColumn(
         color: controller.currentFoodTabData.themeColor,
@@ -42,7 +50,7 @@ class FoodPage extends GetView<FoodController> {
               padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
               child: HomeAddressHeader(
                 addressTypeTag: LocaleKeys.home.tr,
-                address: "Al Tadamun Al Arabi St., Mishfirah, Jeddah KSA",
+                address: "1600 Amphitheatre, Mountain View",
                 userImagePath: "https://i.ibb.co/HLgDnFFQ/Group.png",
                 textColor: Utils.getContrastColor(controller.currentFoodTabData.themeColor),
                 homeIconColor: Utils.getContrastColor(controller.currentFoodTabData.themeColor),
@@ -82,7 +90,7 @@ class FoodPage extends GetView<FoodController> {
             () => HomeAddressHeader(
               padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w, vertical: 6),
               addressTypeTag: LocaleKeys.home.tr,
-              address: "Al Tadamun Al Arabi St., Mishfirah, Jeddah KSA",
+              address: "1600 Amphitheatre, Mountain View",
               userImagePath: "https://i.ibb.co/HLgDnFFQ/Group.png",
               textColor: Utils.getContrastColor(controller.currentFoodTabData.themeColor),
               homeIconColor: Utils.getContrastColor(controller.currentFoodTabData.themeColor),
@@ -162,7 +170,7 @@ class FoodPage extends GetView<FoodController> {
       _animatedBoxAdapter(child: CategoryFilterBar()),
       _animatedBoxAdapter(child: SizedBox(height: 16.h)),
       _animatedBoxAdapter(child: _buildFoodList(controller.flavorItemList)),
-      _animatedBoxAdapter(child: SizedBox(height: 42.h)),
+      _animatedBoxAdapter(child: SizedBox(height: 120.h)),
     ];
   }
 
@@ -231,7 +239,7 @@ class FoodPage extends GetView<FoodController> {
           style: foodPageStyle.categoryTitleTextStyle,
         ),
         const Spacer(),
-        SmartImage(path: category['image'] ?? "", height: 50.h, width: double.infinity, fit: BoxFit.cover),
+        SmartImage(path: category['image'] ?? "", height: 50.h, width: Get.width, fit: BoxFit.cover),
       ],
     );
   }

@@ -12,6 +12,7 @@ class HomeAddressHeader extends StatelessWidget {
   final Color? backGroundColor;
   final Color? textColor;
   final Color? homeIconColor;
+  final VoidCallback? onBackPressed;
 
   const HomeAddressHeader({
     super.key,
@@ -26,6 +27,7 @@ class HomeAddressHeader extends StatelessWidget {
     this.backGroundColor,
     this.textColor,
     this.homeIconColor,
+    this.onBackPressed
   });
 
   @override
@@ -41,11 +43,11 @@ class HomeAddressHeader extends StatelessWidget {
           onTap: () => Get.toNamed(AppRoutes.addressPage),
           expanded: true,
           mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SmartRow(
               children: [
-                SmartImage(path: homeIcon ?? AppImages.icHome, color: homeIconColor),
+                SmartImage(path: homeIcon ?? AppImages.icHome, color: homeIconColor, onTap: onBackPressed,),
                 SizedBox(width: 8.h),
                 SmartText(addressTypeTag, style: style.addressTagTitleStyle.copyWith(color: textColor)),
                 SizedBox(width: 6.h),

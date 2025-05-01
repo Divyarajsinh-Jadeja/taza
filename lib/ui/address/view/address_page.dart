@@ -23,7 +23,7 @@ class AddressPage extends GetView<AddressController> {
         children: [
           /// Top searchbar
           SmartTextField.search(
-            hintText: "Try J P Nagar,Andheri etc..",
+            hintText: "1600 Amphitheatre Parkway etc...",
             isSearchWithPrefix: true,
           ),
 
@@ -77,44 +77,51 @@ class AddressPage extends GetView<AddressController> {
           /// Saved Address Tile
           Expanded(
             child: ListView(
-              children: List.generate(10, (index) => _buildAddressTile(style,index==0),),
+              children: List.generate(controller.usAddresses.length,
+                    (index) => _buildAddressTile(style, index == 0, controller.usAddresses[index]),
+              ),
             ),
-          )
+          ),
 
         ],
       ),
     );
   }
 
-  Widget _buildAddressTile(AddressStyle style,bool isSelected){
+  Widget _buildAddressTile(AddressStyle style, bool isSelected, String address) {
     return SmartColumn(
       mainAxisSize: MainAxisSize.min,
       spacing: 4.h,
       margin: EdgeInsetsDirectional.only(bottom: 20.h),
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SmartRow(
           spacing: 8.w,
           children: [
-            Icon(CupertinoIcons.location_fill, color: style.iconColor,),
+            Icon(CupertinoIcons.location_fill, color: style.iconColor),
             SmartText(
               "Address",
               style: style.blackColorStyle,
               maxLines: 1,
             ),
             SmartText(
-              "• 56 m",
+              "• 20 Miles",
               style: style.addressBottomSheetTitleStyle,
               isExpanded: true,
               maxLines: 1,
             ),
-            if(isSelected)Container(
-              decoration: BoxDecoration(
+            if (isSelected)
+              Container(
+                decoration: BoxDecoration(
                   color: style.primaryColor.withValues(alpha: 0.2),
-                  borderRadius: BorderRadius.circular(6.r)
+                  borderRadius: BorderRadius.circular(6.r),
+                ),
+                padding: EdgeInsetsDirectional.symmetric(horizontal: 8.w, vertical: 4.h),
+                child: SmartText(
+                  LocaleKeys.currentlySelected.tr,
+                  style: style.currentlySelectedStyle,
+                ),
               ),
-              padding: EdgeInsetsDirectional.symmetric(horizontal: 8.w,vertical: 4.h),
-              child: SmartText(LocaleKeys.currentlySelected.tr,style: style.currentlySelectedStyle,),
-            ),
             Spacer(),
             Icon(
               Icons.more_vert_rounded,
@@ -123,7 +130,7 @@ class AddressPage extends GetView<AddressController> {
           ],
         ),
         SmartText(
-          "THE FIRST, C-1401, near Mansi Circle, Vastrapur, Ahmedabad, Gujarat 380015",
+          address,
           style: style.addressBottomSheetTitleStyle,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,

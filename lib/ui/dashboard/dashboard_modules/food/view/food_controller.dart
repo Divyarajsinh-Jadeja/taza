@@ -117,12 +117,12 @@ class FoodController extends GetxController with GetSingleTickerProviderStateMix
   void onTabSelected() {}
 
   final List<Map<String, String>> categoriesOfferZone = const [
-    {'title': 'Large Order', 'image': 'assets/images/food-2.png'},
-    {'title': 'Gourmet Delights', 'image': 'assets/images/food-3.png'},
-    {'title': 'Delivery Fast', 'image': 'assets/images/food-4.png'},
-    {'title': 'Offer Zone', 'image': 'assets/images/food-2.png'},
+    {'title': 'Large Order', 'image': 'https://images.pexels.com/photos/1633525/pexels-photo-1633525.jpeg'},
+    {'title': 'Gourmet Delights', 'image': 'https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg'},
+    {'title': 'Delivery Fast', 'image': 'https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg'},
+    {'title': 'Offer Zone', 'image': 'https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg'},
     {'title': 'Large Order', 'image': 'assets/images/food-3.png'},
-    {'title': 'Gourmet Delights', 'image': 'assets/images/food-4.png'},
+    {'title': 'Gourmet Delights', 'image': 'assets/images/food-2.png'},
   ];
 
   final List<FoodItemModel> foodItemList = [

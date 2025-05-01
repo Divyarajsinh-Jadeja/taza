@@ -35,7 +35,7 @@ class CouponsPage extends GetView<CouponsController> {
                         child: Container(
                           width: 35.w,
                           height: 145.h,
-                          color: isSelected? style.primaryColor:style.couponColor,
+                          color: /*isSelected? */style.primaryColor/*:style.couponColor*/,
                           alignment: Alignment.center,
                           child: RotatedBox(
                             quarterTurns: 3,

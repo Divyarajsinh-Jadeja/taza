@@ -67,6 +67,7 @@ class ReorderPage extends GetView<ReorderController> {
               );
             }),
           ),
+          110.verticalSpace
         ],
       ),
     );

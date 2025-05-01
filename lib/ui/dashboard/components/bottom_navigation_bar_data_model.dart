@@ -2,7 +2,7 @@ import 'package:taza/taza.dart';
 
 class BottomNavigationBarDataModel {
   final String label;
-  final String icon;
+  final String? icon;
   final String? activeIcon;
   final bool isProfile;
   final bool isShowBadge;
@@ -10,7 +10,7 @@ class BottomNavigationBarDataModel {
 
   BottomNavigationBarDataModel({
     required this.label,
-    required this.icon,
+    this.icon,
     this.activeIcon,
     this.isProfile = false,
     this.isShowBadge = false,

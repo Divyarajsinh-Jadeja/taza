@@ -10,9 +10,9 @@ class FoodDetailsController extends GetxController {
   Timer? autoSlideTimer;
 
   final List<String> productImages = [
-    'https://i.ibb.co/wZDz4H7c/daawat-basmati-rice-rozana-gold-1-kg-quick-pantry.jpg',
-    'https://i.ibb.co/wZDz4H7c/daawat-basmati-rice-rozana-gold-1-kg-quick-pantry.jpg',
-    'https://i.ibb.co/wZDz4H7c/daawat-basmati-rice-rozana-gold-1-kg-quick-pantry.jpg',
+    "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg",
+    "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg",
+    "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg",
   ];
 
   @override

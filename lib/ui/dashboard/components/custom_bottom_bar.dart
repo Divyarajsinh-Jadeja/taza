@@ -17,9 +17,10 @@ class CustomBottomBar extends StatelessWidget {
       child: BottomAppBar(
         color: style.backgroundColor,
         clipBehavior: Clip.antiAliasWithSaveLayer,
-        elevation: 10.w,
+        shape: const CircularNotchedRectangle(),
+        notchMargin: 14.w,
+        elevation: 4.w,
         child: SmartRow(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: List.generate(items.length, (index) {
             final item = items[index];
@@ -33,7 +34,7 @@ class CustomBottomBar extends StatelessWidget {
               },
               mainAxisSize: MainAxisSize.min,
               children: [
-                SmartImage(path: item.icon, color: iconColor, height: 32.h, width: 32.w),
+                SmartImage(path: item.icon ?? "", color: iconColor, height: 31.h, width: 31.w, fit: BoxFit.contain,),
                 SizedBox(height: 4.h),
                 Expanded(
                   child: SmartText(

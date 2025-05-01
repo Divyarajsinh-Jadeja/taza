@@ -8,6 +8,13 @@ class CheckoutController extends GetxController {
     printWrapped("CheckoutController initialized");
   }
 
+  final imageUrls = [
+    "https://i.ibb.co/whRS5nY7/b.jpg",
+    "https://i.ibb.co/FLj0XVLX/burger.webp",
+    "https://i.ibb.co/XfpHPXFP/cake.jpg",
+    "https://i.ibb.co/HLmQQsjy/chinease.jpg"
+  ];
+
   RxList<FoodModel> foodList = [
     FoodModel(
         id: "1",

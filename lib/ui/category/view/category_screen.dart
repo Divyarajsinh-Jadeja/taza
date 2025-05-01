@@ -11,9 +11,9 @@ class CategoryScreen extends GetView<CategoryController> {
         preferredSize: Size.fromHeight(kToolbarHeight),
         child: Obx(() {
           return SmartAppBar(
-            leadingImage: controller.currentCategory.image,
+            // leadingImage: controller.currentCategory.image,
             titleWidget: SmartColumn(
-              padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
+              // padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SmartText(
@@ -90,7 +90,8 @@ class ProductListView extends GetView<CategoryController> {
                 children: [
                   Expanded(
                     child: ProductCard(
-                      onProductTap: () => Get.toNamed(AppRoutes.foodDetailsPage),
+                      onProductTap:
+                          () => Get.toNamed(AppRoutes.foodDetailsPage),
                       product: controller.currentCategory.products![itemIndex],
                       index: itemIndex,
                       hasDiscount: itemIndex % 3 == 0,
@@ -106,7 +107,8 @@ class ProductListView extends GetView<CategoryController> {
                                 (controller.currentCategory.products?.length ??
                                     0))
                             ? ProductCard(
-                          onProductTap: () => Get.toNamed(AppRoutes.foodDetailsPage),
+                              onProductTap:
+                                  () => Get.toNamed(AppRoutes.foodDetailsPage),
                               product:
                                   controller
                                       .currentCategory
@@ -144,7 +146,9 @@ class ProductListView extends GetView<CategoryController> {
               ),*/
               SizedBox(height: 2.h),
               SmartText(
-                LocaleKeys.itemCount.tr.interpolate([controller.currentCategory.products?.length ?? 0]),
+                LocaleKeys.itemCount.tr.interpolate([
+                  controller.currentCategory.products?.length ?? 0,
+                ]),
                 style: style.categorysubHeaderStyle,
               ),
             ],
@@ -184,7 +188,6 @@ class FilterButton extends StatelessWidget {
     );
   }
 }
-
 
 class ProductCard extends StatelessWidget {
   final ProductModel product;
@@ -227,14 +230,22 @@ class ProductCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8.r),
                     ),
                     child: Center(
-                      child: product.imageUrl.isNotEmpty
-                          ? SmartImage(
-                        path: product.imageUrl,
-                        fit: BoxFit.cover,
-                        imageBorderRadius: BorderRadius.circular(8.r),
-                      )
-                          : Icon(Icons.image,
-                          size: 40.r, color: style.imageIconColor),
+                      child:
+                          product.imageUrl.isNotEmpty
+                              ? ClipRRect(
+                                borderRadius: BorderRadius.circular(8.r),
+                                child: SmartImage(
+                                  path: product.imageUrl,
+                                  width: Get.width,
+                                  height: Get.height,
+                                  imageBorderRadius: BorderRadius.circular(8.r),
+                                ),
+                              )
+                              : Icon(
+                                Icons.image,
+                                size: 40.r,
+                                color: style.imageIconColor,
+                              ),
                     ),
                   ),
                 ),
@@ -244,8 +255,11 @@ class ProductCard extends StatelessWidget {
                   spacing: 4.w,
                   padding: EdgeInsetsDirectional.only(top: 8.h),
                   children: [
-                    Icon(Icons.bolt,
-                        size: 14.r, color: style.deliveryIconColor),
+                    Icon(
+                      Icons.bolt,
+                      size: 14.r,
+                      color: style.deliveryIconColor,
+                    ),
                     SmartText("6 MINS", style: style.deliveryTimeTextStyle),
                   ],
                 ),
@@ -274,7 +288,9 @@ class ProductCard extends StatelessWidget {
                     spacing: 6.w,
                     children: [
                       SmartText(
-                        hasDiscount ? (product.price * 0.8).toCurrencyCodeFormat() : product.price.toCurrencyCodeFormat(),
+                        hasDiscount
+                            ? (product.price * 0.8).toCurrencyCodeFormat()
+                            : product.price.toCurrencyCodeFormat(),
                         style: style.discountedPriceTextStyle,
                       ),
                       if (hasDiscount)
@@ -337,7 +353,6 @@ class ProductCard extends StatelessWidget {
     );
   }
 }
-
 
 class AnimatedSliverBox extends StatelessWidget {
   final Widget child;

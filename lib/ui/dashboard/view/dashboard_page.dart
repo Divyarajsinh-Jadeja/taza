@@ -5,22 +5,24 @@ class DashboardPage extends GetView<DashboardController> {
 
   @override
   Widget build(BuildContext context) {
+    final style = AppTheme.of(context).tabBarStyle;
+
+    BottomNavigationBarDataModel bottomNavData =
+        controller.tabs[2].bottomNavData;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
+          PageView(
+            controller: controller.pageController,
+            physics: const NeverScrollableScrollPhysics(),
+            children:
+            controller.tabs
+                .map((tab) => Builder(builder: tab.pageBuilder))
+                .toList(),
+          ),
           Obx(() {
-            return PageView(
-              controller: controller.pageController,
-              physics: const NeverScrollableScrollPhysics(),
-              children:
-              controller.tabs
-                  .map((tab) => Builder(builder: tab.pageBuilder))
-                  .toList(),
-            );
-          }),
-          Obx(() {
-            return controller.currentIndex.value == 4
+            return controller.currentIndex.value == 3 || controller.currentIndex.value == 1
                 ? Positioned.directional(
               textDirection: TextDirection.ltr,
               bottom: 0.h,
@@ -32,6 +34,16 @@ class DashboardPage extends GetView<DashboardController> {
           }),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        elevation: 4,
+        backgroundColor: style.selectedIconColor,
+        shape: const CircleBorder(),
+        onPressed: () {
+          Get.toNamed(AppRoutes.checkoutPage);
+        },
+        child: SmartImage(path: AppImages.icShoppingBag),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: Obx(() {
         return CustomBottomBar(
           selectedIndex: controller.currentIndex.value,

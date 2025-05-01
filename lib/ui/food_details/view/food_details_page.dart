@@ -8,7 +8,7 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
     final style = AppTheme.of(context).foodDetailsPageStyle;
     return Scaffold(
       backgroundColor: style.grayColor,
-      appBar: SmartAppBar(title: "DAAWAT Basmati Rice - Rozana Super",
+      appBar: SmartAppBar(title: "Grilled Salmon",
         titleStyle: style.titleTextStyle,
       ),
       body: SmartColumn(
@@ -68,7 +68,7 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                                 borderRadius: BorderRadius.only(topLeft: Radius.circular(14.r), bottomRight: Radius.circular(4.r)),
                               ),
                               children: [
-                                SmartText("27%", style: style.percentageTextStyle),
+                                SmartText("10%", style: style.percentageTextStyle),
                                 SmartText("OFF", style: style.percentageTextStyle),
                               ],
                             ),
@@ -116,7 +116,7 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                       SizedBox(height: 6.h),
                       // Product title.
                       SmartText(
-                        "DAAWAT Basmati Rice - Rozana Super",
+                        "Grilled Salmon",
                         optionalPadding: EdgeInsetsDirectional.symmetric(horizontal: 15.w),
                         style: style.titleTextStyle,
                         animator: SmartAnimator(
@@ -139,7 +139,7 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                             children: [
                               SmartText(
                                 optionalPadding: EdgeInsetsDirectional.symmetric(horizontal: 15.w),
-                                "5 kg",
+                                "400g",
                                 style: style.descriptionTextStyle,
                                 animator: SmartAnimator(
                                   animateFade: true,
@@ -154,7 +154,7 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                                 padding:  EdgeInsetsDirectional.symmetric(horizontal: 15.w),
                                 children: [
                                   SmartText(
-                                    359.toCurrencyCodeFormat(),
+                                    16.toCurrencyCodeFormat(),
                                     style: style.titleTextStyle,
                                     animator: SmartAnimator(
                                       animateFade: true,
@@ -166,7 +166,7 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                                   ),
                                   SizedBox(width: 10.w),
                                   SmartText(
-                                    497.toCurrencyCodeFormat(),
+                                    20.toCurrencyCodeFormat(),
                                     style: style.descriptionTextStyle.copyWith(decoration: TextDecoration.lineThrough),
                                     animator: SmartAnimator(
                                       animateFade: true,
@@ -207,7 +207,7 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                         decoration: BoxDecoration(color: Colors.yellow[100], borderRadius: BorderRadius.circular(4.r)),
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          SmartText(350.toCurrencyCodeFormat(), style: style.titleTextStyle),
+                          SmartText(4.toCurrencyCodeFormat(), style: style.titleTextStyle),
                           SizedBox(width: 5.w),
                           SmartText("MAXX SAVER PRICE", style: style.maxSaverTitleStyle, overflow: TextOverflow.ellipsis,),
                         ],
@@ -245,13 +245,13 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                           SmartColumn(
                             decoration: BoxDecoration(color: style.highlightBgColor, borderRadius: BorderRadius.circular(8.r)),
                             children: [
-                              _buildHighlightRow("Box Contents", "1 x Daawat Basmati Rice - Rozana Super", style),
+                              _buildHighlightRow("Food Contents", "Grilled Salmon Super", style),
                               _buildDivider(),
-                              _buildHighlightRow("Pack Size", "5kg", style),
+                              _buildHighlightRow("Pack Size", "400g", style),
                               _buildDivider(),
                               _buildHighlightRow("Source", "Product of India", style),
                               _buildDivider(),
-                              _buildHighlightRow("Speciality", "Regional Rice", style),
+                              _buildHighlightRow("Speciality", "Delicious Test", style),
                             ],
                           ),
                         ],
@@ -295,7 +295,7 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                           ),
                           SizedBox(height: 15.h),
                           SmartText(
-                            "Experience the aromatic and versatile flavour of Daawat Basmati Rice Rozana Super. Perfect for creating gourmet dishes with superior quality.",
+                            "Experience the aromatic and versatile flavour of Grilled Salmon Super. Perfect for creating gourmet dishes with superior quality.",
                             style: style.highlightTitleStyle,
                             animator: SmartAnimator(
                               animateFade: true,

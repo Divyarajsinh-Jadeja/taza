@@ -199,6 +199,8 @@ class LocaleKeys {
   static const unavailableItems = 'unavailableItems';
   static const removeAll = 'removeAll';
   static const billingDetails = 'billingDetails';
+  static const categories = 'categories';
+  static const offers = 'offers';
 }
 
 class Locales {
@@ -402,6 +404,8 @@ class Locales {
     'unavailableItems': 'Unavailable items',
     'removeAll': 'Remove All',
     'billingDetails': 'Billing Details',
+    'categories': 'Categories',
+    'offers': 'Offers',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -596,5 +600,7 @@ class Locales {
     'unavailableItems': 'العناصر غير المتوفرة',
     'removeAll': 'إزالة الكل',
     'billingDetails': 'تفاصيل الفاتورة',
+    'categories': 'زمرے',
+    'offers': 'پیشکش',
   };
 }
