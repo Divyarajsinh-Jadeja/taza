@@ -4,7 +4,7 @@
     <application
         android:label="taza"
         android:name="${applicationName}"
-        android:icon="@mipmap/taza_launcher">
+        android:icon="@mipmap/grocerzy_launcher_icon">
         <activity
             android:name=".MainActivity"
             android:exported="true"

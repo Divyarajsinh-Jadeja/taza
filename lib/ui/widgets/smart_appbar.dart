@@ -127,7 +127,7 @@ class SmartAppBar extends StatelessWidget implements PreferredSizeWidget {
                   SmartText(LocaleKeys.home.tr, style: style.homeTitleStyle, maxLines: 1, overflow: TextOverflow.ellipsis),
                   SizedBox(height: 18.h, child: VerticalDivider(color: style.dividerColor)),
                   SmartText(
-                    "Al Tadamun Al Arabi St., Mishfirah, Jeddah KSA",
+                    "1600 Amphitheatre, Mountain View",
                     style: style.subTitleStyle,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,

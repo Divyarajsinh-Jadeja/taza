@@ -150,8 +150,6 @@ export 'package:taza/ui/coupons/view/coupons_controller.dart';
 export 'package:taza/ui/coupons/binding/coupons_binding.dart';
 export 'package:taza/ui/coupons/view/coupons_page.dart';
 
-export 'package:taza/ui/grocery/view/grocery_controller.dart';
-export 'package:taza/ui/grocery/view/grocery_page.dart';
 
 export 'package:taza/ui/profile/binding/profile_binding.dart';
 export 'package:taza/ui/profile/view/profile_controller.dart';
@@ -213,8 +211,9 @@ export 'package:speech_to_text/speech_to_text.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/grocery/components/grocery_page_header_sliver.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/grocery/components/grocery_filter_category_bar.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/grocery/view/grocery_dashboard_controller.dart';
-export 'package:taza/ui/dashboard/dashboard_modules/grocery/binding/grocery_page_dashboard_binding.dart';
 export '../ui/dashboard/dashboard_modules/grocery/view/grocery_page_dashboard.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/category/model/categories_model.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/category/view/category_dashboard_controller_.dart';
 
 
 

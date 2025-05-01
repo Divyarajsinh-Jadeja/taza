@@ -39,44 +39,39 @@ class AnimatedTabBar extends GetView<FoodController> {
             child: SizedBox(
               width: 70.w,
               key: ValueKey(isSelected),
-              child: CustomPaint(
-                painter: CustomTabBarPainter(isSelected: isSelected, themeColor: data.themeColor),
-                child: SmartColumn(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12.r),
-                    color: isSelected ? data.themeColor : style.transparentColor,
-                  ),
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 16.w, right: 16.w, top: 12.h),
-                      child: AnimatedSlide(
-                        offset: isSelected ? Offset(0, 0) : Offset(0, 0.3),
-                        duration: Duration(milliseconds: 400),
-                        curve: Curves.easeOut,
-                        child: AnimatedOpacity(
-                          opacity: isSelected ? 1 : 0.6,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 10),
+                child: CustomPaint(
+                  painter: CustomTabBarPainter(isSelected: isSelected, themeColor: data.themeColor),
+                  child: SmartColumn(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: 16.w, right: 16.w, top: 12.h),
+                        child: AnimatedSlide(
+                          offset: isSelected ? Offset(0, 0) : Offset(0, 0.1),
                           duration: Duration(milliseconds: 400),
-                          child: SizedBox(height: 32.h, width: 40.w, child: SmartImage(path: data.imagePath, size: 70.w,)),
+                          curve: Curves.easeOut,
+                          child: SmartImage(path: data.imagePath, height: 32.h,width: 40.w,fit: BoxFit.fitHeight,),
                         ),
                       ),
-                    ),
-                    SizedBox(height: 16.h),
-                    Container(
-                      alignment: Alignment.center,
-                      margin: EdgeInsets.only(top: 2),
-                      color: isSelected ? style.transparentColor : controller.currentFoodTabData.themeColor.withValues(alpha: 0.5),
-                      child: SmartText(
-                        data.tabText,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: AppTheme.of(context).interRegularW400TextStyle.copyWith(
-                          fontSize: 10.sp,
-                          color: Utils.getContrastColor(controller.currentFoodTabData.themeColor),
+                      SizedBox(height: 16.h),
+                      Container(
+                        alignment: Alignment.center,
+                        margin: EdgeInsets.only(top: 2,bottom: 4),
+                        color: isSelected ? style.transparentColor : controller.currentFoodTabData.themeColor.withValues(alpha: 0.5),
+                        child: SmartText(
+                          data.tabText,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: AppTheme.of(context).interMediumBoldW500TextStyle.copyWith(
+                            fontSize: 9.sp,
+                            color: Utils.getContrastColor(controller.currentFoodTabData.themeColor),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -97,21 +92,30 @@ class CustomTabBarPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     if (!isSelected) return;
 
-    final paint =
-        Paint()
-          ..color = themeColor
-          ..style = PaintingStyle.fill
-          ..isAntiAlias = true;
+    final path = Path()
+      ..moveTo(0, size.height)
+      ..lineTo(0, 16)
+      ..quadraticBezierTo(0, 0, 16, 0)
+      ..lineTo(size.width - 16, 0)
+      ..quadraticBezierTo(size.width, 0, size.width, 16)
+      ..lineTo(size.width, size.height)
+      ..close();
 
-    final path =
-        Path()
-          ..moveTo(0, size.height) // Start from bottom-left
-          ..lineTo(0, 16) // Go up
-          ..quadraticBezierTo(0, 0, 16, 0) // Top-left corner curve
-          ..lineTo(size.width - 16, 0) // Top edge
-          ..quadraticBezierTo(size.width, 0, size.width, 16) // Top-right corner curve
-          ..lineTo(size.width, size.height) // Down to bottom-right
-          ..close();
+    // First: Draw a manual blurred shadow
+    final shadowPaint = Paint()
+      ..color = Colors.black.withValues(alpha: 0.3)
+      ..maskFilter = MaskFilter.blur(BlurStyle.normal, 6);
+
+    canvas.save();
+    canvas.translate(0, 0); // Move if you want offset
+    canvas.drawPath(path, shadowPaint);
+    canvas.restore();
+
+    // Then: Draw the actual colored tab
+    final paint = Paint()
+      ..color = themeColor
+      ..style = PaintingStyle.fill
+      ..isAntiAlias = true;
 
     canvas.drawPath(path, paint);
   }
@@ -119,3 +123,5 @@ class CustomTabBarPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
 }
+
+

@@ -26,7 +26,7 @@ class HomePage extends GetView<HomeController> {
                   padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w, vertical: 10.h),
                   userImagePath: "https://i.ibb.co/HLgDnFFQ/Group.png",
                   addressTypeTag: LocaleKeys.home.tr,
-                  address: "Al Tadamun Al Arabi St., Mishfirah, Jeddah KSA",
+                  address: "1600 Amphitheatre, Mountain View",
                 ),
               ),
               PinnedHeaderSliver(
@@ -105,14 +105,14 @@ class HomePage extends GetView<HomeController> {
                               child: FoodOptionCard(
                                 onTap: () {
                                   if(index == 0){
-                                    Get.toNamed(AppRoutes.orderTrackingPage);
+                                    Get.find<DashboardController>().changeTab(1);
                                   }
-                                  if(index == 1){
-                                    Get.toNamed(AppRoutes.groceryDashboardPage);
+                                  /*if(index == 1){
+                                    Get.find<DashboardController>().changeTab(2);
                                   }
                                   if(index == 3){
                                     Get.find<DashboardController>().changeTab(1);
-                                  }
+                                  }*/
                                 },
                                 title: item['title'],
                                 subtitle: item['subtitle'],
@@ -136,7 +136,7 @@ class HomePage extends GetView<HomeController> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(12.r),
                           child: SmartImage(
-                            path: AppImages.cardBannerGif,
+                            path: "https://i.ibb.co/XxX5QXtZ/Delicious-Food-Menu-Banner-Design.png",
                             height: 160,
                             width: Get.width,
                             fit: BoxFit.fill, // Optional: ensures image fills bounds
@@ -146,7 +146,7 @@ class HomePage extends GetView<HomeController> {
                       SizedBox(height: 26.h,),
                       Align(
                         alignment: AlignmentDirectional.centerStart,
-                        child: SmartText("Live\nit up!",
+                        child: SmartText("Take\na Bite!",
                           optionalPadding: EdgeInsetsDirectional.only(start: 16.w),
                           style: style.searchBarHintStyle.copyWith(fontSize: 60, fontWeight: FontWeight.w700),
                         ),

@@ -11,43 +11,42 @@ class ProductBottomSheet extends StatelessWidget {
       padding: EdgeInsetsDirectional.symmetric(horizontal: 12.w, vertical: 16.h),
       decoration: BoxDecoration(color: style.whiteColor, borderRadius: BorderRadius.vertical(top: Radius.circular(20.r))),
       children: [
-        // Centered and bold title for prominence
         Align(
           alignment: Alignment.center,
           child: Padding(
             padding: EdgeInsetsDirectional.only(bottom: 8.w),
-            child: SmartText('Daawat Basmati Rice - Super', style: style.titleTextStyle.copyWith(fontWeight: FontWeight.bold)),
+            child: SmartText('Grilled Salmon', style: style.titleTextStyle.copyWith(fontWeight: FontWeight.bold)),
           ),
         ),
-        SizedBox(height: 16.h),
+        SizedBox(height: 10.h),
         ProductCard(
           style: style,
-          imageUrl: 'https://i.ibb.co/wZDz4H7c/daawat-basmati-rice-rozana-gold-1-kg-quick-pantry.jpg',
-          quantityText: '1 kg x 2',
-          currentPrice: 290.toCurrencyCodeFormat(),
-          oldPrice: 400.toCurrencyCodeFormat(),
-          perKgPrice: '${145.toCurrencyCodeFormat()}/kg',
-          discountText: '27% OFF',
+          imageUrl: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg',
+          quantityText: '2 Person',
+          currentPrice: 16.toCurrencyCodeFormat(),
+          oldPrice: 20.toCurrencyCodeFormat(),
+          perKgPrice: '${30.toCurrencyCodeFormat()}/kg',
+          discountText: '10% OFF',
           isBestValue: true,
           onAdd: () {
-            // TODO: Update total price logic here
+            Get.toNamed(AppRoutes.checkoutPage);
           },
         ),
         SizedBox(height: 12.h),
         ProductCard(
           style: style,
-          imageUrl: 'https://i.ibb.co/wZDz4H7c/daawat-basmati-rice-rozana-gold-1-kg-quick-pantry.jpg',
-          quantityText: '1 kg x 2',
-          currentPrice: 149.toCurrencyCodeFormat(),
-          oldPrice: 200.toCurrencyCodeFormat(),
+          imageUrl: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg',
+          quantityText: '4 Person',
+          currentPrice: 32.toCurrencyCodeFormat(),
+          oldPrice: 40.toCurrencyCodeFormat(),
           perKgPrice: null,
-          discountText: '25% OFF',
+          discountText: '20% OFF',
           onAdd: () {
-            // TODO: Update total price logic here
+            Get.toNamed(AppRoutes.checkoutPage);
           },
         ),
-        SizedBox(height: 16.h),
-        _buildBottomBar(style),
+        SizedBox(height: 30.h),
+        // _buildBottomBar(style),
       ],
     );
   }
@@ -67,6 +66,7 @@ class ProductBottomSheet extends StatelessWidget {
           },
           child: SmartText('Confirm', style: style.bottomSheetAddButtonStyle),
         ),
+        SizedBox(height: 16.h,)
       ],
     );
   }
@@ -113,7 +113,9 @@ class ProductCard extends StatelessWidget {
             ),
             children: [
               // Image with error handling
-              SmartImage(path: imageUrl, height: 64.w, width: 64.w),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8.r),
+                  child: SmartImage(path: imageUrl, height: 64.w, width: 64.w)),
               SizedBox(width: 12.w),
               Expanded(
                 child: SmartRow(

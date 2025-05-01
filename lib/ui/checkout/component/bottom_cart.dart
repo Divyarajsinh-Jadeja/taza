@@ -1,4 +1,5 @@
 import 'package:taza/taza.dart';
+
 class BottomCartWidget extends GetView<CheckoutController> {
   BottomCartWidget({super.key});
 
@@ -64,7 +65,7 @@ class BottomCartWidget extends GetView<CheckoutController> {
       onTap: () {
         showMenu.value = !showMenu.value;
       },
-      spacing: 10.w,
+      spacing: 13.w,
       children: [
         SizedBox(
           width: 50.w,
@@ -72,7 +73,7 @@ class BottomCartWidget extends GetView<CheckoutController> {
           child: Stack(
             clipBehavior: Clip.none,
             alignment: Alignment.center,
-            children: List.generate(3, (index) {
+            children: List.generate(controller.imageUrls.length, (index) {
               return Positioned(
                 left: index * 10.w,
                 child: Container(
@@ -85,7 +86,7 @@ class BottomCartWidget extends GetView<CheckoutController> {
                   ),
                   child: SmartImage(
                     /// TODO: below image will change once we integrate api
-                    path: "https://i.ibb.co/MkqsDTsx/salad.jpg",
+                    path: controller.imageUrls[index],
                     imageBorderRadius: BorderRadius.circular(6.r),
                     clipBehavior: Clip.antiAlias,
                   ),
@@ -100,7 +101,7 @@ class BottomCartWidget extends GetView<CheckoutController> {
           children: [
             SmartRow(
               children: [
-                SmartText(LocaleKeys.itemsCount.tr.interpolate([10.toCurrencyCodeFormat()]), style: style.itemNameStyle),
+                SmartText(LocaleKeys.itemsCount.tr.interpolate([4]), style: style.itemNameStyle),
                 ValueListenableBuilder(
                   valueListenable: showMenu,
                   builder: (_, bool expanded, __) {

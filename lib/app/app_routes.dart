@@ -46,13 +46,13 @@ class AppRoutes {
       binding: DashboardBinding(),
       transition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
-    ),GetPage(
+    ),/*GetPage(
       name: AppRoutes.groceryDashboardPage,
       page: () => const GroceryPageDashboard(),
       binding: GroceryPageDashboardBinding(),
       transition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
-    ),
+    ),*/
     GetPage(
       name: AppRoutes.checkoutPage,
       page: () => const CheckoutPage(),

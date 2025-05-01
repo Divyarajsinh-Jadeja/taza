@@ -23,10 +23,10 @@ dependencies:
   flutter_screenutil: ^5.9.3
 
   #device_info_plus package for device info
-  device_info_plus: ^11.3.3
+  device_info_plus: ^11.4.0
 
   #connectivity_plus package for connectivity
-  connectivity_plus: ^6.1.3
+  connectivity_plus: ^6.1.4
 
   #get_storage package for local storage
   get_storage: ^2.1.1
@@ -83,17 +83,15 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
   flutter_lints: ^5.0.0
+  # use this command => dart run flutter_launcher_icons
+  flutter_launcher_icons: "^0.14.3"
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/app_logo.png"
 
-# The following section is specific to Flutter packages.
 flutter:
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

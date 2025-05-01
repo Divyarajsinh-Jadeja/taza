@@ -9,10 +9,10 @@ class SplashPage extends GetView<SplashController> {
       body: Container(
         height: Get.height,
         width: Get.width,
-        decoration: BoxDecoration(color: AppThemes().appColor.primary),
+        decoration: BoxDecoration(color: AppThemes().appColor.white),
         child: Center(
           child: SmartImage(
-            width: 190.w,
+            width: 150.w,
             path: AppImages.icSplashLogo,
             fit: BoxFit.fill,
             animator: SmartAnimator(animateFade: true, animateScale: true, animationDelay: 600.ms, animationDuration: 600.ms),

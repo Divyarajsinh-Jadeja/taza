@@ -17,13 +17,12 @@ class DashboardPage extends GetView<DashboardController> {
             controller: controller.pageController,
             physics: const NeverScrollableScrollPhysics(),
             children:
-                controller.tabs
-                    .map((tab) => Builder(builder: tab.pageBuilder))
-                    .toList(),
+            controller.tabs
+                .map((tab) => Builder(builder: tab.pageBuilder))
+                .toList(),
           ),
           Obx(() {
-            print("Index - ${controller.currentIndex.value}");
-            return controller.currentIndex.value == 4
+            return controller.currentIndex.value == 3 || controller.currentIndex.value == 1
                 ? Positioned.directional(
               textDirection: TextDirection.ltr,
               bottom: 0.h,
@@ -42,7 +41,7 @@ class DashboardPage extends GetView<DashboardController> {
         onPressed: () {
           Get.toNamed(AppRoutes.checkoutPage);
         },
-        child: SmartImage(path: bottomNavData.icon),
+        child: SmartImage(path: AppImages.icShoppingBag),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: Obx(() {

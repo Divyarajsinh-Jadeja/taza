@@ -116,7 +116,7 @@ class FoodCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SmartText(
-                  model.price.toString(),
+                  model.price.toCurrencyCodeFormat(),
                   style: style.amountStyle,
                   animator: SmartAnimator(
                     animateScale: true,

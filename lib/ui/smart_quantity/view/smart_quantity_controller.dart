@@ -4,7 +4,7 @@ class QuantityController extends GetxController {
 
   void initializeQuantities(int length) {
     quantities.value = [];
-    quantities.value = List.generate(length, (_) => 0.obs);
+    quantities.value = List.generate(length, (_) => 1.obs);
   }
 
   void increment(int index) {

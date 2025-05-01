@@ -98,7 +98,7 @@ class LightModeTheme extends AppTheme {
   @override
   TabBarStyle get tabBarStyle => TabBarStyle(
     unselectedLabelStyle: interBoldW700TextStyle.copyWith(
-      fontSize: 11.sp,
+      fontSize: 12.sp,
       color: colors.color9c9cA3,
     ),
     labelStyle: interBoldW700TextStyle.copyWith(
@@ -111,7 +111,7 @@ class LightModeTheme extends AppTheme {
     boxShadowColor: colors.black.withValues(alpha: 0.17),
     selectedIconColor: colors.primary,
     unselectedIconColor: colors.color9c9cA3,
-    selectedLabelColor: colors.color1D1D1F,
+    selectedLabelColor: colors.primary,
     unselectedLabelColor: colors.color9c9cA3,
   );
 
@@ -747,12 +747,13 @@ class LightModeTheme extends AppTheme {
 
   @override
   GroceryStyle get groceryStyle => GroceryStyle(
-    titleStyle: interBoldW700TextStyle.copyWith(fontSize: 17.sp),
-    subTitleStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp),
+    titleStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 14.sp),
+    subTitleStyle: interSemiBoldW600TextStyle.copyWith(fontSize: 13.sp),
     groceryCardDecoration: BoxDecoration(
-      color: colors.colorF5F5F7,
+      color: colors.primary.withValues(alpha: 0.15),
       borderRadius: BorderRadius.circular(16.r),
     ),
+    pageTitle: interBoldW700TextStyle.copyWith(fontSize: 18.sp)
   );
 
   @override

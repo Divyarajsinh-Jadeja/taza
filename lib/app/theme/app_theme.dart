@@ -763,10 +763,11 @@ class AddressStyle {
 
 class GroceryStyle {
   final TextStyle titleStyle;
+  final TextStyle pageTitle;
   final TextStyle subTitleStyle;
   final BoxDecoration groceryCardDecoration;
 
-  GroceryStyle({required this.titleStyle, required this.subTitleStyle, required this.groceryCardDecoration});
+  GroceryStyle({required this.titleStyle, required this.subTitleStyle, required this.groceryCardDecoration, required this.pageTitle});
 }
 
 class LoginPageStyle {

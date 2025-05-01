@@ -36,26 +36,27 @@ class FoodController extends GetxController with GetSingleTickerProviderStateMix
   final GlobalKey headerKey = GlobalKey();
 
   final List<FoodTabData> tabs = [
+
     FoodTabData(
-      imagePath: "assets/images/thali_new.png",
-      themeColor: Color(0xFFfcd44b),
-      bannerWidget: Image.asset(AppImages.icBannerGif, fit: BoxFit.cover),
-      tabText: "North-Indian",
-    ),
-    FoodTabData(
-      imagePath: "assets/images/burger.png",
+      imagePath: "assets/images/burger1.png",
       themeColor: Color(0xFF0c3271),
       bannerWidget: SmartImage(path: "assets/images/banner-2.jpg", fit: BoxFit.cover),
       tabText: "Burger King",
     ),
     FoodTabData(
-      imagePath: "assets/images/sanwich.png",
-      themeColor: Color(0xFF3f6800),
-      bannerWidget: SmartImage(path: "assets/images/banner-3.jpg", fit: BoxFit.cover),
-      tabText: "Sandwiches",
+      imagePath: "assets/images/dosa.png",
+      themeColor: Color(0xFFfcd44b),
+      bannerWidget: Image.asset(AppImages.icBannerGif, fit: BoxFit.cover),
+      tabText: "North-Indian",
     ),
     FoodTabData(
-      imagePath: "assets/images/chaumin.png",
+      imagePath: "assets/images/sandwich.png",
+      themeColor: Color(0xFF3f6800),
+      bannerWidget: SmartImage(path: "assets/images/banner-3.jpg", fit: BoxFit.cover),
+      tabText: "Sandwich",
+    ),
+    FoodTabData(
+      imagePath: "assets/images/noodles.png",
       themeColor: Color(0xFFfd235d),
       bannerWidget: SmartImage(path: "assets/images/banner-4.jpg", fit: BoxFit.cover),
       tabText: "Noodles",
@@ -67,13 +68,13 @@ class FoodController extends GetxController with GetSingleTickerProviderStateMix
       tabText: "Pizza",
     ),
     FoodTabData(
-      imagePath: "assets/images/chines.png",
+      imagePath: "assets/images/chinease.png",
       themeColor: Color(0xFFE91E63),
       bannerWidget: SizedBox(),
-      tabText: "Chinease",
+      tabText: "Chinese",
     ),
     FoodTabData(
-      imagePath: "assets/images/category_meat.png",
+      imagePath: "assets/images/meat.png",
       themeColor: Color(0xFF3F51B5),
       bannerWidget: SizedBox(),
       tabText: "Non-Veg",
@@ -116,12 +117,12 @@ class FoodController extends GetxController with GetSingleTickerProviderStateMix
   void onTabSelected() {}
 
   final List<Map<String, String>> categoriesOfferZone = const [
-    {'title': 'Large Order', 'image': 'assets/images/food-2.png'},
-    {'title': 'Gourmet Delights', 'image': 'assets/images/food-3.png'},
-    {'title': 'Delivery Fast', 'image': 'assets/images/food-4.png'},
-    {'title': 'Offer Zone', 'image': 'assets/images/food-2.png'},
+    {'title': 'Large Order', 'image': 'https://images.pexels.com/photos/1633525/pexels-photo-1633525.jpeg'},
+    {'title': 'Gourmet Delights', 'image': 'https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg'},
+    {'title': 'Delivery Fast', 'image': 'https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg'},
+    {'title': 'Offer Zone', 'image': 'https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg'},
     {'title': 'Large Order', 'image': 'assets/images/food-3.png'},
-    {'title': 'Gourmet Delights', 'image': 'assets/images/food-4.png'},
+    {'title': 'Gourmet Delights', 'image': 'assets/images/food-2.png'},
   ];
 
   final List<FoodItemModel> foodItemList = [

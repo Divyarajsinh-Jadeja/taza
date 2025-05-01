@@ -28,7 +28,7 @@ class SelectDeliveryLocationPage extends GetView<AddressController> {
                 vertical: 10.h,
               ),
               child: SmartTextField.search(
-                hintText: "Try J P Nagar,Andheri etc..",
+                hintText: "1600 Amphitheatre Parkway...",
                 isSearchWithPrefix: true,
               ),
             ),
@@ -50,7 +50,7 @@ class SelectDeliveryLocationPage extends GetView<AddressController> {
                         color: style.primaryColor,
                       ),
                       SmartText(
-                        "Ahmedabad",
+                        "USA",
                         style: style.blackColorStyle,
                         maxLines: 2,
                         isExpanded: true,
@@ -73,7 +73,7 @@ class SelectDeliveryLocationPage extends GetView<AddressController> {
                     ],
                   ),
                   SmartText(
-                    "THE FIRST, C-1401, near Mansi Circle, Vastrapur, Ahmedabad, Gujarat 380015",
+                    "1600 Amphitheatre Parkway, Mountain View, CA 94043",
                     style: style.addressBottomSheetTitleStyle,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,

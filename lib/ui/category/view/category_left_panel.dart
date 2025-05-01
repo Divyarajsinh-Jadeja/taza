@@ -50,13 +50,16 @@ class CategorySidebar extends GetView<CategoryController> {
                                 ]
                                 : null,
                       ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.all(8.0.w),
-                        child: AnimatedSwitcher(
-                          duration: const Duration(milliseconds: 300),
-                          transitionBuilder: (child, animation) => FadeTransition(opacity: animation, child: child),
-                          child: SmartImage(key: ValueKey(model.id), path: model.image ?? "", fit: BoxFit.contain),
-                        ),
+                      child: AnimatedSwitcher(
+                        duration: const Duration(milliseconds: 300),
+                        transitionBuilder: (child, animation) => FadeTransition(opacity: animation, child: child),
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(6.r),
+                            child: SmartImage(
+                              key: ValueKey(model.id),
+                              path: model.image ?? "",
+                              height: Get.height, width: Get.width,
+                            )),
                       ),
                     ),
                   ),
