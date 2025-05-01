@@ -15,7 +15,9 @@ class ReorderController extends GetxController {
       reviewsCount: 1200,
       deliveryTime: '30-35 min',
       price: 89.0,
-      quantity: 0
+      quantity: 0,
+      isVeg: false,
+      restaurantName: "KFC"
     ),
     FoodModel(
       id: "12",
@@ -25,6 +27,8 @@ class ReorderController extends GetxController {
       reviewsCount: 950,
       deliveryTime: '25-30 min',
       price: 59.0,
+        isVeg: true,
+        restaurantName: "Burger King"
     ),
     FoodModel(
       id: "13",
@@ -34,6 +38,8 @@ class ReorderController extends GetxController {
       reviewsCount: 1100,
       deliveryTime: '20-25 min',
       price: 45.0,
+        isVeg: true,
+        restaurantName: "Chocolate Room"
     ),
     FoodModel(
       id: "14",
@@ -43,6 +49,8 @@ class ReorderController extends GetxController {
       reviewsCount: 780,
       deliveryTime: '35-40 min',
       price: 65.0,
+        isVeg: true,
+        restaurantName: "Waka Noodles"
     ),
     FoodModel(
       id: "15",
@@ -52,6 +60,8 @@ class ReorderController extends GetxController {
       reviewsCount: 620,
       deliveryTime: '10-15 min',
       price: 19.0,
+        isVeg: true,
+        restaurantName: "MacDonald"
     ),
 
   ].obs;
