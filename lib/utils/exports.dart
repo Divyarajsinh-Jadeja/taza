@@ -40,6 +40,7 @@ export 'package:taza/app/app_const.dart';
 export 'package:taza/app/app_fonts.dart';
 export 'package:taza/app/app_images.dart';
 export 'package:taza/app/app_routes.dart';
+export 'package:taza/app/constants.dart';
 export 'package:taza/app/theme/app_colors.dart';
 export 'package:taza/app/theme/app_style_data.dart';
 export 'package:taza/app/theme/app_theme.dart';
@@ -128,8 +129,6 @@ export 'package:taza/ui/smart_tab_bar/view/smart_delivery_tab_bar_controller.dar
 export 'package:taza/ui/dashboard/dashboard_modules/home/view/home_controller.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/home/view/home_page.dart';
 
-export 'package:taza/ui/dashboard/dashboard_modules/cart/view/cart_controller.dart';
-export 'package:taza/ui/dashboard/dashboard_modules/cart/view/cart_page.dart';
 
 export 'package:taza/ui/dashboard/dashboard_modules/food/view/food_controller.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/food/view/food_page.dart';
@@ -140,11 +139,11 @@ export 'package:taza/ui/dashboard/dashboard_modules/reorder/view/reorder_page.da
 export 'package:taza/ui/dashboard/dashboard_modules/rewards/view/rewards_controller.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/rewards/view/rewards_page.dart';
 
-export 'package:taza/ui/checkout/view/checkout_controller.dart';
-export 'package:taza/ui/checkout/binding/checkout_binding.dart';
-export 'package:taza/ui/checkout/view/checkout_screen.dart';
-export 'package:taza/ui/checkout/component/product_checkout_card.dart';
-export 'package:taza/ui/checkout/component/bottom_cart.dart';
+export 'package:taza/ui/cart/view/cart_controller.dart';
+export 'package:taza/ui/cart/binding/cart_binding.dart';
+export 'package:taza/ui/cart/view/cart_screen.dart';
+export 'package:taza/ui/cart/component/product_cart_card.dart';
+export 'package:taza/ui/cart/component/bottom_cart.dart';
 
 export 'package:taza/ui/coupons/view/coupons_controller.dart';
 export 'package:taza/ui/coupons/binding/coupons_binding.dart';

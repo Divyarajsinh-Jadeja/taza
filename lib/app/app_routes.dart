@@ -59,8 +59,8 @@ class AppRoutes {
     ),*/
     GetPage(
       name: AppRoutes.checkoutPage,
-      page: () => const CheckoutPage(),
-      binding: CheckoutBinding(),
+      page: () => const CartPage(),
+      binding: CartBinding(),
       transition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
     ),

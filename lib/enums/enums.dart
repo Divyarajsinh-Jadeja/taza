@@ -7,4 +7,4 @@ enum Clipper { start, center, end }
 
 enum InlineSpanType { text, widget }
 
-enum BottomNavType { all,food, instamart, dineout}
+enum BottomNavType { all,food, instamart}

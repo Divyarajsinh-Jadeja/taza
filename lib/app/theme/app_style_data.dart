@@ -98,11 +98,11 @@ class LightModeTheme extends AppTheme {
   @override
   TabBarStyle get tabBarStyle => TabBarStyle(
     unselectedLabelStyle: interBoldW700TextStyle.copyWith(
-      fontSize: 12.sp,
+      fontSize: 10.sp,
       color: colors.color9c9cA3,
     ),
     labelStyle: interBoldW700TextStyle.copyWith(
-      fontSize: 12.sp,
+      fontSize: 10.sp,
       color: colors.color1D1D1F,
     ),
     indicatorColor: colors.primary,

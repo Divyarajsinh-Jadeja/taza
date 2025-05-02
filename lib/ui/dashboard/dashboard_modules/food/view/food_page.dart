@@ -1,5 +1,4 @@
 import 'package:taza/taza.dart';
-import 'package:taza/ui/dashboard/dashboard_modules/food/components/restaurant_item_card.dart';
 
 class FoodPage extends GetView<FoodController> {
   const FoodPage({super.key});
