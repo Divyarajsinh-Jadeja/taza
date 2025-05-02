@@ -51,23 +51,21 @@ class ReorderPage extends GetView<ReorderController> {
           ),
 
           Expanded(
-            child: Obx(() {
-              return ListView.builder(
-                itemCount: controller.foodList.length,
-                padding: EdgeInsetsDirectional.symmetric(horizontal: 20.w),
-                itemBuilder:
-                    (context, index) =>
-                    ReorderCard(
-                      index: index,
-                      onIncrease: () => Get.find<QuantityController>().increment(index),
-                      onDecrease: () => Get.find<QuantityController>().decrement(index),
-                      model: controller.foodList[index],
-                    ),
+            child: ListView.builder(
+              itemCount: demoFoodList.length,
+              padding: EdgeInsetsDirectional.only(start: 20.w,end: 20.w,bottom: 110.h),
+              itemBuilder:
+                  (context, index) =>
+                  ReorderCard(
+                    index: index,
+                    onIncrease: () => Get.find<QuantityController>().increment(index),
+                    onDecrease: () => Get.find<QuantityController>().decrement(index),
+                    model: demoFoodList[index],
+                  ),
 
-              );
-            }),
+            ),
           ),
-          110.verticalSpace
+
         ],
       ),
     );

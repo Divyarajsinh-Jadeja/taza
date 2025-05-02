@@ -1,9 +1,9 @@
 import 'package:taza/taza.dart';
 
-class CheckoutBinding extends Bindings {
+class CartBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => CheckoutController());
+    Get.lazyPut(() => CartController());
     Get.put(SmartDeliveryTabController());
   }
 }

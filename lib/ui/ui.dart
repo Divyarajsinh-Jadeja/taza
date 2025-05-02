@@ -1,8 +1,6 @@
 //GENERATED BARREL FILE
 export './dashboard/components/bottom_navigation_bar_data_model.dart';
 export './dashboard/components/tabdata.dart';
-export './dashboard/dashboard_modules/cart/view/cart_controller.dart';
-export './dashboard/dashboard_modules/cart/view/cart_page.dart';
 export './dashboard/dashboard_modules/food/view/food_controller.dart';
 export './dashboard/dashboard_modules/food/view/food_page.dart';
 export './dashboard/dashboard_modules/reorder/view/reorder_controller.dart';
