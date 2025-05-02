@@ -65,15 +65,16 @@ class BottomCartWidget extends GetView<CartController> {
       onTap: () {
         showMenu.value = !showMenu.value;
       },
-      spacing: 13.w,
+
       children: [
-        SizedBox(
+        Container(
           width: 50.w,
           height: 35.h,
+          margin: EdgeInsetsDirectional.only(end: 5.w),
           child: Stack(
             clipBehavior: Clip.none,
             alignment: Alignment.center,
-            children: List.generate(controller.imageUrls.length, (index) {
+            children: List.generate(controller.foodList.length, (index) {
               return Positioned(
                 left: index * 10.w,
                 child: Container(
@@ -86,7 +87,7 @@ class BottomCartWidget extends GetView<CartController> {
                   ),
                   child: SmartImage(
                     /// TODO: below image will change once we integrate api
-                    path: controller.imageUrls[index],
+                    path: controller.foodList[index].imageUrl,
                     imageBorderRadius: BorderRadius.circular(6.r),
                     clipBehavior: Clip.antiAlias,
                   ),
@@ -101,7 +102,7 @@ class BottomCartWidget extends GetView<CartController> {
           children: [
             SmartRow(
               children: [
-                SmartText(LocaleKeys.itemsCount.tr.interpolate([4]), style: style.itemNameStyle),
+                SmartText(LocaleKeys.itemsCount.tr.interpolate([controller.totalCartItems]), style: style.itemNameStyle),
                 ValueListenableBuilder(
                   valueListenable: showMenu,
                   builder: (_, bool expanded, __) {
@@ -123,6 +124,11 @@ class BottomCartWidget extends GetView<CartController> {
             SmartText(LocaleKeys.youSave.tr.interpolate([20.toCurrencyCodeFormat()]), style: style.itemAmountStyle),
           ],
         ),
+        Spacer(),
+        SmartButton(
+          width: 100,
+          height: 40,
+          onTap: () => Get.toNamed(AppRoutes.checkoutPage), title: LocaleKeys.cart.tr,)
       ],
     );
   }
