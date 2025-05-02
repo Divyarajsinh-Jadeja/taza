@@ -1,6 +1,6 @@
 import 'package:taza/taza.dart';
 
-class BottomCartWidget extends GetView<CheckoutController> {
+class BottomCartWidget extends GetView<CartController> {
   BottomCartWidget({super.key});
 
   final ValueNotifier<bool> showMenu = ValueNotifier(false);

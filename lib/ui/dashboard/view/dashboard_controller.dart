@@ -51,14 +51,6 @@ class DashboardController extends GetxController {
       onInit: () => Get.find<FoodController>().onTabSelected(),
     ),
     TabData(
-      pageBuilder: (_) => CheckoutPage(),
-      bottomNavData: BottomNavigationBarDataModel(
-        icon: AppImages.icShoppingBag,
-        label: LocaleKeys.cart,
-      ),
-      onInit: () => Get.find<CartController>().onTabSelected(),
-    ),
-    /*TabData(
       pageBuilder: (_) => GroceryPageDashboard(),
       bottomNavData: BottomNavigationBarDataModel(
         icon: AppImages.icInstamart,
@@ -66,13 +58,6 @@ class DashboardController extends GetxController {
       ),
       onInit: () => Get.find<GroceryDashboardController>().onTabSelected(),
     ),
-    TabData(
-      pageBuilder: (_) => SizedBox(),
-      bottomNavData: BottomNavigationBarDataModel(
-        icon: AppImages.icDine,
-        label: "Dineout",
-      ),
-    ),*/
     TabData(
       pageBuilder: (_) => ReorderPage(),
       bottomNavData: BottomNavigationBarDataModel(
@@ -109,22 +94,6 @@ class DashboardController extends GetxController {
       ),
       onInit: () => Get.find<FoodController>().onTabSelected(),
     ),
-    TabData(
-      pageBuilder: (_) => CheckoutPage(),
-      bottomNavData: BottomNavigationBarDataModel(
-        icon: AppImages.icShoppingBag,
-        label: LocaleKeys.cart,
-      ),
-      onInit: () => Get.find<CartController>().onTabSelected(),
-    ),
-    /*TabData(
-      pageBuilder: (_) => Placeholder(),
-      bottomNavData: BottomNavigationBarDataModel(
-        icon: AppImages.icFlash,
-        label: "Bolt",
-      ),
-      onInit: () => Get.find<FoodController>().onTabSelected(),
-    ),*/
     TabData(
       pageBuilder: (_) => ReorderPage(),
       bottomNavData: BottomNavigationBarDataModel(
@@ -178,7 +147,7 @@ class DashboardController extends GetxController {
       onInit: () => Get.find<ReorderController>().onTabSelected(),
     ),
     TabData(
-      pageBuilder: (_) => ReorderPage(),
+      pageBuilder: (_) => ReferAndEarnPage(),
       bottomNavData: BottomNavigationBarDataModel(
         icon: AppImages.icRewards,
         label: LocaleKeys.rewards.tr,
@@ -194,12 +163,12 @@ class DashboardController extends GetxController {
         return foodTabs;
       case BottomNavType.instamart:
         return instamartTabs;
-      case BottomNavType.dineout:
-        return allTabs;
       case BottomNavType.all:
         return allTabs;
     }
   }
+
+  bool get showBottomCart => Get.find<CartController>().foodList.isNotEmpty && currentBottomType.value!=BottomNavType.instamart;
 
   void changeTab(int index) {
     /* final isSameTab = currentIndex.value == index;
@@ -233,13 +202,10 @@ class DashboardController extends GetxController {
       if (index == 1) {
         currentBottomType.value = BottomNavType.food;
         currentIndex.value = 1;
-      } /*else if (index == 2) {
+      } else if (index == 2) {
         currentBottomType.value = BottomNavType.instamart;
         currentIndex.value = 1;
-      } else if (index == 3) {
-        currentBottomType.value = BottomNavType.dineout;
-        currentIndex.value = 1;
-      }*/else {
+      }else {
         currentIndex.value = index;
       }
 
@@ -252,5 +218,6 @@ class DashboardController extends GetxController {
       duration: Duration(milliseconds: AppConst.transitionDuration),
       curve: Curves.easeInOut,
     );
+    print("changing index $index and current tab ${currentBottomType.value.name}");
   }
 }

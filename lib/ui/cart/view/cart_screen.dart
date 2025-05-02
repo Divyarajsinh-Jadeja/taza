@@ -1,7 +1,7 @@
 import 'package:taza/taza.dart';
 
-class CheckoutPage extends GetView<CheckoutController> {
-  const CheckoutPage({super.key});
+class CartPage extends GetView<CartController> {
+  const CartPage({super.key});
 
   @override
   Widget build(BuildContext context) {
