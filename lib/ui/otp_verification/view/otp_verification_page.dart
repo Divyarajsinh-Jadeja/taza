@@ -210,8 +210,8 @@ class OtpVerificationPage extends GetView<OtpVerificationController> {
 
   Widget _resendOption(OtpPageStyle style, String icon, String label) {
     return SmartRow(
-      height: 48.h,
-      width: 170.w,
+      height: 44.h,
+      width: 130.w,
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       decoration: BoxDecoration(
