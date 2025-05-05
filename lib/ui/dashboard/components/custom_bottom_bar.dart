@@ -34,7 +34,7 @@ class CustomBottomBar extends StatelessWidget {
               },
               mainAxisSize: MainAxisSize.min,
               children: [
-                SmartImage(path: item.icon ?? "", color: iconColor, size: 28.w, fit: BoxFit.contain,),
+                SmartImage(path: item.icon ?? "", color: iconColor, size: 25.w, fit: BoxFit.contain,),
                 SizedBox(height: 4.h),
                 Expanded(
                   child: SmartText(

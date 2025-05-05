@@ -208,3 +208,14 @@ extension ThemeDataExtensions on ThemeData {
   // AppThemeData get  theme => _themeData[inputDecorationTheme] ?? AppThemeData.empty();
   AppColor get colors => _colors[inputDecorationTheme]!;
 }
+
+Color getRandomPastelColor() {
+  final random = Random();
+  // Generate RGB values between 100–255 to ensure light/pastel shades
+  return Color.fromARGB(
+    255,
+    100 + random.nextInt(156),
+    100 + random.nextInt(156),
+    100 + random.nextInt(156),
+  );
+}

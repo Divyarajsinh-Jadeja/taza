@@ -506,6 +506,7 @@ class FoodCardStyle {
   final Color iconColor;
   final Color greenColor;
   final Color whiteColor;
+  final Color primaryColor;
   final TextStyle grayStyle;
   final TextStyle buttonGrayStyle;
   final TextStyle buttonPrimaryStyle;
@@ -525,6 +526,8 @@ class FoodCardStyle {
     required this.grayStyle,
     required this.buttonGrayStyle,
     required this.buttonPrimaryStyle,
+    required this.primaryColor,
+
 
   });
 }

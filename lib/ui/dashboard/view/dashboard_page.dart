@@ -19,17 +19,13 @@ class DashboardPage extends GetView<DashboardController> {
                   .toList(),
             );
           }),
-          Obx(() {
-            return controller.showBottomCart
-                ? Positioned.directional(
-              textDirection: TextDirection.ltr,
-              bottom: 0.h,
-              end: 0.w,
-              start: 0.w,
-              child: BottomCartWidget(),
-            )
-                : const SizedBox.shrink();
-          }),
+          Positioned.directional(
+            textDirection: TextDirection.ltr,
+            bottom: 0.h,
+            end: 0.w,
+            start: 0.w,
+            child: BottomCartWidget(),
+          )
         ],
       ),
 
