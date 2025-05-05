@@ -339,10 +339,17 @@ class FoodPage extends GetView<FoodController> {
             height: 80.h,
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
-              itemCount: controller.popularBrandsList.length,
+              itemCount: demoRestaurantList.length,
               padding: EdgeInsets.symmetric(horizontal: 16.w),
-              separatorBuilder: (_, __) => SizedBox(width: 8.w),
-              itemBuilder: (context, index) => _buildPopularBrandsCard(context, style, controller.popularBrandsList[index], foodPageStyle),
+              separatorBuilder: (_, __) => SizedBox(width: 20.w),
+              itemBuilder: (context, index) => SmartImage(
+                  path: demoRestaurantList[index].logo??"",
+                  size: 90.w,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle
+                  ),
+                  clipBehavior: Clip.antiAlias,
+              ),
             ),
           ),
         ],
@@ -350,20 +357,13 @@ class FoodPage extends GetView<FoodController> {
     );
   }
 
-  Widget _buildPopularBrandsCard(BuildContext context, FoodCardStyle style, Map<String, String> popularBrandsList, FoodPageStyle foodPageStyle) {
-    return SmartImage(
-        path: popularBrandsList['image'] ?? "",
-        size: 90,
-        fit: BoxFit.contain
-    );
-  }
 
   List<Widget> _buildExploreRestroSection(FoodPageStyle foodPageStyle) {
     return [
       _animatedBoxAdapter(child: SizedBox(height: 32.h)),
       _buildExploreSectionHeader("Top 7 Brands to explore", foodPageStyle, showArrow: false),
       _animatedBoxAdapter(child: SizedBox(height: 16.h)),
-      _animatedBoxAdapter(child: _buildRestaurantsList(controller.restaurantItemList)),
+      _animatedBoxAdapter(child: _buildRestaurantsList(demoRestaurantList)),
     ];
   }
 }

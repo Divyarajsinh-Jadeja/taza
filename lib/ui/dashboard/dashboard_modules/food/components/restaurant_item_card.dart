@@ -144,6 +144,8 @@ class RestaurantItemModel {
   final int? startingPrice;
   final String? deliveryTime;
   final bool? hasCarousel;
+  final List<FoodModel> menu;
+  final String? logo;
 
   RestaurantItemModel({
     this.id,
@@ -157,6 +159,8 @@ class RestaurantItemModel {
     this.startingPrice,
     this.deliveryTime,
     this.hasCarousel = false, required String time, required String price,
+    required this.menu,
+    this.logo
   });
 }
 

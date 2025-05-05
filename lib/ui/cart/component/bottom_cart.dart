@@ -7,7 +7,7 @@ class BottomCartWidget extends GetView<CartController> {
   @override
   Widget build(BuildContext context) {
     final style = AppTheme.of(context).checkoutStyle;
-    return ValueListenableBuilder(
+    return Obx(() => (controller.foodList.isNotEmpty ? ValueListenableBuilder(
       valueListenable: showMenu,
       builder: (context, value, child) {
         return SmartColumn(
@@ -18,7 +18,7 @@ class BottomCartWidget extends GetView<CartController> {
           ],
         );
       },
-    );
+    ): SizedBox()),);
   }
 
   Widget _buildHeader(CheckoutStyle style) {
@@ -57,6 +57,8 @@ class BottomCartWidget extends GetView<CartController> {
 
 
   _buildItemWidget(CheckoutStyle style) {
+    int visibleCount = controller.foodList.length > 4 ? 4 : controller.foodList.length;
+    double totalWidth = 30.w + (visibleCount - 1) * 8.w;
     return SmartRow(
       color: style.whiteColor,
       padding: EdgeInsetsDirectional.only(bottom: 10.h, top: 10.h,start: 20.w,end: 20.w),
@@ -65,17 +67,19 @@ class BottomCartWidget extends GetView<CartController> {
       onTap: () {
         showMenu.value = !showMenu.value;
       },
-      spacing: 13.w,
+
       children: [
-        SizedBox(
-          width: 50.w,
+
+        Container(
+          width: totalWidth,
           height: 35.h,
+          margin: EdgeInsetsDirectional.only(end: 10.w),
           child: Stack(
             clipBehavior: Clip.none,
             alignment: Alignment.center,
-            children: List.generate(controller.imageUrls.length, (index) {
+            children: List.generate(controller.foodList.length>4?4:controller.foodList.length, (index) {
               return Positioned(
-                left: index * 10.w,
+                left: index * 8.w,
                 child: Container(
                   width: 30.w,
                   height: 35.w,
@@ -86,7 +90,7 @@ class BottomCartWidget extends GetView<CartController> {
                   ),
                   child: SmartImage(
                     /// TODO: below image will change once we integrate api
-                    path: controller.imageUrls[index],
+                    path: controller.foodList[index].imageUrl,
                     imageBorderRadius: BorderRadius.circular(6.r),
                     clipBehavior: Clip.antiAlias,
                   ),
@@ -96,12 +100,13 @@ class BottomCartWidget extends GetView<CartController> {
           ),
         ),
         SmartColumn(
+          expanded: true,
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SmartRow(
               children: [
-                SmartText(LocaleKeys.itemsCount.tr.interpolate([4]), style: style.itemNameStyle),
+                SmartText(LocaleKeys.itemsCount.tr.interpolate([controller.totalCartItems]), style: style.itemNameStyle),
                 ValueListenableBuilder(
                   valueListenable: showMenu,
                   builder: (_, bool expanded, __) {
@@ -120,9 +125,13 @@ class BottomCartWidget extends GetView<CartController> {
                 ),
               ],
             ),
-            SmartText(LocaleKeys.youSave.tr.interpolate([20.toCurrencyCodeFormat()]), style: style.itemAmountStyle),
+            SmartText(controller.cartTotal.toCurrencyCodeFormat(), style: style.itemAmountStyle),
           ],
         ),
+        SmartButton(
+          width: 100.w,
+          height: 40.h,
+          onTap: () => Get.toNamed(AppRoutes.checkoutPage), title: LocaleKeys.cart.tr,)
       ],
     );
   }
@@ -165,7 +174,7 @@ class BottomCartWidget extends GetView<CartController> {
                       isExpanded: true,
                     ),
                     SmartText(
-                      LocaleKeys.itemsCount.tr.interpolate(["2"]),
+                      LocaleKeys.itemsCount.tr.interpolate([controller.totalCartItems]),
                       style: style.deliveryInStyle,
                     ),
                   ],

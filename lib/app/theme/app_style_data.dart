@@ -408,10 +408,11 @@ class LightModeTheme extends AppTheme {
         topRight: Radius.circular(14.r),
       )
     ),
-    imageDecoration: BorderRadiusDirectional.all(Radius.circular(12.r)),
+    imageDecoration: BorderRadiusDirectional.only(topStart: Radius.circular(14.r),bottomStart: Radius.circular(14.r)),
     iconColor: colors.primary,
     whiteColor: colors.white,
     greenColor: colors.color30D158,
+    primaryColor: colors.primary,
     reorderTitleStyle: interRegularW400TextStyle.copyWith(fontSize: 12.sp),
     reorderAmountStyle: interRegularW400TextStyle.copyWith(fontSize: 12.sp),
     grayStyle: interRegularW400TextStyle.copyWith(fontSize: 12.sp,color: colors.color6E6E73),

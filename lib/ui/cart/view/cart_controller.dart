@@ -12,20 +12,32 @@ class CartController extends GetxController {
     printWrapped("CheckoutController initialized");
   }
 
-  final imageUrls = [
-    "https://i.ibb.co/whRS5nY7/b.jpg",
-    "https://i.ibb.co/FLj0XVLX/burger.webp",
-    "https://i.ibb.co/XfpHPXFP/cake.jpg",
-    "https://i.ibb.co/HLmQQsjy/chinease.jpg"
-  ];
 
   void addToCart(FoodModel product) {
-    Utils.showMessage("Added to cart");
-    foodList.add(product);
+    final index = foodList.indexWhere((item) => item.id == product.id);
+    if (index != -1) {
+      foodList[index].quantity += 1;
+    } else {
+      product.quantity = 1;
+      foodList.add(product);
+    }
+    foodList.refresh();
+    HapticFeedback.lightImpact();
   }
+
   void removeFromCart(FoodModel product) {
-    Utils.showMessage("Removed from cart");
-    foodList.remove(product);
+    final index = foodList.indexWhere((item) => item.id == product.id);
+    if (index != -1) {
+      if (foodList[index].quantity > 1) {
+        foodList[index].quantity -= 1;
+      } else {
+        foodList.removeAt(index);
+      }
+      foodList.refresh();
+      HapticFeedback.lightImpact();
+
+    }
   }
+
 
 }
