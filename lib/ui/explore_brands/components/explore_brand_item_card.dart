@@ -20,7 +20,7 @@ class ExploreBrandItemCard extends StatelessWidget {
     final loginStyle = AppTheme.of(context).loginPageStyle;
 
     return SmartRow(
-      onTap: () => Get.toNamed(AppRoutes.categoryPage),
+      onTap: () => Get.toNamed(AppRoutes.categoryPage, arguments: false),
       margin: EdgeInsetsDirectional.only(bottom: 16.h),
       decoration: style.cardDecoration,
       crossAxisAlignment: CrossAxisAlignment.start,

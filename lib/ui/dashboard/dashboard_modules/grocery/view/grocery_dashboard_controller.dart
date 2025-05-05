@@ -34,56 +34,183 @@ class GroceryDashboardController extends GetxController with GetSingleTickerProv
 
   final GlobalKey headerKey = GlobalKey();
 
+  RxList<CategoriesModel> groceryList = [
+    CategoriesModel(
+      id: 'grocery',
+      name: 'Grocery & Kitchen',
+      subCategories: [
+        SubCategoriesModel(
+            id: '1',
+            name: 'Fresh Vegetables',
+            categoryUrl: "https://i.ibb.co/GvwYZYfk/category-grocery.png"
+        ),
+        SubCategoriesModel(
+            id: '2',
+            name: 'Fresh Fruits',
+            categoryUrl: "https://i.ibb.co/LDs5vb8H/category-one.png"
+        ),
+        SubCategoriesModel(
+            id: '3',
+            name: 'Dairy & Eggs',
+            categoryUrl: "https://i.ibb.co/DD1Q6HCz/category-dairy.png"
+        ),
+        SubCategoriesModel(
+            id: '4',
+            name: 'Oils & Ghee',
+            categoryUrl: "https://i.ibb.co/F4QpP3tT/category-oils.png"
+        ),SubCategoriesModel(
+            id: '5',
+            name: 'Masalas',
+            categoryUrl: "https://i.ibb.co/p6dG1TW5/category-masala.png"
+        ),SubCategoriesModel(
+            id: '6',
+            name: 'Breakfast',
+            categoryUrl: "https://i.ibb.co/GfDRGzkr/category-corn.png"
+        ),SubCategoriesModel(
+            id: '7',
+            name: 'Atta,Rice & Dal',
+            categoryUrl: "https://i.ibb.co/JjrJz1fy/category-atta.png"
+        ),
+        SubCategoriesModel(
+            id: '8',
+            name: 'Bakery',
+            categoryUrl: "https://i.ibb.co/RkgKp1CQ/category-bakery.png"
+        ),
+        SubCategoriesModel(
+            id: '9',
+            name: 'Biscuits & Cakes',
+            categoryUrl: "https://i.ibb.co/Y48J13z3/category-biscuits.png"
+        ),
+        SubCategoriesModel(
+            id: '10',
+            name: 'Tea, Coffee & More',
+            categoryUrl: "https://i.ibb.co/XZDCSrSx/category-tea.png"
+        ),SubCategoriesModel(
+            id: '11',
+            name: 'Dry Fruits',
+            categoryUrl: "https://i.ibb.co/pvqm2t2W/category-almonds.png"
+        ),
+        SubCategoriesModel(
+            id: '12',
+            name: 'Meat and Seafood',
+            categoryUrl: "https://i.ibb.co/C3j9TxTX/category-meat.png"
+        ),
+      ],
+    ),
+    CategoriesModel(
+      id: 'snacks',
+      name: 'Snacks & Drinks',
+      subCategories: [
+        SubCategoriesModel(
+            id: '1',
+            name: 'Fresh Vegetables',
+            categoryUrl: "https://i.ibb.co/GvwYZYfk/category-grocery.png"
+        ),
+        SubCategoriesModel(
+            id: '2',
+            name: 'Fresh Fruits',
+            categoryUrl: "https://i.ibb.co/LDs5vb8H/category-one.png"
+        ),
+        SubCategoriesModel(
+            id: '3',
+            name: 'Dairy & Eggs',
+            categoryUrl: "https://i.ibb.co/DD1Q6HCz/category-dairy.png"
+        ),
+        SubCategoriesModel(
+            id: '4',
+            name: 'Oils & Ghee',
+            categoryUrl: "https://i.ibb.co/F4QpP3tT/category-oils.png"
+        ),SubCategoriesModel(
+            id: '5',
+            name: 'Masalas',
+            categoryUrl: "https://i.ibb.co/p6dG1TW5/category-masala.png"
+        ),SubCategoriesModel(
+            id: '6',
+            name: 'Breakfast',
+            categoryUrl: "https://i.ibb.co/GfDRGzkr/category-corn.png"
+        ),SubCategoriesModel(
+            id: '7',
+            name: 'Atta,Rice & Dal',
+            categoryUrl: "https://i.ibb.co/JjrJz1fy/category-atta.png"
+        ),
+        SubCategoriesModel(
+            id: '8',
+            name: 'Bakery',
+            categoryUrl: "https://i.ibb.co/RkgKp1CQ/category-bakery.png"
+        ),
+        SubCategoriesModel(
+            id: '9',
+            name: 'Biscuits & Cakes',
+            categoryUrl: "https://i.ibb.co/Y48J13z3/category-biscuits.png"
+        ),
+        SubCategoriesModel(
+            id: '10',
+            name: 'Tea, Coffee & More',
+            categoryUrl: "https://i.ibb.co/XZDCSrSx/category-tea.png"
+        ),SubCategoriesModel(
+            id: '11',
+            name: 'Dry Fruits',
+            categoryUrl: "https://i.ibb.co/pvqm2t2W/category-almonds.png"
+        ),
+        SubCategoriesModel(
+            id: '12',
+            name: 'Meat and Seafood',
+            categoryUrl: "https://i.ibb.co/C3j9TxTX/category-meat.png"
+        ),
+      ],
+    ),
+  ].obs;
+
   final List<FoodTabData> tabs = [
     FoodTabData(
-      imagePath: AppImages.categoryGrocery,
+      imagePath: "assets/images/ic_shopping_bag.png",
       themeColor: Color(0xFFfcd44b),
       bannerWidget: SmartImage(path: "assets/images/healthy_vegie_yellow.png", fit: BoxFit.cover, height: 170.h,),
-      tabText: "Vegetables",
+      tabText: "All",
     ),
     FoodTabData(
-      imagePath: AppImages.categoryOne,
+      imagePath: "assets/images/ic_fresh_instamart.png",
       themeColor: Color(0xFFffbd59),
       bannerWidget: SmartImage(path: "assets/images/fruits_banner.png", fit: BoxFit.cover,  height: 180.h,),
-      tabText: "Fruits",
+      tabText: "Fresh",
     ),
     FoodTabData(
-      imagePath: AppImages.categoryDairy,
+      imagePath: "assets/images/ic_gadgets.png",
       themeColor: Color(0xFF08610c),
       bannerWidget: SmartImage(path: "assets/images/dairy_banner.png", fit: BoxFit.cover,  height: 180.h,),
-      tabText: "Dairy & Eggs",
+      tabText: "Gadgets",
     ),
     FoodTabData(
-      imagePath: AppImages.categoryOils,
+      imagePath: "assets/images/ic_house.png",
       themeColor: Color(0xFFfcd44b),
       bannerWidget: SmartImage(path: "assets/images/banner_oil.jpg", fit: BoxFit.cover,  height: 180.h,),
-      tabText: "Edible Fats",
+      tabText: "Home",
     ),
     FoodTabData(
-      imagePath: AppImages.categoryMasala,
+      imagePath: "assets/images/ic_beauty_products.png",
       themeColor: Color(0xFF633174),
       bannerWidget: SizedBox(),
-      tabText: "Masalas",
+      tabText: "Beauty",
     ),
     FoodTabData(
-      imagePath: AppImages.categoryCorn,
+      imagePath: "assets/images/ic_kids_instamart.svg",
       themeColor: Color(0xFFE91E63),
       bannerWidget: SizedBox(),
-      tabText: "Breakfast",
+      tabText: "Kids",
     ),
     FoodTabData(
-      imagePath: AppImages.categoryAtta,
+      imagePath: "assets/images/ic_grocery_instamart.png",
       themeColor: Color(0xFF3F51B5),
       bannerWidget: SizedBox(),
-      tabText: "Staples",
+      tabText: "Grocery",
     ),
     FoodTabData(
-      imagePath: AppImages.categoryBakery,
+      imagePath: "assets/images/ic_summer_instamart.svg",
       themeColor: Color(0xFF3F51B5),
       bannerWidget: SizedBox(),
-      tabText: "Bakery",
+      tabText: "Summer",
     ),
-    FoodTabData(
+    /*FoodTabData(
       imagePath: AppImages.categoryBiscuits,
       themeColor: Color(0xFF3F51B5),
       bannerWidget: SizedBox(),
@@ -106,7 +233,7 @@ class GroceryDashboardController extends GetxController with GetSingleTickerProv
       themeColor: Color(0xFF3F51B5),
       bannerWidget: SizedBox(),
       tabText: "Meat",
-    ),
+    ),*/
   ];
 
   FoodTabData get currentFoodTabData => tabs[selectedFoodTab.value];

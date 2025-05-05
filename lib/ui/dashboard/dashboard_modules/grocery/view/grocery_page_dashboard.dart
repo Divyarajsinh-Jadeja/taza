@@ -12,6 +12,8 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
   Widget _buildBody(BuildContext context) {
     final style = AppTheme.of(context).foodCardStyle;
     final foodPageStyle = AppTheme.of(context).foodPageStyle;
+    final groceryStyle = AppTheme.of(context).groceryStyle;
+
 
     return Obx(
           () => AnimatedContainer(
@@ -33,7 +35,7 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
             _buildAppBarSliver(foodPageStyle, context),
             _buildAddressHeaderSliver(),
             const PinnedHeaderSliver(child: GroceryHeaderSliver()),
-            ..._buildContentSlivers(style, foodPageStyle),
+            ..._buildContentSlivers(style, foodPageStyle, groceryStyle),
           ],
         ),
       ),
@@ -72,13 +74,15 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
     );
   }
 
-  List<Widget> _buildContentSlivers(FoodCardStyle style, FoodPageStyle foodPageStyle) {
+  List<Widget> _buildContentSlivers(FoodCardStyle style, FoodPageStyle foodPageStyle, GroceryStyle groceryStyle) {
     return [
       _animatedBoxAdapter(child: Obx(() => controller.currentFoodTabData.bannerWidget)),
       _animatedBoxAdapter(child: SizedBox(height: 16.h)),
       _buildCategoriesSliver(style, foodPageStyle),
       _animatedBoxAdapter(child: SizedBox(height: 16.h)),
       _animatedBoxAdapter(child: _buildCarousel()),
+      _animatedBoxAdapter(child: SizedBox(height: 16.h)),
+      _buildInstamartCategory(groceryStyle),
       // _animatedBoxAdapter(child: SizedBox(height: 8.h)),
       // _buildPromoBannerSliver(),
       ..._buildReorderSection(foodPageStyle),
@@ -118,7 +122,6 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
 
   List<Widget> _buildReorderSection(FoodPageStyle foodPageStyle) {
     return [
-      _animatedBoxAdapter(child: SizedBox(height: 32.h)),
       _buildSectionHeader("It's Fresh? Reorder Now!", foodPageStyle, showArrow: false),
       _animatedBoxAdapter(child: SizedBox(height: 16.h)),
       _animatedBoxAdapter(child: _buildFoodList(controller.foodItemList)),
@@ -194,7 +197,7 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
     return SmartColumn(
       onTap: () {
         // Get.toNamed(AppRoutes.foodDetailsPage);
-        Get.toNamed(AppRoutes.categoryPage);
+        Get.toNamed(AppRoutes.categoryPage, arguments: false);
       },
       width: 90.w,
       decoration: BoxDecoration(border: Border.all(color: foodPageStyle.borderColor), borderRadius: BorderRadius.circular(12.r)),
@@ -265,6 +268,75 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
         ),
       ),
     );
+  }
+
+  Widget _buildInstamartCategory(GroceryStyle groceryStyle) {
+    return _animatedBoxAdapter(
+      child: ListView.builder(
+        padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
+        physics: NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        itemCount: controller.groceryList.length,
+        itemBuilder: (context, index) => SmartColumn(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+          SmartRow(
+            spacing: 6.w,
+            children: [
+              SmartText(
+                  controller.groceryList[index].name!.toUpperCase() ,
+                  style: groceryStyle.titleStyle
+              ),
+              Expanded(child: Container(height: 1.h, color: groceryStyle.groceryCardDecoration.color,))
+            ],
+          ),
+              SizedBox(height: 20.h),
+          GridView.builder(
+            padding: EdgeInsetsDirectional.zero,
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 4,
+              crossAxisSpacing: 12.w,
+              mainAxisSpacing: 20.h,
+              childAspectRatio: 0.55,
+            ),
+            itemCount: controller.groceryList[index].subCategories!.length, // or controller.items.length
+            itemBuilder: (context, gridIndex) {
+              SubCategoriesModel subCategoriesModel = controller.groceryList[index].subCategories![gridIndex];
+              return _buildInstamrtCategoryCard(subCategoriesModel,groceryStyle);
+            },
+          ),
+        ]),),
+    );
+  }
+
+  Widget _buildInstamrtCategoryCard(SubCategoriesModel model, GroceryStyle style) {
+    return SmartColumn(
+      children: [
+        SmartImage(
+          onTap: (){Get.toNamed(AppRoutes.categoryPage,arguments: true);},
+          decoration: style.groceryCardDecoration.copyWith(color: controller.currentFoodTabData.themeColor.withValues(alpha: 0.4)),
+          path: model.categoryUrl!,
+          height: 90.h,
+          width: 120.w,
+          fit: BoxFit.contain,
+          imageBorderRadius: BorderRadius.circular(12.r),
+        ),
+        SizedBox(height: 10.h),
+        SmartText(
+          model.name,
+          isExpanded: true,
+          textAlign: TextAlign.center,
+          style: style.subTitleStyle,
+          overflow: TextOverflow.ellipsis,
+          maxLines: 2,
+          optionalPadding: EdgeInsetsDirectional.symmetric(horizontal: 4.h),
+        ),
+      ],
+    );
+
   }
 }
 
