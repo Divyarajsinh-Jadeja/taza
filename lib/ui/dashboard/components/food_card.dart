@@ -20,11 +20,7 @@ class FoodCard extends StatelessWidget {
 
     return SmartRow(
       onTap:
-          () => Utils.showSmartModalBottomSheet(
-            context: context,
-            backgroundColor: Colors.transparent,
-            builder: (context) => OfferPopup(),
-          ),
+          () => Get.toNamed(AppRoutes.categoryPage, arguments: false),
       height: 110.h,
       margin: EdgeInsetsDirectional.only(bottom: 16.h),
       decoration: style.cardDecoration,
