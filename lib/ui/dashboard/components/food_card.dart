@@ -376,7 +376,7 @@ class MyOrderCard extends StatelessWidget {
                 borderColor: style.buttonPrimaryStyle.color,
                 titleStyle: style.buttonPrimaryStyle,
                 onTap: () {},
-                title: "RATE ORDER",
+                title: LocaleKeys.rateOrder.tr,
               ),
             ),
           ],
