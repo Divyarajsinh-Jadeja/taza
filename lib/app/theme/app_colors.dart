@@ -63,6 +63,7 @@ class AppThemes {
       useMaterial3: true,
       primaryColor: appColor.primary,
       scaffoldBackgroundColor: appColor.white,
+      splashFactory: NoSplash.splashFactory,
       dividerTheme: DividerThemeData(color: appColor.colorD3DAE0, space: 1.h),
       colorScheme: ColorScheme.fromSeed(seedColor: appColor.primary, primary: appColor.primary),
       indicatorColor: appColor.primary,

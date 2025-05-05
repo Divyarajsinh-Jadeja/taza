@@ -195,5 +195,8 @@
 
   "rateOrder": "RATE ORDER",
   "myOrders": "My Orders",
-  "help": "Help"
+  "help": "Help",
+  "goodFoodTitle": "Good Food is Always Cooking",
+  "cartEmptyMessage": "Your cart is empty. Add something from the menu",
+  "browseRestaurants": "Browse Restaurants"
 }
