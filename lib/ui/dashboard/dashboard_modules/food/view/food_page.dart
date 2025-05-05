@@ -345,7 +345,9 @@ class FoodPage extends GetView<FoodController> {
               itemBuilder: (context, index) => SmartImage(
                   path: demoRestaurantList[index].logo??"",
                   size: 90.w,
-                  imageBorderRadius: BorderRadius.circular(100.r),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle
+                  ),
                   clipBehavior: Clip.antiAlias,
               ),
             ),

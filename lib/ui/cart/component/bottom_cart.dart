@@ -57,6 +57,8 @@ class BottomCartWidget extends GetView<CartController> {
 
 
   _buildItemWidget(CheckoutStyle style) {
+    int visibleCount = controller.foodList.length > 4 ? 4 : controller.foodList.length;
+    double totalWidth = 30.w + (visibleCount - 1) * 8.w;
     return SmartRow(
       color: style.whiteColor,
       padding: EdgeInsetsDirectional.only(bottom: 10.h, top: 10.h,start: 20.w,end: 20.w),
@@ -67,8 +69,9 @@ class BottomCartWidget extends GetView<CartController> {
       },
 
       children: [
+
         Container(
-          width: 50.w,
+          width: totalWidth,
           height: 35.h,
           margin: EdgeInsetsDirectional.only(end: 10.w),
           child: Stack(
@@ -97,6 +100,7 @@ class BottomCartWidget extends GetView<CartController> {
           ),
         ),
         SmartColumn(
+          expanded: true,
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -124,10 +128,9 @@ class BottomCartWidget extends GetView<CartController> {
             SmartText(controller.cartTotal.toCurrencyCodeFormat(), style: style.itemAmountStyle),
           ],
         ),
-        Spacer(),
         SmartButton(
-          width: 100,
-          height: 40,
+          width: 100.w,
+          height: 40.h,
           onTap: () => Get.toNamed(AppRoutes.checkoutPage), title: LocaleKeys.cart.tr,)
       ],
     );

@@ -45,7 +45,7 @@ class FoodCard extends StatelessWidget {
           imageBorderRadius: style.imageDecoration,
           fit: BoxFit.fitHeight,
         ),
-        8.horizontalSpace,
+        SizedBox(width: 8.w,),
         SmartColumn(
           expanded: true,
           padding: EdgeInsetsDirectional.symmetric(
@@ -86,7 +86,7 @@ class FoodCard extends StatelessWidget {
                 ),
               ],
             ),
-            6.verticalSpace,
+            SizedBox(height: 6.h,),
             SmartRow(
               isExpanded: true,
               spacing: 4.w,

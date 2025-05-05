@@ -67,7 +67,7 @@ class ExploreBrandPage extends GetView<ExploreBrandController> {
                               child: SmartImage(
                                 path: controller.item.imageUrl ?? "",
                                 height: 100.h,
-                                width: double.infinity,
+                                width: Get.width,
                                 fit: BoxFit.cover,
                                 imageBorderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(16.r),
@@ -78,7 +78,7 @@ class ExploreBrandPage extends GetView<ExploreBrandController> {
                             Positioned(
                               top: 8.h,
                               right: 8.w,
-                              child: Row(
+                              child: SmartRow(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   Icon(Icons.favorite_border, color: loginStyle.loginPageBgColor, size: 20.w),
@@ -91,9 +91,9 @@ class ExploreBrandPage extends GetView<ExploreBrandController> {
                               bottom: 0.h,
                               right: 0.w,
                               child: Container(
-                                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+                                padding: EdgeInsetsDirectional.symmetric(horizontal: 8.w, vertical: 4.h),
                                 decoration: BoxDecoration(
-                                  color: loginStyle.dividerColor.withOpacity(0.7),
+                                  color: loginStyle.dividerColor.withValues(alpha:0.7),
                                   borderRadius: BorderRadius.circular(6.r),
                                 ),
                                 child: SmartText(
@@ -105,7 +105,7 @@ class ExploreBrandPage extends GetView<ExploreBrandController> {
                           ],
                         ),
                         SmartColumn(
-                          padding: EdgeInsets.all(12.w),
+                          padding: EdgeInsetsDirectional.all(12.w),
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SmartRow(
