@@ -43,6 +43,7 @@ class FoodCard extends StatelessWidget {
             animationDuration: 400.ms,
           ),
           imageBorderRadius: style.imageDecoration,
+          fit: BoxFit.fitHeight,
         ),
         8.horizontalSpace,
         SmartColumn(
@@ -241,7 +242,7 @@ class ReorderCard extends StatelessWidget {
             SmartAnimatedQuantity(model: model),
           ],
         ),
-        SmartRow(
+        /*SmartRow(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           padding: EdgeInsetsDirectional.symmetric(horizontal: 10.w),
           spacing: 10.w,
@@ -271,7 +272,7 @@ class ReorderCard extends StatelessWidget {
             ),
             SmartAnimatedQuantity(model: model),
           ],
-        ),
+        ),*/
       ],
     );
   }
@@ -296,7 +297,7 @@ class MyOrderCard extends StatelessWidget {
     final style = AppTheme.of(context).foodCardStyle;
     return SmartColumn(
       color: Colors.transparent,
-      onTap: () => Get.toNamed(AppRoutes.orderDetailsPage,arguments: model),
+      onTap: () => Get.toNamed(AppRoutes.orderDetailsPage, arguments: model),
       mainAxisSize: MainAxisSize.min,
       margin: EdgeInsetsDirectional.only(bottom: 20.h),
       padding: EdgeInsetsDirectional.only(bottom: 10.h),
@@ -323,8 +324,11 @@ class MyOrderCard extends StatelessWidget {
                   style: style.reorderTitleStyle,
                   maxLines: 1,
                 ),
-                CircleAvatar(radius: 8.r,backgroundColor: style.greenColor,child: Icon(Icons.done,color: style.whiteColor,size: 10.w,),)
-
+                CircleAvatar(
+                  radius: 8.r,
+                  backgroundColor: style.greenColor,
+                  child: Icon(Icons.done, color: style.whiteColor, size: 10.w),
+                ),
               ],
             ),
             SmartText(
@@ -339,47 +343,44 @@ class MyOrderCard extends StatelessWidget {
                   style: style.grayStyle,
                   maxLines: 1,
                 ),
-                Icon(Icons.keyboard_arrow_right_rounded,color: style.grayStyle.color,)
+                Icon(
+                  Icons.keyboard_arrow_right_rounded,
+                  color: style.grayStyle.color,
+                ),
               ],
             ),
-
           ],
         ),
         Padding(
-          padding:  EdgeInsetsDirectional.symmetric(vertical: 10.h),
+          padding: EdgeInsetsDirectional.symmetric(vertical: 10.h),
           child: SmartDashedDivider(),
         ),
-        SmartText(
-          model.name,
-          style: style.grayStyle,
-        ),
-        SmartText(
-          "December 31, 12:29 PM",
-          style: style.grayStyle,
-        ),
-        SizedBox(height: 10.h,),
+        SmartText(model.name, style: style.grayStyle),
+        SmartText("December 31, 12:29 PM", style: style.grayStyle),
+        SizedBox(height: 10.h),
         SmartRow(
-            spacing: 20.w,
-            children: [
-          Expanded(
-            child: SmartButton.white(
+          spacing: 20.w,
+          children: [
+            Expanded(
+              child: SmartButton.white(
                 height: 40.h,
                 borderColor: style.buttonGrayStyle.color,
                 titleStyle: style.buttonGrayStyle,
-                onTap: () {
-            
-            }, title: LocaleKeys.reorder.tr.toUpperCase()),
-          ),
-          Expanded(
-            child: SmartButton.white(
-              height: 40.h,
+                onTap: () {},
+                title: LocaleKeys.reorder.tr.toUpperCase(),
+              ),
+            ),
+            Expanded(
+              child: SmartButton.white(
+                height: 40.h,
                 borderColor: style.buttonPrimaryStyle.color,
                 titleStyle: style.buttonPrimaryStyle,
-                onTap: () {
-
-            }, title: "RATE ORDER"),
-          ),
-        ])
+                onTap: () {},
+                title: "RATE ORDER",
+              ),
+            ),
+          ],
+        ),
       ],
     );
   }

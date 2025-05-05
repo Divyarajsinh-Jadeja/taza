@@ -57,5 +57,7 @@
         <false/>
       </dict>
     </dict>
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <string>We use speech recognition to convert your voice into text.</string>
 </dict>
 </plist>
