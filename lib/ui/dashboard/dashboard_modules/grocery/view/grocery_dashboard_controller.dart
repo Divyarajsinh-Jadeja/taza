@@ -233,8 +233,7 @@ class GroceryDashboardController extends GetxController with GetSingleTickerProv
       themeColor: Color(0xFF3F51B5),
       bannerWidget: SizedBox(),
       tabText: "Meat",
-    ),*/
-  ];
+    ),*/];
 
   FoodTabData get currentFoodTabData => tabs[selectedFoodTab.value];
 
