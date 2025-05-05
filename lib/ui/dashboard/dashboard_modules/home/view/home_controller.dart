@@ -81,7 +81,7 @@ class HomeController extends GetxController {
         'tag': 'Up to 60% OFF',
         'image': 'https://i.ibb.co/4wfmxWh0/food-delivery-image.png',
       },
-      /*{
+      {
         'title': 'Instamart',
         'subtitle': 'Get anything instantly',
         'tag': 'Free Del at ${49.toCurrencyCodeFormat()}',
@@ -94,7 +94,7 @@ class HomeController extends GetxController {
         'subtitle': 'Sip & Savour Fest',
         'tag': 'Min 30% OFF',
         'image': 'https://i.ibb.co/ZRDYBYTc/image-dine-in.png',
-      },*/
+      },
       {
         'title': 'Take Away',
         'subtitle': 'Grab and go',

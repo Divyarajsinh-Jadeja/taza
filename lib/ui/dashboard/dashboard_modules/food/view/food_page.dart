@@ -136,7 +136,7 @@ class FoodPage extends GetView<FoodController> {
   Widget _buildPromoBannerSliver() {
     return _animatedBoxAdapter(
       child: SmartImage(
-        onTap: ()=> Get.toNamed(AppRoutes.categoryPage),
+        onTap: ()=> Get.toNamed(AppRoutes.categoryPage, arguments: false),
         path: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3",
         width: 352.w,
         height: 200.h,
@@ -239,7 +239,7 @@ class FoodPage extends GetView<FoodController> {
     return SmartColumn(
       onTap: () {
         // Get.toNamed(AppRoutes.foodDetailsPage);
-        Get.toNamed(AppRoutes.categoryPage);
+        Get.toNamed(AppRoutes.categoryPage, arguments: false);
       },
       width: 88.w,
       decoration: BoxDecoration(border: Border.all(color: foodPageStyle.borderColor), borderRadius: BorderRadius.circular(12.r)),

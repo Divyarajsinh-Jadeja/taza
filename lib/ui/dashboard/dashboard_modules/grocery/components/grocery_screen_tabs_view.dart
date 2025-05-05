@@ -55,9 +55,9 @@ class GroceryAnimatedTabBar extends GetView<GroceryDashboardController> {
                         duration: Duration(milliseconds: 400),
                         curve: Curves.easeOut,
                         child: AnimatedOpacity(
-                          opacity: isSelected ? 1 : 0.6,
+                          opacity: isSelected ? 1 : 1,
                           duration: Duration(milliseconds: 400),
-                          child: SizedBox(height: 32.w, width: 32.w, child: SmartImage(path: data.imagePath)),
+                          child: SizedBox(height: 34.w, width: 32.w, child: SmartImage(path: data.imagePath, fit: BoxFit.fill, padding: EdgeInsetsDirectional.all(2.w),)),
                         ),
                       ),
                     ),
