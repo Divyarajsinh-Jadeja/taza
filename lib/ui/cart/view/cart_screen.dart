@@ -117,7 +117,7 @@ class CartPage extends GetView<CartController> {
                 onTap: () {
                   Get.offNamed(AppRoutes.paymentPage);
                 },
-                title: LocaleKeys.payAmount.tr.interpolate(["120"]),
+                title: LocaleKeys.payAmount.tr.interpolate([controller.cartTotal.toCurrencyCodeFormat()]),
               ),
             ),
           ],
@@ -213,11 +213,11 @@ class CartPage extends GetView<CartController> {
                         style: style.toPayTitleStyle,
                       ),
                       SmartTextSpan(
-                        text: 89.toCurrencyCodeFormat(),
+                        text:(controller.cartTotal+100).toCurrencyCodeFormat(),
                         style: style.toPayTitleDiscountedStyle,
                       ),
                       SmartTextSpan(
-                        text: " ${79.toCurrencyCodeFormat()}",
+                        text: " ${controller.cartTotal.toCurrencyCodeFormat()}",
                         style: style.toPayTitleStyle,
                       ),
                     ],
@@ -238,8 +238,8 @@ class CartPage extends GetView<CartController> {
             _buildBillingRow(
               style: style,
               title: LocaleKeys.itemTotal.tr,
-              originalPrice: 258.toCurrencyCodeFormat(),
-              price: 150.toCurrencyCodeFormat(),
+              originalPrice: (controller.cartTotal+100).toCurrencyCodeFormat(),
+              price: controller.cartTotal.toCurrencyCodeFormat(),
             ),
             _buildBillingRow(
               style: style,
@@ -268,7 +268,7 @@ class CartPage extends GetView<CartController> {
                   style: style.titleStyle,
                   isExpanded: true,
                 ),
-                SmartText(300.toCurrencyCodeFormat(), style: style.titleStyle),
+                SmartText((controller.cartTotal+80).toCurrencyCodeFormat(), style: style.titleStyle),
               ],
             ),
           ],

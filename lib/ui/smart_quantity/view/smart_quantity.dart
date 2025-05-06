@@ -110,7 +110,7 @@ class SmartAnimatedQuantity extends GetView<CartController> {
             ),
           ],
           InkWell(
-            onTap: () => controller.addToCart(model),
+            onTap: () => controller.addToCart(context: context,product:model,),
             child: Icon(Icons.add, color: style.iconColor, size: 16.w),
           ),
         ],

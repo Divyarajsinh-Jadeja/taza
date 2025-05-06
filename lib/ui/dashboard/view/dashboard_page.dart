@@ -10,13 +10,16 @@ class DashboardPage extends GetView<DashboardController> {
       body: Stack(
         children: [
           Obx(() {
-            return PageView(
-              controller: controller.pageController,
-              physics: const NeverScrollableScrollPhysics(),
-              children:
-              controller.tabs
-                  .map((tab) => Builder(builder: tab.pageBuilder))
-                  .toList(),
+            return Padding(
+              padding: EdgeInsetsDirectional.only(bottom: controller.showBottomCart? 120.h:0),
+              child: PageView(
+                controller: controller.pageController,
+                physics: const NeverScrollableScrollPhysics(),
+                children:
+                controller.tabs
+                    .map((tab) => Builder(builder: tab.pageBuilder))
+                    .toList(),
+              ),
             );
           }),
           Positioned.directional(

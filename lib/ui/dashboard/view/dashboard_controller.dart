@@ -218,6 +218,6 @@ class DashboardController extends GetxController {
       duration: Duration(milliseconds: AppConst.transitionDuration),
       curve: Curves.easeInOut,
     );
-    print("changing index $index and current tab ${currentBottomType.value.name}");
+    printWrapped("Index = $index BottomType = ${currentBottomType.value}");
   }
 }

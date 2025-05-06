@@ -4,64 +4,114 @@ class BottomCartWidget extends GetView<CartController> {
   BottomCartWidget({super.key});
 
   final ValueNotifier<bool> showMenu = ValueNotifier(false);
+
   @override
   Widget build(BuildContext context) {
     final style = AppTheme.of(context).checkoutStyle;
-    return Obx(() => (controller.foodList.isNotEmpty ? ValueListenableBuilder(
-      valueListenable: showMenu,
-      builder: (context, value, child) {
-        return SmartColumn(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            value ? _buildReviewYourOrder(style):_buildHeader(style),
-            _buildItemWidget(style)
-          ],
-        );
-      },
-    ): SizedBox()),);
-  }
-
-  Widget _buildHeader(CheckoutStyle style) {
-    return SizedBox(
-      height: 90.h,
-      child: Stack(
-        alignment: Alignment.bottomCenter,
-        children: [
-          SmartColumn(
-            height: 50.h,
-            width: Get.width,
-            padding: EdgeInsetsDirectional.symmetric(horizontal: 20.w),
-            decoration: style.defaultDecoration,
-
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SmartText(
-                LocaleKeys.freeDeliveryMessage.tr,
-                style: style.titleStyle,
-              ),
-              SizedBox(height: 10.h),
-              Divider(),
-            ],
-          ),
-          Positioned.directional(
-            textDirection: TextDirection.ltr,
-            top: 35.h,
-            start: 10.w,
-            child: SmartImage(path: AppImages.deliveryLottie,size: 50.w,),
-          ),
-        ],
-      ),
+    return Obx(
+      () =>
+          (Get.find<DashboardController>().showBottomCart
+              ? ValueListenableBuilder(
+                valueListenable: showMenu,
+                builder: (context, value, child) {
+                  return SmartColumn(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      value
+                          ? _buildReviewYourOrder(style)
+                          : _buildHeader(style),
+                      _buildItemWidget(style),
+                    ],
+                  );
+                },
+              )
+              : SizedBox()),
     );
   }
 
+  Widget _buildHeader(CheckoutStyle style) {
+    return SmartColumn(
+      height: 60.h,
+      width: Get.width,
+      padding: EdgeInsetsDirectional.symmetric(horizontal: 20.w),
+      decoration: style.defaultDecoration,
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        SmartRow(
+          spacing: 10.w,
+          children: [
+            SizedBox(
+              width: 40.w,
+              height: 40.w,
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  TweenAnimationBuilder<double>(
+                    tween: Tween<double>(
+                      begin: 0.0,
+                      end: controller.cartProgress,
+                    ),
+                    duration: const Duration(milliseconds: 400),
+                    builder: (context, value, _) {
+                      final isComplete = value >= 1;
+                      return Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color:
+                              isComplete
+                                  ? style.primaryColor.withValues(alpha: 0.2)
+                                  : Colors.transparent,
+                        ),
+                        child: CircularProgressIndicator(
+                          value: value,
+                          strokeWidth: 3.w,
+                          backgroundColor: style.backgroundColor,
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            style.primaryColor,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+
+                  SmartText(controller.cartProgressEmoji)
+                      .animate(onPlay: (controller) => controller.repeat())
+                      .shimmer(
+                        duration: 2000.ms,
+                        color: style.backgroundColor.withValues(alpha: 0.6),
+                        angle: 20, // optional: shimmer angle in degrees
+                      ),
+                ],
+              ),
+            ),
+            SmartText(controller.cartTitle, style: style.bottomCartTitleStyle)
+                .animate(onPlay: (controller) => controller.repeat())
+                .shimmer(
+                  duration: 2000.ms,
+                  color: style.backgroundColor.withValues(alpha: 0.6),
+                  angle: 20, // optional: shimmer angle in degrees
+                ),
+          ],
+        ),
+        SizedBox(height: 5.h),
+        Divider(),
+      ],
+    );
+  }
 
   _buildItemWidget(CheckoutStyle style) {
-    int visibleCount = controller.foodList.length > 4 ? 4 : controller.foodList.length;
+    int visibleCount =
+        controller.foodList.length > 4 ? 4 : controller.foodList.length;
     double totalWidth = 30.w + (visibleCount - 1) * 8.w;
     return SmartRow(
       color: style.whiteColor,
-      padding: EdgeInsetsDirectional.only(bottom: 10.h, top: 10.h,start: 20.w,end: 20.w),
+      padding: EdgeInsetsDirectional.only(
+        bottom: 10.h,
+        top: 10.h,
+        start: 20.w,
+        end: 20.w,
+      ),
       mainAxisSize: MainAxisSize.min,
       width: Get.width,
       onTap: () {
@@ -69,7 +119,6 @@ class BottomCartWidget extends GetView<CartController> {
       },
 
       children: [
-
         Container(
           width: totalWidth,
           height: 35.h,
@@ -77,26 +126,29 @@ class BottomCartWidget extends GetView<CartController> {
           child: Stack(
             clipBehavior: Clip.none,
             alignment: Alignment.center,
-            children: List.generate(controller.foodList.length>4?4:controller.foodList.length, (index) {
-              return Positioned(
-                left: index * 8.w,
-                child: Container(
-                  width: 30.w,
-                  height: 35.w,
-                  decoration: BoxDecoration(
-                    color: style.whiteColor,
-                    border: Border.all(color: style.whiteColor, width: 1.w),
-                    borderRadius: BorderRadius.circular(6.r),
+            children: List.generate(
+              controller.foodList.length > 4 ? 4 : controller.foodList.length,
+              (index) {
+                return Positioned(
+                  left: index * 8.w,
+                  child: Container(
+                    width: 30.w,
+                    height: 35.w,
+                    decoration: BoxDecoration(
+                      color: style.whiteColor,
+                      border: Border.all(color: style.whiteColor, width: 1.w),
+                      borderRadius: BorderRadius.circular(6.r),
+                    ),
+                    child: SmartImage(
+                      /// TODO: below image will change once we integrate api
+                      path: controller.foodList[index].imageUrl,
+                      imageBorderRadius: BorderRadius.circular(6.r),
+                      clipBehavior: Clip.antiAlias,
+                    ),
                   ),
-                  child: SmartImage(
-                    /// TODO: below image will change once we integrate api
-                    path: controller.foodList[index].imageUrl,
-                    imageBorderRadius: BorderRadius.circular(6.r),
-                    clipBehavior: Clip.antiAlias,
-                  ),
-                ),
-              );
-            }),
+                );
+              },
+            ),
           ),
         ),
         SmartColumn(
@@ -106,7 +158,12 @@ class BottomCartWidget extends GetView<CartController> {
           children: [
             SmartRow(
               children: [
-                SmartText(LocaleKeys.itemsCount.tr.interpolate([controller.totalCartItems]), style: style.itemNameStyle),
+                SmartText(
+                  LocaleKeys.itemsCount.tr.interpolate([
+                    controller.cartQuantity,
+                  ]),
+                  style: style.itemNameStyle,
+                ),
                 ValueListenableBuilder(
                   valueListenable: showMenu,
                   builder: (_, bool expanded, __) {
@@ -125,13 +182,18 @@ class BottomCartWidget extends GetView<CartController> {
                 ),
               ],
             ),
-            SmartText(controller.cartTotal.toCurrencyCodeFormat(), style: style.itemAmountStyle),
+            SmartText(
+              "You save ${50.toCurrencyCodeFormat()}",
+              style: style.bottomCartGreenStyle,
+            ),
           ],
         ),
         SmartButton(
           width: 100.w,
           height: 40.h,
-          onTap: () => Get.toNamed(AppRoutes.checkoutPage), title: LocaleKeys.cart.tr,)
+          onTap: () => Get.toNamed(AppRoutes.checkoutPage),
+          title: LocaleKeys.cart.tr,
+        ),
       ],
     );
   }
@@ -149,8 +211,16 @@ class BottomCartWidget extends GetView<CartController> {
         SmartRow(
           padding: EdgeInsetsDirectional.symmetric(vertical: 10.h),
           children: [
-            SmartText(LocaleKeys.reviewYourOrder.tr,style: style.deliveryHeaderStyle,optionalPadding: EdgeInsetsDirectional.only(bottom: 10.h),isExpanded: true,),
-            SmartImage(path: AppImages.icClose,onTap: () => showMenu.value=!showMenu.value,)
+            SmartText(
+              LocaleKeys.reviewYourOrder.tr,
+              style: style.deliveryHeaderStyle,
+              optionalPadding: EdgeInsetsDirectional.only(bottom: 10.h),
+              isExpanded: true,
+            ),
+            SmartImage(
+              path: AppImages.icClose,
+              onTap: () => showMenu.value = !showMenu.value,
+            ),
           ],
         ),
         SmartColumn(
@@ -174,12 +244,17 @@ class BottomCartWidget extends GetView<CartController> {
                       isExpanded: true,
                     ),
                     SmartText(
-                      LocaleKeys.itemsCount.tr.interpolate([controller.totalCartItems]),
+                      LocaleKeys.itemsCount.tr.interpolate([
+                        controller.totalCartItems,
+                      ]),
                       style: style.deliveryInStyle,
                     ),
                   ],
                 ),
-                SmartText(LocaleKeys.minsWithTime.tr.interpolate(["12"]), style: style.deliveryHeaderStyle),
+                SmartText(
+                  LocaleKeys.minsWithTime.tr.interpolate(["12"]),
+                  style: style.deliveryHeaderStyle,
+                ),
               ],
             ),
             SmartDashedDivider(),
@@ -189,15 +264,12 @@ class BottomCartWidget extends GetView<CartController> {
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
               itemBuilder:
-                  (context, index) => ProductCheckoutCard(
-                model: controller.foodList[index],
-              ),
+                  (context, index) =>
+                      ProductCheckoutCard(model: controller.foodList[index]),
             ),
           ],
         ),
       ],
     );
   }
-
-
 }

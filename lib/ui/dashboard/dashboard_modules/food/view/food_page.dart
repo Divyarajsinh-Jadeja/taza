@@ -23,34 +23,19 @@ class FoodPage extends GetView<FoodController> {
         .of(context)
         .foodPageStyle;
 
-    return Obx(() =>
-        AnimatedContainer(
-          duration: const Duration(milliseconds: 300),
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  controller.currentFoodTabData.themeColor.withValues(
-                      alpha: 0.001),
-                  controller.currentFoodTabData.themeColor.withValues(
-                      alpha: 0.1),
-                ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              )),
-          child: CustomScrollView(
-            controller: controller.scrollController,
-            physics: const ClampingScrollPhysics(),
-            slivers: [
-              _buildAppBarSliver(foodPageStyle, context),
-              ..._buildTopHeaderSlivers(context, foodPageStyle),
-              //_buildAppBarSliver(foodPageStyle, context),
-              //_buildAddressHeaderSliver(),
-              //const PinnedHeaderSliver(child: FoodHeaderSliver()),
-              ..._buildContentSlivers(style, foodPageStyle),
-            ],
-          ),
-        ));
-    /*);*/
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      child: CustomScrollView(
+        controller: controller.scrollController,
+        physics: const ClampingScrollPhysics(),
+        slivers: [
+          _buildAppBarSliver(foodPageStyle, context),
+          ..._buildTopHeaderSlivers(context, foodPageStyle),
+          ..._buildContentSlivers(style, foodPageStyle),
+        ],
+      ),
+    );
+
   }
 
   List<Widget> _buildTopHeaderSlivers(BuildContext context,
@@ -106,25 +91,7 @@ class FoodPage extends GetView<FoodController> {
     );
   }
 
-  Widget _buildAddressHeaderSliver() {
-    return _animatedBoxAdapter(
-      child: Obx(
-            () =>
-            HomeAddressHeader(
-              padding: EdgeInsetsDirectional.symmetric(
-                  horizontal: 16.w, vertical: 6),
-              addressTypeTag: LocaleKeys.home.tr,
-              address: "1600 Amphitheatre, Mountain View",
-              userImagePath: "https://i.ibb.co/HLgDnFFQ/Group.png",
-              textColor: Utils.getContrastColor(
-                  controller.currentFoodTabData.themeColor),
-              homeIconColor: Utils.getContrastColor(
-                  controller.currentFoodTabData.themeColor),
-              //homeIconColor: controller.currentFoodTabData.themeColor,
-            ),
-      ),
-    );
-  }
+
 
   List<Widget> _buildContentSlivers(FoodCardStyle style,
       FoodPageStyle foodPageStyle) {
@@ -159,7 +126,7 @@ class FoodPage extends GetView<FoodController> {
           itemBuilder: (context, index) =>
               _buildCategoryCard(
                   context, style, controller.categoriesOfferZone[index],
-                  foodPageStyle),
+                  foodPageStyle,index),
         ),
       ),
     );
@@ -274,11 +241,10 @@ class FoodPage extends GetView<FoodController> {
   }
 
   Widget _buildCategoryCard(BuildContext context, FoodCardStyle style,
-      Map<String, String> category, FoodPageStyle foodPageStyle) {
+      Map<String, String> category, FoodPageStyle foodPageStyle, int index) {
     return SmartColumn(
       onTap: () {
-        // Get.toNamed(AppRoutes.foodDetailsPage);
-        Get.toNamed(AppRoutes.categoryPage);
+        Get.toNamed(AppRoutes.exploreBrandPage,arguments: demoRestaurantList[index]);
       },
       width: 88.w,
       decoration: BoxDecoration(
@@ -322,7 +288,7 @@ class FoodPage extends GetView<FoodController> {
     );
   }*/
 
-  Widget _buildFoodList(List<FoodItemModel> items) {
+  Widget _buildFoodList(List<FoodModel> items) {
     return SizedBox(
       height: 115.h,
       child: ListView.separated(
@@ -332,8 +298,7 @@ class FoodPage extends GetView<FoodController> {
         separatorBuilder: (_, __) => SizedBox(width: 16.w),
         itemBuilder: (_, index) {
           final item = items[index];
-          return FoodItemCard(item: item,
-              onTapAdd: () => debugPrint('Item added: ${item.title}'));
+          return FoodCard(model: item,width: 300.w,);
         },
       ),
     );
@@ -393,6 +358,7 @@ class FoodPage extends GetView<FoodController> {
               separatorBuilder: (_, __) => SizedBox(width: 20.w),
               itemBuilder: (context, index) =>
                   SmartImage(
+                    onTap: () => Get.toNamed(AppRoutes.exploreBrandPage,arguments: demoRestaurantList[index]),
                     path: demoRestaurantList[index].logo ?? "",
                     size: 90.w,
                     decoration: BoxDecoration(

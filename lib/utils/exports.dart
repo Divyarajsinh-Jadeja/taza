@@ -33,6 +33,7 @@ export 'package:image_picker/image_picker.dart';
 export 'package:flutter_animate/flutter_animate.dart';
 export 'package:lottie/lottie.dart';
 export 'package:flutter_localizations/flutter_localizations.dart';
+export 'package:flutter_confetti/flutter_confetti.dart';
 
 // Project core
 export 'package:taza/app/app_class.dart';
