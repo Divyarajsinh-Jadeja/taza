@@ -11,94 +11,119 @@ class CartPage extends GetView<CartController> {
       });
     });*/
 
-    final style = AppTheme.of(context).checkoutStyle;
-    return Scaffold(
-      backgroundColor: style.backgroundColor,
-      appBar: SmartAppBar(
-        showHomeWithAddress: true,
-        popupMenuItemBuilder: (p0) {
-          return [
-            PopupMenuItem(
-              padding: EdgeInsets.zero,
-              child: SmartRow(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                spacing: 10.w,
-                padding: EdgeInsetsDirectional.symmetric(horizontal: 8.w),
+    final style = AppTheme
+        .of(context)
+        .checkoutStyle;
+    return Obx(() {
+      return Scaffold(
+        backgroundColor: style.backgroundColor,
+        appBar: SmartAppBar(
+          showHomeWithAddress: controller.foodList.isNotEmpty,
+          popupMenuItemBuilder: (p0) {
+            return [
+              PopupMenuItem(
+                padding: EdgeInsets.zero,
+                child: SmartRow(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  spacing: 10.w,
+                  padding: EdgeInsetsDirectional.symmetric(horizontal: 8.w),
+                  children: [
+                    SmartText(
+                        LocaleKeys.clearCart.tr, style: style.missingStyle),
+                  ],
+                ),
+                onTap: () {},
+              ),
+            ];
+          },
+        ),
+        body: controller.foodList.isNotEmpty ? Stack(
+          children: [
+            SmartSingleChildScrollView(
+              padding: EdgeInsetsDirectional.only(top: 20.h),
+              child: SmartColumn(
+                padding: EdgeInsetsDirectional.all(20.w),
+                mainAxisSize: MainAxisSize.min,
+                spacing: 20.h,
                 children: [
-                  SmartText(LocaleKeys.clearCart.tr, style: style.missingStyle),
+                  SizedBox(height: 5.h,),
+                  _buildUnavailable(style),
+                  _buildReviewYourOrder(style),
+                  _buildMissingSomething(style),
+                  _buildSavingCorner(style),
+                  SmartDeliveryTabBar(),
+                  _buildToPaySar(style),
                 ],
               ),
-              onTap: () {},
             ),
-          ];
-        },
-      ),
-      body: Stack(
-        children: [
-          SmartSingleChildScrollView(
-            padding: EdgeInsetsDirectional.only(top: 20.h),
-            child: SmartColumn(
-              padding: EdgeInsetsDirectional.all(20.w),
-              mainAxisSize: MainAxisSize.min,
-              spacing: 20.h,
+            _buildTopAppliedOrder(style),
+          ],
+        ) : SizedBox(
+          height: Get.height,
+          width: Get.width,
+          child: SmartColumn(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              spacing: 10.h,
               children: [
-                SizedBox(height: 5.h,),
-                _buildUnavailable(style),
-                _buildReviewYourOrder(style),
-                _buildMissingSomething(style),
-                _buildSavingCorner(style),
-                SmartDeliveryTabBar(),
-                _buildToPaySar(style),
+                SmartImage(path: AppImages.cookingLottie, size: 300.w,),
+                SmartText(LocaleKeys.goodFoodTitle.tr,
+                  style: style.deliveryHeaderStyle,),
+                SmartText(LocaleKeys.cartEmptyMessage.tr,
+                  style: style.deliveryInStyle,),
+                SizedBox(height: 20.h,),
+                SmartButton(
+                    width: 250.w,
+                    onTap: () {
+                      Get.offAllNamed(AppRoutes.dashboardPage);
+                    }, title: LocaleKeys.browseRestaurants.tr)
+              ]),
+        ),
+        bottomNavigationBar: controller.foodList.isNotEmpty ? SmartRow(
+          height: 95.h,
+          decoration: BoxDecoration(color: style.whiteColor),
+          padding: EdgeInsetsDirectional.only(
+            top: 16.h,
+            bottom: 26.h,
+            start: 19.w,
+            end: 19.w,
+          ),
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SmartColumn(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              spacing: 4.h,
+              expanded: true,
+              children: [
+                SmartRow(
+                  spacing: 4.w,
+                  children: [
+                    SmartText(
+                      LocaleKeys.payUsing.tr,
+                      style: style.payUsingTextStyle,
+                    ),
+                    SmartImage(path: AppImages.icArrowUp, size: 16.w),
+                  ],
+                ),
+                SmartText(LocaleKeys.payPal.tr, style: style.paymentTextStyle),
               ],
             ),
-          ),
-          _buildTopAppliedOrder(style),
-        ],
-      ),
-      bottomNavigationBar: SmartRow(
-        height: 95.h,
-        decoration: BoxDecoration(color: style.whiteColor),
-        padding: EdgeInsetsDirectional.only(
-          top: 16.h,
-          bottom: 26.h,
-          start: 19.w,
-          end: 19.w,
-        ),
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SmartColumn(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            spacing: 4.h,
-            expanded: true,
-            children: [
-              SmartRow(
-                spacing: 4.w,
-                children: [
-                  SmartText(
-                    LocaleKeys.payUsing.tr,
-                    style: style.payUsingTextStyle,
-                  ),
-                  SmartImage(path: AppImages.icArrowUp, size: 16.w),
-                ],
+            Expanded(
+              child: SmartButton(
+                onTap: () {
+                  Get.offNamed(AppRoutes.paymentPage);
+                },
+                title: LocaleKeys.payAmount.tr.interpolate([controller.cartTotal.toCurrencyCodeFormat()]),
               ),
-              SmartText(LocaleKeys.payPal.tr, style: style.paymentTextStyle),
-            ],
-          ),
-          Expanded(
-            child: SmartButton(
-              onTap: () {
-                Get.offNamed(AppRoutes.paymentPage);
-              },
-              title: LocaleKeys.payAmount.tr.interpolate(["120"]),
             ),
-          ),
-        ],
-      ),
-    );
+          ],
+        ) : SizedBox(),
+      );
+    });
   }
 
   Widget _buildMissingSomething(CheckoutStyle style) {
@@ -188,11 +213,11 @@ class CartPage extends GetView<CartController> {
                         style: style.toPayTitleStyle,
                       ),
                       SmartTextSpan(
-                        text: 89.toCurrencyCodeFormat(),
+                        text:(controller.cartTotal+100).toCurrencyCodeFormat(),
                         style: style.toPayTitleDiscountedStyle,
                       ),
                       SmartTextSpan(
-                        text: " ${79.toCurrencyCodeFormat()}",
+                        text: " ${controller.cartTotal.toCurrencyCodeFormat()}",
                         style: style.toPayTitleStyle,
                       ),
                     ],
@@ -201,7 +226,8 @@ class CartPage extends GetView<CartController> {
               ],
             ),
             SmartText(
-              LocaleKeys.savedOnTotal.tr.interpolate([10.toCurrencyCodeFormat()]),
+              LocaleKeys.savedOnTotal.tr.interpolate(
+                  [10.toCurrencyCodeFormat()]),
               style: style.appliedTextStyle,
               optionalPadding: EdgeInsetsDirectional.only(start: 28.w),
             ),
@@ -212,8 +238,8 @@ class CartPage extends GetView<CartController> {
             _buildBillingRow(
               style: style,
               title: LocaleKeys.itemTotal.tr,
-              originalPrice: 258.toCurrencyCodeFormat(),
-              price: 150.toCurrencyCodeFormat(),
+              originalPrice: (controller.cartTotal+100).toCurrencyCodeFormat(),
+              price: controller.cartTotal.toCurrencyCodeFormat(),
             ),
             _buildBillingRow(
               style: style,
@@ -242,7 +268,7 @@ class CartPage extends GetView<CartController> {
                   style: style.titleStyle,
                   isExpanded: true,
                 ),
-                SmartText(300.toCurrencyCodeFormat(), style: style.titleStyle),
+                SmartText((controller.cartTotal+80).toCurrencyCodeFormat(), style: style.titleStyle),
               ],
             ),
           ],
@@ -361,15 +387,17 @@ class CartPage extends GetView<CartController> {
               ],
             ),
             SmartDashedDivider(),
-            ListView.builder(
-              padding: EdgeInsetsDirectional.only(top: 8.h),
-              itemCount: controller.foodList.length,
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemBuilder:
-                  (context, index) =>
-                      ProductCheckoutCard(model: controller.foodList[index]),
-            ),
+            Obx(() {
+              return ListView.builder(
+                padding: EdgeInsetsDirectional.only(top: 8.h),
+                itemCount: controller.foodList.length,
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemBuilder:
+                    (context, index) =>
+                    ProductCheckoutCard(model: controller.foodList[index]),
+              );
+            }),
           ],
         ),
       ],
@@ -381,9 +409,10 @@ class CartPage extends GetView<CartController> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       width: Get.width,
-      padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w,vertical: 10.h),
+      padding: EdgeInsetsDirectional.symmetric(
+          horizontal: 16.w, vertical: 10.h),
       decoration: style.cardDecoration.copyWith(
-        border: Border.all(color: style.redColor)
+          border: Border.all(color: style.redColor)
       ),
       spacing: 10.h,
       children: [
@@ -399,7 +428,8 @@ class CartPage extends GetView<CartController> {
             SmartRow(
               spacing: 5.w,
               children: [
-                SmartText(LocaleKeys.removeAll.tr, style: style.deliveryInStyle),
+                SmartText(
+                    LocaleKeys.removeAll.tr, style: style.deliveryInStyle),
                 SmartImage(path: AppImages.icClose),
               ],
             ),
@@ -413,15 +443,15 @@ class CartPage extends GetView<CartController> {
           physics: NeverScrollableScrollPhysics(),
           itemBuilder:
               (context, index) =>
-                  ProductCheckoutCard(model: FoodModel(
-                    id: "8",
-                    name: 'Crispy Fries',
-                    imageUrl: 'https://i.ibb.co/Wp59vWJz/fries.jpg',
-                    rating: 4.1,
-                    reviewsCount: 620,
-                    deliveryTime: '10-15 min',
-                    price: 19.0,
-                  ),isOutOfStock: true,),
+              ProductCheckoutCard(model: FoodModel(
+                id: "8",
+                name: 'Crispy Fries',
+                imageUrl: 'https://i.ibb.co/Wp59vWJz/fries.jpg',
+                rating: 4.1,
+                reviewsCount: 620,
+                deliveryTime: '10-15 min',
+                price: 19.0,
+              ), isOutOfStock: true,),
         ),
       ],
     );

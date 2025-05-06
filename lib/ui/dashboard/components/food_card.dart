@@ -6,22 +6,20 @@ class FoodCard extends StatelessWidget {
     required this.model,
     this.onIncrease,
     this.onDecrease,
-    required this.index,
+    this.width
   });
 
   final FoodModel model;
   final VoidCallback? onIncrease;
   final VoidCallback? onDecrease;
-  final int index;
-
+  final double? width;
   @override
   Widget build(BuildContext context) {
     final style = AppTheme.of(context).foodCardStyle;
 
     return SmartRow(
-      onTap:
-          () => Get.toNamed(AppRoutes.categoryPage, arguments: false),
       height: 110.h,
+      width: width,
       margin: EdgeInsetsDirectional.only(bottom: 16.h),
       decoration: style.cardDecoration,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,12 +30,12 @@ class FoodCard extends StatelessWidget {
           height: 110.h,
           path: model.imageUrl,
           clipBehavior: Clip.antiAlias,
-          animator: SmartAnimator(
+          /*animator: SmartAnimator(
             animateFade: true,
             animateScale: true,
             animationDelay: 400.ms,
             animationDuration: 400.ms,
-          ),
+          ),*/
           imageBorderRadius: style.imageDecoration,
           fit: BoxFit.fitHeight,
         ),
@@ -61,24 +59,24 @@ class FoodCard extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   isExpanded: true,
-                  animator: SmartAnimator(
+                  /*animator: SmartAnimator(
                     animateFade: true,
                     animateSlideX: true,
                     animationDuration: 300.ms,
                     animationDelay: 600.ms,
                     animationCurve: Curves.decelerate,
-                  ),
+                  ),*/
                 ),
                 SmartImage(
                   path: AppImages.icNonVeg,
                   height: 16.w,
                   width: 16.w,
-                  animator: SmartAnimator(
+                  /*animator: SmartAnimator(
                     animateFade: true,
                     animateScale: true,
                     animationDelay: 400.ms,
                     animationDuration: 400.ms,
-                  ),
+                  ),*/
                 ),
               ],
             ),
@@ -92,22 +90,22 @@ class FoodCard extends StatelessWidget {
                 SmartImage(
                   path: AppImages.icStar,
                   height: 14.h,
-                  animator: SmartAnimator(
+                  /*animator: SmartAnimator(
                     animateFade: true,
                     animateScale: true,
                     animationDelay: 400.ms,
                     animationDuration: 400.ms,
-                  ),
+                  ),*/
                 ),
                 SmartText(
                   "${model.rating} • ${model.deliveryTime}",
                   style: style.subTitleStyle,
-                  animator: SmartAnimator(
+                  /*animator: SmartAnimator(
                     animateFade: true,
                     animateSlideX: true,
                     animationDuration: 300.ms,
                     animationDelay: 500.ms,
-                  ),
+                  ),*/
                 ),
               ],
             ),
@@ -117,12 +115,12 @@ class FoodCard extends StatelessWidget {
                 SmartText(
                   model.price.toCurrencyCodeFormat(),
                   style: style.amountStyle,
-                  animator: SmartAnimator(
+                  /*animator: SmartAnimator(
                     animateScale: true,
                     animationDelay: 300.ms,
                     animationDuration: 500.ms,
                     animationCurve: Curves.decelerate,
-                  ),
+                  ),*/
                 ),
 
                 SmartAnimatedQuantity(model: model),

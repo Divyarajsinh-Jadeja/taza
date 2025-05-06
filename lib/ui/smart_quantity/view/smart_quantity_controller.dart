@@ -13,7 +13,6 @@ class QuantityController extends GetxController {
   }
 
   void decrement(int index) {
-    print(quantities[index].value);
     if (quantities[index].value != 0) {
       quantities[index].value--;
       HapticFeedback.lightImpact();

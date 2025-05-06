@@ -196,7 +196,6 @@ class ExploreBrandPage extends GetView<ExploreBrandController> {
                       itemBuilder:
                           (context, index) =>
                           FoodCard(
-                            index: index,
                             onIncrease: () => Get.find<QuantityController>().increment(index),
                             onDecrease: () => Get.find<QuantityController>().decrement(index),
                             model: controller.item.menu[index],

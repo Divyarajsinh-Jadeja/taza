@@ -39,6 +39,12 @@ class SmartAnimator extends StatelessWidget {
   final Color? colorEnd;
   final bool isColorOnBackground;
 
+  // Shimmer customization
+  final Duration? shimmerDuration;
+  final Color? shimmerColor;
+  final double? shimmerAngle;
+
+
   // Timing
   final Duration animationDelay;
   final Duration animationDuration;
@@ -86,6 +92,9 @@ class SmartAnimator extends StatelessWidget {
     this.animationCurve = Curves.decelerate,
     this.customEffectBuilder,
     this.repeat = false,
+    this.shimmerAngle,
+    this.shimmerColor,
+    this.shimmerDuration
   });
 
   @override
@@ -136,7 +145,7 @@ class SmartAnimator extends StatelessWidget {
           curve: animationCurve,
         ),
       if (animateShimmer)
-        ShimmerEffect(duration: animationDuration, delay: animationDelay),
+        ShimmerEffect(duration: shimmerDuration, delay: animationDelay,color: shimmerColor,angle: shimmerAngle,),
       if (animateFlip)
         FlipEffect(
           begin: flipBegin ?? 0.0,
@@ -198,7 +207,9 @@ class SmartAnimator extends StatelessWidget {
       delay: animationDelay,
       effects: effects,
       onPlay: repeat
-          ? (controller) => controller.repeat()
+          ? (controller) {
+            controller.repeat();
+          }
           : null,
       child: child ?? const SizedBox(),
     );

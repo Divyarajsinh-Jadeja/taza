@@ -400,6 +400,15 @@ class LightModeTheme extends AppTheme {
     cardDecoration: BoxDecoration(
       border: Border.all(color: colors.colorD2D2D7),
       borderRadius: BorderRadius.circular(16.r),
+      color: colors.white,
+      boxShadow: [
+        BoxShadow(
+          color: colors.black.withValues(alpha: 0.2),
+          offset: const Offset(0, 4),
+          blurRadius: 10,
+          spreadRadius: 0.1,
+        ),
+      ]
     ),
     halfCardDecoration: BoxDecoration(
       color: colors.color9c9cA3.withValues(alpha: 0.1),
@@ -657,6 +666,15 @@ class LightModeTheme extends AppTheme {
         ),
       ],
     ),
+    bottomCartTitleStyle: interBoldW700TextStyle.copyWith(
+      fontSize: 11.sp,
+      color: colors.color1D1D1F,
+    ),
+    bottomCartGreenStyle: interSemiBoldW600TextStyle.copyWith(
+      fontSize: 10.sp,
+      color: colors.color34A853,
+    ),
+
   );
 
   @override

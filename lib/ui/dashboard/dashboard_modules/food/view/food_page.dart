@@ -5,66 +5,71 @@ class FoodPage extends GetView<FoodController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(resizeToAvoidBottomInset : false, extendBodyBehindAppBar: true, body: _buildBody(context));
+    return Obx(() {
+      return AnnotatedRegion(
+          value: Utils.getOverlayStyle(
+              controller.currentFoodTabData.themeColor),
+          child: Scaffold(resizeToAvoidBottomInset: false,
+              extendBodyBehindAppBar: true,
+              body: _buildBody(context)));
+    });
   }
 
   Widget _buildBody(BuildContext context) {
-    final style = AppTheme.of(context).foodCardStyle;
-    final foodPageStyle = AppTheme.of(context).foodPageStyle;
+    final style = AppTheme
+        .of(context)
+        .foodCardStyle;
+    final foodPageStyle = AppTheme
+        .of(context)
+        .foodPageStyle;
 
-    return Obx(() => AnimatedContainer(
+    return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-            colors: [
-              controller.currentFoodTabData.themeColor.withValues(alpha: 0.001),
-              controller.currentFoodTabData.themeColor.withValues(alpha: 0.1),
-            ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-        )),
       child: CustomScrollView(
         controller: controller.scrollController,
         physics: const ClampingScrollPhysics(),
         slivers: [
           _buildAppBarSliver(foodPageStyle, context),
           ..._buildTopHeaderSlivers(context, foodPageStyle),
-          //_buildAppBarSliver(foodPageStyle, context),
-          //_buildAddressHeaderSliver(),
-          //const PinnedHeaderSliver(child: FoodHeaderSliver()),
           ..._buildContentSlivers(style, foodPageStyle),
         ],
       ),
-    ));
-    /*);*/
+    );
+
   }
 
-  List<Widget> _buildTopHeaderSlivers(BuildContext context, FoodPageStyle foodPageStyle) {
+  List<Widget> _buildTopHeaderSlivers(BuildContext context,
+      FoodPageStyle foodPageStyle) {
     return [
       SliverToBoxAdapter(
-        child: Obx(() => SmartColumn(
-        color: controller.currentFoodTabData.themeColor,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
-              child: HomeAddressHeader(
-                addressTypeTag: LocaleKeys.home.tr,
-                address: "1600 Amphitheatre, Mountain View",
-                userImagePath: "https://i.ibb.co/HLgDnFFQ/Group.png",
-                textColor: Utils.getContrastColor(controller.currentFoodTabData.themeColor),
-                homeIconColor: Utils.getContrastColor(controller.currentFoodTabData.themeColor),
-              ),
-            ),
-          ],
-        )),
+        child: Obx(() =>
+            SmartColumn(
+              color: controller.currentFoodTabData.themeColor,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: 16.w, vertical: 6.h),
+                  child: HomeAddressHeader(
+                    addressTypeTag: LocaleKeys.home.tr,
+                    address: "1600 Amphitheatre, Mountain View",
+                    userImagePath: "https://i.ibb.co/HLgDnFFQ/Group.png",
+                    textColor: Utils.getContrastColor(
+                        controller.currentFoodTabData.themeColor),
+                    homeIconColor: Utils.getContrastColor(
+                        controller.currentFoodTabData.themeColor),
+                  ),
+                ),
+              ],
+            )),
       ),
       // Now separate pinned header for FoodHeaderSliver
       PinnedHeaderSliver(
-        child: Obx(() => ColoredBox(
-          color: controller.currentFoodTabData.themeColor,
-          child: const FoodHeaderSliver(),
-        )),
+        child: Obx(() =>
+            ColoredBox(
+              color: controller.currentFoodTabData.themeColor,
+              child: const FoodHeaderSliver(),
+            )),
       ),
     ];
   }
@@ -73,36 +78,26 @@ class FoodPage extends GetView<FoodController> {
   Widget _buildAppBarSliver(FoodPageStyle foodPageStyle, BuildContext context) {
     return PinnedHeaderSliver(
       child: Obx(
-            () => ColoredBox(
-          color: foodPageStyle.whiteColor,
-          child: Container(
-            color: controller.currentFoodTabData.themeColor.withValues(alpha: 0.8),
-            height: MediaQuery.of(context).padding.top,
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildAddressHeaderSliver() {
-    return _animatedBoxAdapter(
-      child: Obx(
-            () => HomeAddressHeader(
-              padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w, vertical: 6),
-              addressTypeTag: LocaleKeys.home.tr,
-              address: "1600 Amphitheatre, Mountain View",
-              userImagePath: "https://i.ibb.co/HLgDnFFQ/Group.png",
-              textColor: Utils.getContrastColor(controller.currentFoodTabData.themeColor),
-              homeIconColor: Utils.getContrastColor(controller.currentFoodTabData.themeColor),
-              //homeIconColor: controller.currentFoodTabData.themeColor,
+            () =>
+            Container(
+              color: controller.currentFoodTabData.themeColor.withValues(
+                  alpha: 1),
+              height: MediaQuery
+                  .of(context)
+                  .padding
+                  .top,
             ),
       ),
     );
   }
 
-  List<Widget> _buildContentSlivers(FoodCardStyle style, FoodPageStyle foodPageStyle) {
+
+
+  List<Widget> _buildContentSlivers(FoodCardStyle style,
+      FoodPageStyle foodPageStyle) {
     return [
-      _animatedBoxAdapter(child: Obx(() => controller.currentFoodTabData.bannerWidget)),
+      _animatedBoxAdapter(
+          child: Obx(() => controller.currentFoodTabData.bannerWidget)),
       _animatedBoxAdapter(child: SizedBox(height: 16.h)),
       _buildCategoriesSliver(style, foodPageStyle),
       _animatedBoxAdapter(child: SizedBox(height: 20.h)),
@@ -118,7 +113,8 @@ class FoodPage extends GetView<FoodController> {
     ];
   }
 
-  Widget _buildCategoriesSliver(FoodCardStyle style, FoodPageStyle foodPageStyle) {
+  Widget _buildCategoriesSliver(FoodCardStyle style,
+      FoodPageStyle foodPageStyle) {
     return _animatedBoxAdapter(
       child: SizedBox(
         height: 120.h,
@@ -127,7 +123,10 @@ class FoodPage extends GetView<FoodController> {
           itemCount: controller.categoriesOfferZone.length,
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           separatorBuilder: (_, __) => SizedBox(width: 8.w),
-          itemBuilder: (context, index) => _buildCategoryCard(context, style, controller.categoriesOfferZone[index], foodPageStyle),
+          itemBuilder: (context, index) =>
+              _buildCategoryCard(
+                  context, style, controller.categoriesOfferZone[index],
+                  foodPageStyle,index),
         ),
       ),
     );
@@ -136,7 +135,7 @@ class FoodPage extends GetView<FoodController> {
   Widget _buildPromoBannerSliver() {
     return _animatedBoxAdapter(
       child: SmartImage(
-        onTap: ()=> Get.toNamed(AppRoutes.categoryPage, arguments: false),
+        onTap: () => Get.toNamed(AppRoutes.categoryPage),
         path: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3",
         width: 352.w,
         height: 200.h,
@@ -151,7 +150,8 @@ class FoodPage extends GetView<FoodController> {
   List<Widget> _buildReorderSection(FoodPageStyle foodPageStyle) {
     return [
       _animatedBoxAdapter(child: SizedBox(height: 32.h)),
-      _buildSectionHeader("Loved it? Reorder Now!", foodPageStyle, showArrow: false),
+      _buildSectionHeader(
+          "Loved it? Reorder Now!", foodPageStyle, showArrow: false),
       _animatedBoxAdapter(child: SizedBox(height: 16.h)),
       _animatedBoxAdapter(child: _buildFoodList(controller.foodItemList)),
     ];
@@ -178,26 +178,30 @@ class FoodPage extends GetView<FoodController> {
     ];
   }
 
-  Widget _buildSectionHeader(String title, FoodPageStyle foodPageStyle, {bool showArrow = true}) {
+  Widget _buildSectionHeader(String title, FoodPageStyle foodPageStyle,
+      {bool showArrow = true}) {
     return _animatedBoxAdapter(
       child: SmartRow(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         children: [
-          SmartText(title, style: foodPageStyle.headerTextStyle, isFlexible: true),
+          SmartText(
+              title, style: foodPageStyle.headerTextStyle, isFlexible: true),
           if (showArrow) SmartImage(path: AppImages.icArrowRight),
         ],
       ),
     );
   }
 
-  Widget _buildExploreSectionHeader(String title, FoodPageStyle foodPageStyle, {bool showArrow = true}) {
+  Widget _buildExploreSectionHeader(String title, FoodPageStyle foodPageStyle,
+      {bool showArrow = true}) {
     return _animatedBoxAdapter(
       child: SmartRow(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         children: [
-          SmartText(title, style: foodPageStyle.headerTextStyle, isFlexible: true),
+          SmartText(
+              title, style: foodPageStyle.headerTextStyle, isFlexible: true),
           if (showArrow) SmartImage(path: AppImages.icArrowRight),
         ],
       ),
@@ -219,7 +223,8 @@ class FoodPage extends GetView<FoodController> {
         tabs: controller.cravingTabs,
         padding: EdgeInsets.zero,
         indicatorSize: TabBarIndicatorSize.label,
-        tabBarView: List.generate(controller.cravingTabs.length, (_) => _buildCravingTabContent()),
+        tabBarView: List.generate(
+            controller.cravingTabs.length, (_) => _buildCravingTabContent()),
       ),
     );
   }
@@ -235,14 +240,16 @@ class FoodPage extends GetView<FoodController> {
     );
   }
 
-  Widget _buildCategoryCard(BuildContext context, FoodCardStyle style, Map<String, String> category, FoodPageStyle foodPageStyle) {
+  Widget _buildCategoryCard(BuildContext context, FoodCardStyle style,
+      Map<String, String> category, FoodPageStyle foodPageStyle, int index) {
     return SmartColumn(
       onTap: () {
-        // Get.toNamed(AppRoutes.foodDetailsPage);
-        Get.toNamed(AppRoutes.categoryPage, arguments: false);
+        Get.toNamed(AppRoutes.exploreBrandPage,arguments: demoRestaurantList[index]);
       },
       width: 88.w,
-      decoration: BoxDecoration(border: Border.all(color: foodPageStyle.borderColor), borderRadius: BorderRadius.circular(12.r)),
+      decoration: BoxDecoration(
+          border: Border.all(color: foodPageStyle.borderColor),
+          borderRadius: BorderRadius.circular(12.r)),
       clipBehavior: Clip.antiAlias,
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -252,11 +259,15 @@ class FoodPage extends GetView<FoodController> {
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           textAlign: TextAlign.center,
-          optionalPadding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 12.h),
+          optionalPadding: EdgeInsets.symmetric(
+              horizontal: 8.w, vertical: 12.h),
           style: foodPageStyle.categoryTitleTextStyle,
         ),
         const Spacer(),
-        SmartImage(path: category['image'] ?? "", height: 50.h, width: Get.width, fit: BoxFit.cover),
+        SmartImage(path: category['image'] ?? "",
+            height: 50.h,
+            width: Get.width,
+            fit: BoxFit.cover),
       ],
     );
   }
@@ -277,7 +288,7 @@ class FoodPage extends GetView<FoodController> {
     );
   }*/
 
-  Widget _buildFoodList(List<FoodItemModel> items) {
+  Widget _buildFoodList(List<FoodModel> items) {
     return SizedBox(
       height: 115.h,
       child: ListView.separated(
@@ -287,7 +298,7 @@ class FoodPage extends GetView<FoodController> {
         separatorBuilder: (_, __) => SizedBox(width: 16.w),
         itemBuilder: (_, index) {
           final item = items[index];
-          return FoodItemCard(item: item, onTapAdd: () => debugPrint('Item added: ${item.title}'));
+          return FoodCard(model: item,width: 300.w,);
         },
       ),
     );
@@ -304,7 +315,9 @@ class FoodPage extends GetView<FoodController> {
         separatorBuilder: (_, __) => SizedBox(height: 16.w),
         itemBuilder: (_, index) {
           final item = items[index];
-          return RestaurantItemCard(item: item, onTap: () => Get.toNamed(AppRoutes.exploreBrandPage, arguments: item));
+          return RestaurantItemCard(item: item,
+              onTap: () =>
+                  Get.toNamed(AppRoutes.exploreBrandPage, arguments: item));
         },
       ),
     );
@@ -316,7 +329,8 @@ class FoodPage extends GetView<FoodController> {
         child: AnimationConfiguration.synchronized(
           duration: const Duration(milliseconds: 375), // Reduced animation time
           child: SlideAnimation(
-            verticalOffset: 20.0, // Reduced slide distance for faster perception
+            verticalOffset: 20.0,
+            // Reduced slide distance for faster perception
             child: FadeInAnimation(child: child),
           ),
         ),
@@ -330,10 +344,10 @@ class FoodPage extends GetView<FoodController> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SmartRow(
-            padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
+              padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
               children: [
                 SmartText("Popular Brands", style: style.titleStyle,),
-          ]),
+              ]),
           SizedBox(height: 10.h,),
           SizedBox(
             height: 80.h,
@@ -342,14 +356,16 @@ class FoodPage extends GetView<FoodController> {
               itemCount: demoRestaurantList.length,
               padding: EdgeInsets.symmetric(horizontal: 16.w),
               separatorBuilder: (_, __) => SizedBox(width: 20.w),
-              itemBuilder: (context, index) => SmartImage(
-                  path: demoRestaurantList[index].logo??"",
-                  size: 90.w,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle
+              itemBuilder: (context, index) =>
+                  SmartImage(
+                    onTap: () => Get.toNamed(AppRoutes.exploreBrandPage,arguments: demoRestaurantList[index]),
+                    path: demoRestaurantList[index].logo ?? "",
+                    size: 90.w,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle
+                    ),
+                    clipBehavior: Clip.antiAlias,
                   ),
-                  clipBehavior: Clip.antiAlias,
-              ),
             ),
           ),
         ],
@@ -361,7 +377,8 @@ class FoodPage extends GetView<FoodController> {
   List<Widget> _buildExploreRestroSection(FoodPageStyle foodPageStyle) {
     return [
       _animatedBoxAdapter(child: SizedBox(height: 32.h)),
-      _buildExploreSectionHeader("Top 7 Brands to explore", foodPageStyle, showArrow: false),
+      _buildExploreSectionHeader(
+          "Top 7 Brands to explore", foodPageStyle, showArrow: false),
       _animatedBoxAdapter(child: SizedBox(height: 16.h)),
       _animatedBoxAdapter(child: _buildRestaurantsList(demoRestaurantList)),
     ];
