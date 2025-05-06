@@ -15,11 +15,21 @@ class SubCategoriesModel {
   final String? name;
   final String? categoryUrl;
   final List<ProductModel>? products;
-
   SubCategoriesModel({
     this.id,
     this.name,
     this.categoryUrl,
-    this.products
+    this.products,
+  });
+}
+class SubCategoryItemVariant {
+  final String unit;
+  final double price;
+  final double originalPrice;
+
+  SubCategoryItemVariant({
+    required this.unit,
+    required this.price,
+    required this.originalPrice,
   });
 }
