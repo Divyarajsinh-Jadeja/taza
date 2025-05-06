@@ -193,7 +193,7 @@ class FoodPage extends GetView<FoodController> {
     return SmartColumn(
       onTap: () {
         // Get.toNamed(AppRoutes.foodDetailsPage);
-        Get.toNamed(AppRoutes.categoryPage);
+        Get.toNamed(AppRoutes.categoryPage, arguments: false);
       },
       width: 88.w,
       decoration: BoxDecoration(border: Border.all(color: foodPageStyle.borderColor), borderRadius: BorderRadius.circular(12.r)),

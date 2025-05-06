@@ -1,23 +1,25 @@
 import 'package:taza/taza.dart';
 class CategoriesModel {
-  final String id;
-  final String name;
-  final List<SubCategoriesModel> subCategories;
+  final String? id;
+  final String? name;
+  final List<SubCategoriesModel>? subCategories;
 
   CategoriesModel({
-    required this.id,
-    required this.name,
-    required this.subCategories,
+    this.id,
+    this.name,
+    this.subCategories,
   });
 }
 class SubCategoriesModel {
-  final String id;
-  final String name;
-  final String categoryUrl;
+  final String? id;
+  final String? name;
+  final String? categoryUrl;
+  final List<ProductModel>? products;
 
   SubCategoriesModel({
-    required this.id,
-    required this.name,
-    required this.categoryUrl,
+    this.id,
+    this.name,
+    this.categoryUrl,
+    this.products
   });
 }

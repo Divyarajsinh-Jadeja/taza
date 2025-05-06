@@ -1,7 +1,8 @@
 import 'package:taza/taza.dart';
 
 class CategoryProductGrid extends GetView<CategoryController> {
-  const CategoryProductGrid({super.key});
+  final bool isFromInstamart;
+  const CategoryProductGrid(this.isFromInstamart, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,8 @@ class CategoryProductGrid extends GetView<CategoryController> {
             child: SlideTransition(position: Tween<Offset>(begin: Offset(0.05, 0), end: Offset.zero).animate(animation), child: child),
           );
         },
-        child: ProductListView(key: ValueKey(controller.selectedCategoryIndex.value)),
+        child: !isFromInstamart ? ProductListView(key: ValueKey(controller.selectedCategoryIndex.value))
+            : ProductInstamartListView(key: ValueKey(controller.selectedCategoryIndex.value)),
       ),
     );
   }

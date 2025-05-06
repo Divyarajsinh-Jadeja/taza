@@ -2,6 +2,7 @@ import 'package:taza/taza.dart';
 
 class CategoryPageDashboard extends GetView<CategoryDashboardController> {
   const CategoryPageDashboard({super.key});
+  final bool isFromInstamart = true;
 
   @override
   Widget build(BuildContext context) {
@@ -36,12 +37,12 @@ class CategoryPageDashboard extends GetView<CategoryDashboardController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       padding: EdgeInsetsDirectional.only(bottom: 20.h),
                       mainAxisSize: MainAxisSize.min,children: [
-                    SizedBox(height: 8.h),
+                    SizedBox(height: 2.h),
                     SmartRow(
                       spacing: 6.w,
                       children: [
                         SmartText(
-                            controller.groceryList[index].name.toUpperCase() ,
+                            controller.groceryList[index].name!.toUpperCase() ,
                             style: style.titleStyle
                         ),
                         Expanded(child: Container(height: 1.h, color: style.groceryCardDecoration.color,))
@@ -57,9 +58,9 @@ class CategoryPageDashboard extends GetView<CategoryDashboardController> {
                         mainAxisSpacing: 20.h,
                         childAspectRatio: 0.55,
                       ),
-                      itemCount: controller.groceryList[index].subCategories.length, // or controller.items.length
+                      itemCount: controller.groceryList[index].subCategories!.length, // or controller.items.length
                       itemBuilder: (context, gridIndex) {
-                        SubCategoriesModel subCategoriesModel = controller.groceryList[index].subCategories[gridIndex];
+                        SubCategoriesModel subCategoriesModel = controller.groceryList[index].subCategories![gridIndex];
                         return _buildCategoryCard(subCategoriesModel,style);
                       },
                     ),
@@ -76,12 +77,11 @@ class CategoryPageDashboard extends GetView<CategoryDashboardController> {
     return SmartColumn(
       children: [
         SmartImage(
-          onTap: (){Get.toNamed(AppRoutes.categoryPage);},
+          onTap: (){Get.toNamed(AppRoutes.categoryPage,arguments: isFromInstamart);},
           decoration: style.groceryCardDecoration,
-          padding: EdgeInsetsDirectional.all(8.w),
-          path: model.categoryUrl,
+          path: model.categoryUrl!,
           height: 90.h,
-          width: 110.w,
+          width: 120.w,
           fit: BoxFit.contain,
           imageBorderRadius: BorderRadius.circular(12.r),
         ),

@@ -110,12 +110,9 @@ class HomePage extends GetView<HomeController> {
                                   if(index == 0){
                                     Get.find<DashboardController>().changeTab(1);
                                   }
-                                  /*if(index == 1){
+                                  if(index == 1){
                                     Get.find<DashboardController>().changeTab(2);
                                   }
-                                  if(index == 3){
-                                    Get.find<DashboardController>().changeTab(1);
-                                  }*/
                                 },
                                 title: item['title'],
                                 subtitle: item['subtitle'],

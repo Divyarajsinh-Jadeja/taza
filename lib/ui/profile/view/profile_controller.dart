@@ -10,7 +10,6 @@ class ProfileController extends GetxController{
         reviewsCount: 1200,
         deliveryTime: '30-35 min',
         price: 89.0,
-        quantity: 0,
         isVeg: false,
         restaurantName: "KFC"
     ),

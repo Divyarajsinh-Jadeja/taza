@@ -1,10 +1,12 @@
 import 'package:taza/taza.dart';
 
 class CategorySidebar extends GetView<CategoryController> {
-  const CategorySidebar({super.key});
+  final bool isFromInstamart;
+  const CategorySidebar(this.isFromInstamart, {super.key});
 
   @override
   Widget build(BuildContext context) {
+    SubCategoriesModel? categoriesModel;
     final categoryWidth = Get.width * 0.22;
     final style = AppTheme.of(context).categorySidebarStyle;
     return Container(
@@ -12,10 +14,13 @@ class CategorySidebar extends GetView<CategoryController> {
       decoration: BoxDecoration(border: Border(right: BorderSide(width: 1.w, color: style.borderColor.withValues(alpha: 0.2)))),
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
-        itemCount: controller.categories.length,
+        itemCount: !isFromInstamart ? controller.categories.length : controller.instaMartCategories.length,
         itemBuilder: (context, index) {
           return Obx(() {
-            final CategoryModel model = controller.categories[index];
+            if(isFromInstamart){
+              categoriesModel = controller.instaMartCategories[index];
+            }
+            final CategoryModel model =  controller.categories[index];
             bool isSelected = controller.selectedCategoryIndex.value == index;
             return AnimatedContainer(
               duration: const Duration(milliseconds: 300),
@@ -30,7 +35,7 @@ class CategorySidebar extends GetView<CategoryController> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Hero(
-                    tag: 'category_${model.id}',
+                    tag: !isFromInstamart || isFromInstamart.isNull ? 'category_${model.id}' : 'category_${categoriesModel!.id}',
                     child: AnimatedContainer(
                       duration: const Duration(milliseconds: 300),
                       width: 50.w,
@@ -56,8 +61,8 @@ class CategorySidebar extends GetView<CategoryController> {
                         child: ClipRRect(
                             borderRadius: BorderRadius.circular(6.r),
                             child: SmartImage(
-                              key: ValueKey(model.id),
-                              path: model.image ?? "",
+                              key: !isFromInstamart ? ValueKey(model.id) : ValueKey(categoriesModel!.id),
+                              path: !isFromInstamart ? model.image ?? "" : categoriesModel!.categoryUrl!,
                               height: Get.height, width: Get.width,
                             )),
                       ),
@@ -68,8 +73,8 @@ class CategorySidebar extends GetView<CategoryController> {
                     duration: const Duration(milliseconds: 300),
                     transitionBuilder: (child, animation) => FadeTransition(opacity: animation, child: child),
                     child: SmartText(
-                      key: ValueKey("${model.name}_$isSelected"),
-                      model.name,
+                      key: !isFromInstamart ? ValueKey("${model.name}_$isSelected") : ValueKey("${categoriesModel!.name}_$isSelected"),
+                      !isFromInstamart ? model.name : categoriesModel!.name,
                       style: isSelected ? style.selectedTitleTextStyle : style.unSelectedTitleTextStyle,
                       textAlign: TextAlign.center,
                     ),

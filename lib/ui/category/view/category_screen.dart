@@ -5,6 +5,7 @@ class CategoryScreen extends GetView<CategoryController> {
 
   @override
   Widget build(BuildContext context) {
+    final bool isFromInstamart = Get.arguments as bool;
     final style = AppTheme.of(context).appBarStyle;
     return Scaffold(
       appBar: PreferredSize(
@@ -17,13 +18,13 @@ class CategoryScreen extends GetView<CategoryController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SmartText(
-                  controller.currentCategory.name,
+                  !isFromInstamart ? controller.currentCategory.name : controller.currentInstamartCategory.name,
                   style: style.titleStyle,
                 ),
-                SmartText(
-                  controller.currentCategory.name,
-                  style: style.subTitleStyle,
-                ),
+                // SmartText(
+                //   controller.currentCategory.name,
+                //   style: style.subTitleStyle,
+                // ),
               ],
             ),
             actions: [IconButton(icon: Icon(Icons.search), onPressed: () {})],
@@ -31,7 +32,127 @@ class CategoryScreen extends GetView<CategoryController> {
         }),
       ),
       body: SmartRow(
-        children: [CategorySidebar(), Expanded(child: CategoryProductGrid())],
+        children: [CategorySidebar(isFromInstamart), Expanded(child: CategoryProductGrid(isFromInstamart))],
+      ),
+    );
+  }
+}
+
+class ProductInstamartListView extends GetView<CategoryController> {
+  const ProductInstamartListView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final style = AppTheme.of(context).productListViewStyle;
+    return CustomScrollView(
+      physics: BouncingScrollPhysics(),
+      slivers: [
+        _buildProductCountSection(style),
+        // Featured Ad Banner - Part of scrollable content
+        if (controller.isShowBanner)
+          AnimatedSliverBox(
+            child: Padding(
+              padding: EdgeInsetsDirectional.symmetric(horizontal: 16.0.w),
+              child: PromotionalBanner(),
+            ),
+          ),
+
+        // Items count text
+        ///Code commented - Don't Remove
+        /*SliverToBoxAdapter(
+          child: Padding(
+            padding: EdgeInsetsDirectional.only(
+              start: 16.w,
+              bottom: 8.h,
+              top: 16.h,
+              end: 16.w,
+            ),
+            child: SmartText(
+              "${controller.currentCategory.products?.length ?? 0} items in ${controller.currentCategory.name}",
+              style: style.itemsStyle,
+            ),
+          ),
+        ),*/
+
+        // Products Grid converted to SliverList
+        SliverPadding(
+          padding: EdgeInsetsDirectional.all(16.0.w),
+          sliver: SliverList(
+            delegate: SliverChildBuilderDelegate((context, index) {
+              final int itemIndex = index * 2;
+              if (itemIndex >=
+                  (controller.currentInstamartCategory.products?.length ?? 0)) {
+                return null; // End of list
+              }
+
+              return SmartRow(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: ProductCard(
+                      onProductTap:
+                          () => Get.toNamed(AppRoutes.foodDetailsPage),
+                      product: controller.currentInstamartCategory.products![index],
+                      index: itemIndex,
+                      hasDiscount: itemIndex % 3 == 0,
+                      discountPercent: "${(10 + (itemIndex % 3) * 5)}%",
+                      onAddTap: () {},
+                    ),
+                  ),
+                  SizedBox(width: 16.w),
+
+                  Expanded(
+                    child:
+                    (itemIndex + 1 <
+                        (controller.currentInstamartCategory.products?.length ??
+                            0))
+                        ? ProductCard(
+                      onProductTap:
+                          () => Get.toNamed(AppRoutes.foodDetailsPage),
+                      product:
+                      controller.currentInstamartCategory.products![itemIndex + 1],
+                      index: itemIndex + 1,
+                      hasDiscount: (itemIndex + 1) % 4 == 0,
+                      discountPercent:
+                      "${(5 + ((itemIndex + 1) % 4) * 3)}%",
+                      onAddTap: () {},
+                    )
+                        : SizedBox(),
+                  ),
+                ],
+              );
+            }),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildProductCountSection(ProductListViewStyle style) {
+    return AnimatedSliverBox(
+      child: SmartRow(
+        padding: EdgeInsetsDirectional.all(16.w),
+        children: [
+          SmartColumn(
+            expanded: true,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              /// Code commented - Don't remove
+              /*SmartText(
+                controller.currentCategory.name ?? "",
+                style: style.categoryHeaderStyle,
+              ),*/
+              SizedBox(height: 2.h),
+              SmartText(
+                LocaleKeys.itemCount.tr.interpolate([
+                  controller.currentInstamartCategory.products?.length ?? 0,
+                ]),
+                style: style.categorysubHeaderStyle,
+              ),
+            ],
+          ),
+          FilterButton(onTap: () {}),
+        ],
       ),
     );
   }
@@ -79,6 +200,8 @@ class ProductListView extends GetView<CategoryController> {
           sliver: SliverList(
             delegate: SliverChildBuilderDelegate((context, index) {
               final int itemIndex = index * 2;
+
+
 
               if (itemIndex >=
                   (controller.currentCategory.products?.length ?? 0)) {
