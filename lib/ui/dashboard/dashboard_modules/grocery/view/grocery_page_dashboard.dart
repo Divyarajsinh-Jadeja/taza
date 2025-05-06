@@ -196,8 +196,7 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
   Widget _buildCategoryCard(BuildContext context, FoodCardStyle style, Map<String, String> category, FoodPageStyle foodPageStyle) {
     return SmartColumn(
       onTap: () {
-        // Get.toNamed(AppRoutes.foodDetailsPage);
-        Get.toNamed(AppRoutes.categoryPage, arguments: false);
+        Get.toNamed(AppRoutes.categoryPage, arguments: true);
       },
       width: 90.w,
       decoration: BoxDecoration(border: Border.all(color: foodPageStyle.borderColor), borderRadius: BorderRadius.circular(12.r)),

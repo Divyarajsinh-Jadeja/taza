@@ -1,7 +1,8 @@
 import 'package:taza/taza.dart';
 
 class ProductBottomSheet extends StatelessWidget {
-  const ProductBottomSheet({super.key});
+  final ProductModel category;
+  const ProductBottomSheet(this.category, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +22,10 @@ class ProductBottomSheet extends StatelessWidget {
         SizedBox(height: 10.h),
         ProductCard(
           style: style,
-          imageUrl: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg',
+          imageUrl: category.imageUrl,
           quantityText: '2 Person',
-          currentPrice: 16.toCurrencyCodeFormat(),
-          oldPrice: 20.toCurrencyCodeFormat(),
+          currentPrice: category.price.toCurrencyCodeFormat(),
+          oldPrice: (category.price + 50).toCurrencyCodeFormat(),
           perKgPrice: '${30.toCurrencyCodeFormat()}/kg',
           discountText: '10% OFF',
           isBestValue: true,
@@ -35,10 +36,10 @@ class ProductBottomSheet extends StatelessWidget {
         SizedBox(height: 12.h),
         ProductCard(
           style: style,
-          imageUrl: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg',
+          imageUrl: category.imageUrl,
           quantityText: '4 Person',
-          currentPrice: 32.toCurrencyCodeFormat(),
-          oldPrice: 40.toCurrencyCodeFormat(),
+          currentPrice: (category.price * 2).toCurrencyCodeFormat(),
+          oldPrice: ((category.price + 50) * 2).toCurrencyCodeFormat(),
           perKgPrice: null,
           discountText: '20% OFF',
           onAdd: () {
@@ -99,7 +100,6 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final content = Card(
-
       elevation: isBestValue ? 0 : 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
       child: Stack(

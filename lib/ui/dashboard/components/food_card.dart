@@ -165,11 +165,13 @@ class ReorderCard extends StatelessWidget {
           margin: EdgeInsetsDirectional.all(4.w),
           decoration: style.halfCardDecoration,
           children: [
-            SmartImage(
-              size: 50.w,
-              path: model.imageUrl,
-              clipBehavior: Clip.antiAlias,
-              imageBorderRadius: style.imageDecoration,
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10.r),
+              child: SmartImage(
+                size: 55.w,
+                path: model.imageUrl,
+                imageBorderRadius: style.imageDecoration,
+              ),
             ),
             SmartColumn(
               expanded: true,

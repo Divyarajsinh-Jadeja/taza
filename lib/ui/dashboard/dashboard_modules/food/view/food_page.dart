@@ -91,7 +91,21 @@ class FoodPage extends GetView<FoodController> {
     );
   }
 
-
+  Widget _buildAddressHeaderSliver() {
+    return _animatedBoxAdapter(
+      child: Obx(
+            () => HomeAddressHeader(
+              padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w, vertical: 6),
+              addressTypeTag: LocaleKeys.home.tr,
+              address: "1600 Amphitheatre, Mountain View",
+              userImagePath: "https://i.ibb.co/HLgDnFFQ/Group.png",
+              textColor: Utils.getContrastColor(controller.currentFoodTabData.themeColor),
+              homeIconColor: Utils.getContrastColor(controller.currentFoodTabData.themeColor),
+              //homeIconColor: controller.currentFoodTabData.themeColor,
+            ),
+      ),
+    );
+  }
 
   List<Widget> _buildContentSlivers(FoodCardStyle style,
       FoodPageStyle foodPageStyle) {

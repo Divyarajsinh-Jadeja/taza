@@ -171,6 +171,21 @@ class CategoryController extends GetxController {
     instaMartCategories.assignAll(groceryList);
   }
 
+  final Map<String, List<String>> instamartProductNames = {
+    '1': ['Tomatoes', 'Potatoes', 'Onions', 'Spinach', 'Broccoli', 'Carrots', 'Capsicum', 'Garlic', 'Cucumber', 'Beetroot', 'Cauliflower', 'Ginger'],
+    '2': ['Bananas', 'Apples', 'Oranges', 'Grapes', 'Pineapple', 'Mangoes', 'Strawberries', 'Papaya', 'Watermelon', 'Blueberries', 'Pomegranate', 'Kiwi'],
+    '3': ['Milk', 'Cheese', 'Butter', 'Yogurt', 'Cream', 'Paneer', 'Eggs', 'Curd', 'Ghee', 'Tofu', 'Buttermilk', 'Whipping Cream'],
+    '4': ['Sunflower Oil', 'Mustard Oil', 'Coconut Oil', 'Ghee', 'Vanaspati', 'Sesame Oil', 'Groundnut Oil', 'Rice Bran Oil', 'Soybean Oil', 'Almond Oil', 'Castor Oil', 'Olive Oil'],
+    '5': ['Turmeric Powder', 'Chili Powder', 'Garam Masala', 'Coriander Powder', 'Cumin Seeds', 'Black Pepper', 'Cloves', 'Cardamom', 'Cinnamon', 'Fenugreek', 'Mustard Seeds', 'Bay Leaves'],
+    '6': ['Cornflakes', 'Oats', 'Granola', 'Poha', 'Upma Mix', 'Idli Mix', 'Dosa Mix', 'Pancake Mix', 'Honey', 'Choco Cereal', 'Peanut Butter', 'Jam'],
+    '7': ['Wheat Flour', 'Basmati Rice', 'Brown Rice', 'Toor Dal', 'Moong Dal', 'Chana Dal', 'Masoor Dal', 'Urad Dal', 'Multigrain Atta', 'Rice Flour', 'Maida', 'Sooji'],
+    '8': ['White Bread', 'Brown Bread', 'Pav', 'Burger Buns', 'Croissant', 'Cake Rusk', 'Cookies', 'Garlic Bread', 'Pizza Base', 'Muffins', 'Bagels', 'Donuts'],
+    '9': ['Parle-G', 'Hide & Seek', 'Good Day', 'Marie Gold', 'Oreo', 'Bourbon', 'Jim Jam', 'Little Debbie Cake', 'Fruit Cake', 'Cream Roll', 'Cupcake', 'Choco Pie'],
+    '10': ['Tata Tea', 'Green Tea', 'Herbal Tea', 'Coffee Powder', 'Instant Coffee', 'Filter Coffee', 'Black Tea', 'Masala Tea', 'Espresso', 'Latte Mix', 'Cappuccino', 'Tea Bags'],
+    '11': ['Almonds', 'Cashews', 'Walnuts', 'Raisins', 'Pistachios', 'Dry Figs', 'Dates', 'Apricots', 'Chia Seeds', 'Flax Seeds', 'Sunflower Seeds', 'Pumpkin Seeds'],
+    '12': ['Chicken Breast', 'Chicken Thighs', 'Mutton Curry Cut', 'Fish Fillet', 'Prawns', 'Crab Meat', 'Chicken Legs', 'Lamb Chops', 'Salmon', 'Pomfret', 'Eggs', 'Sausages'],
+  };
+
 
   List<ProductModel> generateCommonProducts(String categoryId) {
     return List.generate(14, (index) {
@@ -185,16 +200,18 @@ class CategoryController extends GetxController {
   }
 
   List<ProductModel> generateProductsForInstamart(String categoryId) {
+    final productNames = instamartProductNames[categoryId] ?? List.generate(12, (i) => 'Sample Product ${i + 1}');
     return List.generate(12, (index) {
       return ProductModel(
         id: '${categoryId}_product_${index + 1}',
-        name: 'Sample Product ${index + 1}',
+        name: productNames[index],
         description: 'High quality and fresh grocery item',
         price: 19.99 + index * 5,
         imageUrl: instamartProductImages[index],
       );
     });
   }
+
 
   final List<String> productImages = [
     'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg',
