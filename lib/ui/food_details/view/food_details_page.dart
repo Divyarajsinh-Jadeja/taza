@@ -5,10 +5,11 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
 
   @override
   Widget build(BuildContext context) {
+    final ProductModel category = Get.arguments as ProductModel;
     final style = AppTheme.of(context).foodDetailsPageStyle;
     return Scaffold(
       backgroundColor: style.grayColor,
-      appBar: SmartAppBar(title: "Grilled Salmon",
+      appBar: SmartAppBar(title: category.name,
         titleStyle: style.titleTextStyle,
       ),
       body: SmartColumn(
@@ -53,7 +54,7 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                                   return SmartImage(
                                     padding: EdgeInsetsDirectional.all(15.w),
                                     width: Get.width,
-                                    path: controller.productImages[index],
+                                    path: category.imageUrl,
                                     height: 350.h,
                                     fit: BoxFit.contain,
                                   );
@@ -100,7 +101,7 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                       ),
                       SizedBox(height: 20.h),
                       // Divider to separate sections.
-                      Padding(padding: EdgeInsets.symmetric(horizontal: 15.w), child: Divider(height: 0.7.h)),
+                      Padding(padding: EdgeInsetsDirectional.symmetric(horizontal: 15.w), child: Divider(height: 0.7.h)),
                       SizedBox(height: 20.h),
                       // Row for delivery time.
                       SmartRow(
@@ -116,7 +117,7 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                       SizedBox(height: 6.h),
                       // Product title.
                       SmartText(
-                        "Grilled Salmon",
+                        category.name,
                         optionalPadding: EdgeInsetsDirectional.symmetric(horizontal: 15.w),
                         style: style.titleTextStyle,
                         animator: SmartAnimator(
@@ -154,7 +155,7 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                                 padding:  EdgeInsetsDirectional.symmetric(horizontal: 15.w),
                                 children: [
                                   SmartText(
-                                    16.toCurrencyCodeFormat(),
+                                    category.price.toCurrencyCodeFormat(),
                                     style: style.titleTextStyle,
                                     animator: SmartAnimator(
                                       animateFade: true,
@@ -166,7 +167,7 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                                   ),
                                   SizedBox(width: 10.w),
                                   SmartText(
-                                    20.toCurrencyCodeFormat(),
+                                    (category.price + 50).toCurrencyCodeFormat(),
                                     style: style.descriptionTextStyle.copyWith(decoration: TextDecoration.lineThrough),
                                     animator: SmartAnimator(
                                       animateFade: true,
@@ -191,7 +192,7 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                                 side: BorderSide(color: style.iconColors),
                                 elevation: 2,
                               ),
-                              onPressed: () => controller.addToCart(context),
+                              onPressed: () => controller.addToCart(context, category),
                               child: SmartText(
                                 "ADD",
                                 style: style.addButtonStyle,
@@ -207,7 +208,7 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                         decoration: BoxDecoration(color: Colors.yellow[100], borderRadius: BorderRadius.circular(4.r)),
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          SmartText(4.toCurrencyCodeFormat(), style: style.titleTextStyle),
+                          SmartText(10.toCurrencyCodeFormat(), style: style.titleTextStyle),
                           SizedBox(width: 5.w),
                           SmartText("MAXX SAVER PRICE", style: style.maxSaverTitleStyle, overflow: TextOverflow.ellipsis,),
                         ],
@@ -245,7 +246,7 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                           SmartColumn(
                             decoration: BoxDecoration(color: style.highlightBgColor, borderRadius: BorderRadius.circular(8.r)),
                             children: [
-                              _buildHighlightRow("Food Contents", "Grilled Salmon Super", style),
+                              _buildHighlightRow("Food Contents", category.name, style),
                               _buildDivider(),
                               _buildHighlightRow("Pack Size", "400g", style),
                               _buildDivider(),

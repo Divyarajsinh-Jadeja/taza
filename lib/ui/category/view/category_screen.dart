@@ -73,7 +73,6 @@ class ProductInstamartListView extends GetView<CategoryController> {
             ),
           ),
         ),*/
-
         // Products Grid converted to SliverList
         SliverPadding(
           padding: EdgeInsetsDirectional.all(16.0.w),
@@ -84,15 +83,16 @@ class ProductInstamartListView extends GetView<CategoryController> {
                   (controller.currentInstamartCategory.products?.length ?? 0)) {
                 return null; // End of list
               }
-
               return SmartRow(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
                     child: ProductCard(
                       onProductTap:
-                          () => Get.toNamed(AppRoutes.foodDetailsPage),
-                      product: controller.currentInstamartCategory.products![index],
+                          () {
+                        Get.toNamed(AppRoutes.foodDetailsPage, arguments: controller.currentInstamartCategory.products![itemIndex],);
+                          },
+                      product: controller.currentInstamartCategory.products![itemIndex],
                       index: itemIndex,
                       hasDiscount: itemIndex % 3 == 0,
                       discountPercent: "${(10 + (itemIndex % 3) * 5)}%",
@@ -108,7 +108,9 @@ class ProductInstamartListView extends GetView<CategoryController> {
                             0))
                         ? ProductCard(
                       onProductTap:
-                          () => Get.toNamed(AppRoutes.foodDetailsPage),
+                          () {
+                        Get.toNamed(AppRoutes.foodDetailsPage, arguments: controller.currentInstamartCategory.products![itemIndex + 1],);
+                      },
                       product:
                       controller.currentInstamartCategory.products![itemIndex + 1],
                       index: itemIndex + 1,
@@ -200,21 +202,17 @@ class ProductListView extends GetView<CategoryController> {
           sliver: SliverList(
             delegate: SliverChildBuilderDelegate((context, index) {
               final int itemIndex = index * 2;
-
-
-
               if (itemIndex >=
                   (controller.currentCategory.products?.length ?? 0)) {
                 return null; // End of list
               }
-
               return SmartRow(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
                     child: ProductCard(
                       onProductTap:
-                          () => Get.toNamed(AppRoutes.foodDetailsPage),
+                          () => Get.toNamed(AppRoutes.foodDetailsPage, arguments: controller.currentCategory.products![itemIndex]),
                       product: controller.currentCategory.products![itemIndex],
                       index: itemIndex,
                       hasDiscount: itemIndex % 3 == 0,
@@ -230,8 +228,8 @@ class ProductListView extends GetView<CategoryController> {
                                 (controller.currentCategory.products?.length ??
                                     0))
                             ? ProductCard(
-                              onProductTap:
-                                  () => Get.toNamed(AppRoutes.foodDetailsPage),
+                          onProductTap:
+                              () => Get.toNamed(AppRoutes.foodDetailsPage, arguments: controller.currentCategory.products![itemIndex+1]),
                               product:
                                   controller
                                       .currentCategory

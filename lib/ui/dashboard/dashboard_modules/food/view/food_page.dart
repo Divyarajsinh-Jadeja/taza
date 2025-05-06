@@ -76,7 +76,7 @@ class FoodPage extends GetView<FoodController> {
             () => ColoredBox(
           color: foodPageStyle.whiteColor,
           child: Container(
-            color: controller.currentFoodTabData.themeColor.withValues(alpha: 0.8),
+            color: controller.currentFoodTabData.themeColor,
             height: MediaQuery.of(context).padding.top,
           ),
         ),
@@ -87,14 +87,18 @@ class FoodPage extends GetView<FoodController> {
   Widget _buildAddressHeaderSliver() {
     return _animatedBoxAdapter(
       child: Obx(
-            () => HomeAddressHeader(
+            () => Container(
+              color: controller.currentFoodTabData.themeColor.withValues(alpha: 0.4),
               padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w, vertical: 6),
-              addressTypeTag: LocaleKeys.home.tr,
-              address: "1600 Amphitheatre, Mountain View",
-              userImagePath: "https://i.ibb.co/HLgDnFFQ/Group.png",
-              textColor: Utils.getContrastColor(controller.currentFoodTabData.themeColor),
-              homeIconColor: Utils.getContrastColor(controller.currentFoodTabData.themeColor),
-              //homeIconColor: controller.currentFoodTabData.themeColor,
+              child: HomeAddressHeader(
+                padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w, vertical: 6),
+                addressTypeTag: LocaleKeys.home.tr,
+                address: "1600 Amphitheatre, Mountain View",
+                userImagePath: "https://i.ibb.co/HLgDnFFQ/Group.png",
+                textColor: Utils.getContrastColor(controller.currentFoodTabData.themeColor),
+                homeIconColor: Utils.getContrastColor(controller.currentFoodTabData.themeColor),
+                //homeIconColor: controller.currentFoodTabData.themeColor,
+              ),
             ),
       ),
     );
