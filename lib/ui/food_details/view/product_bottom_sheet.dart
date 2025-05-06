@@ -100,7 +100,6 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final content = Card(
-
       elevation: isBestValue ? 0 : 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
       child: Stack(
