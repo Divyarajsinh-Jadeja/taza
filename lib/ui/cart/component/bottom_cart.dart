@@ -131,7 +131,11 @@ class BottomCartWidget extends GetView<CartController> {
               (index) {
                 return Positioned(
                   left: index * 8.w,
-                  child: Container(
+                  child: SmartImage(
+                    /// TODO: below image will change once we integrate api
+                    path: controller.foodList[index].imageUrl,
+                    imageBorderRadius: BorderRadius.circular(6.r),
+                    clipBehavior: Clip.antiAlias,
                     width: 30.w,
                     height: 35.w,
                     decoration: BoxDecoration(
@@ -139,12 +143,7 @@ class BottomCartWidget extends GetView<CartController> {
                       border: Border.all(color: style.whiteColor, width: 1.w),
                       borderRadius: BorderRadius.circular(6.r),
                     ),
-                    child: SmartImage(
-                      /// TODO: below image will change once we integrate api
-                      path: controller.foodList[index].imageUrl,
-                      imageBorderRadius: BorderRadius.circular(6.r),
-                      clipBehavior: Clip.antiAlias,
-                    ),
+
                   ),
                 );
               },
