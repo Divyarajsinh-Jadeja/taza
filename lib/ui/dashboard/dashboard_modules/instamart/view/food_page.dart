@@ -231,7 +231,7 @@ class FoodPage extends GetView<FoodController> {
     );
   }*/
 
-  Widget _buildFoodList(List<FoodItemModel> items) {
+  Widget _buildFoodList(List<FoodModel> items) {
     return SizedBox(
       height: 115.h,
       child: ListView.separated(
@@ -241,7 +241,7 @@ class FoodPage extends GetView<FoodController> {
         separatorBuilder: (_, __) => SizedBox(width: 16.w),
         itemBuilder: (_, index) {
           final item = items[index];
-          return FoodItemCard(item: item, onTapAdd: () => debugPrint('Item added: ${item.title}'));
+          return FoodCard(model: item);
         },
       ),
     );

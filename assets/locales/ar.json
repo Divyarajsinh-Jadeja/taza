@@ -193,7 +193,10 @@
   "offers": "پیشکش",
   "rateOrder": "قيّم الطلب",
   "myOrders": "طلباتي",
-  "help": "مساعدة"
+  "help": "مساعدة",
+  "goodFoodTitle": "الطعام الجيد يُطهى دائمًا",
+  "cartEmptyMessage": "سلتك فارغة. أضف شيئًا من القائمة",
+  "browseRestaurants": "تصفح المطاعم"
 
 
 

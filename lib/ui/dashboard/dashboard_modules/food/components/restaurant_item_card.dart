@@ -66,7 +66,7 @@ class RestaurantItemCard extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
                 decoration: BoxDecoration(
-                  color: loginStyle.dividerColor.withOpacity(0.7),
+                  color: loginStyle.dividerColor.withValues(alpha: 0.7),
                   borderRadius: BorderRadius.circular(6.r),
                 ),
                 child: SmartText(

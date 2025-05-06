@@ -131,10 +131,6 @@ class CategoryDashboardController extends GetxController{
       ],
     ),
   ].obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
   void onTabSelected() {
     debugPrint('CartController → Tab Init');
   }

@@ -148,4 +148,6 @@ class AppImages {
   static const String playtime = 'assets/images/playtime.png';
   static const String tableLamp = 'assets/images/table-lamp.png';
   static const String vegetable = 'assets/images/vegetable.png';
+
+  static const String cookingLottie = 'assets/images/cooking.json';
 }

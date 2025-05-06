@@ -272,6 +272,17 @@ class Utils {
     // Return black for light colors, white for dark colors
     return luminance > 0.5 ? Colors.black : Colors.white;
   }
+  static SystemUiOverlayStyle getOverlayStyle(Color backgroundColor) {
+    final isLight = backgroundColor.computeLuminance() > 0.5;
+    final brightness = isLight ? Brightness.light : Brightness.dark;
+
+    return SystemUiOverlayStyle(
+      statusBarColor: backgroundColor,
+      statusBarIconBrightness: isLight ? Brightness.dark : Brightness.light,
+      statusBarBrightness: brightness,
+    );
+  }
+
 }
 
 extension EmailValidator on String {
