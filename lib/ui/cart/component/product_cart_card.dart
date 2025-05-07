@@ -47,7 +47,7 @@ class ProductCheckoutCard extends StatelessWidget {
               ),
 
               if (isOutOfStock != true) ...[
-                FoodQuantityWidget(model: model),
+                FoodQuantityWidget(model: model,fromCart: true,),
                 SmartColumn(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.center,

@@ -47,7 +47,7 @@ class InstamartProductCheckoutCard extends StatelessWidget {
               ),
 
               if (isOutOfStock != true) ...[
-                InstamartQuantityWidget(model: model),
+                InstamartQuantityWidget(model: model,fromCart: true,),
                 SmartColumn(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.center,

@@ -2,10 +2,11 @@ import 'package:taza/taza.dart';
 
 class FoodQuantityWidget extends GetView<CartController> {
   final FoodModel model;
-
+  final bool fromCart;
   const FoodQuantityWidget({
     super.key,
     required this.model,
+    this.fromCart=false
   });
 
   @override
@@ -26,7 +27,21 @@ class FoodQuantityWidget extends GetView<CartController> {
         children: [
           if (quantity > 0) ...[
             InkWell(
-              onTap: () => controller.removeFromCart(model),
+              onTap: () async {
+                print(fromCart);
+                if(!fromCart){
+                  controller.removeFromCart(model);
+                }
+                else{
+                  showDialog(
+                    context: context,
+                    builder: (context) =>
+                        ConfirmRemoveDialog(
+                          onConfirm: () => controller.removeFromCart(model),
+                        ),
+                  );
+                }
+              },
               child: Icon(Icons.remove, color: style.iconColor, size: 16.w),
             ),
             Animate(
@@ -57,10 +72,11 @@ class FoodQuantityWidget extends GetView<CartController> {
 
 class InstamartQuantityWidget extends GetView<InstamartCartController> {
   final InstamartProductModel model;
-
+  final bool fromCart;
   const InstamartQuantityWidget({
     super.key,
     required this.model,
+    this.fromCart=false
   });
 
   @override
@@ -82,7 +98,20 @@ class InstamartQuantityWidget extends GetView<InstamartCartController> {
         ),
         children: [
             InkWell(
-              onTap: () => controller.removeFromCart(model),
+              onTap: () async {
+                if(!fromCart){
+                  controller.removeFromCart(model);
+                }
+                else{
+                  showDialog(
+                    context: context,
+                    builder: (context) =>
+                        ConfirmRemoveDialog(
+                          onConfirm: () => controller.removeFromCart(model),
+                        ),
+                  );
+                }
+              },
               child: Icon(Icons.remove, color: style.iconColor, size: 16.w),
             ),
             Animate(
@@ -120,5 +149,65 @@ class InstamartQuantityWidget extends GetView<InstamartCartController> {
         ],
       );
     });
+  }
+}
+
+/// TODO below code need to place in new file
+class ConfirmRemoveDialog extends StatelessWidget {
+  final VoidCallback onConfirm;
+
+  const ConfirmRemoveDialog({
+    super.key,
+    required this.onConfirm,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final style = AppTheme.of(context).dialogStyle;
+
+    return Dialog(
+      backgroundColor: style.backgroundColor,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.r)),
+      child: Padding(
+        padding: EdgeInsets.all(20.w),
+        child: SmartColumn(
+          spacing: 20.h,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SmartText(
+              "Remove Item?",
+              style: style.titleStyle,
+              textAlign: TextAlign.center,
+            ),
+            SmartText(
+              "Are you sure you want to remove this item from your cart?",
+              style: style.messageStyle,
+              textAlign: TextAlign.center,
+            ),
+            SmartRow(
+              spacing: 12.w,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SmartButton.white(
+                  title: "Cancel",
+                  onTap: () => Navigator.of(context).pop(),
+                  width: 100.w,
+                  height: 40.h,
+                ),
+                SmartButton(
+                  title: "Remove",
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    onConfirm();
+                  },
+                  width: 100.w,
+                  height: 40.h,
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

@@ -208,6 +208,9 @@ class LocaleKeys {
   static const goodFoodTitle = 'goodFoodTitle';
   static const cartEmptyMessage = 'cartEmptyMessage';
   static const browseRestaurants = 'browseRestaurants';
+  static const startShopping = 'startShopping';
+  static const emptyCartTitle = 'emptyCartTitle';
+  static const emptyCartSubtitle = 'emptyCartSubtitle';
 }
 
 class Locales {
@@ -420,6 +423,9 @@ class Locales {
     'goodFoodTitle': 'Good Food is Always Cooking',
     'cartEmptyMessage': 'Your cart is empty. Add something from the menu',
     'browseRestaurants': 'Browse Restaurants',
+    'startShopping': 'Start Shopping',
+    'emptyCartTitle': 'Your cart is getting lonely',
+    'emptyCartSubtitle': 'Fill it up with all things good!',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -623,5 +629,8 @@ class Locales {
     'cartEmptyMessage': 'سلتك فارغة. أضف شيئًا من القائمة',
     'browseRestaurants': 'تصفح المطاعم',
     'gotoCart': 'اذهب إلى السلة',
+    'startShopping': 'ابدأ التسوق',
+    'emptyCartTitle': 'سلتك أصبحت فارغة',
+    'emptyCartSubtitle': 'املأها بكل الأشياء الرائعة!',
   };
 }

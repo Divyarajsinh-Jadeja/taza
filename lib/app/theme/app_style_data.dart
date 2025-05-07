@@ -678,7 +678,7 @@ class LightModeTheme extends AppTheme {
       fontSize: 13.sp,
       color: colors.white,
     ),
-
+    grayColor: colors.color9c9cA3
   );
 
   @override
@@ -1132,4 +1132,24 @@ class LightModeTheme extends AppTheme {
       color: colors.white,
     ),
   );
+
+  @override
+  DialogStyle get dialogStyle => DialogStyle(
+    backgroundColor: colors.white,
+    titleStyle: interSemiBoldW600TextStyle.copyWith(
+      fontSize: 18.sp,
+      color: colors.color1D1D1F,
+    ),
+    messageStyle: interRegularW400TextStyle.copyWith(
+      fontSize: 14.sp,
+      color: colors.color1D1D1F,
+    ),
+    buttonStyle: interSemiBoldW600TextStyle.copyWith(
+      fontSize: 14.sp,
+      color: colors.primary,
+    ),
+    confirmColor: colors.primary,
+    cancelColor: colors.color8C8C8C,
+  );
+
 }
