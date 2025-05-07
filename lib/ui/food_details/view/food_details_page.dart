@@ -216,7 +216,7 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                           children: [
                             SmartColumn(
                               width: Get.width,
-                              padding: EdgeInsets.all(20.w),
+                              padding: EdgeInsetsDirectional.all(20.w),
                               color: style.whiteColor,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -268,7 +268,7 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                           children: [
                             SmartColumn(
                               width: Get.width,
-                              padding: EdgeInsets.all(20.w),
+                              padding: EdgeInsetsDirectional.all(20.w),
                               color: style.whiteColor,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [

@@ -17,7 +17,7 @@ class FoodQuantityWidget extends GetView<CartController> {
       final quantity = inCart?.quantity ?? 0;
 
       return SmartRow(
-        padding: EdgeInsets.all(8.w),
+        padding: EdgeInsetsDirectional.all(8.w),
         spacing: 10.w,
         decoration: BoxDecoration(
           border: Border.all(color: style.iconColor),
@@ -74,7 +74,7 @@ class InstamartQuantityWidget extends GetView<InstamartCartController> {
       return quantity >0 ?SmartRow(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
-        padding: EdgeInsets.all(8.w),
+        padding: EdgeInsetsDirectional.all(8.w),
         spacing: 10.w,
         decoration: BoxDecoration(
           border: Border.all(color: style.iconColor),
@@ -109,7 +109,7 @@ class InstamartQuantityWidget extends GetView<InstamartCartController> {
         onTap: () => controller.addToCart(context: context, product: model),
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
-        padding: EdgeInsets.all(8.w),
+        padding: EdgeInsetsDirectional.all(8.w),
         spacing: 10.w,
         decoration: BoxDecoration(
           border: Border.all(color: style.iconColor),
