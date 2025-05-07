@@ -11,7 +11,9 @@ class DashboardPage extends GetView<DashboardController> {
         children: [
           Obx(() {
             return Padding(
-              padding: EdgeInsetsDirectional.only(bottom: controller.showBottomCart? 120.h:0),
+              // in case of showing bottom cart for food and instamart section
+              // we need to add padding at bottom.
+              padding: EdgeInsetsDirectional.only(bottom: (controller.showFoodBottomCart|| controller.showInstamartBottomCart)? 120.h:0),
               child: PageView(
                 controller: controller.pageController,
                 physics: const NeverScrollableScrollPhysics(),
@@ -28,6 +30,13 @@ class DashboardPage extends GetView<DashboardController> {
             end: 0.w,
             start: 0.w,
             child: BottomCartWidget(),
+          ),
+          Positioned.directional(
+            textDirection: TextDirection.ltr,
+            bottom: 0.h,
+            end: 0.w,
+            start: 0.w,
+            child: InstamartBottomCartWidget(),
           )
         ],
       ),

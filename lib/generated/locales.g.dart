@@ -67,6 +67,7 @@ class LocaleKeys {
   static const home = 'home';
   static const food = 'food';
   static const cart = 'cart';
+  static const gotoCart = 'gotoCart';
   static const rewards = 'rewards';
   static const reorder = 'reorder';
   static const cookingRequest = 'cookingRequest';
@@ -270,6 +271,7 @@ class Locales {
     'home': 'Home',
     'food': 'Food',
     'cart': 'Cart',
+    'gotoCart': 'Go to Cart',
     'rewards': 'Rewards',
     'reorder': 'Reorder',
     'cookingRequest': 'Cooking Requests',
@@ -620,5 +622,6 @@ class Locales {
     'goodFoodTitle': 'الطعام الجيد يُطهى دائمًا',
     'cartEmptyMessage': 'سلتك فارغة. أضف شيئًا من القائمة',
     'browseRestaurants': 'تصفح المطاعم',
+    'gotoCart': 'اذهب إلى السلة',
   };
 }

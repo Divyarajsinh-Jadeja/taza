@@ -657,6 +657,7 @@ class CheckoutStyle {
   final BoxDecoration reviewDecoration;
   final TextStyle bottomCartTitleStyle;
   final TextStyle bottomCartGreenStyle;
+  final TextStyle gotoCartStyle;
 
   CheckoutStyle({
     required this.backgroundColor,
@@ -702,6 +703,7 @@ class CheckoutStyle {
     required this.reviewTitleStyle,required this.itemNameStyle, required this.itemAmountStyle, required this.defaultDecoration,required this.reviewDecoration,required this.fullDefaultDecoration,
     required this.bottomCartTitleStyle,
     required this.bottomCartGreenStyle,
+    required this.gotoCartStyle,
   });
 }
 

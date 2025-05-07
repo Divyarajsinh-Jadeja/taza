@@ -225,6 +225,9 @@ export 'package:taza/ui/my_orders/binding/my_orders_binding.dart';
 export 'package:taza/ui/my_orders/view/my_orders_controller.dart';
 export 'package:taza/ui/my_orders/view/my_orders_details.dart';
 
+export 'package:taza/ui/ui.dart';
+
+
 
 
 

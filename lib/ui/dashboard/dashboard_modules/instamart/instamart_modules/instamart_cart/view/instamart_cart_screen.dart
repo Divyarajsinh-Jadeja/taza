@@ -1,15 +1,10 @@
 import 'package:taza/taza.dart';
 
-class CartPage extends GetView<CartController> {
-  const CartPage({super.key});
+class InstamartCartPage extends GetView<InstamartCartController> {
+  const InstamartCartPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      Future.delayed(Duration(milliseconds: 500), () {
-        Get.dialog(RewardDialog());
-      });
-    });
 
     final style = AppTheme
         .of(context)
@@ -392,7 +387,7 @@ class CartPage extends GetView<CartController> {
                 physics: NeverScrollableScrollPhysics(),
                 itemBuilder:
                     (context, index) =>
-                    ProductCheckoutCard(model: controller.foodList[index]),
+                    InstamartProductCheckoutCard(model: controller.foodList[index]),
               );
             }),
           ],

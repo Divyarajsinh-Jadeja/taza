@@ -123,7 +123,7 @@ class FoodCard extends StatelessWidget {
                   ),*/
                 ),
 
-                SmartAnimatedQuantity(model: model),
+                FoodQuantityWidget(model: model),
               ],
             ),
           ],
@@ -235,7 +235,7 @@ class ReorderCard extends StatelessWidget {
                 ),
               ],
             ),
-            SmartAnimatedQuantity(model: model),
+            FoodQuantityWidget(model: model),
           ],
         ),
         /*SmartRow(
