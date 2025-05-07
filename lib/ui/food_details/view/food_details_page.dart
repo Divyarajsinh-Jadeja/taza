@@ -255,16 +255,61 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                                 ),
                                 SizedBox(height: 15.h),
                                 SmartColumn(
-                                  decoration: BoxDecoration(color: style.highlightBgColor, borderRadius: BorderRadius.circular(8.r)),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8.r),
+                                  ),
                                   children: [
-                                    _buildHighlightRow("Food Contents", category.name, style),
-                                    _buildDivider(),
-                                    _buildHighlightRow("Pack Size", "400g", style),
-                                    _buildDivider(),
-                                    _buildHighlightRow("Source", "Product of India", style),
-                                    _buildDivider(),
-                                    _buildHighlightRow("Speciality", "Delicious Test", style),
-                                  ],
+                                    SmartRow(
+                                      children: [
+                                        Expanded(
+                                          flex: 2,
+                                          child: SmartColumn(
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.only(
+                                                  topLeft: Radius.circular(10.r),
+                                                  bottomLeft: Radius.circular(10.r)
+                                              ),
+                                              color: Colors.grey.shade200,
+                                            ),
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              _buildSideText("Food Contents", style.highlightTitleStyle),
+                                              _buildDivider(),
+                                              _buildSideText("Pack Size", style.highlightTitleStyle),
+                                              _buildDivider(),
+                                              _buildSideText("Source", style.highlightTitleStyle),
+                                              _buildDivider(),
+                                              _buildSideText("Speciality", style.highlightTitleStyle),
+                                            ],
+                                          ),
+                                        ),
+                                        Expanded(
+                                          flex: 3,
+                                          child: SmartColumn(
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.only(
+                                                  topRight: Radius.circular(10.r),
+                                                  bottomRight: Radius.circular(10.r)
+                                              ),
+                                              color: Colors.white,
+                                              border: Border.all(
+                                                color: Colors.grey.shade200,
+                                              )
+                                            ),
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              _buildSideText(category.name, style.highlightDescriptionStyle),
+                                              _buildDivider(),
+                                              _buildSideText("400g", style.highlightDescriptionStyle),
+                                              _buildDivider(),
+                                              _buildSideText("Product of India", style.highlightDescriptionStyle),
+                                              _buildDivider(),
+                                              _buildSideText("Delicious Test", style.highlightDescriptionStyle),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    )                                  ],
                                 ),
                               ],
                             ),
