@@ -249,15 +249,18 @@ List<CategoriesModel> demoCategory = [
           id: '4',
           name: 'Oils & Ghee',
           categoryUrl: "https://i.ibb.co/F4QpP3tT/category-oils.png"
-      ),SubCategoriesModel(
+      ),
+      SubCategoriesModel(
           id: '5',
           name: 'Masalas',
           categoryUrl: "https://i.ibb.co/p6dG1TW5/category-masala.png"
-      ),SubCategoriesModel(
+      ),
+      SubCategoriesModel(
           id: '6',
           name: 'Breakfast',
           categoryUrl: "https://i.ibb.co/GfDRGzkr/category-corn.png"
-      ),SubCategoriesModel(
+      ),
+      SubCategoriesModel(
           id: '7',
           name: 'Atta,Rice & Dal',
           categoryUrl: "https://i.ibb.co/JjrJz1fy/category-atta.png"
@@ -276,7 +279,8 @@ List<CategoriesModel> demoCategory = [
           id: '10',
           name: 'Tea, Coffee & More',
           categoryUrl: "https://i.ibb.co/XZDCSrSx/category-tea.png"
-      ),SubCategoriesModel(
+      ),
+      SubCategoriesModel(
           id: '11',
           name: 'Dry Fruits',
           categoryUrl: "https://i.ibb.co/pvqm2t2W/category-almonds.png"

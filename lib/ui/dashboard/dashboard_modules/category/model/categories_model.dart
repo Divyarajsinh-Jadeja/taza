@@ -14,7 +14,7 @@ class SubCategoriesModel {
   final String? id;
   final String? name;
   final String? categoryUrl;
-  final List<ProductModel>? products;
+  final List<InstamartProductModel>? products;
   SubCategoriesModel({
     this.id,
     this.name,

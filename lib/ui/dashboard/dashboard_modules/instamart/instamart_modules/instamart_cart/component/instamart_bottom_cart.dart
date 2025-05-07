@@ -1,7 +1,7 @@
 import 'package:taza/taza.dart';
 
-class BottomCartWidget extends GetView<CartController> {
-  BottomCartWidget({super.key});
+class InstamartBottomCartWidget extends GetView<InstamartCartController> {
+  InstamartBottomCartWidget({super.key});
 
   final ValueNotifier<bool> showMenu = ValueNotifier(false);
 
@@ -10,7 +10,7 @@ class BottomCartWidget extends GetView<CartController> {
     final style = AppTheme.of(context).checkoutStyle;
     return Obx(
       () =>
-          (Get.find<DashboardController>().showFoodBottomCart
+          (Get.find<DashboardController>().showInstamartBottomCart
               ? ValueListenableBuilder(
                 valueListenable: showMenu,
                 builder: (context, value, child) {
@@ -190,9 +190,10 @@ class BottomCartWidget extends GetView<CartController> {
         SmartButton(
           width: 120.w,
           height: 40.h,
-          onTap: () => Get.toNamed(AppRoutes.foodCartPage),
+          onTap: () => Get.toNamed(AppRoutes.instamartCartPage),
           title: LocaleKeys.gotoCart.tr,
           titleStyle: style.gotoCartStyle,
+
         ),
       ],
     );
@@ -265,7 +266,7 @@ class BottomCartWidget extends GetView<CartController> {
               physics: NeverScrollableScrollPhysics(),
               itemBuilder:
                   (context, index) =>
-                      ProductCheckoutCard(model: controller.foodList[index]),
+                      InstamartProductCheckoutCard(model: controller.foodList[index]),
             ),
           ],
         ),

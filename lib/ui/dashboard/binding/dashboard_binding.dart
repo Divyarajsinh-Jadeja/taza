@@ -13,6 +13,7 @@ class DashboardBinding extends Bindings {
     Get.lazyPut(() => GroceryDashboardController());
     Get.lazyPut(() => CategoryDashboardController());
     Get.put(CartController());
+    Get.put(InstamartCartController());
 
   }
 }

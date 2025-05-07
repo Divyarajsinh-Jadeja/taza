@@ -1,13 +1,13 @@
 import 'package:taza/taza.dart';
 
-class ProductCheckoutCard extends StatelessWidget {
-  const ProductCheckoutCard({
+class InstamartProductCheckoutCard extends StatelessWidget {
+  const InstamartProductCheckoutCard({
     super.key,
     required this.model,
     this.isOutOfStock,
   });
 
-  final FoodModel model;
+  final InstamartProductModel model;
   final bool? isOutOfStock;
 
   @override
@@ -47,7 +47,7 @@ class ProductCheckoutCard extends StatelessWidget {
               ),
 
               if (isOutOfStock != true) ...[
-                FoodQuantityWidget(model: model),
+                InstamartQuantityWidget(model: model),
                 SmartColumn(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.center,

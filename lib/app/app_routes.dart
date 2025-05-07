@@ -8,7 +8,7 @@ class AppRoutes {
   static const loginPage = '/login_page';
   static const otpVerificationPage = '/otp_verification_page';
   static const dashboardPage = '/dashboard_page';
-  static const checkoutPage = '/checkout_page';
+  static const foodCartPage = '/food_cart_page';
   static const orderTrackingPage = '/order_tracking_page';
   static const groceryDashboardPage = '/grocery_page_dashboard';
   static const couponsPage = '/coupons_page';
@@ -21,6 +21,7 @@ class AppRoutes {
   static const selectDeliveryLocationPage = '/select_delivery_location_page';
   static const saveAddressDetailsPage = '/save_address_details_page';
   static const orderDetailsPage = '/order_details_page';
+  static const instamartCartPage = '/instamart_cart_page';
 
   static final List<GetPage> pages = [
     GetPage(
@@ -58,7 +59,7 @@ class AppRoutes {
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
     ),*/
     GetPage(
-      name: AppRoutes.checkoutPage,
+      name: AppRoutes.foodCartPage,
       page: () => const CartPage(),
       binding: CartBinding(),
       transition: Transition.cupertino,
@@ -140,5 +141,13 @@ class AppRoutes {
       transition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
     ),
+    GetPage(
+      name: AppRoutes.instamartCartPage,
+      page: () => const InstamartCartPage(),
+      binding: InstamartCartBinding(),
+      transition: Transition.cupertino,
+      transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
+    ),
+
   ];
 }

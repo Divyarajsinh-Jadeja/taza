@@ -187,9 +187,9 @@ class CategoryController extends GetxController {
   };
 
 
-  List<ProductModel> generateCommonProducts(String categoryId) {
+  List<InstamartProductModel> generateCommonProducts(String categoryId) {
     return List.generate(14, (index) {
-      return ProductModel(
+      return InstamartProductModel(
         id: '${categoryId}_product_${index + 1}',
         name: 'Sample Product ${index + 1}',
         description: 'High quality and fresh grocery item',
@@ -199,10 +199,10 @@ class CategoryController extends GetxController {
     });
   }
 
-  List<ProductModel> generateProductsForInstamart(String categoryId) {
+  List<InstamartProductModel> generateProductsForInstamart(String categoryId) {
     final productNames = instamartProductNames[categoryId] ?? List.generate(12, (i) => 'Sample Product ${i + 1}');
     return List.generate(12, (index) {
-      return ProductModel(
+      return InstamartProductModel(
         id: '${categoryId}_product_${index + 1}',
         name: productNames[index],
         description: 'High quality and fresh grocery item',
