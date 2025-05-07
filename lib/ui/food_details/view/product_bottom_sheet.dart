@@ -16,7 +16,7 @@ class ProductBottomSheet extends StatelessWidget {
           alignment: Alignment.center,
           child: Padding(
             padding: EdgeInsetsDirectional.only(bottom: 8.w),
-            child: SmartText('Grilled Salmon', style: style.titleTextStyle.copyWith(fontWeight: FontWeight.bold)),
+            child: SmartText(category.name, style: style.titleTextStyle.copyWith(fontWeight: FontWeight.bold)),
           ),
         ),
         SizedBox(height: 10.h),
@@ -54,7 +54,7 @@ class ProductBottomSheet extends StatelessWidget {
 
   Widget _buildBottomBar(FoodDetailsPageStyle style) {
     // TODO: Replace with dynamic total from state management (e.g., Provider, Riverpod)
-    final total = 0.toCurrencyCodeFormat(); // Placeholder for dynamic total
+    final total = 0.toCurrencyCodeFormat();
     return SmartRow(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       decoration: BoxDecoration(color: style.iconColors, borderRadius: BorderRadius.circular(8.r)),

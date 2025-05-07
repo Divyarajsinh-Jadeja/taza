@@ -42,7 +42,7 @@ class CategorySidebar extends GetView<CategoryController> {
                       height: 50.w,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(6.r),
-                        color: isSelected ? style.whiteColor : style.borderColor.withValues(alpha: 0.2),
+                        color: isSelected ? style.primaryColor.withValues(alpha: 0.2) : style.borderColor.withValues(alpha: 0.2),
                         boxShadow:
                             isSelected
                                 ? [

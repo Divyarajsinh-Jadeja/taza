@@ -44,11 +44,11 @@ class FoodPage extends GetView<FoodController> {
       SliverToBoxAdapter(
         child: Obx(() =>
             SmartColumn(
-              color: controller.currentFoodTabData.themeColor,
+              color: controller.currentFoodTabData.themeColor.withValues(alpha: 0.5),
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Padding(
-                  padding: EdgeInsets.symmetric(
+                  padding: EdgeInsetsDirectional.symmetric(
                       horizontal: 16.w, vertical: 6.h),
                   child: HomeAddressHeader(
                     addressTypeTag: LocaleKeys.home.tr,
@@ -67,7 +67,7 @@ class FoodPage extends GetView<FoodController> {
       PinnedHeaderSliver(
         child: Obx(() =>
             ColoredBox(
-              color: controller.currentFoodTabData.themeColor,
+              color: controller.currentFoodTabData.themeColor.withValues(alpha: 0.1),
               child: const FoodHeaderSliver(),
             )),
       ),
@@ -95,7 +95,7 @@ class FoodPage extends GetView<FoodController> {
     return _animatedBoxAdapter(
       child: Obx(
             () => HomeAddressHeader(
-              padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w, vertical: 6),
+              padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w, vertical: 6.h),
               addressTypeTag: LocaleKeys.home.tr,
               address: "1600 Amphitheatre, Mountain View",
               userImagePath: "https://i.ibb.co/HLgDnFFQ/Group.png",
@@ -113,6 +113,7 @@ class FoodPage extends GetView<FoodController> {
       _animatedBoxAdapter(
           child: Obx(() => controller.currentFoodTabData.bannerWidget)),
       _animatedBoxAdapter(child: SizedBox(height: 16.h)),
+
       _buildCategoriesSliver(style, foodPageStyle),
       _animatedBoxAdapter(child: SizedBox(height: 20.h)),
       _buildPopularBrands(style, foodPageStyle),
