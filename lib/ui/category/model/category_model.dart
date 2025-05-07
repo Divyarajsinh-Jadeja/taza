@@ -4,7 +4,7 @@ class CategoryModel {
   final String? id;
   final String? name;
   final String? image;
-  final List<ProductModel>? products;
+  final List<InstamartProductModel>? products;
 
   CategoryModel({this.id, this.name, this.image, this.products});
 }

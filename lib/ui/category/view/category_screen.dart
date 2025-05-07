@@ -31,8 +31,22 @@ class CategoryScreen extends GetView<CategoryController> {
           );
         }),
       ),
-      body: SmartRow(
-        children: [CategorySidebar(isFromInstamart), Expanded(child: CategoryProductGrid(isFromInstamart))],
+      body: SafeArea(
+        child: Stack(
+          children: [
+            SmartRow(
+              padding: EdgeInsetsDirectional.only(bottom: Get.find<DashboardController>().showInstamartBottomCart?130.h:0),
+              children: [CategorySidebar(isFromInstamart), Expanded(child: CategoryProductGrid(isFromInstamart))],
+            ),
+            Positioned.directional(
+              textDirection: TextDirection.ltr,
+              bottom: 0.h,
+              end: 0.w,
+              start: 0.w,
+              child: InstamartBottomCartWidget(),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -311,7 +325,7 @@ class FilterButton extends StatelessWidget {
 }
 
 class ProductCard extends StatelessWidget {
-  final ProductModel product;
+  final InstamartProductModel product;
   final int index;
   final bool hasDiscount;
   final String discountPercent;
@@ -423,27 +437,9 @@ class ProductCard extends StatelessWidget {
                   ),
                 ),
 
-                // Add Button
-                Padding(
-                  padding: EdgeInsetsDirectional.only(top: 8.h),
-                  child: Bounceable(
-                    onTap: onAddTap,
-                    child: Container(
-                      width: Get.width,
-                      padding: EdgeInsetsDirectional.symmetric(vertical: 10.h),
-                      decoration: BoxDecoration(
-                        color: style.addButtonBackgroundColor,
-                        border: Border.all(color: style.addButtonBorderColor),
-                        borderRadius: BorderRadius.circular(8.r),
-                      ),
-                      child: SmartText(
-                        "ADD",
-                        textAlign: TextAlign.center,
-                        style: style.addButtonTextStyle,
-                      ),
-                    ),
-                  ),
-                ),
+                SizedBox(height: 10.h,),
+                Center(child: InstamartQuantityWidget(model: product)),
+
               ],
             ),
 

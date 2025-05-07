@@ -1,7 +1,7 @@
 import 'package:taza/taza.dart';
 
 class ProductBottomSheet extends StatelessWidget {
-  final ProductModel category;
+  final InstamartProductModel category;
   const ProductBottomSheet(this.category, {super.key});
 
   @override
@@ -30,7 +30,7 @@ class ProductBottomSheet extends StatelessWidget {
           discountText: '10% OFF',
           isBestValue: true,
           onAdd: () {
-            Get.toNamed(AppRoutes.checkoutPage);
+            Get.toNamed(AppRoutes.foodCartPage);
           },
         ),
         SizedBox(height: 12.h),
@@ -43,7 +43,7 @@ class ProductBottomSheet extends StatelessWidget {
           perKgPrice: null,
           discountText: '20% OFF',
           onAdd: () {
-            Get.toNamed(AppRoutes.checkoutPage);
+            Get.toNamed(AppRoutes.foodCartPage);
           },
         ),
         SizedBox(height: 30.h),

@@ -45,7 +45,7 @@ class FoodDetailsController extends GetxController {
     autoSlideTimer = null;
   }
 
-  void addToCart(BuildContext context, ProductModel category) {
+  void addToCart(BuildContext context, InstamartProductModel category) {
     isInCart.value = true;
     Utils.showSmartModalBottomSheet(context: context, builder: (context) => ProductBottomSheet(category));
   }

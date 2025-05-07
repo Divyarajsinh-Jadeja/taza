@@ -168,7 +168,11 @@ class DashboardController extends GetxController {
     }
   }
 
-  bool get showBottomCart => Get.find<CartController>().foodList.isNotEmpty && currentBottomType.value!=BottomNavType.instamart;
+  /// Will show food cart at bottom when food section and home is selected
+  bool get showFoodBottomCart => Get.find<CartController>().foodList.isNotEmpty && currentBottomType.value!=BottomNavType.instamart;
+
+  /// Will show instamart cart at bottom when instamart section is selected
+  bool get showInstamartBottomCart => Get.find<InstamartCartController>().foodList.isNotEmpty && currentBottomType.value==BottomNavType.instamart;
 
   void changeTab(int index) {
     /* final isSameTab = currentIndex.value == index;

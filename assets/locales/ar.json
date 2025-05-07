@@ -196,9 +196,6 @@
   "help": "مساعدة",
   "goodFoodTitle": "الطعام الجيد يُطهى دائمًا",
   "cartEmptyMessage": "سلتك فارغة. أضف شيئًا من القائمة",
-  "browseRestaurants": "تصفح المطاعم"
-
-
-
-
+  "browseRestaurants": "تصفح المطاعم",
+  "gotoCart": "اذهب إلى السلة"
 }

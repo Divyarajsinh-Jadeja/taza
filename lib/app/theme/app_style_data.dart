@@ -674,6 +674,10 @@ class LightModeTheme extends AppTheme {
       fontSize: 10.sp,
       color: colors.color34A853,
     ),
+    gotoCartStyle: interSemiBoldW600TextStyle.copyWith(
+      fontSize: 13.sp,
+      color: colors.white,
+    ),
 
   );
 

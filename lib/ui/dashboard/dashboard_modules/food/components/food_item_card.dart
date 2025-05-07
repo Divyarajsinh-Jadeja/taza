@@ -31,7 +31,7 @@ class FoodItemCard extends StatelessWidget {
         SizedBox(width: 4.w),
         SmartColumn(
           expanded: true,
-          padding: EdgeInsets.all(8.w),
+          padding: EdgeInsetsDirectional.all(8.w),
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SmartText(item.title, maxLines: 1, overflow: TextOverflow.ellipsis, style: style.titleStyle),
@@ -59,7 +59,7 @@ class FoodItemCard extends StatelessWidget {
                 GestureDetector(
                   onTap: onTapAdd,
                   child: Container(
-                    padding: EdgeInsets.all(4.w),
+                    padding: EdgeInsetsDirectional.all(4.w),
                     decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: style.primaryColor)),
                     child: Icon(Icons.add, size: 18.w, color: style.primaryColor),
                   ),
