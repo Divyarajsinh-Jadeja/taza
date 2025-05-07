@@ -40,14 +40,14 @@ class AnimatedTabBar extends GetView<FoodController> {
               width: 70.w,
               key: ValueKey(isSelected),
               child: Padding(
-                padding: const EdgeInsets.only(top: 10),
+                padding: EdgeInsetsDirectional.only(top: 10.h),
                 child: CustomPaint(
                   painter: CustomTabBarPainter(isSelected: isSelected, themeColor: data.themeColor),
                   child: SmartColumn(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(left: 16.w, right: 16.w, top: 12.h),
+                        padding: EdgeInsetsDirectional.only(start: 16.w, end: 16.w, top: 12.h),
                         child: AnimatedSlide(
                           offset: isSelected ? Offset(0, 0) : Offset(0, 0.1),
                           duration: Duration(milliseconds: 400),
@@ -58,7 +58,7 @@ class AnimatedTabBar extends GetView<FoodController> {
                       SizedBox(height: 16.h),
                       Container(
                         alignment: Alignment.center,
-                        margin: EdgeInsets.only(top: 2,bottom: 4),
+                        margin: EdgeInsetsDirectional.only(top: 2.h),
                         color: isSelected ? style.transparentColor : controller.currentFoodTabData.themeColor.withValues(alpha: 0.5),
                         child: SmartText(
                           data.tabText,

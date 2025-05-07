@@ -17,7 +17,7 @@ class GroceryHeaderSliver extends GetView<GroceryDashboardController> {
             GestureDetector(
               onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
-                padding: const EdgeInsets.all(16),
+                padding: EdgeInsetsDirectional.all(16.w),
                 child: SmartSearchBar(
                   items: [Get.find<GroceryDashboardController>().hints[controller.currentHintIndex.value]],
                   controller: controller.searchController,

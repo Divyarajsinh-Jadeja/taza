@@ -7,10 +7,16 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
   Widget build(BuildContext context) {
     final InstamartProductModel category = Get.arguments as InstamartProductModel;
     final style = AppTheme.of(context).foodDetailsPageStyle;
+    final foodOptionCardStyle = AppTheme.of(context).foodOptionCardStyle;
+
     return Scaffold(
       backgroundColor: style.grayColor,
       appBar: SmartAppBar(title: category.name,
         titleStyle: style.titleTextStyle,
+        actions: [Padding(
+          padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
+          child: Icon(Icons.share_outlined),
+        )],
       ),
       body: SafeArea(
         child: Stack(
@@ -48,21 +54,24 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                               margin: EdgeInsetsDirectional.all(10.w),
                               child: Stack(
                                 children: [
-                                  SizedBox(
-                                    height: 350.h,
-                                    child: PageView.builder(
-                                      controller: controller.pageController,
-                                      itemCount: controller.productImages.length,
-                                      onPageChanged: controller.onPageChanged,
-                                      itemBuilder: (context, index) {
-                                        return SmartImage(
-                                          padding: EdgeInsetsDirectional.all(15.w),
-                                          width: Get.width,
-                                          path: category.imageUrl,
-                                          height: 350.h,
-                                          fit: BoxFit.contain,
-                                        );
-                                      },
+                                  ClipRRect(
+                                    borderRadius : BorderRadius.circular(14.r),
+                                    child: SizedBox(
+                                      height: 350.h,
+                                      child: PageView.builder(
+                                        controller: controller.pageController,
+                                        itemCount: controller.productImages.length,
+                                        onPageChanged: controller.onPageChanged,
+                                        itemBuilder: (context, index) {
+                                          return SmartImage(
+                                            padding: EdgeInsetsDirectional.all(15.w),
+                                            width: Get.width,
+                                            path: category.imageUrl,
+                                            height: 350.h,
+                                            fit: BoxFit.contain,
+                                          );
+                                        },
+                                      ),
                                     ),
                                   ),
                                   // Discount badge on the top-left corner.
@@ -192,10 +201,23 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                               ],
                             ),
                             SmartRow(
-                              margin: EdgeInsetsDirectional.symmetric(horizontal: 15.w),
-                              padding: EdgeInsetsDirectional.symmetric(horizontal: 10.w, vertical: 5.h),
-                              decoration: BoxDecoration(color: Colors.yellow[100], borderRadius: BorderRadius.circular(4.r)),
                               mainAxisSize: MainAxisSize.min,
+                              padding: EdgeInsetsDirectional.symmetric(
+                                vertical: 6.h,
+                                horizontal: 12.w,
+                              ),
+                              margin: EdgeInsetsDirectional.symmetric(horizontal: 12.w),
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: [
+                                    foodOptionCardStyle.tagStartGradientStartColor,
+                                    foodOptionCardStyle.tagEndGradientStartColor,
+                                  ],
+                                  begin: Alignment.centerLeft,
+                                  end: Alignment.centerRight,
+                                ),
+                                borderRadius: BorderRadius.circular(20.r),
+                              ),
                               children: [
                                 SmartText(10.toCurrencyCodeFormat(), style: style.titleTextStyle),
                                 SizedBox(width: 5.w),
@@ -233,16 +255,61 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                                 ),
                                 SizedBox(height: 15.h),
                                 SmartColumn(
-                                  decoration: BoxDecoration(color: style.highlightBgColor, borderRadius: BorderRadius.circular(8.r)),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8.r),
+                                  ),
                                   children: [
-                                    _buildHighlightRow("Food Contents", category.name, style),
-                                    _buildDivider(),
-                                    _buildHighlightRow("Pack Size", "400g", style),
-                                    _buildDivider(),
-                                    _buildHighlightRow("Source", "Product of India", style),
-                                    _buildDivider(),
-                                    _buildHighlightRow("Speciality", "Delicious Test", style),
-                                  ],
+                                    SmartRow(
+                                      children: [
+                                        Expanded(
+                                          flex: 2,
+                                          child: SmartColumn(
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.only(
+                                                  topLeft: Radius.circular(10.r),
+                                                  bottomLeft: Radius.circular(10.r)
+                                              ),
+                                              color: Colors.grey.shade200,
+                                            ),
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              _buildSideText("Food Contents", style.highlightTitleStyle),
+                                              _buildDivider(),
+                                              _buildSideText("Pack Size", style.highlightTitleStyle),
+                                              _buildDivider(),
+                                              _buildSideText("Source", style.highlightTitleStyle),
+                                              _buildDivider(),
+                                              _buildSideText("Speciality", style.highlightTitleStyle),
+                                            ],
+                                          ),
+                                        ),
+                                        Expanded(
+                                          flex: 3,
+                                          child: SmartColumn(
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.only(
+                                                  topRight: Radius.circular(10.r),
+                                                  bottomRight: Radius.circular(10.r)
+                                              ),
+                                              color: Colors.white,
+                                              border: Border.all(
+                                                color: Colors.grey.shade200,
+                                              )
+                                            ),
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              _buildSideText(category.name, style.highlightDescriptionStyle),
+                                              _buildDivider(),
+                                              _buildSideText("400g", style.highlightDescriptionStyle),
+                                              _buildDivider(),
+                                              _buildSideText("Product of India", style.highlightDescriptionStyle),
+                                              _buildDivider(),
+                                              _buildSideText("Delicious Test", style.highlightDescriptionStyle),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    )                                  ],
                                 ),
                               ],
                             ),
@@ -351,44 +418,23 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
     );
   }
 
-  // Helper method to build a row for highlights.
-  Widget _buildHighlightRow(String label, String value, FoodDetailsPageStyle style) {
-    return SmartRow(
+  Widget _buildSideText(String text, TextStyle style) {
+    return Padding(
       padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 10.w),
-      children: [
-        Expanded(
-          flex: 2,
-          child: SmartText(
-            label,
-            style: style.highlightTitleStyle,
-            animator: SmartAnimator(
-              animateFade: true,
-              animateSlideX: true,
-              animationDuration: 300.ms,
-              animationDelay: 600.ms,
-              animationCurve: Curves.decelerate,
-            ),
-          ),
+      child: SmartText(
+        text,
+        style: style,
+        animator: SmartAnimator(
+          animateFade: true,
+          animateSlideX: true,
+          animationDuration: 300.ms,
+          animationDelay: 600.ms,
+          animationCurve: Curves.decelerate,
         ),
-        Expanded(
-          flex: 3,
-          child: SmartText(
-            value,
-            style: style.highlightDescriptionStyle,
-            animator: SmartAnimator(
-              animateFade: true,
-              animateSlideX: true,
-              animationDuration: 300.ms,
-              animationDelay: 600.ms,
-              animationCurve: Curves.decelerate,
-            ),
-          ),
-        ),
-      ],
+      ),
     );
   }
 
-  // Helper method to build a divider.
   Widget _buildDivider() {
     return Divider(height: 1, thickness: 1,);
   }
