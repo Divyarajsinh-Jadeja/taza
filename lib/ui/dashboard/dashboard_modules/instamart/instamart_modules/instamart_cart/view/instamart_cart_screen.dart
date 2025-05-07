@@ -5,11 +5,6 @@ class InstamartCartPage extends GetView<InstamartCartController> {
 
   @override
   Widget build(BuildContext context) {
-    /*WidgetsBinding.instance.addPostFrameCallback((_) {
-      Future.delayed(Duration(milliseconds: 500), () {
-        Get.dialog(RewardDialog());
-      });
-    });*/
 
     final style = AppTheme
         .of(context)
@@ -59,27 +54,25 @@ class InstamartCartPage extends GetView<InstamartCartController> {
             ),
             _buildTopAppliedOrder(style),
           ],
-        ) : SizedBox(
-          height: Get.height,
-          width: Get.width,
-          child: SmartColumn(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              spacing: 10.h,
-              children: [
-                SmartImage(path: AppImages.cookingLottie, size: 300.w,),
-                SmartText(LocaleKeys.goodFoodTitle.tr,
-                  style: style.deliveryHeaderStyle,),
-                SmartText(LocaleKeys.cartEmptyMessage.tr,
-                  style: style.deliveryInStyle,),
-                SizedBox(height: 20.h,),
-                SmartButton(
-                    width: 250.w,
-                    onTap: () {
-                      Get.offAllNamed(AppRoutes.dashboardPage);
-                    }, title: LocaleKeys.browseRestaurants.tr)
-              ]),
-        ),
+        ) : SmartColumn(
+            height: Get.height,
+            width: Get.width,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            spacing: 10.h,
+            children: [
+              SmartImage(path: AppImages.cookingLottie, size: 300.w,),
+              SmartText(LocaleKeys.goodFoodTitle.tr,
+                style: style.deliveryHeaderStyle,),
+              SmartText(LocaleKeys.cartEmptyMessage.tr,
+                style: style.deliveryInStyle,),
+              SizedBox(height: 20.h,),
+              SmartButton(
+                  width: 250.w,
+                  onTap: () {
+                    Get.offAllNamed(AppRoutes.dashboardPage);
+                  }, title: LocaleKeys.browseRestaurants.tr)
+            ]),
         bottomNavigationBar: controller.foodList.isNotEmpty ? SmartRow(
           height: 95.h,
           decoration: BoxDecoration(color: style.whiteColor),
@@ -204,7 +197,7 @@ class InstamartCartPage extends GetView<InstamartCartController> {
             SmartRow(
               spacing: 8.w,
               children: [
-                SmartImage(path: AppImages.icDoc, height: 20.w, width: 20.w),
+                SmartImage(path: AppImages.icDoc, size: 20.w),
                 Expanded(
                   child: SmartRichText(
                     spans: [
@@ -298,8 +291,7 @@ class InstamartCartPage extends GetView<InstamartCartController> {
               children: [
                 SmartImage(
                   path: AppImages.icSaveTag,
-                  width: 16.w,
-                  height: 16.w,
+                  size: 16.w,
                 ),
                 SizedBox(width: 8.w),
                 SmartText(
