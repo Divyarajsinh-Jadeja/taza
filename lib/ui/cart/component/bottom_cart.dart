@@ -142,13 +142,15 @@ class BottomCartWidget extends GetView<CartController> {
                     ),
                     color: style.whiteColor,
                   ),
-                  child: ClipOval(
-                    child: SmartImage(
-                      path: controller.foodList[index].imageUrl,
-                      width: imageSize,
-                      height: imageSize,
-                      fit: BoxFit.cover,
+                  child: SmartImage(
+                    path: controller.foodList[index].imageUrl,
+                    width: imageSize,
+                    height: imageSize,
+                    fit: BoxFit.cover,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle
                     ),
+                    clipBehavior: Clip.antiAlias,
                   ),
                 ),
               );

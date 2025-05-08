@@ -180,7 +180,7 @@ class ConfirmRemoveDialog extends StatelessWidget {
       backgroundColor: style.backgroundColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.r)),
       child: Padding(
-        padding: EdgeInsets.all(20.w),
+        padding: EdgeInsetsDirectional.all(20.w),
         child: SmartColumn(
           spacing: 20.h,
           mainAxisSize: MainAxisSize.min,
@@ -240,7 +240,7 @@ Future<void> showSmartAddOnSelector({
         expand: false,
         builder: (context, scrollController) {
           return Container(
-            padding: EdgeInsets.all(16.w),
+            padding: EdgeInsetsDirectional.all(16.w),
             decoration: BoxDecoration(
               color: style.whiteColor,
               borderRadius: BorderRadius.vertical(top: Radius.circular(24.r)),
@@ -270,18 +270,15 @@ Future<void> showSmartAddOnSelector({
                             children: [
                               SmartImage(
                                 path: model.imageUrl,
-                                width: 48.w,
-                                height: 48.w,
+                                size: 48.w,
                                 fit: BoxFit.cover,
                               ),
-                              Expanded(
-                                child: SmartText(
-                                  model.name,
-                                  style: style.titleStyle,
-                                  maxLines: 2,
-                                  isExpanded: true,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
+                              SmartText(
+                                model.name,
+                                style: style.titleStyle,
+                                maxLines: 2,
+                                isExpanded: true,
+                                overflow: TextOverflow.ellipsis,
                               ),
                               InkWell(
                                 onTap: () => Navigator.pop(context),
@@ -314,7 +311,7 @@ Future<void> showSmartAddOnSelector({
                                     selected[index] = !selected[index];
                                     selectedAddOns.value = [...selected];
                                   },
-                                  padding: EdgeInsets.symmetric(vertical: 8.h),
+                                  padding: EdgeInsetsDirectional.symmetric(vertical: 8.h),
                                   spacing: 12.w,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -345,7 +342,7 @@ Future<void> showSmartAddOnSelector({
                             ),
                           ),
 
-                          Divider(height: 32.h, color: Colors.grey.shade400),
+                          Divider(height: 32.h, ),
 
                           /// Quantity + Add to Cart
                           SmartRow(
@@ -362,7 +359,7 @@ Future<void> showSmartAddOnSelector({
                                       }
                                     },
                                     child: Container(
-                                      padding: EdgeInsets.all(4.w),
+                                      padding: EdgeInsetsDirectional.all(4.w),
                                       decoration: BoxDecoration(
                                         border: Border.all(color: style.iconColor),
                                         borderRadius: BorderRadius.circular(4.r),
@@ -376,7 +373,7 @@ Future<void> showSmartAddOnSelector({
                                       setState(() => tempQuantity++);
                                     },
                                     child: Container(
-                                      padding: EdgeInsets.all(4.w),
+                                      padding:EdgeInsetsDirectional.all(4.w),
                                       decoration: BoxDecoration(
                                         border: Border.all(color: style.iconColor),
                                         borderRadius: BorderRadius.circular(4.r),
