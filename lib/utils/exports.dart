@@ -140,11 +140,14 @@ export 'package:taza/ui/dashboard/dashboard_modules/reorder/view/reorder_page.da
 export 'package:taza/ui/dashboard/dashboard_modules/rewards/view/rewards_controller.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/rewards/view/rewards_page.dart';
 
-export 'package:taza/ui/cart/view/cart_controller.dart';
-export 'package:taza/ui/cart/binding/cart_binding.dart';
-export 'package:taza/ui/cart/view/cart_screen.dart';
-export 'package:taza/ui/cart/component/product_cart_card.dart';
-export 'package:taza/ui/cart/component/bottom_cart.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/food/food_modules/cart/component/product_cart_card.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/food/food_modules/cart/view/cart_controller.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/food/food_modules/cart/binding/cart_binding.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/food/food_modules/cart/view/cart_screen.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/food/food_modules/cart/component/bottom_cart.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/grocery/instamart_modules/instamart_cart/component/instamart_bottom_cart.dart';
+
+
 
 export 'package:taza/ui/coupons/view/coupons_controller.dart';
 export 'package:taza/ui/coupons/binding/coupons_binding.dart';
@@ -217,13 +220,21 @@ export 'package:taza/ui/dashboard/dashboard_modules/category/view/category_dashb
 export 'package:taza/ui/explore_brands/view/explore_brand_controller.dart';
 export 'package:taza/ui/dashboard/dashboard_modules/food/components/restaurant_item_card.dart';
 export 'package:taza/ui/explore_brands/components/explore_brand_item_card.dart';
-
-
-
+export 'package:taza/ui/dashboard/dashboard_modules/grocery/instamart_modules/instamart_cart/component/instamart_product_cart_card.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/grocery/instamart_modules/instamart_cart/view/instamart_cart_controller.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/grocery/instamart_modules/instamart_cart/binding/instamart_cart_binding.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/grocery/instamart_modules/instamart_cart/view/instamart_cart_screen.dart' show InstamartCartPage;
+export 'package:taza/ui/explore_brands/binding/explore_binding.dart';
+export 'package:taza/ui/explore_brands/view/explore_brand_page.dart';
 
 export 'package:taza/ui/my_orders/binding/my_orders_binding.dart';
 export 'package:taza/ui/my_orders/view/my_orders_controller.dart';
 export 'package:taza/ui/my_orders/view/my_orders_details.dart';
+export 'package:taza/ui/search/view/search_page_controller.dart';
+export 'package:taza/ui/search/binding/search_page_binding.dart';
+export 'package:taza/ui/search/view/search_page.dart';
+export 'package:taza/ui/search/model/search_model.dart';
+
 
 export 'package:taza/ui/ui.dart';
 

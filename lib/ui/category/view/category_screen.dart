@@ -329,6 +329,8 @@ class ProductCard extends StatelessWidget {
   final int index;
   final bool hasDiscount;
   final String discountPercent;
+  final double? imageWidth;
+  final double? imageHeight;
   final VoidCallback onAddTap;
   final VoidCallback onProductTap;
 
@@ -338,6 +340,8 @@ class ProductCard extends StatelessWidget {
     required this.index,
     this.hasDiscount = false,
     this.discountPercent = "0%",
+    this.imageWidth,
+    this.imageHeight,
     required this.onAddTap,
     required this.onProductTap,
   });
@@ -367,14 +371,13 @@ class ProductCard extends StatelessWidget {
                     child: Center(
                       child:
                           product.imageUrl.isNotEmpty
-                              ? ClipRRect(
-                                borderRadius: BorderRadius.circular(8.r),
-                                child: SmartImage(
-                                  path: product.imageUrl,
-                                  width: Get.width,
-                                  height: Get.height,
-                                  imageBorderRadius: BorderRadius.circular(8.r),
-                                ),
+                              ? SmartImage(
+                                clipBehavior: Clip.antiAlias,
+                                path: product.imageUrl,
+                                width: imageWidth ?? Get.width,
+                                height: imageHeight ?? Get.height,
+                                fit: BoxFit.cover,
+                                imageBorderRadius: BorderRadius.circular(8.r),
                               )
                               : Icon(
                                 Icons.image,
@@ -398,43 +401,34 @@ class ProductCard extends StatelessWidget {
                     SmartText("6 MINS", style: style.deliveryTimeTextStyle),
                   ],
                 ),
-
-                // Product Name
-                Padding(
-                  padding: EdgeInsetsDirectional.only(top: 4.h),
-                  child: SmartText(
-                    "${product.name}\n",
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: style.nameTextStyle,
-                  ),
+                SmartText(
+                  "${product.name}\n",
+                  maxLines: 1,
+                  optionalPadding: EdgeInsetsDirectional.only(top: 4.h),
+                  overflow: TextOverflow.ellipsis,
+                  style: style.nameTextStyle,
                 ),
 
                 // Product Size
-                Padding(
-                  padding: EdgeInsetsDirectional.only(top: 4.h),
-                  child: SmartText("250 ml", style: style.sizeTextStyle),
+                SmartText("250 ml", style: style.sizeTextStyle,
+                  optionalPadding: EdgeInsetsDirectional.only(top: 4.h),
                 ),
-
-                // Price
-                Padding(
+                SmartRow(
                   padding: EdgeInsetsDirectional.only(top: 4.h),
-                  child: SmartRow(
-                    spacing: 6.w,
-                    children: [
+                  spacing: 6.w,
+                  children: [
+                    SmartText(
+                      hasDiscount
+                          ? (product.price * 0.8).toCurrencyCodeFormat()
+                          : product.price.toCurrencyCodeFormat(),
+                      style: style.discountedPriceTextStyle,
+                    ),
+                    if (hasDiscount)
                       SmartText(
-                        hasDiscount
-                            ? (product.price * 0.8).toCurrencyCodeFormat()
-                            : product.price.toCurrencyCodeFormat(),
-                        style: style.discountedPriceTextStyle,
+                        product.price.toCurrencyCodeFormat(),
+                        style: style.originalPriceTextStyle,
                       ),
-                      if (hasDiscount)
-                        SmartText(
-                          product.price.toCurrencyCodeFormat(),
-                          style: style.originalPriceTextStyle,
-                        ),
-                    ],
-                  ),
+                  ],
                 ),
 
                 SizedBox(height: 10.h,),

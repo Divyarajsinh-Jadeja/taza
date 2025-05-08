@@ -64,11 +64,10 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                                         onPageChanged: controller.onPageChanged,
                                         itemBuilder: (context, index) {
                                           return SmartImage(
-                                            padding: EdgeInsetsDirectional.all(15.w),
                                             width: Get.width,
                                             path: category.imageUrl,
                                             height: 350.h,
-                                            fit: BoxFit.contain,
+                                            fit: BoxFit.cover,
                                           );
                                         },
                                       ),
@@ -82,7 +81,7 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                                       borderRadius: BorderRadius.only(topLeft: Radius.circular(14.r), bottomRight: Radius.circular(4.r)),
                                     ),
                                     children: [
-                                      SmartText("10%", style: style.percentageTextStyle),
+                                      SmartText(4.toCurrencyCodeFormat(), style: style.percentageTextStyle),
                                       SmartText("OFF", style: style.percentageTextStyle),
                                     ],
                                   ),
@@ -316,7 +315,7 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                             SizedBox(height: 10.h),
                           ],
                         ),
-                        SizedBox(height: 10.h),
+                        SizedBox(height: 20.h),
                         // Description Section
                         SmartColumn(
                           margin: EdgeInsetsDirectional.symmetric(horizontal: 10.w),
@@ -398,7 +397,90 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 10.h),
+                        SizedBox(height: 20.h),
+                        SmartColumn(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                            margin: EdgeInsetsDirectional.symmetric(horizontal: 10.w),
+                            clipBehavior: Clip.antiAlias,
+                            decoration: BoxDecoration(
+                                color: style.whiteColor,
+                                shape: BoxShape.rectangle,
+                                borderRadius: BorderRadius.circular(14.r),
+                                boxShadow: [BoxShadow(
+                                  color: const Color.fromRGBO(178, 189, 194, 0.25),
+                                  offset: const Offset(0, 0),
+                                  blurRadius: 5.0.r,
+                                  spreadRadius: 5.r,
+                                ),]
+                            ),
+                            children: [
+                              SmartRow(
+                                children: [
+                                  SmartText(
+                                    "Similar Products",
+                                    isExpanded: true,
+                                    optionalPadding: EdgeInsetsDirectional.all(14.w),
+                                    style: style.titleTextStyle,
+                                    animator: SmartAnimator(
+                                      animateFade: true,
+                                      animateSlideX: true,
+                                      animationDuration: 300.ms,
+                                      animationDelay: 600.ms,
+                                      animationCurve: Curves.decelerate,
+                                    ),
+                                  ),
+                                  SmartText(
+                                    "View All",
+                                    style: style.showMoreLessTextStyle,
+                                    animator: SmartAnimator(
+                                      animateFade: true,
+                                      animateSlideX: true,
+                                      animationDuration: 300.ms,
+                                      animationDelay: 600.ms,
+                                      animationCurve: Curves.decelerate,
+                                    ),
+                                  ),
+                                  SizedBox(width: 2.w,),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.only(end: 8.0),
+                                    child: Icon(Icons.arrow_forward_sharp, size: 20.w,color: style.iconColors,),
+                                  )
+                                ],
+                              ),
+                              SizedBox(
+                                height: 320.h,
+                                child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: 5,
+                                  padding:  EdgeInsetsDirectional.only(end: 12.w),
+                                  itemBuilder: (context, index) {
+                                    return Padding(
+                                      padding: EdgeInsetsDirectional.only( start: 12.w),
+                                      child: ProductCard(
+                                        imageWidth: 120.w,
+                                        product: InstamartProductModel(
+                                          id: category.id,
+                                          name: category.name,
+                                          description: category.description,
+                                          price: category.price,
+                                          imageUrl: category.imageUrl, ),
+                                        index: index,
+                                        hasDiscount: true,
+                                        discountPercent: "\$10",
+                                        onAddTap: () {
+                                          // Add product logic
+                                        },
+                                        onProductTap: () {
+                                          // Navigate to product detail
+                                        },
+                                      ),
+                                    );
+                                  },
+                                ),
+                              )
+                        ]),
+
+
                       ],
                     ),
                   ),
