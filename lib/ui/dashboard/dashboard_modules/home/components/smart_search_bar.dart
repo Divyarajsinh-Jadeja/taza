@@ -12,10 +12,13 @@ class SmartSearchBar extends StatelessWidget {
   final double? borderRadius;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
+  final bool? isEnabled;
+  final bool? autoFocus;
+  bool isSearchWithPrefix = true;
   final ValueChanged<String>? onChanged;
   final EdgeInsetsGeometry? margin;
   
-  const SmartSearchBar({
+  SmartSearchBar({
     super.key,
     this.items,
     this.controller,
@@ -30,6 +33,9 @@ class SmartSearchBar extends StatelessWidget {
     this.suffixIcon,
     this.onChanged,
     this.margin,
+    this.autoFocus,
+    this.isEnabled,
+    required this.isSearchWithPrefix
   });
 
   @override
@@ -49,13 +55,15 @@ class SmartSearchBar extends StatelessWidget {
         Expanded(
           child: SmartTextField.search(
             controller: controller,
-            isSearchWithPrefix: true,
+            isSearchWithPrefix: isSearchWithPrefix,
             suffixIcon: suffixIcon ?? SizedBox(),
+            prefixIcon: prefixIcon,
             hintText: "",
             hintStyle: hintStyle ?? style.searchBarHintStyle,
             style: textStyle ?? style.searchBarTextStyle,
             color: Colors.transparent,
-            autofocus: false,
+            autofocus: autoFocus ?? false,
+            isEnabled: isEnabled,
             enabledBorderRadius: 12.r,
             focusNode: focusNode,
             onTapOutside: (event) => FocusScope.of(context).unfocus(),

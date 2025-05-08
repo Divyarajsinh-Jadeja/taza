@@ -1,6 +1,5 @@
 import 'package:taza/taza.dart';
-import 'package:taza/ui/explore_brands/binding/explore_binding.dart';
-import 'package:taza/ui/explore_brands/view/explore_brand_page.dart';
+
 
 /// All routes for app pages are defined here
 class AppRoutes {
@@ -22,6 +21,7 @@ class AppRoutes {
   static const saveAddressDetailsPage = '/save_address_details_page';
   static const orderDetailsPage = '/order_details_page';
   static const instamartCartPage = '/instamart_cart_page';
+  static const searchPage = '/search_page';
 
   static final List<GetPage> pages = [
     GetPage(
@@ -76,6 +76,13 @@ class AppRoutes {
       name: AppRoutes.couponsPage,
       page: () => const CouponsPage(),
       binding: CouponsBinding(),
+      transition: Transition.cupertino,
+      transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
+    ),
+    GetPage(
+      name: AppRoutes.searchPage,
+      page: () => const SearchPage(),
+      binding: SearchPageBinding(),
       transition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
     ),

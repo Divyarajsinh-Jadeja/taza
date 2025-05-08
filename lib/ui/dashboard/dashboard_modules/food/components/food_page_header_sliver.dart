@@ -17,6 +17,7 @@ class FoodHeaderSliver extends GetView<FoodController> {
               child: Padding(
                 padding: EdgeInsetsDirectional.all(16),
                 child: SmartSearchBar(
+                  isSearchWithPrefix: true,
                   items: [Get.find<FoodController>().hints[controller.currentHintIndex.value]],
                   controller: controller.searchController,
                   onChanged: (val) {},

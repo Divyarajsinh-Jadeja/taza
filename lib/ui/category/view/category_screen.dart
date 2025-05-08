@@ -1,4 +1,5 @@
 import 'package:taza/taza.dart';
+import 'package:taza/ui/dashboard/dashboard_modules/grocery/instamart_modules/instamart_cart/component/instamart_bottom_cart.dart';
 
 class CategoryScreen extends GetView<CategoryController> {
   const CategoryScreen({super.key});
@@ -329,6 +330,8 @@ class ProductCard extends StatelessWidget {
   final int index;
   final bool hasDiscount;
   final String discountPercent;
+  final double? imageWidth;
+  final double? imageHeight;
   final VoidCallback onAddTap;
   final VoidCallback onProductTap;
 
@@ -338,6 +341,8 @@ class ProductCard extends StatelessWidget {
     required this.index,
     this.hasDiscount = false,
     this.discountPercent = "0%",
+    this.imageWidth,
+    this.imageHeight,
     required this.onAddTap,
     required this.onProductTap,
   });
@@ -371,8 +376,9 @@ class ProductCard extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(8.r),
                                 child: SmartImage(
                                   path: product.imageUrl,
-                                  width: Get.width,
-                                  height: Get.height,
+                                  width: imageWidth ?? Get.width,
+                                  height: imageHeight ?? Get.height,
+                                  fit: BoxFit.cover,
                                   imageBorderRadius: BorderRadius.circular(8.r),
                                 ),
                               )
@@ -415,8 +421,6 @@ class ProductCard extends StatelessWidget {
                   padding: EdgeInsetsDirectional.only(top: 4.h),
                   child: SmartText("250 ml", style: style.sizeTextStyle),
                 ),
-
-                // Price
                 Padding(
                   padding: EdgeInsetsDirectional.only(top: 4.h),
                   child: SmartRow(

@@ -15,13 +15,19 @@ class GroceryHeaderSliver extends GetView<GroceryDashboardController> {
           color: controller.currentFoodTabData.themeColor.withValues(alpha: 0.4),
           children: [
             GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              onTap: (){
+                Future.delayed(100.ms, () {
+                  Get.toNamed(AppRoutes.searchPage);
+                });
+              },
               child: Padding(
                 padding: EdgeInsetsDirectional.all(16.w),
                 child: SmartSearchBar(
+                  isSearchWithPrefix: true,
                   items: [Get.find<GroceryDashboardController>().hints[controller.currentHintIndex.value]],
                   controller: controller.searchController,
                   onChanged: (val) {},
+                  isEnabled: false,
                   suffixIcon: SmartRow(
                     mainAxisSize: MainAxisSize.min,
                     children: [

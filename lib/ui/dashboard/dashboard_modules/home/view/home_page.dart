@@ -40,6 +40,7 @@ class HomePage extends GetView<HomeController> {
                   onTap: () => FocusScope.of(context).unfocus(),
                   child: Obx(() {
                     return SmartSearchBar(
+                      isSearchWithPrefix: true,
                       margin: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
                       items: [controller.hints[controller.currentHintIndex.value]],
                       controller: controller.searchController.value,
