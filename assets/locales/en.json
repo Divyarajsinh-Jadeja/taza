@@ -202,5 +202,8 @@
   "browseRestaurants": "Browse Restaurants",
   "startShopping": "Start Shopping",
   "emptyCartTitle": "Your cart is getting lonely",
-  "emptyCartSubtitle": "Fill it up with all things good!"
+  "emptyCartSubtitle": "Fill it up with all things good!",
+  "chooseAddOns": "Choose Your Add-ons",
+  "selectAddOnsLimit": "Select up to 3",
+  "addItem": "Add Item"
 }

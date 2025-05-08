@@ -200,5 +200,8 @@
   "gotoCart": "اذهب إلى السلة",
   "startShopping": "ابدأ التسوق",
   "emptyCartTitle": "سلتك أصبحت فارغة",
-  "emptyCartSubtitle": "املأها بكل الأشياء الرائعة!"
+  "emptyCartSubtitle": "املأها بكل الأشياء الرائعة!",
+  "chooseAddOns": "اختر الإضافات الخاصة بك",
+  "selectAddOnsLimit": "اختر حتى 3",
+  "addItem": "أضف العنصر"
 }

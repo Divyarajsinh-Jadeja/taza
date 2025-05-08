@@ -671,12 +671,12 @@ class LightModeTheme extends AppTheme {
       color: colors.color1D1D1F,
     ),
     bottomCartGreenStyle: interSemiBoldW600TextStyle.copyWith(
-      fontSize: 10.sp,
+      fontSize: 12.sp,
       color: colors.color34A853,
     ),
     gotoCartStyle: interSemiBoldW600TextStyle.copyWith(
-      fontSize: 13.sp,
-      color: colors.white,
+      fontSize: 12.sp,
+      color: colors.primary,
     ),
     grayColor: colors.color9c9cA3
   );

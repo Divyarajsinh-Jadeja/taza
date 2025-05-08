@@ -191,22 +191,35 @@ class BottomCartWidget extends GetView<CartController> {
             ),
           ],
         ),
-        Spacer(),
-        Container(width: 2,color: style.primaryColor,height: 30.h,),
-        Spacer(),
-        SmartColumn(
-          children: [
-            SmartText(
-              "${controller.cartTotal.toCurrencyCodeFormat()} Cart total",
-              style: style.bottomCartTitleStyle,
+        SmartRow(
+          onTap: () => Get.toNamed(AppRoutes.foodCartPage),
+            isExpanded: true,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+          SmartRow(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12.r),
+                border: Border.all(color: style.primaryColor)
             ),
-          ],
-        ),
-        Icon(
-          Icons.arrow_forward_ios_rounded,
-          color: style.primaryColor,
-          size: 15.w,
-        ),
+            padding: EdgeInsetsDirectional.all(8.w),
+            spacing: 10.w,
+            children: [
+              Icon(Icons.shopping_cart,color: style.primaryColor,),
+              SmartText(
+                "TOTAL ${controller.cartTotal.toCurrencyCodeFormat()}",
+                style: style.gotoCartStyle,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
+          ),
+          SizedBox(width: 10.w,),
+          Icon(
+            Icons.arrow_forward_ios_rounded,
+            color: style.primaryColor,
+            size: 15.w,
+          ),
+        ]),
       ],
     );
   }

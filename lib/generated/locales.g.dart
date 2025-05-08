@@ -211,6 +211,9 @@ class LocaleKeys {
   static const startShopping = 'startShopping';
   static const emptyCartTitle = 'emptyCartTitle';
   static const emptyCartSubtitle = 'emptyCartSubtitle';
+  static const chooseAddOns = 'chooseAddOns';
+  static const selectAddOnsLimit = 'selectAddOnsLimit';
+  static const addItem = 'addItem';
 }
 
 class Locales {
@@ -426,6 +429,9 @@ class Locales {
     'startShopping': 'Start Shopping',
     'emptyCartTitle': 'Your cart is getting lonely',
     'emptyCartSubtitle': 'Fill it up with all things good!',
+    'chooseAddOns': 'Choose Your Add-ons',
+    'selectAddOnsLimit': 'Select up to 3',
+    'addItem': 'Add Item',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -632,5 +638,8 @@ class Locales {
     'startShopping': 'ابدأ التسوق',
     'emptyCartTitle': 'سلتك أصبحت فارغة',
     'emptyCartSubtitle': 'املأها بكل الأشياء الرائعة!',
+    'chooseAddOns': 'اختر الإضافات الخاصة بك',
+    'selectAddOnsLimit': 'اختر حتى 3',
+    'addItem': 'أضف العنصر',
   };
 }

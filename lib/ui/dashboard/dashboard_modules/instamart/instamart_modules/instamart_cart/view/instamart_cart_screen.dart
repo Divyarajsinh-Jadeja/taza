@@ -475,4 +475,5 @@ class InstamartCartPage extends GetView<InstamartCartController> {
       ],
     );
   }
+
 }

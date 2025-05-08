@@ -29,6 +29,7 @@ class FoodPage extends GetView<FoodController> {
         controller: controller.scrollController,
         physics: const ClampingScrollPhysics(),
         slivers: [
+
           _buildAppBarSliver(foodPageStyle, context),
           ..._buildTopHeaderSlivers(context, foodPageStyle),
           ..._buildContentSlivers(style, foodPageStyle),
@@ -37,6 +38,66 @@ class FoodPage extends GetView<FoodController> {
     );
 
   }
+  List<Widget> buildCombinedHeaderSlivers(BuildContext context, FoodPageStyle foodPageStyle) {
+    final themeColor = controller.currentFoodTabData.themeColor;
+
+    return [
+      /// 🌈 Combined AppBar + Address in a gradient container
+      SliverToBoxAdapter(
+        child: Obx(() {
+          return Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  themeColor.withOpacity(0.8),
+                  themeColor.withOpacity(0.1),
+                ],
+              ),
+            ),
+            child: Column(
+              children: [
+                /// AppBar height placeholder (status bar padding)
+                Container(
+                  height: MediaQuery.of(context).padding.top,
+                  color: Colors.transparent,
+                ),
+                SmartColumn(
+                  color: Colors.transparent,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Padding(
+                      padding: EdgeInsetsDirectional.symmetric(
+                        horizontal: 16.w,
+                        vertical: 6.h,
+                      ),
+                      child: HomeAddressHeader(
+                        addressTypeTag: LocaleKeys.home.tr,
+                        address: "1600 Amphitheatre, Mountain View",
+                        userImagePath: "https://i.ibb.co/HLgDnFFQ/Group.png",
+                        textColor: Utils.getContrastColor(themeColor),
+                        homeIconColor: Utils.getContrastColor(themeColor),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          );
+        }),
+      ),
+
+      /// 📌 Pinned food category header
+      PinnedHeaderSliver(
+        child: Obx(() => ColoredBox(
+          color: themeColor.withOpacity(0.1),
+          child: const FoodHeaderSliver(),
+        )),
+      ),
+    ];
+  }
+
 
   List<Widget> _buildTopHeaderSlivers(BuildContext context,
       FoodPageStyle foodPageStyle) {
