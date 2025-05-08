@@ -101,9 +101,12 @@ class BottomCartWidget extends GetView<CartController> {
   }
 
   _buildItemWidget(CheckoutStyle style) {
+    double imageSize = 35.w;
+    double overlap = 15.w;
     int visibleCount =
         controller.foodList.length > 4 ? 4 : controller.foodList.length;
-    double totalWidth = 30.w + (visibleCount - 1) * 8.w;
+    double totalWidth = imageSize + (visibleCount - 1) * overlap;
+
     return SmartRow(
       color: style.whiteColor,
       padding: EdgeInsetsDirectional.only(
@@ -120,38 +123,41 @@ class BottomCartWidget extends GetView<CartController> {
 
       children: [
         Container(
-          width: totalWidth,
-          height: 35.h,
+          width: totalWidth, // this must match the space needed for overlapping
+          height: imageSize,
           margin: EdgeInsetsDirectional.only(end: 10.w),
           child: Stack(
             clipBehavior: Clip.none,
-            alignment: Alignment.center,
-            children: List.generate(
-              controller.foodList.length > 4 ? 4 : controller.foodList.length,
-              (index) {
-                return Positioned(
-                  left: index * 8.w,
-                  child: SmartImage(
-                    /// TODO: below image will change once we integrate api
-                    path: controller.foodList[index].imageUrl,
-                    imageBorderRadius: BorderRadius.circular(6.r),
-                    clipBehavior: Clip.antiAlias,
-                    width: 30.w,
-                    height: 35.w,
-                    decoration: BoxDecoration(
-                      color: style.whiteColor,
-                      border: Border.all(color: style.whiteColor, width: 1.w),
-                      borderRadius: BorderRadius.circular(6.r),
+            children: List.generate(visibleCount, (index) {
+              return Positioned(
+                left: index * overlap,
+                child: Container(
+                  width: imageSize,
+                  height: imageSize,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: style.primaryColor.withValues(alpha: 0.4),
+                      width: 2.w,
                     ),
-
+                    color: style.whiteColor,
                   ),
-                );
-              },
-            ),
+                  child: SmartImage(
+                    path: controller.foodList[index].imageUrl,
+                    width: imageSize,
+                    height: imageSize,
+                    fit: BoxFit.cover,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle
+                    ),
+                    clipBehavior: Clip.antiAlias,
+                  ),
+                ),
+              );
+            }),
           ),
         ),
         SmartColumn(
-          expanded: true,
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -187,13 +193,35 @@ class BottomCartWidget extends GetView<CartController> {
             ),
           ],
         ),
-        SmartButton(
-          width: 120.w,
-          height: 40.h,
+        SmartRow(
           onTap: () => Get.toNamed(AppRoutes.foodCartPage),
-          title: LocaleKeys.gotoCart.tr,
-          titleStyle: style.gotoCartStyle,
-        ),
+            isExpanded: true,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+          SmartRow(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12.r),
+                border: Border.all(color: style.primaryColor)
+            ),
+            padding: EdgeInsetsDirectional.all(8.w),
+            spacing: 10.w,
+            children: [
+              Icon(Icons.shopping_cart,color: style.primaryColor,),
+              SmartText(
+                LocaleKeys.total.tr.interpolate([controller.cartTotal.toCurrencyCodeFormat()]),
+                style: style.gotoCartStyle,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
+          ),
+          SizedBox(width: 10.w,),
+          Icon(
+            Icons.arrow_forward_ios_rounded,
+            color: style.primaryColor,
+            size: 15.w,
+          ),
+        ]),
       ],
     );
   }

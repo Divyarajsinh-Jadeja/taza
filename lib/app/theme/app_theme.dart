@@ -115,6 +115,8 @@ abstract class AppTheme {
   PromotionalBannerStyle get promotionBannerStyle;
 
   ProductCardStyle get productCardStyle;
+
+  DialogStyle get dialogStyle;
 }
 
 class PrimaryButtonStyle {
@@ -658,6 +660,7 @@ class CheckoutStyle {
   final TextStyle bottomCartTitleStyle;
   final TextStyle bottomCartGreenStyle;
   final TextStyle gotoCartStyle;
+  final Color grayColor;
 
   CheckoutStyle({
     required this.backgroundColor,
@@ -704,6 +707,7 @@ class CheckoutStyle {
     required this.bottomCartTitleStyle,
     required this.bottomCartGreenStyle,
     required this.gotoCartStyle,
+    required this.grayColor,
   });
 }
 
@@ -1112,4 +1116,24 @@ class RewardDialogStyle {
     this.celebrateTextStyle,
     this.closeIconColor,
   });
+}
+
+class DialogStyle {
+  final Color backgroundColor;
+  final TextStyle titleStyle;
+  final TextStyle messageStyle;
+  final TextStyle buttonStyle;
+  final Color confirmColor;
+  final Color cancelColor;
+
+  DialogStyle({
+    required this.backgroundColor,
+    required this.titleStyle,
+    required this.messageStyle,
+    required this.buttonStyle,
+    required this.confirmColor,
+    required this.cancelColor,
+  });
+
+
 }

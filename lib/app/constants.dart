@@ -80,7 +80,7 @@ List<RestaurantItemModel> demoRestaurantList = [
     price: '15',
     logo: 'https://i.ibb.co/mVLbTgrf/macd.png',
     menu: [
-      FoodModel(id: "1", name: 'Crispy Veggie Burger', imageUrl: 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/FOOD_CATALOG/IMAGES/CMS/2024/12/12/7a3244bf-3091-4ae6-92e3-13be841a753e_b21f7a05-24b3-43f8-a592-beb23e6b69fa.png', rating: 4.2, reviewsCount: 1200, deliveryTime: '30-35 min', price: 89.0, quantity: 0, isVeg: false, restaurantName: "Macdonald"),
+      FoodModel(id: "1", name: 'Crispy Veggie Burger', imageUrl: 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/FOOD_CATALOG/IMAGES/CMS/2024/12/12/7a3244bf-3091-4ae6-92e3-13be841a753e_b21f7a05-24b3-43f8-a592-beb23e6b69fa.png', rating: 4.2, reviewsCount: 1200, deliveryTime: '30-35 min', price: 89.0, quantity: 0, isVeg: false, restaurantName: "Macdonald",addons: commonAddOns),
       FoodModel(id: "2", name: 'Crispy Veggie Burger Meal (M).', imageUrl: 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/FOOD_CATALOG/IMAGES/CMS/2024/9/18/70eb5956-3666-47f4-bcf8-1f5075207222_fd9e2a06-3f27-47e3-88aa-86895ffaa65e.png', rating: 4.3, reviewsCount: 850, deliveryTime: '25-30 min', price: 49.0, quantity: 0, isVeg: false, restaurantName: "Macdonald"),
       FoodModel(id: "3", name: 'Mc Crispy Chicken Burger.', imageUrl: 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/FOOD_CATALOG/IMAGES/CMS/2024/3/15/08e9bc73-6774-41cf-96bb-ca817c4e23d3_e00ec89e-86f8-4531-956a-646082dc294c.png', rating: 4.1, reviewsCount: 700, deliveryTime: '20-25 min', price: 39.0, quantity: 0, isVeg: true, restaurantName: "Macdonald"),
     ],
@@ -224,138 +224,10 @@ List<RestaurantItemModel> demoRestaurantList = [
     ],
   ),
 ];
-
-List<CategoriesModel> demoCategory = [
-  CategoriesModel(
-    id: 'grocery',
-    name: 'Grocery & Kitchen',
-    subCategories: [
-      SubCategoriesModel(
-          id: '1',
-          name: 'Fresh Vegetables',
-          categoryUrl: "https://i.ibb.co/GvwYZYfk/category-grocery.png"
-      ),
-      SubCategoriesModel(
-          id: '2',
-          name: 'Fresh Fruits',
-          categoryUrl: "https://i.ibb.co/LDs5vb8H/category-one.png"
-      ),
-      SubCategoriesModel(
-          id: '3',
-          name: 'Dairy & Eggs',
-          categoryUrl: "https://i.ibb.co/DD1Q6HCz/category-dairy.png"
-      ),
-      SubCategoriesModel(
-          id: '4',
-          name: 'Oils & Ghee',
-          categoryUrl: "https://i.ibb.co/F4QpP3tT/category-oils.png"
-      ),
-      SubCategoriesModel(
-          id: '5',
-          name: 'Masalas',
-          categoryUrl: "https://i.ibb.co/p6dG1TW5/category-masala.png"
-      ),
-      SubCategoriesModel(
-          id: '6',
-          name: 'Breakfast',
-          categoryUrl: "https://i.ibb.co/GfDRGzkr/category-corn.png"
-      ),
-      SubCategoriesModel(
-          id: '7',
-          name: 'Atta,Rice & Dal',
-          categoryUrl: "https://i.ibb.co/JjrJz1fy/category-atta.png"
-      ),
-      SubCategoriesModel(
-          id: '8',
-          name: 'Bakery',
-          categoryUrl: "https://i.ibb.co/RkgKp1CQ/category-bakery.png"
-      ),
-      SubCategoriesModel(
-          id: '9',
-          name: 'Biscuits & Cakes',
-          categoryUrl: "https://i.ibb.co/Y48J13z3/category-biscuits.png"
-      ),
-      SubCategoriesModel(
-          id: '10',
-          name: 'Tea, Coffee & More',
-          categoryUrl: "https://i.ibb.co/XZDCSrSx/category-tea.png"
-      ),
-      SubCategoriesModel(
-          id: '11',
-          name: 'Dry Fruits',
-          categoryUrl: "https://i.ibb.co/pvqm2t2W/category-almonds.png"
-      ),
-      SubCategoriesModel(
-          id: '12',
-          name: 'Meat and Seafood',
-          categoryUrl: "https://i.ibb.co/C3j9TxTX/category-meat.png"
-      ),
-
-
-    ],
-  ),
-  CategoriesModel(
-    id: 'snacks',
-    name: 'Snacks & Drinks',
-    subCategories: [
-      SubCategoriesModel(
-          id: '1',
-          name: 'Fresh Vegetables',
-          categoryUrl: "https://i.ibb.co/GvwYZYfk/category-grocery.png"
-      ),
-      SubCategoriesModel(
-          id: '2',
-          name: 'Fresh Fruits',
-          categoryUrl: "https://i.ibb.co/LDs5vb8H/category-one.png"
-      ),
-      SubCategoriesModel(
-          id: '3',
-          name: 'Dairy & Eggs',
-          categoryUrl: "https://i.ibb.co/DD1Q6HCz/category-dairy.png"
-      ),
-      SubCategoriesModel(
-          id: '4',
-          name: 'Oils & Ghee',
-          categoryUrl: "https://i.ibb.co/F4QpP3tT/category-oils.png"
-      ),SubCategoriesModel(
-          id: '5',
-          name: 'Masalas',
-          categoryUrl: "https://i.ibb.co/p6dG1TW5/category-masala.png"
-      ),SubCategoriesModel(
-          id: '6',
-          name: 'Breakfast',
-          categoryUrl: "https://i.ibb.co/GfDRGzkr/category-corn.png"
-      ),SubCategoriesModel(
-          id: '7',
-          name: 'Atta,Rice & Dal',
-          categoryUrl: "https://i.ibb.co/JjrJz1fy/category-atta.png"
-      ),
-      SubCategoriesModel(
-          id: '8',
-          name: 'Bakery',
-          categoryUrl: "https://i.ibb.co/RkgKp1CQ/category-bakery.png"
-      ),
-      SubCategoriesModel(
-          id: '9',
-          name: 'Biscuits & Cakes',
-          categoryUrl: "https://i.ibb.co/Y48J13z3/category-biscuits.png"
-      ),
-      SubCategoriesModel(
-          id: '10',
-          name: 'Tea, Coffee & More',
-          categoryUrl: "https://i.ibb.co/XZDCSrSx/category-tea.png"
-      ),SubCategoriesModel(
-          id: '11',
-          name: 'Dry Fruits',
-          categoryUrl: "https://i.ibb.co/pvqm2t2W/category-almonds.png"
-      ),
-      SubCategoriesModel(
-          id: '12',
-          name: 'Meat and Seafood',
-          categoryUrl: "https://i.ibb.co/C3j9TxTX/category-meat.png"
-      ),
-    ],
-  ),
+List<AddOnModel> commonAddOns = [
+  AddOnModel(id: '1', name: 'Extra Cheese', price: 20),
+  AddOnModel(id: '2', name: 'Spicy Mayo', price: 15),
+  AddOnModel(id: '3', name: 'Crispy Onions', price: 10),
 ];
 
 /// Below method is used to show random items in our app

@@ -18,8 +18,6 @@ class FoodCard extends StatelessWidget {
     final style = AppTheme.of(context).foodCardStyle;
 
     return SmartRow(
-      onTap:
-          () => Get.toNamed(AppRoutes.categoryPage, arguments: false),
       height: 110.h,
       width: width,
       margin: EdgeInsetsDirectional.only(bottom: 16.h),

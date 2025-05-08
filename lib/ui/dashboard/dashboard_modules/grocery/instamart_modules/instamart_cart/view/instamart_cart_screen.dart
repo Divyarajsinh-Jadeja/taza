@@ -62,17 +62,17 @@ class InstamartCartPage extends GetView<InstamartCartController> {
             crossAxisAlignment: CrossAxisAlignment.center,
             spacing: 10.h,
             children: [
-              SmartImage(path: AppImages.cookingLottie, size: 300.w,),
-              SmartText(LocaleKeys.goodFoodTitle.tr,
+              SmartImage(path: AppImages.cartEmpty, size: 300.w,),
+              SmartText(LocaleKeys.emptyCartTitle.tr,
                 style: style.deliveryHeaderStyle,),
-              SmartText(LocaleKeys.cartEmptyMessage.tr,
+              SmartText(LocaleKeys.emptyCartSubtitle.tr,
                 style: style.deliveryInStyle,),
               SizedBox(height: 20.h,),
               SmartButton(
                   width: 250.w,
                   onTap: () {
                     Get.offAllNamed(AppRoutes.dashboardPage);
-                  }, title: LocaleKeys.browseRestaurants.tr)
+                  }, title: LocaleKeys.startShopping.tr)
             ]),
         bottomNavigationBar: controller.foodList.isNotEmpty ? SmartRow(
           height: 95.h,
@@ -438,8 +438,8 @@ class InstamartCartPage extends GetView<InstamartCartController> {
               (context, index) =>
               ProductCheckoutCard(model: FoodModel(
                 id: "8",
-                name: 'Crispy Fries',
-                imageUrl: 'https://i.ibb.co/Wp59vWJz/fries.jpg',
+                name: controller.foodList.first.name,
+                imageUrl: controller.foodList.first.imageUrl,
                 rating: 4.1,
                 reviewsCount: 620,
                 deliveryTime: '10-15 min',
@@ -476,4 +476,5 @@ class InstamartCartPage extends GetView<InstamartCartController> {
       ],
     );
   }
+
 }

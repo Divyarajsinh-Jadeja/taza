@@ -29,6 +29,7 @@ class FoodPage extends GetView<FoodController> {
         controller: controller.scrollController,
         physics: const ClampingScrollPhysics(),
         slivers: [
+
           _buildAppBarSliver(foodPageStyle, context),
           ..._buildTopHeaderSlivers(context, foodPageStyle),
           ..._buildContentSlivers(style, foodPageStyle),
@@ -37,6 +38,8 @@ class FoodPage extends GetView<FoodController> {
     );
 
   }
+
+
 
   List<Widget> _buildTopHeaderSlivers(BuildContext context,
       FoodPageStyle foodPageStyle) {
