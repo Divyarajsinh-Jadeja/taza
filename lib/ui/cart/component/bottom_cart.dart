@@ -208,7 +208,7 @@ class BottomCartWidget extends GetView<CartController> {
             children: [
               Icon(Icons.shopping_cart,color: style.primaryColor,),
               SmartText(
-                "TOTAL ${controller.cartTotal.toCurrencyCodeFormat()}",
+                LocaleKeys.total.tr.interpolate([controller.cartTotal.toCurrencyCodeFormat()]),
                 style: style.gotoCartStyle,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,

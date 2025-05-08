@@ -203,5 +203,7 @@
   "emptyCartSubtitle": "املأها بكل الأشياء الرائعة!",
   "chooseAddOns": "اختر الإضافات الخاصة بك",
   "selectAddOnsLimit": "اختر حتى 3",
-  "addItem": "أضف العنصر"
+  "addItem": "أضف العنصر",
+  "total": "المجموع {#}"
+
 }

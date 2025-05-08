@@ -201,14 +201,14 @@ class ConfirmRemoveDialog extends StatelessWidget {
               children: [
                 SmartButton.white(
                   title: "Cancel",
-                  onTap: () => Navigator.of(context).pop(),
+                  onTap: () => Get.back(),
                   width: 100.w,
                   height: 40.h,
                 ),
                 SmartButton(
                   title: "Remove",
                   onTap: () {
-                    Navigator.of(context).pop();
+                    Get.back();
                     onConfirm();
                   },
                   width: 100.w,
@@ -281,7 +281,7 @@ Future<void> showSmartAddOnSelector({
                                 overflow: TextOverflow.ellipsis,
                               ),
                               InkWell(
-                                onTap: () => Navigator.pop(context),
+                                onTap: () => Get.back(),
                                 child: const Icon(Icons.close),
                               ),
                             ],
@@ -392,7 +392,7 @@ Future<void> showSmartAddOnSelector({
                                       model.addons[i].isSelected = selected[i];
                                     }
                                     model.quantity = tempQuantity;
-                                    Navigator.pop(context);
+                                    Get.back();
                                     onAdd();
                                   },
                                 ),

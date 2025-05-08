@@ -205,5 +205,6 @@
   "emptyCartSubtitle": "Fill it up with all things good!",
   "chooseAddOns": "Choose Your Add-ons",
   "selectAddOnsLimit": "Select up to 3",
-  "addItem": "Add Item"
+  "addItem": "Add Item",
+  "total" : "Total {#}"
 }

@@ -214,6 +214,7 @@ class LocaleKeys {
   static const chooseAddOns = 'chooseAddOns';
   static const selectAddOnsLimit = 'selectAddOnsLimit';
   static const addItem = 'addItem';
+  static const total = 'total';
 }
 
 class Locales {
@@ -432,6 +433,7 @@ class Locales {
     'chooseAddOns': 'Choose Your Add-ons',
     'selectAddOnsLimit': 'Select up to 3',
     'addItem': 'Add Item',
+    'total': 'Total {#}',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -641,5 +643,6 @@ class Locales {
     'chooseAddOns': 'اختر الإضافات الخاصة بك',
     'selectAddOnsLimit': 'اختر حتى 3',
     'addItem': 'أضف العنصر',
+    'total': 'المجموع {#}',
   };
 }
