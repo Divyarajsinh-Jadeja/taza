@@ -164,26 +164,26 @@ class GroceryDashboardController extends GetxController with GetSingleTickerProv
   final List<FoodTabData> tabs = [
     FoodTabData(
       imagePath: "assets/images/ic_shopping_bag.png",
-      themeColor: Color(0xFFfcd44b),
-      bannerWidget: SmartImage(path: "assets/images/healthy_vegie_yellow.png", fit: BoxFit.cover, height: 170.h,),
+      themeColor: Color(0xFFffb400),
+      bannerWidget: SmartImage(path: "assets/images/sale.gif", fit: BoxFit.fill, height: 200.h,),
       tabText: "All",
     ),
     FoodTabData(
       imagePath: "assets/images/ic_fresh_instamart.png",
       themeColor: Color(0xFFffbd59),
-      bannerWidget: SmartImage(path: "assets/images/fruits_banner.png", fit: BoxFit.cover,  height: 180.h,),
+      bannerWidget: SmartImage(path: "assets/images/fruits_banner.png", fit: BoxFit.cover,  height: 200.h,),
       tabText: "Fresh",
     ),
     FoodTabData(
       imagePath: "assets/images/ic_gadgets.png",
       themeColor: Color(0xFF08610c),
-      bannerWidget: SmartImage(path: "assets/images/dairy_banner.png", fit: BoxFit.cover,  height: 180.h,),
+      bannerWidget: SmartImage(path: "assets/images/dairy_banner.png", fit: BoxFit.cover,  height: 200.h,),
       tabText: "Gadgets",
     ),
     FoodTabData(
       imagePath: "assets/images/ic_house.png",
       themeColor: Color(0xFFfcd44b),
-      bannerWidget: SmartImage(path: "assets/images/banner_oil.jpg", fit: BoxFit.cover,  height: 180.h,),
+      bannerWidget: SmartImage(path: "assets/images/banner_oil.jpg", fit: BoxFit.cover,  height: 200.h,),
       tabText: "Home",
     ),
     FoodTabData(

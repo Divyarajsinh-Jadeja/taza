@@ -10,7 +10,14 @@ class FoodHeaderSliver extends GetView<FoodController> {
       () => ColoredBox(
         color: foodPageStyle.whiteColor,
         child: SmartColumn(
-          color: controller.currentFoodTabData.lightThemeColor.withValues(alpha: 0.5),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(colors: [
+              controller.currentFoodTabData.themeColor,
+              controller.currentFoodTabData.themeColor.withValues(alpha: 0.4)
+            ],
+                begin: Alignment.topCenter,end: Alignment.bottomCenter),
+
+          ),
           children: [
             GestureDetector(
               onTap: () => FocusScope.of(context).unfocus(),

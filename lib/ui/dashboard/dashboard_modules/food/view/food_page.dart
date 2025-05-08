@@ -5,14 +5,12 @@ class FoodPage extends GetView<FoodController> {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() {
-      return AnnotatedRegion(
-          value: Utils.getOverlayStyle(
-              controller.currentFoodTabData.themeColor),
-          child: Scaffold(resizeToAvoidBottomInset: false,
-              extendBodyBehindAppBar: true,
-              body: _buildBody(context)));
-    });
+    return AnnotatedRegion(
+        value: Utils.getOverlayStyle(
+            controller.currentFoodTabData.themeColor),
+        child: Scaffold(resizeToAvoidBottomInset: false,
+            extendBodyBehindAppBar: true,
+            body: _buildBody(context)));
   }
 
   Widget _buildBody(BuildContext context) {
@@ -30,7 +28,7 @@ class FoodPage extends GetView<FoodController> {
         physics: const ClampingScrollPhysics(),
         slivers: [
 
-          _buildAppBarSliver(foodPageStyle, context),
+          _buildSafeArea(context),
           ..._buildTopHeaderSlivers(context, foodPageStyle),
           ..._buildContentSlivers(style, foodPageStyle),
         ],
@@ -47,7 +45,7 @@ class FoodPage extends GetView<FoodController> {
       SliverToBoxAdapter(
         child: Obx(() =>
             SmartColumn(
-              color: controller.currentFoodTabData.themeColor.withValues(alpha: 0.5),
+              color: controller.currentFoodTabData.themeColor,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Padding(
@@ -68,23 +66,21 @@ class FoodPage extends GetView<FoodController> {
       ),
       // Now separate pinned header for FoodHeaderSliver
       PinnedHeaderSliver(
-        child: Obx(() =>
-            ColoredBox(
-              color: controller.currentFoodTabData.themeColor.withValues(alpha: 0.1),
-              child: const FoodHeaderSliver(),
-            )),
+        child: ColoredBox(
+          color: foodPageStyle.whiteColor,
+          child: const FoodHeaderSliver(),
+        ),
       ),
     ];
   }
 
 
-  Widget _buildAppBarSliver(FoodPageStyle foodPageStyle, BuildContext context) {
+  Widget _buildSafeArea(BuildContext context) {
     return PinnedHeaderSliver(
       child: Obx(
             () =>
             Container(
-              color: controller.currentFoodTabData.themeColor.withValues(
-                  alpha: 1),
+              color: controller.currentFoodTabData.themeColor,
               height: MediaQuery
                   .of(context)
                   .padding

@@ -12,7 +12,13 @@ class GroceryHeaderSliver extends GetView<GroceryDashboardController> {
       () => ColoredBox(
         color: foodPageStyle.whiteColor,
         child: SmartColumn(
-          color: controller.currentFoodTabData.themeColor.withValues(alpha: 0.4),
+          decoration: BoxDecoration(gradient: LinearGradient(colors: [
+              controller.currentFoodTabData.themeColor,
+              controller.currentFoodTabData.themeColor.withValues(alpha: 0.4)
+            ], begin: Alignment.topCenter,end: Alignment.bottomCenter),
+
+          ),
+
           children: [
             GestureDetector(
               onTap: (){
