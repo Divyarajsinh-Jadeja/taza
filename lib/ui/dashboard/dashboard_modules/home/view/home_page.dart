@@ -60,7 +60,7 @@ class HomePage extends GetView<HomeController> {
                               showMicListeningSheet(context, loginStyle);
                             },
                               path: AppImages.icMic,
-                              width: 24.w, height: 24.h
+                              size: 24.w,
                           ),
                         ],
                       ),

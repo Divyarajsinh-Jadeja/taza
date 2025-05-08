@@ -1,5 +1,4 @@
 import 'package:taza/taza.dart';
-import 'package:taza/ui/dashboard/dashboard_modules/grocery/instamart_modules/instamart_cart/component/instamart_bottom_cart.dart';
 
 class CategoryScreen extends GetView<CategoryController> {
   const CategoryScreen({super.key});
@@ -372,15 +371,13 @@ class ProductCard extends StatelessWidget {
                     child: Center(
                       child:
                           product.imageUrl.isNotEmpty
-                              ? ClipRRect(
-                                borderRadius: BorderRadius.circular(8.r),
-                                child: SmartImage(
-                                  path: product.imageUrl,
-                                  width: imageWidth ?? Get.width,
-                                  height: imageHeight ?? Get.height,
-                                  fit: BoxFit.cover,
-                                  imageBorderRadius: BorderRadius.circular(8.r),
-                                ),
+                              ? SmartImage(
+                                clipBehavior: Clip.antiAlias,
+                                path: product.imageUrl,
+                                width: imageWidth ?? Get.width,
+                                height: imageHeight ?? Get.height,
+                                fit: BoxFit.cover,
+                                imageBorderRadius: BorderRadius.circular(8.r),
                               )
                               : Icon(
                                 Icons.image,
@@ -404,41 +401,34 @@ class ProductCard extends StatelessWidget {
                     SmartText("6 MINS", style: style.deliveryTimeTextStyle),
                   ],
                 ),
-
-                // Product Name
-                Padding(
-                  padding: EdgeInsetsDirectional.only(top: 4.h),
-                  child: SmartText(
-                    "${product.name}\n",
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: style.nameTextStyle,
-                  ),
+                SmartText(
+                  "${product.name}\n",
+                  maxLines: 1,
+                  optionalPadding: EdgeInsetsDirectional.only(top: 4.h),
+                  overflow: TextOverflow.ellipsis,
+                  style: style.nameTextStyle,
                 ),
 
                 // Product Size
-                Padding(
-                  padding: EdgeInsetsDirectional.only(top: 4.h),
-                  child: SmartText("250 ml", style: style.sizeTextStyle),
+                SmartText("250 ml", style: style.sizeTextStyle,
+                  optionalPadding: EdgeInsetsDirectional.only(top: 4.h),
                 ),
-                Padding(
+                SmartRow(
                   padding: EdgeInsetsDirectional.only(top: 4.h),
-                  child: SmartRow(
-                    spacing: 6.w,
-                    children: [
+                  spacing: 6.w,
+                  children: [
+                    SmartText(
+                      hasDiscount
+                          ? (product.price * 0.8).toCurrencyCodeFormat()
+                          : product.price.toCurrencyCodeFormat(),
+                      style: style.discountedPriceTextStyle,
+                    ),
+                    if (hasDiscount)
                       SmartText(
-                        hasDiscount
-                            ? (product.price * 0.8).toCurrencyCodeFormat()
-                            : product.price.toCurrencyCodeFormat(),
-                        style: style.discountedPriceTextStyle,
+                        product.price.toCurrencyCodeFormat(),
+                        style: style.originalPriceTextStyle,
                       ),
-                      if (hasDiscount)
-                        SmartText(
-                          product.price.toCurrencyCodeFormat(),
-                          style: style.originalPriceTextStyle,
-                        ),
-                    ],
-                  ),
+                  ],
                 ),
 
                 SizedBox(height: 10.h,),

@@ -53,7 +53,7 @@ class SearchPage extends GetView<SearchPageController> {
                                   showMicListeningSheet(context, loginStyle);
                                 },
                                 path: AppImages.icMic,
-                                width: 24.w, height: 24.h
+                                size: 24.w
                             ),
                           ],
                         ),
@@ -144,14 +144,14 @@ class SearchPage extends GetView<SearchPageController> {
                                                 child: SmartColumn(
                                                   children: [
                                                     Container(
-                                                      height: 100.h,
+                                                      height: 100.w,
                                                       width: 100.w,
                                                       decoration: BoxDecoration(
                                                         color: tab.themeColor.withOpacity(0.1),
                                                         borderRadius: BorderRadius.circular(16),
                                                       ),
                                                       child: Center(
-                                                        child: SmartImage(path: tab.imagePath, width: 60.w, height: 60.h),
+                                                        child: SmartImage(path: tab.imagePath, width: 60.w, height: 60.w),
                                                       ),
                                                     ),
                                                     SizedBox(height: 8.h),
