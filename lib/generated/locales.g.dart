@@ -208,6 +208,13 @@ class LocaleKeys {
   static const goodFoodTitle = 'goodFoodTitle';
   static const cartEmptyMessage = 'cartEmptyMessage';
   static const browseRestaurants = 'browseRestaurants';
+  static const startShopping = 'startShopping';
+  static const emptyCartTitle = 'emptyCartTitle';
+  static const emptyCartSubtitle = 'emptyCartSubtitle';
+  static const chooseAddOns = 'chooseAddOns';
+  static const selectAddOnsLimit = 'selectAddOnsLimit';
+  static const addItem = 'addItem';
+  static const total = 'total';
 }
 
 class Locales {
@@ -420,6 +427,13 @@ class Locales {
     'goodFoodTitle': 'Good Food is Always Cooking',
     'cartEmptyMessage': 'Your cart is empty. Add something from the menu',
     'browseRestaurants': 'Browse Restaurants',
+    'startShopping': 'Start Shopping',
+    'emptyCartTitle': 'Your cart is getting lonely',
+    'emptyCartSubtitle': 'Fill it up with all things good!',
+    'chooseAddOns': 'Choose Your Add-ons',
+    'selectAddOnsLimit': 'Select up to 3',
+    'addItem': 'Add Item',
+    'total': 'Total {#}',
   };
   static const ar = {
     'welcomeBack': 'مرحبًا بعودتك',
@@ -623,5 +637,12 @@ class Locales {
     'cartEmptyMessage': 'سلتك فارغة. أضف شيئًا من القائمة',
     'browseRestaurants': 'تصفح المطاعم',
     'gotoCart': 'اذهب إلى السلة',
+    'startShopping': 'ابدأ التسوق',
+    'emptyCartTitle': 'سلتك أصبحت فارغة',
+    'emptyCartSubtitle': 'املأها بكل الأشياء الرائعة!',
+    'chooseAddOns': 'اختر الإضافات الخاصة بك',
+    'selectAddOnsLimit': 'اختر حتى 3',
+    'addItem': 'أضف العنصر',
+    'total': 'المجموع {#}',
   };
 }

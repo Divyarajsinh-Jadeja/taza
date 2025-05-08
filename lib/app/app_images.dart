@@ -150,4 +150,5 @@ class AppImages {
   static const String vegetable = 'assets/images/vegetable.png';
 
   static const String cookingLottie = 'assets/images/cooking.json';
+  static const String cartEmpty = 'assets/images/cartempty.json';
 }

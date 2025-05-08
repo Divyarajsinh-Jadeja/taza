@@ -9,6 +9,7 @@ class FoodModel {
   int quantity;
   bool isVeg;
   String? restaurantName;
+  List<AddOnModel> addons;
 
   FoodModel({
     this.id = "",
@@ -21,5 +22,25 @@ class FoodModel {
     this.quantity = 1,
     this.isVeg = true,
     this.restaurantName,
+    this.addons = const [],
+  });
+
+  double get totalAddOnPrice =>
+      addons.where((a) => a.isSelected).fold(0, (sum, a) => sum + a.price);
+
+  double get totalPrice =>
+      (price + totalAddOnPrice) * quantity;
+}
+class AddOnModel {
+  String id;
+  String name;
+  double price;
+  bool isSelected;
+
+  AddOnModel({
+    required this.id,
+    required this.name,
+    required this.price,
+    this.isSelected = false,
   });
 }
