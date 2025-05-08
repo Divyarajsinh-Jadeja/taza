@@ -133,7 +133,6 @@ class SearchPage extends GetView<SearchPageController> {
                                             },
                                           );
                                         } else if (category.foodTabData?.isNotEmpty ?? false) {
-                                          // Show food tab data
                                           return ListView.builder(
                                             scrollDirection: Axis.horizontal,
                                             itemCount: category.foodTabData!.length,
@@ -163,7 +162,6 @@ class SearchPage extends GetView<SearchPageController> {
                                             },
                                           );
                                         } else {
-                                          // Nothing to show
                                           return Center(child: Text('No data available'));
                                         }
                                       },
