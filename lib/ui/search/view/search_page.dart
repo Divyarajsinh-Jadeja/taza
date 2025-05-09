@@ -93,7 +93,15 @@ class SearchPage extends GetView<SearchPageController> {
                                         ),
                                       ),
                                       SmartText(
-                                        "See All",
+                                        onTap: (){
+                                          if(category.title == 'Your Past Searches'){
+                                            controller.clearSearchHistory();
+                                          }
+                                          else{
+
+                                          }
+                                        },
+                                        category.title == 'Your Past Searches'? "Clear" : "See all",
                                         style: style.showMoreLessTextStyle,
                                         animator: SmartAnimator(
                                           animateFade: true,
@@ -104,6 +112,10 @@ class SearchPage extends GetView<SearchPageController> {
                                         ),
                                       ),
                                       SizedBox(width: 2.w),
+                                      if(category.title == 'Your Past Searches')...[
+                                        SizedBox(width: 10.w),
+                                      ],
+                                      if(category.title != 'Your Past Searches')
                                       Padding(
                                         padding: EdgeInsetsDirectional.only(end: 8.0),
                                         child: Icon(Icons.arrow_forward_sharp, size: 20.w, color: style.iconColors),
