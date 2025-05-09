@@ -10,7 +10,6 @@ class CategoryController extends GetxController {
   bool get isLargeScreen => Get.width > 800;
 
   final RxList<InstamartProductModel> randomProducts = <InstamartProductModel>[].obs;
-
   void generateRandomProducts({int count = 3}) {
     final allProducts = <InstamartProductModel>[];
     for (final category in instaMartCategories) {
