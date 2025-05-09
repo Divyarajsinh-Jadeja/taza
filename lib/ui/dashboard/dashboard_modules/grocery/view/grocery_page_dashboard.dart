@@ -139,8 +139,7 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
                         itemCount: controller.categoriesOfferZone.length,
                         padding: EdgeInsets.symmetric(horizontal: 19.w,vertical: 10.h),
                         separatorBuilder: (_, __) => SizedBox(width: 8.w),
-                        itemBuilder:
-                            (context, index) => _buildCategoryCard(
+                        itemBuilder: (context, index) => _buildCategoryCard(
                           context,
                           style,
                           controller.categoriesOfferZone[index],
@@ -178,16 +177,9 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
         ),
       ),
       _animatedBoxAdapter(child: SizedBox(height: 16.h)),
-      _buildCategoriesSliver(style, foodPageStyle),
-      _animatedBoxAdapter(child: SizedBox(height: 16.h)),
-      _animatedBoxAdapter(child: _buildCarousel()),
-      _animatedBoxAdapter(child: SizedBox(height: 16.h)),
       _buildInstamartCategory(groceryStyle),
-      // _animatedBoxAdapter(child: SizedBox(height: 8.h)),
-      // _buildPromoBannerSliver(),
-      ..._buildReorderSection(foodPageStyle),
-      // ..._buildCravingSection(foodPageStyle),
-      ..._buildFlavorSection(foodPageStyle),
+
+
     ];
   }
 
@@ -327,9 +319,10 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
         Get.toNamed(AppRoutes.categoryPage, arguments: true);
       },
       width: 90.w,
+      padding: EdgeInsetsDirectional.all(2.r),
       decoration: BoxDecoration(
         color: style.whiteColor,
-        border: Border.all(color: foodPageStyle.borderColor),
+        border: Border.all(color: style.primaryColor),
         borderRadius: BorderRadius.circular(12.r),
       ),
       clipBehavior: Clip.antiAlias,
@@ -505,3 +498,8 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
     );
   }
 }
+
+
+
+
+
