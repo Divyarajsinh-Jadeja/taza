@@ -12,6 +12,7 @@ class SmartSearchBar extends StatelessWidget {
   final double? borderRadius;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
+  final Function(String)? onFieldSubmitted;
   final bool? isEnabled;
   final bool? autoFocus;
   bool isSearchWithPrefix = true;
@@ -35,6 +36,7 @@ class SmartSearchBar extends StatelessWidget {
     this.margin,
     this.autoFocus,
     this.isEnabled,
+    this.onFieldSubmitted,
     required this.isSearchWithPrefix
   });
 
@@ -74,6 +76,7 @@ class SmartSearchBar extends StatelessWidget {
             enabledBorderColor: Colors.transparent,
             disabledBorderColor: Colors.transparent,
             onValueChanges: onChanged,
+            onFieldSubmitted: onFieldSubmitted,
           ).stackHintOverlay(context, items, style),
         ),
       ],

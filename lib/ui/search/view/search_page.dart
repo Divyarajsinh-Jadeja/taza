@@ -31,6 +31,9 @@ class SearchPage extends GetView<SearchPageController> {
                         controller: controller.searchController.value,
                         onChanged: (val) {},
                         autoFocus: true,
+                        onFieldSubmitted: (val){
+                          controller.addSearchToHistory(val);
+                        },
                         isSearchWithPrefix: false,
                         isEnabled: true,
                         prefixIcon: InkWell(
@@ -107,12 +110,45 @@ class SearchPage extends GetView<SearchPageController> {
                                       )
                                     ],
                                   ),
-                                  SizedBox(
-                                    height: (category.foodTabData?.isNotEmpty ?? false) ? 130.h : 320.h,
-                                    child: Builder(
-                                      builder: (context) {
-                                        if (category.products?.isNotEmpty ?? false) {
-                                          return ListView.builder(
+                                  Builder(
+                                    builder: (context) {
+                                      if (category.title == 'Your Past Searches' &&
+                                          (category.pastSearches?.isEmpty ?? true)) {
+                                        return SizedBox.shrink();
+                                      }
+                                      if(category.pastSearches?.isNotEmpty ?? false){
+                                        return SizedBox(
+                                          height: 50.h,
+                                          child: ListView.builder(
+                                            scrollDirection: Axis.horizontal,
+                                            itemCount: category.pastSearches!.length,
+                                            padding: EdgeInsetsDirectional.only(start: 12.w, end: 12.w, bottom: 8.w),
+                                            itemBuilder: (context, index) {
+                                              final product = category.pastSearches![index];
+                                              return Padding(
+                                                padding: EdgeInsetsDirectional.only(end: 12.w),
+                                                child: SmartRow(
+                                                  spacing: 8.w,
+                                                  padding: EdgeInsetsDirectional.symmetric(horizontal : 12.w, vertical: 4.h),
+                                                  decoration: BoxDecoration(
+                                                    borderRadius: BorderRadius.circular(30.r),
+                                                    border: Border.all(
+                                                      color: searchBarStyle.searchBarBorderColor
+                                                    )
+                                                  ),
+                                                    children: [
+                                                  SmartImage(path: AppImages.icSearch, size: 20.w),
+                                                  SmartText(product, style: searchBarStyle.searchBarTextStyle,),
+                                                ])
+                                              );
+                                            },
+                                          ),
+                                        );
+                                      }
+                                      if (category.products?.isNotEmpty ?? false) {
+                                        return SizedBox(
+                                          height: 320.h,
+                                          child: ListView.builder(
                                             scrollDirection: Axis.horizontal,
                                             itemCount: category.products!.length,
                                             padding: EdgeInsetsDirectional.only(start: 12.w, end: 12.w),
@@ -131,9 +167,12 @@ class SearchPage extends GetView<SearchPageController> {
                                                 ),
                                               );
                                             },
-                                          );
-                                        } else if (category.foodTabData?.isNotEmpty ?? false) {
-                                          return ListView.builder(
+                                          ),
+                                        );
+                                      } else if (category.foodTabData?.isNotEmpty ?? false) {
+                                        return SizedBox(
+                                          height: 140.h,
+                                          child: ListView.builder(
                                             scrollDirection: Axis.horizontal,
                                             itemCount: category.foodTabData!.length,
                                             padding: EdgeInsetsDirectional.only(start: 12.w, end: 12.w),
@@ -160,12 +199,12 @@ class SearchPage extends GetView<SearchPageController> {
                                                 ),
                                               );
                                             },
-                                          );
-                                        } else {
-                                          return Center(child: Text('No data available'));
-                                        }
-                                      },
-                                    ),
+                                          ),
+                                        );
+                                      } else {
+                                        return Center(child: Text('No data available'));
+                                      }
+                                    },
                                   ),
                                 ],
                               );

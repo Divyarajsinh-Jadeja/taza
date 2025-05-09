@@ -18,6 +18,7 @@ class StorageManager {
   static const String _isInitialLogin = 'initialLogin';
   static const String _isLogin = 'login';
   static const String _showOfferPopup = 'showOfferPopup';
+  static const String _pastSearchesKey = 'past_searches';
 
   GetStorage localStorage = GetStorage();
 
@@ -29,6 +30,13 @@ class StorageManager {
     return localStorage.read(_showOfferPopup) ?? false;
   }
 
+  void savePastSearches(List<String> searches) {
+    localStorage.write(_pastSearchesKey, searches);
+  }
+
+  List<String> getPastSearches() {
+    return List<String>.from(localStorage.read(_pastSearchesKey) ?? []);
+  }
 
   void setInitialLoginDone(bool value) {
     localStorage.write(_isInitialLogin, value);
@@ -108,6 +116,10 @@ class StorageManager {
   /// Clear all data stored in local
   void clearSession() {
     localStorage.erase();
+  }
+
+  void clearPastSearches() {
+    localStorage.remove(_pastSearchesKey);
   }
 
 
