@@ -15,7 +15,9 @@ class GroceryHeaderSliver extends GetView<GroceryDashboardController> {
           decoration: BoxDecoration(gradient: LinearGradient(colors: [
               controller.currentFoodTabData.themeColor,
               controller.currentFoodTabData.themeColor.withValues(alpha: 0.4)
-            ], begin: Alignment.topCenter,end: Alignment.bottomCenter),
+            ], begin: Alignment.topCenter,end: Alignment.bottomCenter,
+            stops: [0, 0.8],
+          ),
 
           ),
 

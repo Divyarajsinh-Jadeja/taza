@@ -333,7 +333,7 @@ class ProductCard extends StatelessWidget {
   final double? imageHeight;
   final VoidCallback onAddTap;
   final VoidCallback onProductTap;
-
+  final bool seeMore;
   const ProductCard({
     super.key,
     required this.product,
@@ -344,6 +344,8 @@ class ProductCard extends StatelessWidget {
     this.imageHeight,
     required this.onAddTap,
     required this.onProductTap,
+     this.seeMore=false,
+
   });
 
   @override
@@ -433,6 +435,103 @@ class ProductCard extends StatelessWidget {
 
                 SizedBox(height: 10.h,),
                 Center(child: InstamartQuantityWidget(model: product)),
+
+                if (seeMore)
+                  SmartRow(
+        onTap: () async {
+      final controller = Get.find<CategoryController>();
+      controller.generateRandomProducts(count: 8); // generate once
+
+      await showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (_) {
+        return DraggableScrollableSheet(
+          initialChildSize: 0.5, // 50% of screen height
+          minChildSize: 0.4,
+          maxChildSize: 0.9,
+          expand: false,
+          builder: (context, scrollController) {
+            return Container(
+              padding: EdgeInsetsDirectional.only(
+                start: 16.w,
+                end: 16.w,
+                top: 16.h,
+              ),
+              decoration: BoxDecoration(
+                color: style.whiteColor,
+                borderRadius: BorderRadius.vertical(top: Radius.circular(24.r)),
+              ),
+              child: SafeArea(
+                top: false,
+                child: Column(
+                  children: [
+                    /// Title and Close Button
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SmartText(
+                          "More like this",
+                          style: style.nameTextStyle,
+                        ),
+                        IconButton(
+                          icon: Icon(Icons.close,),
+                          onPressed: () => Get.back(),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 12.h),
+
+                    /// Expanded GridView
+                    Expanded(
+                      child: Obx(() {
+                        final products = controller.randomProducts;
+                        return GridView.builder(
+                          controller: scrollController,
+                          itemCount: products.length,
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3,
+                            crossAxisSpacing: 12.w,
+                            mainAxisSpacing: 12.h,
+                            childAspectRatio: 0.35,
+                          ),
+                          itemBuilder: (context, index) {
+                            final product = products[index];
+                            return ProductCard(
+                              product: product,
+                              index: index,
+                              onAddTap: () {
+                                // Add to cart logic
+                              },
+                              onProductTap: () {
+                                // Navigate to product details
+                              },
+                            );
+                          },
+                        );
+                      }),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
+        );
+      },
+      );
+    },
+    margin: EdgeInsetsDirectional.only(top: 10.h),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(4.r),
+                      border: Border.all(color: style.primaryColor),
+                    ),
+                    padding: EdgeInsetsDirectional.symmetric(horizontal: 4.w),
+                    children: [
+                      SmartText("See more like this", style: style.seeMoreStyle),
+                      Icon(Icons.arrow_right, color: style.primaryColor),
+                    ],
+                  )
 
               ],
             ),

@@ -24,17 +24,6 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
 
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
-      decoration: BoxDecoration(
-        /*gradient: LinearGradient(
-            colors: [
-              controller.currentFoodTabData.themeColor.withValues(alpha: 0.001),
-              controller.currentFoodTabData.themeColor.withValues(alpha: 0.1),
-            ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),*/
-        color: Colors.white,
-      ),
       child: CustomScrollView(
         controller: controller.scrollController,
         physics: const ClampingScrollPhysics(),
@@ -71,7 +60,7 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
             mainAxisSize: MainAxisSize.min,
             children: [
               SmartText(
-                "Earliest Home Delivery time slot available",
+                "🚚 Earliest Home Delivery time slot available",
                 style: groceryStyle.subTitleStyle.copyWith(
                   color: Utils.getContrastColor(
                     controller.currentFoodTabData.themeColor,
@@ -79,7 +68,7 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
                 ),
               ),
               SmartText(
-                "Saturday 07:00 AM - 10:00 PM",
+                "🗓️ Saturday ⏰ 07:00 AM - 10:00 PM",
                 style: groceryStyle.subTitleStyle.copyWith(
                   color: Utils.getContrastColor(
                     controller.currentFoodTabData.themeColor,
@@ -88,6 +77,7 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
               ),
             ],
           ),
+
           SmartImage(
             path: "https://i.ibb.co/HLgDnFFQ/Group.png",
             width: 40.w,
@@ -103,210 +93,101 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
     FoodPageStyle foodPageStyle,
     GroceryStyle groceryStyle,
   ) {
+    final List<InstamartProductModel> products= Get.find<CategoryController>().randomProducts;
     return [
       _animatedBoxAdapter(
-        child: Obx(
-          () => Container(
-            height: 410.h,
-            width: Get.width,
-            child: Stack(
-              children: [
-                SizedBox(
-                  width: Get.width,
-                  height: 210.h,
-                  child: controller.currentFoodTabData.bannerWidget,
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 210.h),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          //controller.currentFoodTabData.themeColor,
-                          //controller.currentFoodTabData.themeColor.withValues(alpha: 0.3,),
-                            Colors.yellow,
-                           Colors.yellow.withValues(alpha: 0.3,),
-                        ],
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                      ),
-                    ),
-                    alignment: Alignment.bottomCenter,
-                    child: SizedBox(
-                      height: 140.h,
-                      child: ListView.separated(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: controller.categoriesOfferZone.length,
-                        padding: EdgeInsets.symmetric(horizontal: 19.w,vertical: 10.h),
-                        separatorBuilder: (_, __) => SizedBox(width: 8.w),
-                        itemBuilder: (context, index) => _buildCategoryCard(
-                          context,
-                          style,
-                          controller.categoriesOfferZone[index],
-                          foodPageStyle,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 190.h),
-                  child: Container(
-                    height: 30.h,
-                    margin: EdgeInsetsDirectional.symmetric(horizontal: 80.w),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(12.r),
-                        topRight: Radius.circular(12.r),
-                      ),
-                      color: Colors.yellow
-                      //color: controller.currentFoodTabData.themeColor.withValues(alpha: 0.4),
-                    ),
-                    child: Center(
-                      child: SmartText(
-                        "LOWEST PRICE EVERY",
-                        style: style.titleStyle,
-                      ),
-                    ),
-                  ),
-                ),
+        child: SmartColumn(
+          children: [
+            Container(
+              width: Get.width,
+              decoration: BoxDecoration(
 
-              ],
+                gradient: LinearGradient(
+                  stops: [0.0, 0.5, 0.85, 1.0],
+                  colors: [
+                    controller.currentFoodTabData.themeColor.withValues(alpha: 0.8),
+                    controller.currentFoodTabData.themeColor.withValues(alpha: 0.1),
+                    style.whiteColor.withValues(alpha: 0.0), // middle fade
+                    style.whiteColor, // soft white base
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
+              child: Column(
+                children: [
+                  SizedBox(height: 20.h,),
+                  SmartImage(path: AppImages.lowest1,fit: BoxFit.contain,),
+                  SizedBox(
+                    height: 120.h,
+                    child: ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: controller.categoriesOfferZone.length,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 19.w,
+                        vertical: 10.h,
+                      ),
+                      separatorBuilder: (_, __) => SizedBox(width: 8.w),
+                      itemBuilder:
+                          (context, index) => _buildCategoryCard(
+                        context,
+                        style,
+                        controller.categoriesOfferZone[index],
+                        foodPageStyle,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20.h,),
+                  
+                ],
+              ),
+            ),
+
+          ],
+        ),
+      ),
+      _animatedBoxAdapter(child: SizedBox(height: 16.h)),
+      _animatedBoxAdapter(child: _buildCarousel()),
+      _buildInstamartCategory(groceryStyle),
+      _animatedBoxAdapter(child: SmartColumn(
+        mainAxisSize: MainAxisSize.min,
+        spacing: 10.h,
+        margin: EdgeInsetsDirectional.symmetric(vertical: 10.h),
+        padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SmartText("Recommended Products",style: groceryStyle.titleStyle,),
+          SizedBox(
+            height: 380.h,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: products.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: EdgeInsetsDirectional.only( start: 12.w),
+                  child: ProductCard(
+                    seeMore: true,
+                    imageWidth: 120.w,
+                    product: products[index],
+                    index: index,
+                    hasDiscount: true,
+                    discountPercent: "\$10",
+                    onAddTap: () {
+                      // Add product logic
+                    },
+                    onProductTap: () {
+                      // Navigate to product detail
+                    },
+                  ),
+                );
+              },
             ),
           ),
-        ),
-      ),
-      _animatedBoxAdapter(child: SizedBox(height: 16.h)),
-      _buildInstamartCategory(groceryStyle),
-
-
-    ];
-  }
-
-  Widget _buildCategoriesSliver(
-    FoodCardStyle style,
-    FoodPageStyle foodPageStyle,
-  ) {
-    return _animatedBoxAdapter(
-      child: SizedBox(
-        height: 120.h,
-        child: ListView.separated(
-          scrollDirection: Axis.horizontal,
-          itemCount: controller.categoriesOfferZone.length,
-          padding: EdgeInsets.symmetric(horizontal: 19.w),
-          separatorBuilder: (_, __) => SizedBox(width: 8.w),
-          itemBuilder:
-              (context, index) => _buildCategoryCard(
-                context,
-                style,
-                controller.categoriesOfferZone[index],
-                foodPageStyle,
-              ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildPromoBannerSliver() {
-    return _animatedBoxAdapter(
-      child: SmartImage(
-        path:
-            "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3",
-        width: 352.w,
-        height: 200.h,
-        fit: BoxFit.fill,
-        margin: EdgeInsets.symmetric(horizontal: 19.w),
-        imageBorderRadius: BorderRadius.circular(16.r),
-        clipBehavior: Clip.antiAlias,
-      ),
-    );
-  }
-
-  List<Widget> _buildReorderSection(FoodPageStyle foodPageStyle) {
-    return [
-      _buildSectionHeader(
-        "It's Fresh? Reorder Now!",
-        foodPageStyle,
-        showArrow: false,
-      ),
-      _animatedBoxAdapter(child: SizedBox(height: 16.h)),
-      _animatedBoxAdapter(child: _buildFoodList(controller.foodItemList)),
-    ];
-  }
-
-  List<Widget> _buildCravingSection(FoodPageStyle foodPageStyle) {
-    return [
-      _animatedBoxAdapter(child: SizedBox(height: 32.h)),
-      _buildSectionHeader("Craving Something Special?", foodPageStyle),
-      _animatedBoxAdapter(child: SizedBox(height: 16.h)),
-      _buildCravingTabsSliver(),
-    ];
-  }
-
-  List<Widget> _buildFlavorSection(FoodPageStyle foodPageStyle) {
-    return [
-      _animatedBoxAdapter(child: SizedBox(height: 32.h)),
-      _buildSectionHeader("Ahmed, Pick Your Vegetables", foodPageStyle),
-      _animatedBoxAdapter(child: SizedBox(height: 16.h)),
-      _animatedBoxAdapter(child: GroceryCategoryFilterBar()),
-      _animatedBoxAdapter(child: SizedBox(height: 16.h)),
-      _animatedBoxAdapter(child: _buildFoodList(controller.flavorItemList)),
-      _animatedBoxAdapter(child: SizedBox(height: 42.h)),
-    ];
-  }
-
-  Widget _buildSectionHeader(
-    String title,
-    FoodPageStyle foodPageStyle, {
-    bool showArrow = true,
-  }) {
-    return _animatedBoxAdapter(
-      child: SmartRow(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        padding: EdgeInsets.symmetric(horizontal: 19.w),
-        children: [
-          SmartText(
-            title,
-            style: foodPageStyle.headerTextStyle,
-            isFlexible: true,
-          ),
-          if (showArrow) SmartImage(path: AppImages.icArrowRight),
         ],
-      ),
-    );
+      ))
+    ];
   }
 
-  Widget _buildCravingTabsSliver() {
-    return _animatedBoxAdapter(
-      child: SmartTabBar(
-        length: controller.cravingTabs.length,
-        isExpanded: false,
-        isScrollable: true,
-        physics: const ScrollPhysics(),
-        tabAlignment: TabAlignment.start,
-        onTabInitialized: (tabController) {},
-        onTapTab: (_) {},
-        tabs: controller.cravingTabs,
-        padding: EdgeInsets.zero,
-        indicatorSize: TabBarIndicatorSize.label,
-        tabBarView: List.generate(
-          controller.cravingTabs.length,
-          (_) => _buildCravingTabContent(),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildCravingTabContent() {
-    return SmartColumn(
-      children: [
-        SizedBox(height: 16.h),
-        _buildFoodList(controller.menuItems),
-        SizedBox(height: 16.h),
-        _buildFoodList(controller.menuItems2),
-      ],
-    );
-  }
 
   Widget _buildCategoryCard(
     BuildContext context,
@@ -319,78 +200,50 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
         Get.toNamed(AppRoutes.categoryPage, arguments: true);
       },
       width: 90.w,
-      padding: EdgeInsetsDirectional.all(2.r),
-      decoration: BoxDecoration(
-        color: style.whiteColor,
-        border: Border.all(color: style.primaryColor),
-        borderRadius: BorderRadius.circular(12.r),
-      ),
-      clipBehavior: Clip.antiAlias,
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        SmartText(
-          category['title'],
-          overflow: TextOverflow.ellipsis,
-          textAlign: TextAlign.center,
-          optionalPadding: EdgeInsets.symmetric(vertical: 12.h),
-          style: foodPageStyle.categoryTitleTextStyle,
-        ),
-        const Spacer(),
         SmartImage(
           path: category['image'] ?? "",
-          height: 66.h,
+          height: 90.h,
           width: double.infinity,
-          fit: BoxFit.cover,
+          fit: BoxFit.fitHeight,
         ),
       ],
     );
   }
 
   Widget _buildCarousel() {
-    return CarouselSlider.builder(
-      itemCount: controller.foodBannerList.length,
-      itemBuilder: (context, index, _) {
-        return Padding(
-          padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(12.r),
-            child: SmartImage(
-              path: controller.foodBannerList[index],
-              width: Get.width,
-              height: 140.h,
+    return Padding(
+      padding:  EdgeInsetsDirectional.only(bottom: 20.h),
+      child: CarouselSlider.builder(
+        itemCount: controller.foodBannerList.length,
+        itemBuilder: (context, index, _) {
+          return Padding(
+            padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12.r),
+              child: SmartImage(
+                onTap: () => Get.toNamed(AppRoutes.categoryPage,arguments: true),
+                path: controller.foodBannerList[index],
+                width: Get.width,
+                fit: BoxFit.fill,
+              ),
             ),
-          ),
-        );
-      },
-      carouselController: controller.sliderController,
-      options: CarouselOptions(
-        viewportFraction: 1,
-        aspectRatio: 2.7,
-        onPageChanged:
-            (index, _) => controller.sliderController.animateToPage(index),
+          );
+        },
+        carouselController: controller.sliderController,
+        options: CarouselOptions(
+          viewportFraction: 1,
+          aspectRatio: 2.1,
+          autoPlay: true,
+          onPageChanged:
+              (index, _) => controller.sliderController.animateToPage(index),
+        ),
       ),
     );
   }
 
-  Widget _buildFoodList(List<FoodItemModel> items) {
-    return SizedBox(
-      height: 115.h,
-      child: ListView.separated(
-        scrollDirection: Axis.horizontal,
-        itemCount: items.length,
-        padding: EdgeInsets.symmetric(horizontal: 19.w),
-        separatorBuilder: (_, __) => SizedBox(width: 16.w),
-        itemBuilder: (_, index) {
-          final item = items[index];
-          return FoodItemCard(
-            item: item,
-            onTapAdd: () => debugPrint('Item added: ${item.title}'),
-          );
-        },
-      ),
-    );
-  }
 
   Widget _animatedBoxAdapter({required Widget child}) {
     return SliverToBoxAdapter(
@@ -498,8 +351,3 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
     );
   }
 }
-
-
-
-
-
