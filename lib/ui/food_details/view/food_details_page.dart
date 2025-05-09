@@ -113,10 +113,8 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                                 ),
                               ),
                               SizedBox(height: 20.h),
-                              // Divider to separate sections.
                               Padding(padding: EdgeInsetsDirectional.symmetric(horizontal: 15.w), child: Divider(height: 0.7.h)),
                               SizedBox(height: 20.h),
-                              // Row for delivery time.
                               SmartRow(
                                 padding: EdgeInsetsDirectional.only(start: 12.w, end: 12.w),
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -128,7 +126,6 @@ class FoodDetailsPage extends GetView<FoodDetailsController> {
                                 ],
                               ),
                               SizedBox(height: 6.h),
-                              // Product title.
                               SmartText(
                                 category.name,
                                 optionalPadding: EdgeInsetsDirectional.symmetric(horizontal: 15.w),
