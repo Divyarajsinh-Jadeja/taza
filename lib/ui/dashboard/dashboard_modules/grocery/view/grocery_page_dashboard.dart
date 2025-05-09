@@ -98,10 +98,9 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
       _animatedBoxAdapter(
         child: SmartColumn(
           children: [
-            Container(
+            SmartColumn(
               width: Get.width,
               decoration: BoxDecoration(
-
                 gradient: LinearGradient(
                   stops: [0.0, 0.5, 0.85, 1.0],
                   colors: [
@@ -114,33 +113,32 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
                   end: Alignment.bottomCenter,
                 ),
               ),
-              child: SmartColumn(
-                children: [
-                  SizedBox(height: 20.h,),
-                  SmartImage(path: AppImages.lowest1,fit: BoxFit.contain,),
-                  SizedBox(
-                    height: 120.h,
-                    child: ListView.separated(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: controller.categoriesOfferZone.length,
-                      padding: EdgeInsetsDirectional.symmetric(
-                        horizontal: 19.w,
-                        vertical: 10.h,
-                      ),
-                      separatorBuilder: (_, __) => SizedBox(width: 8.w),
-                      itemBuilder:
-                          (context, index) => _buildCategoryCard(
-                        context,
-                        style,
-                        controller.categoriesOfferZone[index],
-                        foodPageStyle,
-                      ),
+
+              children: [
+                SizedBox(height: 20.h,),
+                SmartImage(path: AppImages.lowest1,fit: BoxFit.contain,),
+                SizedBox(
+                  height: 120.h,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: controller.categoriesOfferZone.length,
+                    padding: EdgeInsetsDirectional.symmetric(
+                      horizontal: 19.w,
+                      vertical: 10.h,
+                    ),
+                    separatorBuilder: (_, __) => SizedBox(width: 8.w),
+                    itemBuilder:
+                        (context, index) => _buildCategoryCard(
+                      context,
+                      style,
+                      controller.categoriesOfferZone[index],
+                      foodPageStyle,
                     ),
                   ),
-                  SizedBox(height: 20.h,),
-                  
-                ],
-              ),
+                ),
+                SizedBox(height: 20.h,),
+
+              ],
             ),
 
           ],
@@ -221,14 +219,11 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
         itemBuilder: (context, index, _) {
           return Padding(
             padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(12.r),
-              child: SmartImage(
-                onTap: () => Get.toNamed(AppRoutes.categoryPage,arguments: true),
-                path: controller.foodBannerList[index],
-                width: Get.width,
-                fit: BoxFit.fill,
-              ),
+            child: SmartImage(
+              onTap: () => Get.toNamed(AppRoutes.categoryPage,arguments: true),
+              path: controller.foodBannerList[index],
+              width: Get.width,
+              fit: BoxFit.fill,
             ),
           );
         },

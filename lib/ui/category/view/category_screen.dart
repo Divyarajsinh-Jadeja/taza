@@ -442,7 +442,7 @@ class ProductCard extends StatelessWidget {
       final controller = Get.find<CategoryController>();
       controller.generateRandomProducts(count: 8); // generate once
 
-      await showModalBottomSheet(
+      await Utils.showSmartModalBottomSheet(
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
