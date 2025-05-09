@@ -151,4 +151,5 @@ class AppImages {
 
   static const String cookingLottie = 'assets/images/cooking.json';
   static const String cartEmpty = 'assets/images/cartempty.json';
+  static const String saleGif = 'assets/images/sale.gif';
 }
