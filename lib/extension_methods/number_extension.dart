@@ -11,7 +11,7 @@ extension CurrencyCodeFormatter on num {
     final format = NumberFormat.currency(
       name: currencyCode,
       symbol: '',
-      decimalDigits: 0,
+      decimalDigits: 00,
     );
     return "$currencyCode${format.format(this)}";
   }

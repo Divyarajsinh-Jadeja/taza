@@ -27,7 +27,7 @@ class ProductBottomSheet extends StatelessWidget {
           currentPrice: category.price.toCurrencyCodeFormat(),
           oldPrice: (category.price + 50).toCurrencyCodeFormat(),
           perKgPrice: '${30.toCurrencyCodeFormat()}/kg',
-          discountText: '10% OFF',
+          discountText: '${10.toCurrencyCodeFormat()}OFF',
           isBestValue: true,
           onAdd: () {
             Get.toNamed(AppRoutes.foodCartPage);

@@ -6,7 +6,7 @@ class SearchPageController extends GetxController {
   final RxBool isInCart = false.obs;
   final RxInt quantity = 1.obs;
   final RxBool showFullDescription = false.obs;
-  final RxList<String> hints = ['Tenders', 'Burgers', 'Grocery', 'Deals'].obs;
+  final RxList<String> hints = ['Tenders', 'Burgers', 'Grocery', 'Deals', 'Lipstick', 'Face Wash', 'Toys', 'Chocolate'].obs;
   final RxInt currentHintIndex = 0.obs;
   final searchController = TextEditingController().obs;
   ScrollController scrollController = ScrollController();
@@ -14,7 +14,7 @@ class SearchPageController extends GetxController {
   bool isListening = false;
   RxString spokenText = "".obs;
   final RxList<SearchCategoryModel> searchCategories = <SearchCategoryModel>[].obs;
-
+  final RxList<String> pastSearches = <String>[].obs;
 
 
   @override
@@ -26,6 +26,7 @@ class SearchPageController extends GetxController {
       currentHintIndex.value = (currentHintIndex.value + 1) % hints.length;
     });
     loadProducts();
+    loadPastSearches();
     super.onInit();
   }
 
@@ -54,6 +55,58 @@ class SearchPageController extends GetxController {
     }
   }
 
+  void loadPastSearches() {
+    final stored = StorageManager.instance.getPastSearches();
+    pastSearches.assignAll(stored);
+
+    if (pastSearches.isNotEmpty) {
+      searchCategories.insert(0, SearchCategoryModel(
+        title: 'Your Past Searches',
+        pastSearches: pastSearches,
+      ));
+    }
+  }
+
+  void addSearchToHistory(String query) {
+    if (query.trim().isEmpty) return;
+
+    if (!pastSearches.contains(query)) {
+      pastSearches.insert(0, query);
+      if (pastSearches.length > 10) pastSearches.removeLast(); // Keep max 10 items
+      StorageManager.instance.savePastSearches(pastSearches);
+    }
+
+    final pastCategory = searchCategories.firstWhereOrNull(
+          (cat) => cat.title == 'Your Past Searches',
+    );
+
+    if (pastCategory != null) {
+      pastCategory.pastSearches = pastSearches;
+      searchCategories.refresh();
+    } else {
+      searchCategories.insert(0, SearchCategoryModel(
+        title: 'Your Past Searches',
+        pastSearches: pastSearches,
+      ));
+    }
+  }
+
+  void clearSearchHistory() {
+    pastSearches.clear();
+    StorageManager.instance.clearPastSearches();
+
+    final pastCategory = searchCategories.firstWhereOrNull(
+          (cat) => cat.title == 'Your Past Searches',
+    );
+
+    if (pastCategory != null) {
+      pastCategory.pastSearches = [];
+      searchCategories.refresh();
+    }
+  }
+
+
+
   void closeMic(){
     Future.delayed(Duration(seconds: 5), () {
       Get.back();
@@ -79,6 +132,8 @@ class SearchPageController extends GetxController {
   void toggleDescription() {
     showFullDescription.value = !showFullDescription.value;
   }
+
+
 
   void loadProducts() {
     searchCategories.addAll([

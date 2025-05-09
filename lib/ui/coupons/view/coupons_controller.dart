@@ -2,8 +2,8 @@ import 'package:taza/taza.dart';
 
 class CouponsController extends GetxController {
   final List<String> coupons = [
-    '10% OFF',
-    '20% OFF',
+    '${10.toCurrencyCodeFormat()} OFF',
+    '${20.toCurrencyCodeFormat()} OFF',
     'Buy 1 Get 1 Free',
     'Free Delivery',
     '${100.toCurrencyCodeFormat()} OFF on orders above ${500.toCurrencyCodeFormat()}',

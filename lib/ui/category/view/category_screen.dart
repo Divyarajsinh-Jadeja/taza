@@ -109,7 +109,7 @@ class ProductInstamartListView extends GetView<CategoryController> {
                       product: controller.currentInstamartCategory.products![itemIndex],
                       index: itemIndex,
                       hasDiscount: itemIndex % 3 == 0,
-                      discountPercent: "${(10 + (itemIndex % 3) * 5)}%",
+                      discountPercent: (10 + (itemIndex % 3) * 5).toCurrencyCodeFormat(),
                       onAddTap: () {},
                     ),
                   ),

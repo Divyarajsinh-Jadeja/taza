@@ -8,6 +8,7 @@ class FoodDetailsController extends GetxController {
   final RxInt quantity = 1.obs;
   final RxBool showFullDescription = false.obs;
   Timer? autoSlideTimer;
+  final RxInt selectedVariantIndex = 0.obs;
 
   final List<String> productImages = [
     "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg",
@@ -22,6 +23,10 @@ class FoodDetailsController extends GetxController {
     super.onInit();
   }
 
+  void selectVariant(int index) {
+    selectedVariantIndex.value = index;
+  }
+
   @override
   void onClose() {
     stopAutoSlide();
@@ -30,7 +35,6 @@ class FoodDetailsController extends GetxController {
   }
 
   void startAutoSlide() {
-    // Auto-slide every 3 seconds
     autoSlideTimer = Timer.periodic(Duration(seconds: 3), (timer) {
       if (currentImageIndex.value < productImages.length - 1) {
         changeImage(currentImageIndex.value + 1);
@@ -53,6 +57,7 @@ class FoodDetailsController extends GetxController {
   void goToCart() {
    // Get.to(() => CartScreen());
   }
+
 
   void changeImage(int index) {
     currentImageIndex.value = index;
