@@ -465,10 +465,10 @@ class ProductCard extends StatelessWidget {
               ),
               child: SafeArea(
                 top: false,
-                child: Column(
+                child: SmartColumn(
                   children: [
                     /// Title and Close Button
-                    Row(
+                    SmartRow(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         SmartText(

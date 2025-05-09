@@ -114,7 +114,7 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
                   end: Alignment.bottomCenter,
                 ),
               ),
-              child: Column(
+              child: SmartColumn(
                 children: [
                   SizedBox(height: 20.h,),
                   SmartImage(path: AppImages.lowest1,fit: BoxFit.contain,),
@@ -123,7 +123,7 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
                     child: ListView.separated(
                       scrollDirection: Axis.horizontal,
                       itemCount: controller.categoriesOfferZone.length,
-                      padding: EdgeInsets.symmetric(
+                      padding: EdgeInsetsDirectional.symmetric(
                         horizontal: 19.w,
                         vertical: 10.h,
                       ),
