@@ -1131,6 +1131,12 @@ class LightModeTheme extends AppTheme {
       fontSize: 12.sp,
       color: colors.white,
     ),
+    seeMoreStyle: interMediumBoldW500TextStyle.copyWith(
+      fontSize: 9.sp,
+      color: colors.primary,
+    ),
+    primaryColor: colors.primary,
+    whiteColor: colors.white,
   );
 
   @override

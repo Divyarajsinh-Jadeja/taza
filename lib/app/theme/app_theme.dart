@@ -1080,8 +1080,11 @@ class ProductCardStyle {
   final Color discountBadgeColor;
   final Color imageIconColor;
   final TextStyle discountBadgeTextStyle;
+  final TextStyle seeMoreStyle;
+  final Color primaryColor;
+  final Color whiteColor;
 
-  ProductCardStyle({required this.imageBackgroundColor, required this.deliveryIconColor, required this.deliveryTimeTextStyle, required this.nameTextStyle, required this.sizeTextStyle, required this.discountedPriceTextStyle, required this.originalPriceTextStyle, required this.addButtonBackgroundColor, required this.addButtonBorderColor, required this.addButtonTextStyle, required this.discountBadgeColor, required this.discountBadgeTextStyle, required this.imageIconColor});
+  ProductCardStyle({required this.imageBackgroundColor, required this.deliveryIconColor, required this.deliveryTimeTextStyle, required this.nameTextStyle, required this.sizeTextStyle, required this.discountedPriceTextStyle, required this.originalPriceTextStyle, required this.addButtonBackgroundColor, required this.addButtonBorderColor, required this.addButtonTextStyle, required this.discountBadgeColor, required this.discountBadgeTextStyle, required this.imageIconColor,required this.primaryColor,required this.whiteColor,required this.seeMoreStyle});
 
 }
 

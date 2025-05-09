@@ -9,6 +9,17 @@ class CategoryController extends GetxController {
 
   bool get isLargeScreen => Get.width > 800;
 
+  final RxList<InstamartProductModel> randomProducts = <InstamartProductModel>[].obs;
+
+  void generateRandomProducts({int count = 3}) {
+    final allProducts = <InstamartProductModel>[];
+    for (final category in instaMartCategories) {
+      allProducts.addAll(category.products!);
+    }
+    allProducts.shuffle();
+    randomProducts.value = allProducts.take(count).toList();
+  }
+
   @override
   void onInit() {
     super.onInit();
@@ -169,6 +180,7 @@ class CategoryController extends GetxController {
           ),
   ];
     instaMartCategories.assignAll(groceryList);
+    generateRandomProducts();
   }
 
   final Map<String, List<String>> instamartProductNames = {
@@ -217,6 +229,21 @@ class CategoryController extends GetxController {
 
       );
     });
+  }
+
+
+  List<InstamartProductModel> getRandomProductsFromAllCategories({int count = 10}) {
+
+    final allProducts = <InstamartProductModel>[];
+
+    // Collect all products from all categories
+    for (final category in instaMartCategories) {
+      allProducts.addAll(category.products!);
+    }
+
+    allProducts.shuffle(); // Randomize order
+
+    return allProducts.take(count).toList();
   }
 
 

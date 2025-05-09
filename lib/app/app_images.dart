@@ -152,4 +152,12 @@ class AppImages {
   static const String cookingLottie = 'assets/images/cooking.json';
   static const String cartEmpty = 'assets/images/cartempty.json';
   static const String saleGif = 'assets/images/sale.gif';
+
+  static const String gb1 = 'assets/images/groceryBanner1.png';
+  static const String gb2 = 'assets/images/groceryBanner2.png';
+  static const String gb3 = 'assets/images/groceryBanner3.png';
+  static const String lowest = 'assets/images/lowest.png';
+  static const String lowest1 = 'assets/images/lowest1.png';
+  static const String g1 = 'assets/images/g1.png';
+  static const String bannerPink = 'assets/images/banner12.png';
 }

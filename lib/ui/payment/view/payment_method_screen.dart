@@ -10,7 +10,7 @@ class PaymentMethodScreen extends GetView<PaymentController> {
     return Scaffold(
       backgroundColor: style.whiteColor,
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(bottom: 10),
+        padding: const EdgeInsetsDirectional.only(bottom: 10),
         child: SafeArea(
           child: Obx(() {
             final selectedMethod = controller.selectedPayment.value.name;

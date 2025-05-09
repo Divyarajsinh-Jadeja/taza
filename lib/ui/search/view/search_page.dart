@@ -198,7 +198,7 @@ class SearchPage extends GetView<SearchPageController> {
                                                       height: 100.w,
                                                       width: 100.w,
                                                       decoration: BoxDecoration(
-                                                        color: tab.themeColor.withOpacity(0.1),
+                                                        color: tab.themeColor.withValues(alpha: 0.1),
                                                         borderRadius: BorderRadius.circular(16),
                                                       ),
                                                       child: Center(

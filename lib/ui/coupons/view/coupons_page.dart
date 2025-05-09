@@ -18,7 +18,7 @@ class CouponsPage extends GetView<CouponsController> {
             return Obx(() {
               final isSelected = controller.selected.value == coupon;
               return Padding(
-                padding:  EdgeInsets.all(8.0.w),
+                padding:  EdgeInsetsDirectional.all(8.0.w),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(12.r),
                   child: SmartRow(
