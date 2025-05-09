@@ -17,9 +17,11 @@ class GroceryDashboardController extends GetxController with GetSingleTickerProv
   final RxList<String> hints = ['Vegetables', 'Edible Fats', 'Grocery', 'Fruits'].obs;
   final RxInt currentHintIndex = 0.obs;
 
+
   @override
   void onInit() {
     super.onInit();
+    Get.put(CategoryController());
     foodTabController = TabController(length: tabs.length, vsync: this);
     foodTabController.addListener(() {
       selectedFoodTab.value = foodTabController.index;
@@ -164,7 +166,7 @@ class GroceryDashboardController extends GetxController with GetSingleTickerProv
   final List<FoodTabData> tabs = [
     FoodTabData(
       imagePath: "assets/images/ic_shopping_bag.png",
-      themeColor: Color(0xFFffb400),
+      themeColor: Color(0xFFfcd44b),
       bannerWidget: SmartImage(path: "assets/images/sale.gif", fit: BoxFit.fill, height: 200.h,),
       tabText: "All",
     ),
@@ -241,13 +243,13 @@ class GroceryDashboardController extends GetxController with GetSingleTickerProv
   void onTabSelected() {}
 
   final List<Map<String, String>> categoriesOfferZone = const [
-    {'title': 'Potato', 'image': 'assets/images/potato.png'},
-    {'title': 'Promgranate', 'image': 'assets/images/anar.png'},
-    {'title': 'Cucumber', 'image': 'assets/images/cucumber.png'},
-    {'title': 'Ginger', 'image': 'assets/images/ginger.png'},
-    {'title': 'Karela', 'image': 'assets/images/karela.png'},
-    {'title': 'Strawberry', 'image': 'assets/images/strawberry.png'},
-    {'title': 'Mix Vegies', 'image': 'assets/images/vegies.png'},
+    {'title': 'Potato', 'image': 'assets/images/g1.png'},
+    {'title': 'Promgranate', 'image': 'assets/images/g2.png'},
+    {'title': 'Cucumber', 'image': 'assets/images/g3.png'},
+    {'title': 'Ginger', 'image': 'assets/images/g4.png'},
+    {'title': 'Karela', 'image': 'assets/images/g5.png'},
+    {'title': 'Strawberry', 'image': 'assets/images/g2.png'},
+    {'title': 'Mix Vegies', 'image': 'assets/images/g1.png'},
   ];
 
   final List<FoodItemModel> foodItemList = [
@@ -341,7 +343,7 @@ class GroceryDashboardController extends GetxController with GetSingleTickerProv
     ),
   ];
 
-  final List<String> foodBannerList = const ["https://i.ibb.co/6c6X3PFB/grocery-promo.gif"];
+  final List<String> foodBannerList = const [AppImages.gb3,AppImages.gb2,AppImages.gb1];
 
   final List<Widget> cravingTabs = [
     Column(
@@ -604,5 +606,8 @@ class GroceryDashboardController extends GetxController with GetSingleTickerProv
       headerHeight.value = height;
     }
   }
+
+  final RxList<InstamartProductModel> randomProducts = <InstamartProductModel>[].obs;
+
 }
 
