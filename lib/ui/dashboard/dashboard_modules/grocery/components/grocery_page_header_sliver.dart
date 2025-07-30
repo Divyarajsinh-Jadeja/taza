@@ -18,44 +18,48 @@ class GroceryHeaderSliver extends GetView<GroceryDashboardController> {
             ], begin: Alignment.topCenter,end: Alignment.bottomCenter,
             stops: [0, 0.8],
           ),
-
           ),
-
           children: [
             GestureDetector(
               onTap: (){
                 Future.delayed(100.ms, () {
-                  Get.toNamed(AppRoutes.searchPage);
+                  Get.toNamed(AppRoutes.searchPage, arguments:  AppConst.isFromInstamart);
                 });
               },
               child: Padding(
                 padding: EdgeInsetsDirectional.all(16.w),
-                child: SmartSearchBar(
-                  isSearchWithPrefix: true,
-                  items: [Get.find<GroceryDashboardController>().hints[controller.currentHintIndex.value]],
-                  controller: controller.searchController,
-                  onChanged: (val) {},
-                  isEnabled: false,
-                  suffixIcon: SmartRow(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Container(
-                        height: 21.h,
-                        width: 1.w,
-                        color: foodPageStyle.borderColor,
-                      ),
-                      IconButton(
-                        padding: EdgeInsets.zero,
-                        icon: Icon(Icons.edit_note_sharp),
-                        onPressed: () {
+                child: Stack(
+                  alignment: Alignment.centerRight,
+                  children: [
+                    SmartSearchBar(
+                      isSearchWithPrefix: true,
+                      items: [Get.find<GroceryDashboardController>().hints[controller.currentHintIndex.value]],
+                      controller: controller.searchController,
+                      onChanged: (val) {},
+                      isEnabled: false,
+                      suffixIcon: SizedBox(width: 40.w),
+                    ),
+                    Positioned(
+                      right: 16,
+                      child: GestureDetector(
+                        onTap: () {
+                          // This will now work without triggering the parent GestureDetector
                           Utils.showSmartModalBottomSheet(
                             context: context,
-                            builder: (context) => ShoppingListDialog(options: controller.getOptions(context)),
+                            builder: (context) =>
+                                ShoppingListDialog(options: controller.getOptions(context)),
                           );
                         },
+                        child: SmartRow(
+                            spacing: 4.w,
+                            children: [
+                              SmartImage(path: AppImages.icDivider),
+                              Icon(Icons.edit_note_sharp),
+
+                            ]),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),

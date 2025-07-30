@@ -12,6 +12,7 @@ class HomeAddressHeader extends StatelessWidget {
   final Color? backGroundColor;
   final Color? textColor;
   final Color? homeIconColor;
+  final bool? showSubscriptionIcon;
   final VoidCallback? onBackPressed;
 
   const HomeAddressHeader({
@@ -26,6 +27,7 @@ class HomeAddressHeader extends StatelessWidget {
     this.padding,
     this.backGroundColor,
     this.textColor,
+    this.showSubscriptionIcon,
     this.homeIconColor,
     this.onBackPressed
   });
@@ -38,6 +40,7 @@ class HomeAddressHeader extends StatelessWidget {
       padding: padding,
       decoration: BoxDecoration(color: backGroundColor),
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SmartColumn(
           onTap: () => Get.toNamed(AppRoutes.addressPage),
@@ -58,8 +61,14 @@ class HomeAddressHeader extends StatelessWidget {
             SmartText(address, style: textColor != null ? style.addressTitleStyle.copyWith(color: textColor) : style.addressTitleStyle, overflow: TextOverflow.ellipsis,),
           ],
         ),
+        if(showSubscriptionIcon == true)
+        SmartImage(
+          onTap: (){
+            Get.toNamed(AppRoutes.subscriptionPage);
+          },
+            path: "assets/images/dollar.json",  width: 60.w,),
         userImagePath != null
-            ? SmartImage(path: userImagePath ?? "", width: userImageWidth ?? 40.w, fit: BoxFit.cover,onTap: () => Get.toNamed(AppRoutes.profilePage))
+            ? SmartImage(path: userImagePath ?? "", width: userImageWidth ?? 40.w, fit: BoxFit.cover,onTap: () => Get.toNamed(AppRoutes.profilePage), padding: EdgeInsetsDirectional.only(top: 10.h),)
             : SmartImage(path: AppImages.icUser, width: 40.w, onTap: () => Get.toNamed(AppRoutes.profilePage)),
       ],
     );

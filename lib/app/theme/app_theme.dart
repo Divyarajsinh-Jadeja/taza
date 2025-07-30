@@ -804,6 +804,7 @@ class LoginPageStyle {
   final Color dividerColor;
   final TextStyle skipButtonTextStyle;
   final Color loginPageBgColor;
+  final Color lightGrayBgColor;
   final TextStyle tagTextStyle;
   final TextStyle accountTextStyle;
   final Color continueButtonBgColor;
@@ -820,6 +821,7 @@ class LoginPageStyle {
     required this.dividerColor,
     required this.skipButtonTextStyle,
     required this.loginPageBgColor,
+    required this.lightGrayBgColor,
     required this.tagTextStyle,
     required this.accountTextStyle,
     required this.inputFieldBgColor,

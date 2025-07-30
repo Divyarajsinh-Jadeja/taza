@@ -40,14 +40,28 @@ class DashboardPage extends GetView<DashboardController> {
           )
         ],
       ),
-
       bottomNavigationBar: Obx(() {
-        return CustomBottomBar(
-          selectedIndex: controller.currentIndex.value,
-          onItemSelected: (index) => controller.changeTab(index),
-          items: controller.tabs.map((tab) => tab.bottomNavData).toList(),
+        bool isVisible = controller.isBottomBarVisible.value;
+        return AnimatedOpacity(
+          opacity: isVisible ? 1.0 : 0.0,
+          duration: const Duration(milliseconds: 200),
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            height: isVisible ? kBottomNavigationBarHeight + 20.h : 0,
+            child: Wrap(
+              children: [
+               CustomBottomBar(
+                  selectedIndex: controller.currentIndex.value,
+                  onItemSelected: (index) => controller.changeTab(index),
+                  items: controller.tabs.map((tab) => tab.bottomNavData).toList(),
+                  controller: controller,
+                ),
+              ],
+            ),
+          ),
         );
       }),
+
     );
   }
 }

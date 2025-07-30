@@ -11,5 +11,10 @@ class AppConst {
   static const String themeSystem = 'system';
   static const String googleApiKey = ''; // Replace with your API Key
 
+  ///Navigation Constants
+  static const String isFromHome = 'isFromHome';
+  static const String isFromInstamart = 'isFromInstamart';
+  static const String isFromFood = 'isFromFood';
+
   static const int transitionDuration = 500;
 }

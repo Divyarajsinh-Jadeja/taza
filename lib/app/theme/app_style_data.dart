@@ -819,6 +819,7 @@ class LightModeTheme extends AppTheme {
       fontSize: 14.sp,
       color: colors.primary,
   ),
+    lightGrayBgColor: colors.colorEDF2F5
   );
 
   @override

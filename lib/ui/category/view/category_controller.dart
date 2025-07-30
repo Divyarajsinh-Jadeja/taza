@@ -10,7 +10,7 @@ class CategoryController extends GetxController {
   bool get isLargeScreen => Get.width > 800;
 
   final RxList<InstamartProductModel> randomProducts = <InstamartProductModel>[].obs;
-  void generateRandomProducts({int count = 3}) {
+  void generateRandomProducts({int count = 7}) {
     final allProducts = <InstamartProductModel>[];
     for (final category in instaMartCategories) {
       allProducts.addAll(category.products!);
@@ -185,7 +185,7 @@ class CategoryController extends GetxController {
   final Map<String, List<String>> instamartProductNames = {
     '1': ['Tomatoes', 'Potatoes', 'Onions', 'Baby Cabbage', 'Beatroot', 'Capsicum', 'Carrots', 'Cauliflower', 'Drumsticks', 'Cucumber', 'English Cucumber', 'Lady Finger'],
     '2': ['Alphanso', 'Apple', 'Banana', 'Coconut', 'Graps', 'Guava', 'Mango-Kesar', 'Muskmelon', 'Papaya', 'Pomegranate', 'Ratnagiri-Mango', 'Watermelon'],
-    '3': ['Milk', 'Cheese', 'Butter', 'Yogurt', 'Cream', 'Paneer', 'Eggs', 'Curd', 'Ghee', 'Tofu', 'Buttermilk', 'Whipping Cream'],
+    '3': ['Amul Butter', 'Amul Moti Milk', 'Amul Milk', 'Brown Eggs', 'Dosa Batter', 'Eggoz Eggs', 'Healty Brown Eggs', 'Modern Bread', 'Amul Butter', 'Amul Moti Milk', 'Amul Milk', 'Brown Eggs'],
     '4': ['Sunflower Oil', 'Mustard Oil', 'Coconut Oil', 'Ghee', 'Vanaspati', 'Sesame Oil', 'Groundnut Oil', 'Rice Bran Oil', 'Soybean Oil', 'Almond Oil', 'Castor Oil', 'Olive Oil'],
     '5': ['Turmeric Powder', 'Chili Powder', 'Garam Masala', 'Coriander Powder', 'Cumin Seeds', 'Black Pepper', 'Cloves', 'Cardamom', 'Cinnamon', 'Fenugreek', 'Mustard Seeds', 'Bay Leaves'],
     '6': ['Cornflakes', 'Oats', 'Granola', 'Poha', 'Upma Mix', 'Idli Mix', 'Dosa Mix', 'Pancake Mix', 'Honey', 'Choco Cereal', 'Peanut Butter', 'Jam'],
@@ -215,7 +215,11 @@ class CategoryController extends GetxController {
     final List<String> imageList;
     if (categoryId == '2') {
       imageList = instamartFruitProductImages;
-    } else {
+    }
+    else if(categoryId == '3'){
+      imageList = instamartMilkProductImages;
+    }
+    else {
       imageList = instamartVegProductImages;
     }
     return List.generate(12, (index) {
@@ -277,6 +281,23 @@ class CategoryController extends GetxController {
     "https://i.ibb.co/8D2804sW/kakdi-Photoroom.png",
     "https://i.ibb.co/5QKDsQn/lady-finger-Photoroom.png",
   ];
+
+
+  final List<String> instamartMilkProductImages = [
+    "https://i.ibb.co/9HfJGsyj/amul-butter-chips-Photoroom.png",
+    "https://i.ibb.co/xKyLg8Hy/amul-moti-chach-Photoroom.png",
+    "https://i.ibb.co/Q3wRBBG6/amul-taza-milk-Photoroom.png",
+    "https://i.ibb.co/9MhVBwz/brown-eggs-Photoroom.png",
+    "https://i.ibb.co/7tkjc9B3/dosa-batter-Photoroom.png",
+    "https://i.ibb.co/Ngb7Q3mX/eggoz-eggs-Photoroom.png",
+    "https://i.ibb.co/k2g8mww5/healthy-brown-eggs-Photoroom.png",
+    "https://i.ibb.co/yc9S3H4J/modern-whole-bread-Photoroom.png",
+    "https://i.ibb.co/9HfJGsyj/amul-butter-chips-Photoroom.png",
+    "https://i.ibb.co/xKyLg8Hy/amul-moti-chach-Photoroom.png",
+    "https://i.ibb.co/Q3wRBBG6/amul-taza-milk-Photoroom.png",
+    "https://i.ibb.co/9MhVBwz/brown-eggs-Photoroom.png",
+  ];
+
   final List<String> instamartFruitProductImages = [
   "https://i.ibb.co/bgmFq1Xg/alphanso.jpg",
   "https://i.ibb.co/2773qyvJ/apple.png",

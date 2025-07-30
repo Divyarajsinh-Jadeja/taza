@@ -1,4 +1,5 @@
 import 'package:taza/taza.dart';
+import 'package:taza/ui/widgets/smart_scroll_listner.dart';
 
 class CategoryPageDashboard extends GetView<CategoryDashboardController> {
   const CategoryPageDashboard({super.key});
@@ -22,7 +23,7 @@ class CategoryPageDashboard extends GetView<CategoryDashboardController> {
             SmartImage(path: AppImages.icSearch, padding: EdgeInsetsDirectional.only(end: 16.w, start: 0.w),),
           ],
         ),
-        body: SafeArea(
+        body: SmartScrollListner(
           child: SmartSingleChildScrollView(
             child: SmartColumn(
               mainAxisSize: MainAxisSize.min,

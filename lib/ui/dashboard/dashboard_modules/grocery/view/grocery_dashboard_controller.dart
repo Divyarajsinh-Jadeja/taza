@@ -9,6 +9,10 @@ class GroceryDashboardController extends GetxController with GetSingleTickerProv
   /// food scroll controller
   ScrollController scrollController = ScrollController();
 
+  final RxList<String> discountPrice = ['60% OFF', 'Price Drop'].obs;
+  final RxInt currentDiscountPriceIndex = 0.obs;
+
+
   /// search controller
   final TextEditingController searchController = TextEditingController();
 
@@ -28,6 +32,7 @@ class GroceryDashboardController extends GetxController with GetSingleTickerProv
     });
     Timer.periodic(Duration(seconds: 2), (timer) {
       currentHintIndex.value = (currentHintIndex.value + 1) % hints.length;
+      currentDiscountPriceIndex.value = (currentDiscountPriceIndex.value + 1) % discountPrice.length;
     });
     if (Get.context != null) {
       precacheImage(AssetImage('assets/images/banner-2.jpg'), Get.context!);
@@ -36,6 +41,10 @@ class GroceryDashboardController extends GetxController with GetSingleTickerProv
 
   final GlobalKey headerKey = GlobalKey();
 
+  ///Commented image
+  // https://i.ibb.co/tTRzsnrS/banner-oil.jpg
+  // https://i.ibb.co/gLqMFHZT/dairy-banner.png
+  // https://i.ibb.co/8DfR1jbJ/fruits-banner.png
   RxList<CategoriesModel> groceryList = [
     CategoriesModel(
       id: 'grocery',
@@ -105,59 +114,40 @@ class GroceryDashboardController extends GetxController with GetSingleTickerProv
       subCategories: [
         SubCategoriesModel(
             id: '1',
-            name: 'Fresh Vegetables',
-            categoryUrl: "https://i.ibb.co/GvwYZYfk/category-grocery.png"
+            name: 'Chips and Namkeens',
+            categoryUrl: "https://i.ibb.co/qFrQ4pct/chips-Photoroom.png"
         ),
         SubCategoriesModel(
             id: '2',
-            name: 'Fresh Fruits',
-            categoryUrl: "https://i.ibb.co/LDs5vb8H/category-one.png"
+            name: 'Chocolates and Sweets',
+            categoryUrl: "https://i.ibb.co/fKx3XrH/choc-Photoroom.png"
         ),
         SubCategoriesModel(
             id: '3',
-            name: 'Dairy & Eggs',
-            categoryUrl: "https://i.ibb.co/DD1Q6HCz/category-dairy.png"
+            name: 'Drinks and Juices',
+            categoryUrl: "https://i.ibb.co/kgtPWj3s/cocacola-Photoroom.png"
         ),
         SubCategoriesModel(
             id: '4',
-            name: 'Oils & Ghee',
-            categoryUrl: "https://i.ibb.co/F4QpP3tT/category-oils.png"
+            name: 'Frozen Food',
+            categoryUrl: "https://i.ibb.co/DgkwysDz/frenchfried-Photoroom.png"
         ),SubCategoriesModel(
             id: '5',
-            name: 'Masalas',
-            categoryUrl: "https://i.ibb.co/p6dG1TW5/category-masala.png"
+            name: 'Ice Creams & Desserts',
+            categoryUrl: "https://i.ibb.co/gbVWnQcb/icecream-Photoroom.png"
         ),SubCategoriesModel(
             id: '6',
-            name: 'Breakfast',
-            categoryUrl: "https://i.ibb.co/GfDRGzkr/category-corn.png"
+            name: 'Noodles, Pasta & More',
+            categoryUrl: "https://i.ibb.co/4RVXzcN3/maggi-Photoroom.png"
         ),SubCategoriesModel(
             id: '7',
-            name: 'Atta,Rice & Dal',
-            categoryUrl: "https://i.ibb.co/JjrJz1fy/category-atta.png"
+            name: 'Paan Corner',
+            categoryUrl: "https://i.ibb.co/4wPG6HZS/nicotex-Photoroom.png"
         ),
         SubCategoriesModel(
             id: '8',
-            name: 'Bakery',
-            categoryUrl: "https://i.ibb.co/RkgKp1CQ/category-bakery.png"
-        ),
-        SubCategoriesModel(
-            id: '9',
-            name: 'Biscuits & Cakes',
-            categoryUrl: "https://i.ibb.co/Y48J13z3/category-biscuits.png"
-        ),
-        SubCategoriesModel(
-            id: '10',
-            name: 'Tea, Coffee & More',
-            categoryUrl: "https://i.ibb.co/XZDCSrSx/category-tea.png"
-        ),SubCategoriesModel(
-            id: '11',
-            name: 'Dry Fruits',
-            categoryUrl: "https://i.ibb.co/pvqm2t2W/category-almonds.png"
-        ),
-        SubCategoriesModel(
-            id: '12',
-            name: 'Meat and Seafood',
-            categoryUrl: "https://i.ibb.co/C3j9TxTX/category-meat.png"
+            name: 'Sauces & Spreads',
+            categoryUrl: "https://i.ibb.co/XHCggh7/sauce-Photoroom.png"
         ),
       ],
     ),
@@ -166,26 +156,26 @@ class GroceryDashboardController extends GetxController with GetSingleTickerProv
   final List<FoodTabData> tabs = [
     FoodTabData(
       imagePath: "assets/images/ic_shopping_bag.png",
-      themeColor: Color(0xFFfcd44b),
+      themeColor: Color(0xFFfdcd5c),
       bannerWidget: SmartImage(path: "assets/images/sale.gif", fit: BoxFit.fill, height: 200.h,),
       tabText: "All",
     ),
     FoodTabData(
       imagePath: "assets/images/ic_fresh_instamart.png",
       themeColor: Color(0xFFffbd59),
-      bannerWidget: SmartImage(path: "assets/images/fruits_banner.png", fit: BoxFit.cover,  height: 200.h,),
+      bannerWidget: SizedBox(),
       tabText: "Fresh",
     ),
     FoodTabData(
       imagePath: "assets/images/ic_gadgets.png",
       themeColor: Color(0xFF08610c),
-      bannerWidget: SmartImage(path: "assets/images/dairy_banner.png", fit: BoxFit.cover,  height: 200.h,),
+      bannerWidget: SizedBox(),
       tabText: "Gadgets",
     ),
     FoodTabData(
       imagePath: "assets/images/ic_house.png",
       themeColor: Color(0xFFfcd44b),
-      bannerWidget: SmartImage(path: "assets/images/banner_oil.jpg", fit: BoxFit.cover,  height: 200.h,),
+      bannerWidget: SizedBox(),
       tabText: "Home",
     ),
     FoodTabData(
@@ -212,30 +202,7 @@ class GroceryDashboardController extends GetxController with GetSingleTickerProv
       bannerWidget: SizedBox(),
       tabText: "Summer",
     ),
-    /*FoodTabData(
-      imagePath: AppImages.categoryBiscuits,
-      themeColor: Color(0xFF3F51B5),
-      bannerWidget: SizedBox(),
-      tabText: "Biscuits",
-    ),
-    FoodTabData(
-      imagePath: AppImages.categoryTea,
-      themeColor: Color(0xFF3F51B5),
-      bannerWidget: SizedBox(),
-      tabText: "Caffique",
-    ),
-    FoodTabData(
-      imagePath: AppImages.categoryAlmonds,
-      themeColor: Color(0xFF3F51B5),
-      bannerWidget: SizedBox(),
-      tabText: "Dry-Fruits",
-    ),
-    FoodTabData(
-      imagePath: AppImages.categoryMeat,
-      themeColor: Color(0xFF3F51B5),
-      bannerWidget: SizedBox(),
-      tabText: "Meat",
-    ),*/];
+  ];
 
   FoodTabData get currentFoodTabData => tabs[selectedFoodTab.value];
 
@@ -309,14 +276,6 @@ class GroceryDashboardController extends GetxController with GetSingleTickerProv
       time: '20-25 min',
       price: '11',
     ),
-    /*FoodItemModel(
-      imageUrl: 'https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg',
-      title: 'Caesar Salad',
-      rating: 4.5,
-      reviews: '1.9k',
-      time: '10-15 min',
-      price: '9',
-    ),*/
     FoodItemModel(
       imageUrl: 'assets/images/cucumber.png',
       title: 'Cucumber',

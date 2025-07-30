@@ -1,4 +1,6 @@
 import 'package:taza/taza.dart';
+import 'package:taza/ui/dashboard/dashboard_modules/home/view/ai_chat_controller.dart';
+import 'package:taza/ui/widgets/smart_scroll_listner.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({super.key});
@@ -16,16 +18,17 @@ class HomePage extends GetView<HomeController> {
       child: Scaffold(
         extendBodyBehindAppBar : true,
         resizeToAvoidBottomInset: false,
-        body: SafeArea(
+        body: SmartScrollListner(
           child: CustomScrollView(
             controller: controller.scrollController,
             physics: const ClampingScrollPhysics(),
             slivers: [
               SliverToBoxAdapter(
                 child: HomeAddressHeader(
-                  padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w, vertical: 10.h),
+                  padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w,),
                   userImagePath: "https://i.ibb.co/HLgDnFFQ/Group.png",
                   addressTypeTag: LocaleKeys.home.tr,
+                  showSubscriptionIcon: true,
                   address: "1600 Amphitheatre, Mountain View",
                 ),
               ),
@@ -39,30 +42,36 @@ class HomePage extends GetView<HomeController> {
                 child: GestureDetector(
                   onTap: () => FocusScope.of(context).unfocus(),
                   child: Obx(() {
-                    return SmartSearchBar(
-                      isSearchWithPrefix: true,
-                      margin: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
-                      items: [controller.hints[controller.currentHintIndex.value]],
-                      controller: controller.searchController.value,
-                      onChanged: (val) {},
-                      suffixIcon: SmartRow(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Container(
-                            height: 21.h,
-                            width: 1.w,
-                            margin: EdgeInsetsDirectional.symmetric(horizontal: 8.w),
-                            color: style.searchBarBorderColor,
-                          ),
-                          SmartImage(
-                            onTap: (){
-                              controller.openMic();
-                              showMicListeningSheet(context, loginStyle);
-                            },
-                              path: AppImages.icMic,
-                              size: 24.w,
-                          ),
-                        ],
+                    return GestureDetector(
+                      onTap: () {
+                        Get.toNamed(AppRoutes.searchPage, arguments: AppConst.isFromHome);
+                      },
+                      child: SmartSearchBar(
+                        isSearchWithPrefix: true,
+                        margin: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
+                        items: [controller.hints[controller.currentHintIndex.value]],
+                        controller: controller.searchController.value,
+                        onChanged: (val) {},
+                        isEnabled: false,
+                        suffixIcon: SmartRow(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Container(
+                              height: 21.h,
+                              width: 1.w,
+                              margin: EdgeInsetsDirectional.symmetric(horizontal: 8.w),
+                              color: style.searchBarBorderColor,
+                            ),
+                            SmartImage(
+                              onTap: (){
+                                controller.openMic();
+                                showMicListeningSheet(context, loginStyle);
+                              },
+                                path: AppImages.icMic,
+                                size: 24.w,
+                            ),
+                          ],
+                        ),
                       ),
                     );
                   }),
@@ -162,6 +171,13 @@ class HomePage extends GetView<HomeController> {
             ],
           ),
         ),
+        /*floatingActionButton: FloatingActionButton(
+          backgroundColor: loginStyle.continueButtonBgColor,
+          onPressed: () {
+            showAIChatSheet(context);
+          },
+          child: Icon(Icons.chat),
+        ),*/
       ),
     );
   }
@@ -171,6 +187,58 @@ class HomePage extends GetView<HomeController> {
       context: context,
       isScrollControlled: true,
       builder: (context) => AddressBottomSheet(addresses: addresses),
+    );
+  }
+
+  void showAIChatSheet(BuildContext context) {
+    final chatController = Get.put(AIChatController());
+    final textController = TextEditingController();
+    Utils.showSmartModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (context) {
+        return SafeArea(
+          child: SmartSingleChildScrollView(
+            padding: EdgeInsetsDirectional.only(start: 16.w, end: 16.w, top: 16.w),
+            child: SmartColumn(
+              height: 600,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SmartText(
+                  "AI Assistant",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 10.h),
+                Obx(() {
+                  return chatController.isLoading.value
+                      ? Center(child: CircularProgressIndicator())
+                      : SmartText(chatController.aiResponse.value);
+                }),
+                SizedBox(height: 16.h),
+                TextField(
+                  controller: textController,
+                  decoration: InputDecoration(
+                    hintText: "Ask me anything...",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.r),
+                    ),
+                  ),
+                ),
+                SizedBox(width: 8.w),
+                SmartButton(
+                  title: "Send",
+                  onTap: () {
+                    final msg = textController.text.trim();
+                    if (msg.isNotEmpty) {
+                      chatController.sendMessage(msg);
+                    }
+                  },
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 
@@ -204,3 +272,5 @@ class HomePage extends GetView<HomeController> {
   }
 
 }
+
+

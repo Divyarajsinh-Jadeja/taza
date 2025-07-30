@@ -3,6 +3,66 @@ import 'package:taza/taza.dart';
 /// below list is only for development purpose
 /// for the cart functionality and will be remove when we integrate apis
 
+List<FoodModel> demoInstamartList = [
+  FoodModel(
+      id: "1",
+      name: 'Amul Moti Milk',
+      imageUrl: 'https://i.ibb.co/xKyLg8Hy/amul-moti-chach-Photoroom.png',
+      rating: 4.2,
+      reviewsCount: 1200,
+      deliveryTime: '30-35 min',
+      price: 25.0,
+      quantity: 0,
+      isVeg: true,
+      restaurantName: "Amul Milk"
+  ),
+  FoodModel(
+      id: "2",
+      name: 'Amul Butter 10 Pieces',
+      imageUrl: 'https://i.ibb.co/9HfJGsyj/amul-butter-chips-Photoroom.png',
+      rating: 4.5,
+      reviewsCount: 950,
+      deliveryTime: '25-30 min',
+      price: 16.0,
+      isVeg: true,
+      restaurantName: "Amul Butter"
+  ),
+  FoodModel(
+      id: "3",
+      name: 'Brown Eggs',
+      imageUrl: 'https://i.ibb.co/9MhVBwz/brown-eggs-Photoroom.png',
+      rating: 4.6,
+      reviewsCount: 1100,
+      deliveryTime: '20-25 min',
+      price: 35.0,
+      isVeg: false,
+      restaurantName: "Brown Eggs"
+  ),
+  FoodModel(
+      id: "4",
+      name: 'Dosa Batter',
+      imageUrl: 'https://i.ibb.co/7tkjc9B3/dosa-batter-Photoroom.png',
+      rating: 4.4,
+      reviewsCount: 780,
+      deliveryTime: '35-40 min',
+      price: 40.0,
+      isVeg: true,
+      restaurantName: "Dosa Batter"
+  ),
+  FoodModel(
+      id: "5",
+      name: 'Modern Wheat Bread',
+      imageUrl: 'https://i.ibb.co/yc9S3H4J/modern-whole-bread-Photoroom.png',
+      rating: 4.1,
+      reviewsCount: 620,
+      deliveryTime: '10-15 min',
+      price: 55.0,
+      isVeg: true,
+      restaurantName: "Modern Bread"
+  ),
+
+];
+
 List<FoodModel> demoFoodList = [
   FoodModel(
       id: "11",

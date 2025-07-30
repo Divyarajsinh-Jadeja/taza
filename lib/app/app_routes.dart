@@ -1,4 +1,7 @@
 import 'package:taza/taza.dart';
+import 'package:taza/ui/subscription/binding/product_subscribe_binding.dart';
+import 'package:taza/ui/subscription/view/product_subscribe_page.dart';
+import 'package:taza/ui/subscription/view/subscription_page.dart';
 
 
 /// All routes for app pages are defined here
@@ -22,6 +25,9 @@ class AppRoutes {
   static const orderDetailsPage = '/order_details_page';
   static const instamartCartPage = '/instamart_cart_page';
   static const searchPage = '/search_page';
+  static const fullScreenPage = '/full_screen_page';
+  static const subscriptionPage = '/subscription_page';
+  static const productSubscriptionPage = '/product_subscription_page';
 
   static final List<GetPage> pages = [
     GetPage(
@@ -42,6 +48,12 @@ class AppRoutes {
       name: AppRoutes.otpVerificationPage,
       page: () => const OtpVerificationPage(),
       binding: OtpVerificationBinding(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
+    ),
+    GetPage(
+      name: AppRoutes.fullScreenPage,
+      page: () => FullScreenImagePage(),
       transition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
     ),
@@ -81,7 +93,7 @@ class AppRoutes {
     ),
     GetPage(
       name: AppRoutes.searchPage,
-      page: () => const SearchPage(),
+      page: () => SearchPage(),
       binding: SearchPageBinding(),
       transition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
@@ -145,6 +157,19 @@ class AppRoutes {
     GetPage(
       name: AppRoutes.orderDetailsPage,
       page: () => const OrderDetailPage(),
+      transition: Transition.cupertino,
+      transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
+    ),
+    GetPage(
+      name: AppRoutes.subscriptionPage,
+      page: () => const SubscriptionPage(),
+      transition: Transition.cupertino,
+      transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
+    ),
+    GetPage(
+      name: AppRoutes.productSubscriptionPage,
+      page: () => const ProductSubscribePage(),
+      binding: ProductSubscribeBinding(),
       transition: Transition.cupertino,
       transitionDuration: const Duration(milliseconds: AppConst.transitionDuration),
     ),

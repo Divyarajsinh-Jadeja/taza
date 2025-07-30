@@ -106,6 +106,9 @@ class ProductInstamartListView extends GetView<CategoryController> {
                           () {
                         Get.toNamed(AppRoutes.foodDetailsPage, arguments: controller.currentInstamartCategory.products![itemIndex],);
                           },
+                      onSubscribeTap: (){
+                        Get.toNamed(AppRoutes.productSubscriptionPage, arguments: controller.currentInstamartCategory.products![itemIndex]);
+                      },
                       product: controller.currentInstamartCategory.products![itemIndex],
                       index: itemIndex,
                       hasDiscount: itemIndex % 3 == 0,
@@ -125,12 +128,15 @@ class ProductInstamartListView extends GetView<CategoryController> {
                           () {
                         Get.toNamed(AppRoutes.foodDetailsPage, arguments: controller.currentInstamartCategory.products![itemIndex + 1],);
                       },
+                      onSubscribeTap: (){
+                        Get.toNamed(AppRoutes.productSubscriptionPage, arguments: controller.currentInstamartCategory.products![itemIndex]);
+                      },
                       product:
                       controller.currentInstamartCategory.products![itemIndex + 1],
                       index: itemIndex + 1,
                       hasDiscount: (itemIndex + 1) % 4 == 0,
                       discountPercent:
-                      "${(5 + ((itemIndex + 1) % 4) * 3)}%",
+                      (5 + ((itemIndex + 1) % 4) * 3).toCurrencyCodeFormat(),
                       onAddTap: () {},
                     )
                         : SizedBox(),
@@ -315,14 +321,15 @@ class FilterButton extends StatelessWidget {
           border: Border.all(color: Colors.grey[300]!),
         ),
         children: [
-          Icon(Icons.tune, size: 18),
-          SizedBox(width: 4),
+          Icon(Icons.tune, size: 18.w),
+          SizedBox(width: 4.w),
           Text("Filters", style: TextStyle(fontWeight: FontWeight.w500)),
         ],
       ),
     );
   }
 }
+
 
 class ProductCard extends StatelessWidget {
   final InstamartProductModel product;
@@ -333,15 +340,17 @@ class ProductCard extends StatelessWidget {
   final double? imageHeight;
   final VoidCallback onAddTap;
   final VoidCallback onProductTap;
+  final VoidCallback? onSubscribeTap;
   final bool seeMore;
   const ProductCard({
     super.key,
     required this.product,
     required this.index,
     this.hasDiscount = false,
-    this.discountPercent = "0%",
+    this.discountPercent = "0",
     this.imageWidth,
     this.imageHeight,
+    this.onSubscribeTap,
     required this.onAddTap,
     required this.onProductTap,
      this.seeMore=false,
@@ -353,7 +362,7 @@ class ProductCard extends StatelessWidget {
     final style = AppTheme.of(context).productCardStyle;
 
     return Container(
-      margin: EdgeInsetsDirectional.only(bottom: 24.h),
+      margin: EdgeInsetsDirectional.only(bottom: 16.h),
       child: Bounceable(
         onTap: onProductTap,
         child: Stack(
@@ -362,34 +371,54 @@ class ProductCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Product Image
-                Hero(
-                  tag: 'product_${product.id}',
-                  child: Container(
-                    height: 150.h,
-                    decoration: BoxDecoration(
-                      color: style.imageBackgroundColor,
-                      borderRadius: BorderRadius.circular(8.r),
-                    ),
-                    child: Center(
-                      child:
-                          product.imageUrl.isNotEmpty
-                              ? SmartImage(
-                                clipBehavior: Clip.antiAlias,
-                                path: product.imageUrl,
-                                width: imageWidth ?? Get.width,
-                                height: imageHeight ?? Get.height,
-                                fit: BoxFit.cover,
-                                imageBorderRadius: BorderRadius.circular(8.r),
-                              )
-                              : Icon(
-                                Icons.image,
-                                size: 40.r,
-                                color: style.imageIconColor,
-                              ),
-                    ),
+                Container(
+                  height: 130.h,
+                  decoration: BoxDecoration(
+                    color: style.imageBackgroundColor,
+                    borderRadius: BorderRadius.circular(8.r),
+                  ),
+                  child: Center(
+                    child:
+                        product.imageUrl.isNotEmpty
+                            ? SmartImage(
+                              clipBehavior: Clip.antiAlias,
+                              path: product.imageUrl,
+                              width: imageWidth ?? Get.width,
+                              height: imageHeight ?? Get.height,
+                              fit: BoxFit.cover,
+                              imageBorderRadius: BorderRadius.circular(8.r),
+                            )
+                            : Icon(
+                              Icons.image,
+                              size: 40.r,
+                              color: style.imageIconColor,
+                            ),
                   ),
                 ),
+                if(product.name.contains("Milk")
+                    || product.name.contains("Bread")
+                    || product.name.contains("Eggs") || product.name.contains("Potatoes") || product.name.contains("Onions")
 
+                )
+                Container(
+                  alignment: Alignment.center,
+                  margin: EdgeInsetsDirectional.symmetric(
+                    horizontal: 4.w,
+                  ),
+                  padding: EdgeInsetsDirectional.symmetric(
+                    horizontal: 4.w,
+                    vertical: 4.h,
+                  ),
+                  decoration: BoxDecoration(
+                    color: style.discountBadgeColor,
+                    borderRadius: BorderRadius.only(bottomLeft: Radius.circular(4.r), bottomRight: Radius.circular(4.r)),
+                  ),
+                  child: SmartText(
+                    onTap: onSubscribeTap,
+                    "Subscribe @ ${(product.price - 2.00).toCurrencyCodeFormat()}",
+                    style: style.discountBadgeTextStyle.copyWith(fontSize: 10.sp),
+                  ),
+                ),
                 // Delivery Time
                 SmartRow(
                   spacing: 4.w,
@@ -487,28 +516,32 @@ class ProductCard extends StatelessWidget {
                     Expanded(
                       child: Obx(() {
                         final products = controller.randomProducts;
-                        return GridView.builder(
-                          controller: scrollController,
-                          itemCount: products.length,
-                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 3,
-                            crossAxisSpacing: 12.w,
-                            mainAxisSpacing: 12.h,
-                            childAspectRatio: 0.35,
+                        return SizedBox(
+                          child: GridView.builder(
+                            controller: scrollController,
+                            itemCount: products.length,
+                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 3,
+                              crossAxisSpacing: 12.w,
+                              mainAxisSpacing: 12.h,
+                              childAspectRatio: 0.35,
+                            ),
+                            itemBuilder: (context, index) {
+                              final product = products[index];
+                              return ProductCard(
+                                product: product,
+                                index: index,
+                                discountPercent: "${(10 + (index % 3) * 5)}%",
+                                hasDiscount: true,
+                                onAddTap: () {
+                                  // Add to cart logic
+                                },
+                                onProductTap: () {
+                                  // Navigate to product details
+                                },
+                              );
+                            },
                           ),
-                          itemBuilder: (context, index) {
-                            final product = products[index];
-                            return ProductCard(
-                              product: product,
-                              index: index,
-                              onAddTap: () {
-                                // Add to cart logic
-                              },
-                              onProductTap: () {
-                                // Navigate to product details
-                              },
-                            );
-                          },
                         );
                       }),
                     ),
@@ -535,12 +568,10 @@ class ProductCard extends StatelessWidget {
 
               ],
             ),
-
-            // Discount Badge
-            if (hasDiscount)
+            /// Discount Badge
               Positioned.directional(
-                top: 8.h,
-                start: 8.w,
+                top: 0.h,
+                start: 0.w,
                 textDirection: TextDirection.ltr,
                 child: Container(
                   padding: EdgeInsetsDirectional.symmetric(
@@ -548,7 +579,7 @@ class ProductCard extends StatelessWidget {
                     vertical: 4.h,
                   ),
                   decoration: BoxDecoration(
-                    color: style.discountBadgeColor,
+                    color: Colors.green,
                     borderRadius: BorderRadius.circular(4.r),
                   ),
                   child: SmartText(

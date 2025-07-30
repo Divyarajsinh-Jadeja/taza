@@ -10,34 +10,36 @@ class FoodPage extends GetView<FoodController> {
             controller.currentFoodTabData.themeColor),
         child: Scaffold(resizeToAvoidBottomInset: false,
             extendBodyBehindAppBar: true,
-            body: _buildBody(context)));
+            body: _buildBody(context)
+        )
+    );
   }
 
   Widget _buildBody(BuildContext context) {
-    final style = AppTheme
-        .of(context)
-        .foodCardStyle;
-    final foodPageStyle = AppTheme
-        .of(context)
-        .foodPageStyle;
+    final style = AppTheme.of(context).foodCardStyle;
+    final foodPageStyle = AppTheme.of(context).foodPageStyle;
 
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
-      child: CustomScrollView(
-        controller: controller.scrollController,
-        physics: const ClampingScrollPhysics(),
-        slivers: [
-
-          _buildSafeArea(context),
-          ..._buildTopHeaderSlivers(context, foodPageStyle),
-          ..._buildContentSlivers(style, foodPageStyle),
-        ],
+      child: NotificationListener<ScrollNotification>(
+        onNotification: (notification){
+          if (notification.metrics.axis == Axis.vertical) {
+            Get.find<DashboardController>().onScroll(notification.metrics.pixels);
+          }
+          return false;
+        },
+        child: CustomScrollView(
+          controller: controller.scrollController,
+          physics: const ClampingScrollPhysics(),
+          slivers: [
+            _buildSafeArea(context),
+            ..._buildTopHeaderSlivers(context, foodPageStyle),
+            ..._buildContentSlivers(style, foodPageStyle),
+          ],
+        ),
       ),
     );
-
   }
-
-
 
   List<Widget> _buildTopHeaderSlivers(BuildContext context,
       FoodPageStyle foodPageStyle) {
@@ -58,11 +60,13 @@ class FoodPage extends GetView<FoodController> {
                     textColor: Utils.getContrastColor(
                         controller.currentFoodTabData.themeColor),
                     homeIconColor: Utils.getContrastColor(
-                        controller.currentFoodTabData.themeColor),
+                        controller.currentFoodTabData.themeColor
+                    ),
                   ),
                 ),
               ],
-            )),
+            )
+        ),
       ),
       // Now separate pinned header for FoodHeaderSliver
       PinnedHeaderSliver(
@@ -149,7 +153,6 @@ class FoodPage extends GetView<FoodController> {
   Widget _buildPromoBannerSliver() {
     return _animatedBoxAdapter(
       child: SmartImage(
-        onTap: () => Get.toNamed(AppRoutes.categoryPage),
         path: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3",
         width: 352.w,
         height: 200.h,

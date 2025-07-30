@@ -29,36 +29,35 @@ class FoodController extends GetxController with GetSingleTickerProviderStateMix
       currentHintIndex.value = (currentHintIndex.value + 1) % hints.length;
     });
     if (Get.context != null) {
-      precacheImage(AssetImage('assets/images/banner-2.jpg'), Get.context!);
+      precacheImage(AssetImage('https://i.ibb.co/HpMzgDVj/banner-2.jpg'), Get.context!);
     }
   }
 
   final GlobalKey headerKey = GlobalKey();
 
   final List<FoodTabData> tabs = [
-
     FoodTabData(
       imagePath: "assets/images/burger1.png",
       themeColor: Color(0xFF0c3271),
-      bannerWidget: SmartImage(path: "assets/images/banner-2.jpg", fit: BoxFit.cover),
+      bannerWidget: SmartImage(path: "https://i.ibb.co/HpMzgDVj/banner-2.jpg", fit: BoxFit.cover),
       tabText: "Burger",
     ),
     FoodTabData(
       imagePath: "assets/images/sandwich.png",
       themeColor: Color(0xFF3f6800),
-      bannerWidget: SmartImage(path: "assets/images/banner-3.jpg", fit: BoxFit.cover),
+      bannerWidget: SmartImage(path: "https://i.ibb.co/9k2ZbHk0/banner-3.jpg", fit: BoxFit.cover),
       tabText: "Sandwich",
     ),
     FoodTabData(
       imagePath: "assets/images/noodles.png",
       themeColor: Color(0xFFfd235d),
-      bannerWidget: SmartImage(path: "assets/images/banner-4.jpg", fit: BoxFit.cover),
+      bannerWidget: SmartImage(path: "https://i.ibb.co/0y55YXpy/banner-4.jpg", fit: BoxFit.cover),
       tabText: "Noodles",
     ),
     FoodTabData(
       imagePath: "assets/images/pizza.png",
       themeColor: Color(0xFF633174),
-      bannerWidget: SmartImage(path: "assets/images/banner-5.jpg", fit: BoxFit.cover),
+      bannerWidget: SmartImage(path: "https://i.ibb.co/VcQjvtzN/banner-5.jpg", fit: BoxFit.cover),
       tabText: "Pizza",
     ),
     FoodTabData(

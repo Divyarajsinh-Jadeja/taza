@@ -21,13 +21,10 @@ class AddressPage extends GetView<AddressController> {
         ),
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          /// Top searchbar
           SmartTextField.search(
             hintText: "1600 Amphitheatre Parkway etc...",
             isSearchWithPrefix: true,
           ),
-
-          /// Use my current location row
           SmartRow(
             spacing: 8.w,
             onTap: () => Get.toNamed(AppRoutes.selectDeliveryLocationPage),
@@ -45,10 +42,7 @@ class AddressPage extends GetView<AddressController> {
               ),
             ],
           ),
-
           Divider(),
-
-          /// Add new address row
           SmartRow(
             spacing: 8.w,
             onTap: () => Get.toNamed(AppRoutes.selectDeliveryLocationPage),
@@ -66,15 +60,11 @@ class AddressPage extends GetView<AddressController> {
               ),
             ],
           ),
-
           Divider(),
-
           SmartText(
             LocaleKeys.savedAddresses.tr,
             style: style.addressBottomSheetTitleStyle,
           ),
-
-          /// Saved Address Tile
           Expanded(
             child: ListView(
               children: List.generate(controller.usAddresses.length,

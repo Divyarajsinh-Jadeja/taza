@@ -14,13 +14,12 @@ class SaveAddressDetailsPage extends GetView<AddressController> {
         child: Stack(
           children: [
             SmartImage(
-              path: AppImages.mapLocation,
+              path: "https://i.ibb.co/PvFGJvVr/map-location.png",
               width: Get.width,
               height: Get.height * 0.3,
             ),
             Container(color: style.iconColor.withValues(alpha: 0.4),
               height: Get.height * 0.3,),
-
             Align(
               alignment: Alignment.bottomCenter,
               child: SmartColumn(

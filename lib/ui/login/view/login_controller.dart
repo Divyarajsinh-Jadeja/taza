@@ -9,7 +9,6 @@ class LoginController extends GetxController {
   final RxBool isPhoneValid = false.obs;
   bool isInitialLogin = false;
 
-
   @override
   void onInit() {
 
@@ -29,7 +28,6 @@ class LoginController extends GetxController {
 
     super.onInit();
   }
-
 
   @override
   void dispose() {

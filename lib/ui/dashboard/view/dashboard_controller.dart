@@ -1,12 +1,12 @@
 import 'package:taza/taza.dart';
-import 'package:taza/ui/dashboard/dashboard_modules/category/view/category_page_dashboard.dart';
 
 class DashboardController extends GetxController {
   RxInt currentIndex = 0.obs;
   final PageController pageController = PageController(initialPage: 0);
   final tabInitialized = <int, bool>{};
   bool showOfferPopup = false;
-
+  final RxBool isBottomBarVisible = true.obs;
+  double _previousOffset = 0.0;
   Rx<BottomNavType> currentBottomType = BottomNavType.all.obs;
 
   @override
@@ -30,6 +30,15 @@ class DashboardController extends GetxController {
         );
       }
     });
+  }
+
+  void onScroll(double offset) {
+    if (offset > _previousOffset && isBottomBarVisible.value) {
+      isBottomBarVisible.value = false;
+    } else if (offset < _previousOffset && !isBottomBarVisible.value) {
+      isBottomBarVisible.value = true;
+    }
+    _previousOffset = offset;
   }
 
   final allTabs = <TabData>[
@@ -173,6 +182,7 @@ class DashboardController extends GetxController {
 
   /// Will show instamart cart at bottom when instamart section is selected
   bool get showInstamartBottomCart => Get.find<InstamartCartController>().foodList.isNotEmpty && currentBottomType.value==BottomNavType.instamart;
+  bool get showReorderPageForInstamart => currentBottomType.value == BottomNavType.instamart;
 
   void changeTab(int index) {
     /* final isSameTab = currentIndex.value == index;

@@ -25,7 +25,7 @@ class SearchPageController extends GetxController {
     Timer.periodic(Duration(seconds: 2), (timer) {
       currentHintIndex.value = (currentHintIndex.value + 1) % hints.length;
     });
-    loadProducts();
+    loadInstamartProducts();
     loadPastSearches();
     super.onInit();
   }
@@ -135,12 +135,12 @@ class SearchPageController extends GetxController {
 
 
 
-  void loadProducts() {
+  void loadInstamartProducts() {
     searchCategories.addAll([
       SearchCategoryModel(
         title: 'Ultimate deals on groceries',
         products: [
-          InstamartProductModel(id: '6', name: 'Fresh Vegies', price: 60, imageUrl: 'https://i.ibb.co/GvwYZYfk/category-grocery.png', description: ''),
+          InstamartProductModel(id: '6', name: 'Fresh Vegies', price: 60, imageUrl: 'https://i.ibb.co/GvwYZYfk/category-grocery.png', description: '', ),
           InstamartProductModel(id: '7', name: 'Coconut', price: 70, imageUrl: 'https://i.ibb.co/LDs5vb8H/category-one.png', description: ''),
           InstamartProductModel(id: '8', name: 'Amul Milk', price: 80, imageUrl: 'https://i.ibb.co/DD1Q6HCz/category-dairy.png', description: ''),
           InstamartProductModel(id: '9', name: 'Fortune Oil', price: 59, imageUrl: 'https://i.ibb.co/F4QpP3tT/category-oils.png', description: ''),
@@ -154,7 +154,7 @@ class SearchPageController extends GetxController {
           InstamartProductModel(id: '12', name: 'Tea & More', price: 35, imageUrl: AppImages.categoryTea, description: ''),
           InstamartProductModel(id: '13', name: 'Dry-Fruits', price: 50, imageUrl: AppImages.categoryAlmonds, description: ''),
           InstamartProductModel(id: '14', name: 'Meat & Seafood', price: 28, imageUrl: AppImages.categoryMeat, description: ''),
-          InstamartProductModel(id: '15', name: 'Oils & Ghee', price: 35, imageUrl: 'assets/images/category_oils.png', description: '')
+          InstamartProductModel(id: '15', name: 'Oils & Ghee', price: 35, imageUrl: AppImages.categoryOils, description: '')
         ],
       ),
       SearchCategoryModel(
@@ -163,25 +163,25 @@ class SearchPageController extends GetxController {
           FoodTabData(
             imagePath: "assets/images/ic_shopping_bag.png",
             themeColor: Color(0xFFfcd44b),
-            bannerWidget: SmartImage(path: "assets/images/healthy_vegie_yellow.png", fit: BoxFit.cover, height: 170.h,),
+            bannerWidget: SizedBox(),
             tabText: "All",
           ),
           FoodTabData(
             imagePath: "assets/images/ic_fresh_instamart.png",
             themeColor: Color(0xFFffbd59),
-            bannerWidget: SmartImage(path: "assets/images/fruits_banner.png", fit: BoxFit.cover,  height: 180.h,),
+            bannerWidget: SizedBox(),
             tabText: "Fresh",
           ),
           FoodTabData(
             imagePath: "assets/images/ic_gadgets.png",
             themeColor: Color(0xFF08610c),
-            bannerWidget: SmartImage(path: "assets/images/dairy_banner.png", fit: BoxFit.cover,  height: 180.h,),
+            bannerWidget: SizedBox(),
             tabText: "Gadgets",
           ),
           FoodTabData(
             imagePath: "assets/images/ic_house.png",
             themeColor: Color(0xFFfcd44b),
-            bannerWidget: SmartImage(path: "assets/images/banner_oil.jpg", fit: BoxFit.cover,  height: 180.h,),
+            bannerWidget: SizedBox(),
             tabText: "Home",
           ),
           FoodTabData(

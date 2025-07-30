@@ -32,17 +32,7 @@ class PaymentMethodScreen extends GetView<PaymentController> {
         backgroundColor: style.whiteColor,
         title: 'Payment Method',
         actions: [
-          TextButton(
-            onPressed: () {
-              Get.snackbar('Add Payment', 'Add new payment method clicked');
-            },
-            child: SmartRow(
-              children: [
-                Icon(Icons.add, color: style.primaryColor),
-                SmartText('Add', style: style.subTitleStyle.copyWith(color: style.primaryColor)),
-              ],
-            ),
-          ),
+          SizedBox(width: 30.w,)
         ],
       ),
       body: Obx(

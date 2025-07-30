@@ -226,6 +226,8 @@ export 'package:taza/ui/dashboard/dashboard_modules/grocery/instamart_modules/in
 export 'package:taza/ui/dashboard/dashboard_modules/grocery/instamart_modules/instamart_cart/view/instamart_cart_screen.dart' show InstamartCartPage;
 export 'package:taza/ui/explore_brands/binding/explore_binding.dart';
 export 'package:taza/ui/explore_brands/view/explore_brand_page.dart';
+export 'package:taza/ui/dashboard/dashboard_modules/category/view/category_page_dashboard.dart';
+
 
 export 'package:taza/ui/my_orders/binding/my_orders_binding.dart';
 export 'package:taza/ui/my_orders/view/my_orders_controller.dart';
@@ -234,6 +236,10 @@ export 'package:taza/ui/search/view/search_page_controller.dart';
 export 'package:taza/ui/search/binding/search_page_binding.dart';
 export 'package:taza/ui/search/view/search_page.dart';
 export 'package:taza/ui/search/model/search_model.dart';
+export 'package:photo_view/photo_view.dart';
+export 'package:photo_view/photo_view_gallery.dart';
+export 'package:taza/ui/widgets/full_screen_view.dart';
+
 
 
 export 'package:taza/ui/ui.dart';

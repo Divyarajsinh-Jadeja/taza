@@ -1,18 +1,19 @@
 import 'package:taza/taza.dart';
 
 class CustomBottomBar extends StatelessWidget {
-  const CustomBottomBar({super.key, required this.selectedIndex, required this.items, required this.onItemSelected});
+  const CustomBottomBar({super.key, required this.selectedIndex, required this.items, required this.onItemSelected, required this.controller});
 
   final int selectedIndex;
   final List<BottomNavigationBarDataModel> items;
   final ValueChanged<int> onItemSelected;
+  final DashboardController controller;
 
   @override
   Widget build(BuildContext context) {
     final style = AppTheme.of(context).tabBarStyle;
     return Container(
       decoration: BoxDecoration(
-        boxShadow: [BoxShadow(color: style.unselectedLabelColor.withValues(alpha: 0.3), blurRadius: 12.r, offset: const Offset(0, -4))],
+        boxShadow: [BoxShadow(color: style.indicatorColor.withValues(alpha: 0.2), blurRadius: 12.r, offset: const Offset(0, -4))],
       ),
       child: BottomAppBar(
         color: style.backgroundColor,

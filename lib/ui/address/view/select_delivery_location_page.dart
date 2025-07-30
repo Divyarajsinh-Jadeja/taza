@@ -16,7 +16,7 @@ class SelectDeliveryLocationPage extends GetView<AddressController> {
         child: Stack(
           children: [
             SmartImage(
-              path: AppImages.mapLocation,
+              path: "https://i.ibb.co/PvFGJvVr/map-location.png",
               width: Get.width,
               height: Get.height * 0.7,
             ),
@@ -55,7 +55,6 @@ class SelectDeliveryLocationPage extends GetView<AddressController> {
                         maxLines: 2,
                         isExpanded: true,
                       ),
-
                       Container(
                         decoration: BoxDecoration(
                           color: style.primaryColor.withValues(alpha: 0.2),

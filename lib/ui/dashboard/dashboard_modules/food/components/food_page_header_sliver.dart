@@ -20,34 +20,44 @@ class FoodHeaderSliver extends GetView<FoodController> {
           ),
           children: [
             GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
+              behavior: HitTestBehavior.opaque,
+              onTap: () {
+                Get.toNamed(AppRoutes.searchPage, arguments: AppConst.isFromFood);
+              },
               child: Padding(
                 padding: EdgeInsetsDirectional.all(16),
-                child: SmartSearchBar(
-                  isSearchWithPrefix: true,
-                  items: [Get.find<FoodController>().hints[controller.currentHintIndex.value]],
-                  controller: controller.searchController,
-                  onChanged: (val) {},
-                  suffixIcon: SmartRow(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Container(
-                        height: 21.h,
-                        width: 1.w,
-                        color: foodPageStyle.borderColor,
-                      ),
-                      IconButton(
-                        padding: EdgeInsets.zero,
-                        icon: Icon(Icons.edit_note_sharp),
-                        onPressed: () {
+                child: Stack(
+                  alignment: Alignment.centerRight,
+                  children: [
+                    SmartSearchBar(
+                      isSearchWithPrefix: true,
+                      isEnabled: false,
+                      items: [Get.find<FoodController>().hints[controller.currentHintIndex.value]],
+                      controller: controller.searchController,
+                      onChanged: (val) {},
+                      suffixIcon: SizedBox(width: 40.w), // Reserve space to avoid overlap
+                    ),
+                    Positioned(
+                      right: 16,
+                      child: GestureDetector(
+                        onTap: () {
+                          // This will now work without triggering the parent GestureDetector
                           Utils.showSmartModalBottomSheet(
                             context: context,
-                            builder: (context) => ShoppingListDialog(options: controller.getOptions(context)),
+                            builder: (context) =>
+                                ShoppingListDialog(options: controller.getOptions(context)),
                           );
                         },
+                        child: SmartRow(
+                          spacing: 4.w,
+                            children: [
+                              SmartImage(path: AppImages.icDivider),
+                              Icon(Icons.edit_note_sharp),
+
+                            ]),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),

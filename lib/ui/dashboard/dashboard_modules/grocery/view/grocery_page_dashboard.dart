@@ -1,4 +1,5 @@
 import 'package:taza/taza.dart';
+import 'package:taza/ui/dashboard/dashboard_modules/grocery/components/instamart_dashboard_product_card.dart';
 
 class GroceryPageDashboard extends GetView<GroceryDashboardController> {
   const GroceryPageDashboard({super.key});
@@ -24,15 +25,23 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
 
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
-      child: CustomScrollView(
-        controller: controller.scrollController,
-        physics: const ClampingScrollPhysics(),
-        slivers: [
-          _buildSafeArea(context),
-          _buildAddressHeaderSliver(groceryStyle),
-          const PinnedHeaderSliver(child: GroceryHeaderSliver()),
-          ..._buildContentSlivers(style, foodPageStyle, groceryStyle),
-        ],
+      child: NotificationListener<ScrollNotification>(
+        onNotification: (notification) {
+          if (notification.metrics.axis == Axis.vertical) {
+            Get.find<DashboardController>().onScroll(notification.metrics.pixels);
+          }
+          return false;
+        },
+        child: CustomScrollView(
+          controller: controller.scrollController,
+          physics: const ClampingScrollPhysics(),
+          slivers: [
+            _buildSafeArea(context),
+            _buildAddressHeaderSliver(groceryStyle),
+            const PinnedHeaderSliver(child: GroceryHeaderSliver()),
+            ..._buildContentSlivers(style, foodPageStyle, groceryStyle),
+          ],
+        ),
       ),
     );
   }
@@ -96,27 +105,12 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
     final List<InstamartProductModel> products= Get.find<CategoryController>().randomProducts;
     return [
       _animatedBoxAdapter(
-        child: SmartColumn(
+        child: Stack(
           children: [
+            SmartImage(path: AppImages.instamartBg,fit: BoxFit.contain),
             SmartColumn(
-              width: Get.width,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  stops: [0.0, 0.5, 0.85, 1.0],
-                  colors: [
-                    controller.currentFoodTabData.themeColor.withValues(alpha: 0.8),
-                    controller.currentFoodTabData.themeColor.withValues(alpha: 0.1),
-                    style.whiteColor.withValues(alpha: 0.0), // middle fade
-                    style.whiteColor, // soft white base
-                  ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                ),
-              ),
-
+              padding: EdgeInsetsDirectional.only(top: 125.h),
               children: [
-                SizedBox(height: 20.h,),
-                SmartImage(path: AppImages.lowest1,fit: BoxFit.contain,),
                 SizedBox(
                   height: 120.h,
                   child: ListView.separated(
@@ -137,52 +131,68 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
                   ),
                 ),
                 SizedBox(height: 20.h,),
-
               ],
             ),
-
+            SmartRow(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SmartImage(
+                  path: AppImages.thunderGif,
+                  height: 60.h,
+                  fit: BoxFit.fitWidth,
+                  padding: EdgeInsetsDirectional.only(top : 10.h),
+                ),
+                SmartImage(
+                    path: AppImages.saleGif,
+                    height: 140.h,
+                    width: 230.w,
+                  padding: EdgeInsetsDirectional.only(top : 10.h),
+                ),
+                SmartImage(
+                  path: AppImages.thunderGif,
+                  height: 60.h,
+                  fit: BoxFit.fitWidth,
+                  padding: EdgeInsetsDirectional.only(top : 10.h),
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.only(top : 290.h),
+              child: SizedBox(
+                height: 300.h,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: products.length,
+                  itemBuilder: (context, index) {
+                    return Obx((){
+                      return Padding(
+                        padding: EdgeInsetsDirectional.only(start: 12.w),
+                        child: InstamartDashboardProductCard(
+                          seeMore: true,
+                          imageWidth: 120.w,
+                          product: products[index],
+                          animatedDiscountPercentage: controller.discountPrice[controller.currentDiscountPriceIndex.value],
+                          bgColor: controller.currentFoodTabData.themeColor.withValues(alpha: 0.5),
+                          discountTextColor: controller.discountPrice[controller.currentDiscountPriceIndex.value] == '60% OFF'
+                              ? Colors.blue
+                              : Colors.red,
+                          index: index,
+                          hasDiscount: true,
+                          discountPercent: "\$10",
+                          onAddTap: () {},
+                          onProductTap: () {},
+                        ),
+                      );
+                    });
+                  },
+                ),
+              ),
+            ),
           ],
         ),
       ),
-      _animatedBoxAdapter(child: SizedBox(height: 16.h)),
       _animatedBoxAdapter(child: _buildCarousel()),
       _buildInstamartCategory(groceryStyle),
-      _animatedBoxAdapter(child: SmartColumn(
-        mainAxisSize: MainAxisSize.min,
-        spacing: 10.h,
-        margin: EdgeInsetsDirectional.symmetric(vertical: 10.h),
-        padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SmartText("Recommended Products",style: groceryStyle.titleStyle,),
-          SizedBox(
-            height: 380.h,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: products.length,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: EdgeInsetsDirectional.only( start: 12.w),
-                  child: ProductCard(
-                    seeMore: true,
-                    imageWidth: 120.w,
-                    product: products[index],
-                    index: index,
-                    hasDiscount: true,
-                    discountPercent: "\$10",
-                    onAddTap: () {
-                      // Add product logic
-                    },
-                    onProductTap: () {
-                      // Navigate to product detail
-                    },
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
-      ))
     ];
   }
 
@@ -346,3 +356,4 @@ class GroceryPageDashboard extends GetView<GroceryDashboardController> {
     );
   }
 }
+

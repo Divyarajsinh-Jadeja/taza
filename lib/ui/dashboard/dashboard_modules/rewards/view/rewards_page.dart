@@ -1,4 +1,5 @@
 import 'package:taza/taza.dart';
+import 'package:taza/ui/widgets/smart_scroll_listner.dart';
 
 class ReferAndEarnPage extends StatelessWidget {
   const ReferAndEarnPage({super.key});
@@ -19,7 +20,7 @@ class ReferAndEarnPage extends StatelessWidget {
           title: LocaleKeys.rewards.tr,
         ),
         backgroundColor: style.loginPageBgColor,
-        body: SafeArea(
+        body: SmartScrollListner(
           child: SmartSingleChildScrollView(
             child: SmartColumn(
               crossAxisAlignment: CrossAxisAlignment.start,

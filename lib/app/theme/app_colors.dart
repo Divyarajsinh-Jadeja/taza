@@ -55,6 +55,7 @@ class AppThemes {
     color3E1F16: Color(0xFF3E1F16),
     color7B3F29: Color(0xFF7B3F29),
     colorFF3B30: Color(0xFFFF3B30),
+    colorEDF2F5: Color(0xFFEDF2F5),
     colorBlack12: Colors.black12
   );
 
@@ -142,6 +143,7 @@ class AppColor {
   final Color color3E1F16;
   final Color colorFF3B30;
   final Color colorBlack12;
+  final Color colorEDF2F5;
 
   const AppColor({
     required this.primary,
@@ -194,6 +196,7 @@ class AppColor {
     required this.color7B3F29,
     required this.colorFF3B30,
     required this.colorBlack12,
+    required this.colorEDF2F5,
   });
 }
 

@@ -1,3 +1,4 @@
+
 name: taza
 description: "A new Flutter project Setup By Divyaraj."
 
@@ -77,6 +78,13 @@ dependencies:
   speech_to_text: ^7.0.0
 
   flutter_confetti: ^0.5.1
+
+  photo_view: ^0.15.0
+
+  graphql_flutter: ^5.2.0
+
+  http: ^1.2.2
+
 
 dependency_overrides:
   intl: ^0.20.2

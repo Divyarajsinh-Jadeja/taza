@@ -1,6 +1,7 @@
 abstract class DateFormatter {
   static const String dateFormatMMMDYYYY = "MMM d, yyyy";
   static const String dateFormatYYYY = "yyyy";
+  static const String dateFormatEEEMMMdyyyy = "EEE, MMM d yyyy";
   static const String dateFormatMMMYYYY = "MMM, yyyy";
   static const String dateFormatEEEE = "EEEE";
   static const String timeFormat24H = "HH:mm";

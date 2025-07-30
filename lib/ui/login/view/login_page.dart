@@ -88,8 +88,7 @@ class LoginPage extends GetView<LoginController> {
               isEnabled: controller.isPhoneValid.value,
               width: Get.width,
               disableTitleStyle: style.continueButtonTextStyle,
-              disableBackgroudColor:
-              style.continueButtonDisableBgColor,
+              disableBackgroudColor: style.continueButtonDisableBgColor,
               borderRadius: BorderRadius.circular(6.r),
               activeBackgroundColor:
               style.continueButtonBgColor,
